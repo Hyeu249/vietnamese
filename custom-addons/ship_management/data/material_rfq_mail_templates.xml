@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--        Template for RFQ-->
+        <record id="email_template_material_rfq_request" model="mail.template">
+            <field name="name">Yêu cầu báo giá</field>
+            <field name="model_id" ref="model_ship_material_supplier_quote"/>
+            <field name="subject">Yêu cầu báo giá</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi đang có nhu cầu mua
+                        <strong t-out="ctx.get('prod_name') or ''"/>.
+                        <t t-if="ctx.get('prod_origin')">
+                            <br/>
+                            Xuất xứ: <strong t-out="ctx.get('prod_origin')"/>
+                        </t>
+                        <t t-if="ctx.get('prod_description')">
+                            <br/>
+                            Mô tả: <strong t-out="ctx.get('prod_description')"/>
+                        </t>
+                        <br/>
+                        Với số lượng là
+                        <strong t-out="ctx.get('quantity')"/>
+                        <strong t-out="ctx.get('unit')"/>.
+                        <t t-if="ctx.get('expected_delivery_date')">
+                            <br/>
+                            Ngày giao hàng mong muốn là
+                            <strong t-out="ctx.get('expected_delivery_date')"/>.
+                        </t>
+                        <br/>
+                        <br/>
+                        Quý công ty vui lòng báo giá cho chúng tôi ở đường link sau 
+                        <t t-if="ctx.get('deadline')">
+                            truớc ngày
+                            <strong t-out="ctx.get('deadline')"/>
+                        </t>
+                        <br/>
+                        <a t-att-href="ctx.get('reply_quote_url')">Báo giá cho chúng tôi</a>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+        
+        <!--    Template for Accepted Quote-->
+        <record id="email_template_material_rfq_mark_done" model="mail.template">
+            <field name="name">Báo giá được chấp nhận</field>
+            <field name="model_id" ref="model_ship_material_supplier_quote"/>
+            <field name="subject">Báo giá được chấp nhận</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi xin thông báo rằng chúng tôi đã <b>chấp nhận</b> báo giá của quý công ty cho sản phẩm
+                        <strong t-out="ctx.get('prod_name') or ''"/>.
+                        <t t-if="ctx.get('prod_origin')">
+                            <br/>
+                            Xuất xứ: <strong t-out="ctx.get('prod_origin')"/>.
+                        </t>
+                        <t t-if="ctx.get('prod_description')">
+                            <br/>
+                            Mô tả: <strong t-out="ctx.get('prod_description')"/>.
+                        </t>
+                        <t t-if="ctx.get('quote_ref')">
+                            <br/>
+                            Mã báo giá: <strong t-out="ctx.get('quote_ref')"/>.
+                        </t>
+                        <br/>
+                        Số lượng: <strong t-out="ctx.get('quantity')"/> <strong t-out="ctx.get('unit')"/>.
+                        <br/>
+                        Đơn giá: <strong t-out="ctx.get('unit_price')"/> <t t-out="ctx.get('currency') or ''"/>.
+                        <br/>
+                        Tổng giá trị: <strong t-out="ctx.get('total_price')"/> <t t-out="ctx.get('currency') or ''"/>. 
+                        <br/>
+                        Ngày giao hàng dự kiến: <strong t-out="ctx.get('estimated_delivery_date') or ''"/>.
+                        <br/>
+                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.
+                        <br/>
+                        <a t-att-href="ctx.get('portal_access_url')">In mã QR(trong chi tiết sản phẩm)</a>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <!--    Template for Accepted Quote-->
+        <record id="email_template_materials_for_supplier_mark_done" model="mail.template">
+            <field name="name">Báo giá được chấp nhận</field>
+            <field name="model_id" ref="model_ship_material_paint_quotes_request"/>
+            <field name="subject">Báo giá được chấp nhận</field>
+            <field name="body_html" type="html">
+            <t t-set="supplier_id" t-value="ctx.get('supplier_id')"/>
+            <t t-set="material_quote_ids" t-value="ctx.get('material_quote_ids')"/>
+            <t t-set="spare_part_quote_ids" t-value="ctx.get('spare_part_quote_ids')"/>
+            <t t-set="paint_quote_ids" t-value="ctx.get('paint_quote_ids')"/>
+            <div style="margin: 0px; padding: 0px; font-size: 13px;">
+                <div>Kính gửi quý công ty <t t-if="supplier_id"><t t-esc="supplier_id.name or ''"/></t></div>   
+                <br/>
+                <div>Chúng tôi xin thông báo rằng chúng tôi đã <b>chấp nhận</b> báo giá của quý công ty cho các sản phẩm sau</div>
+                <br/>
+                <t t-if="material_quote_ids">
+                    <div>Báo giá vật tư</div>
+                    <div style="border: 1px solid black;">
+                        <thead>
+                            <tr class="active">
+                                <th class="text-center">Mã báo giá</th>
+                                <th class="text-center">Tên</th>
+                                <th class="text-center">Mô tả</th>
+                                <th class="text-center">Số lượng</th>
+                                <th class="text-center">Đơn giá</th>
+                                <th class="text-center">Thành tiền</th>
+                                <th class="text-center">Xuất xứ</th>
+                                <th class="text-center">Ngày giao hàng dự kiến</th>
+                            </tr>
+                        </thead>
+                        <body>
+                            <t t-foreach="material_quote_ids" t-as="material_quote_id">
+                                <tr>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.ref" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.material_id.name" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.material_id.description" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.quantity" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.unit_price" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.total_price" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.material_id.origin" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="material_quote_id.material_supplier_quote_id.estimated_delivery_date" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </body>
+                    </div>
+                </t>
+                <br/>
+                <t t-if="spare_part_quote_ids">
+                    <div>Báo giá phụ tùng</div>
+                    <div style="border: 1px solid black;">
+                        <thead>
+                            <tr class="active">
+                                <th class="text-center">Mã báo giá</th>
+                                <th class="text-center">Tên</th>
+                                <th class="text-center">Mô tả</th>
+                                <th class="text-center">Số lượng</th>
+                                <th class="text-center">Đơn giá</th>
+                                <th class="text-center">Thành tiền</th>
+                                <th class="text-center">Xuất xứ</th>
+                                <th class="text-center">Ngày giao hàng dự kiến</th>
+                            </tr>
+                        </thead>
+                        <body>
+                            <t t-foreach="spare_part_quote_ids" t-as="spare_part_quote_id">
+                                <tr>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.ref" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.material_id.name" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.material_id.description" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.quantity" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.unit_price" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.total_price" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.material_id.origin" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="spare_part_quote_id.material_supplier_quote_id.estimated_delivery_date" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </body>
+                    </div>
+                </t>
+                <br/>
+                <t t-if="paint_quote_ids">
+                    <div>Báo giá sơn</div>
+                    <div style="border: 1px solid black;">
+                        <thead>
+                            <tr class="active">
+                                <th class="text-center">Mã báo giá</th>
+                                <th class="text-center">Tên</th>
+                                <th class="text-center">Mô tả</th>
+                                <th class="text-center">Số lượng</th>
+                                <th class="text-center">Đơn giá</th>
+                                <th class="text-center">Thành tiền</th>
+                                <th class="text-center">Xuất xứ</th>
+                                <th class="text-center">Ngày giao hàng dự kiến</th>
+                            </tr>
+                        </thead>
+                        <body>
+                            <t t-foreach="paint_quote_ids" t-as="paint_quote_id">
+                                <tr>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.ref" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.paint_id.name" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.paint_id.description" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.quantity_liter" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.unit_price" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.unit_price" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.paint_id.origin" />
+                                    </td>
+                                    <td class="text-center">
+                                        <t t-out="paint_quote_id.paint_supplier_quote_id.estimated_delivery_date" />
+                                    </td>
+                                </tr>
+                            </t>
+                        </body>
+                    </div>
+                </t>
+                <br/>
+                <div>Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.</div>
+                <br/>
+                <a t-att-href="ctx.get('portal_access_url')">In mã QR(trong chi tiết sản phẩm)</a>
+                <br/>
+                Trân trọng,
+                <br/>
+                Công ty VSICO
+            </div>
+            </field>
+        </record>
+    </data>
+</odoo>

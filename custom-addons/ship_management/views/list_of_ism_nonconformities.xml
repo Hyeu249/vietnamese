@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_list_of_ism_nonconformities_form" model="ir.ui.view">
+        <field name="name">ship.list.of.ism.nonconformities.form</field>
+        <field name="model">ship.list.of.ism.nonconformities</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="is_difference_review_plan_audit_question"/>
+                    </group>
+
+                    <group invisible="1">
+                        <field name="review_plan_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Description of objective evidences" name="description_of_objective_evidence_ids">
+                            <field name="description_of_objective_evidence_ids">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="grading"/>
+                                    <field name="ism_code"/>
+                                    <field name="status"/>
+                                    <field name="deadline"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Nonconformity Reports" name="nonconformity_report_ids">
+                            <group>
+                                <field name="deadline"/>
+                            </group>
+                            <header>
+                                <button name="create_nonconformity_reports"
+                                    string="Create nonconformity reports"
+                                    type="object"
+                                    class="oe_highlight"
+                                />
+                            </header>
+                            <field name="nonconformity_report_ids">
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_list_of_ism_nonconformities_tree" model="ir.ui.view">
+        <field name="name">ship.list.of.ism.nonconformities.tree</field>
+        <field name="model">ship.list.of.ism.nonconformities</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_list_of_ism_nonconformities_search" model="ir.ui.view">
+        <field name="name">ship.list.of.ism.nonconformities.search</field>
+        <field name="model">ship.list.of.ism.nonconformities</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_list_of_ism_nonconformities" model="ir.actions.act_window">
+        <field name="name">List of ISM Nonconformities</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.list.of.ism.nonconformities</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_list_of_ism_nonconformities"
+            name="List of ISM Nonconformities" 
+            parent="menu_ship_review_plans"
+            action="action_ship_list_of_ism_nonconformities"
+            sequence="10"/>
+
+</odoo>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_utilities_this_all_approval_group_form" model="ir.ui.view">
+        <field name="name">utilities.this.all.approval.group.form</field>
+        <field name="model">utilities.this.all.approval.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="model_name"/>
+                        <field name="required_all_approval_group_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_utilities_this_all_approval_group_tree" model="ir.ui.view">
+        <field name="name">utilities.this.all.approval.group.tree</field>
+        <field name="model">utilities.this.all.approval.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="model_name"/>
+                <field name="required_all_approval_group_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_utilities_this_all_approval_group_search" model="ir.ui.view">
+        <field name="name">utilities.this.all.approval.group.search</field>
+        <field name="model">utilities.this.all.approval.group</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="model_name"/>
+                <field name="required_all_approval_group_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_utilities_this_all_approval_group" model="ir.actions.act_window">
+        <field name="name">This All Approval Group</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">utilities.this.all.approval.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_utilities_this_all_approval_group"
+            name="This All Approval Group" 
+            parent="menu_utilities_operations"
+            action="action_utilities_this_all_approval_group"
+            sequence="11"/>
+
+</odoo>

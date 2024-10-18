@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="legis_job_report_report_option"
+        string="Job report"
+        model="legis.technical.incident"
+        report_type="xlsx"
+        name="safety_legislation.legis_job_report_report"
+        file="safety_legislation.legis_job_report_report"
+    />
+
+    <report
+        id="legis_accident_report_report_option"
+        string="Accident report"
+        model="legis.accident.report"
+        report_type="qweb-pdf"
+        name="safety_legislation.legis_accident_report_report"
+        file="safety_legislation.legis_accident_report_report"
+    />
+
+    <report
+        id="legis_investigative_report_report_option"
+        string="Investigative report"
+        model="legis.investigative.report"
+        report_type="qweb-pdf"
+        name="safety_legislation.legis_investigative_report_report"
+        file="safety_legislation.legis_investigative_report_report"
+    />
+
+    <report
+        id="legis_sea_protest_report_option"
+        string="Sea protest"
+        model="legis.sea.protest"
+        report_type="qweb-pdf"
+        name="safety_legislation.legis_sea_protest_report"
+        file="safety_legislation.legis_sea_protest_report"
+    />  
+
+    <report
+        id="legis_team_checklist_report_option"
+        string="Team checklist"
+        model="legis.team.checklist"
+        report_type="qweb-pdf"
+        name="safety_legislation.legis_team_checklist_report"
+        file="safety_legislation.legis_team_checklist_report"
+    />  
+
+    <report
+        id="legis_technical_incident_report_option"
+        string="Technical incident report"
+        model="legis.technical.incident.report"
+        report_type="qweb-pdf"
+        name="safety_legislation.legis_technical_incident_report"
+        file="safety_legislation.legis_technical_incident_report"
+    />  
+
+    <report
+        id="legis_edting_request_for_handbook_option"
+        string="Editing request for handbook"
+        model="legis.editing.request.for.handbook"
+        report_type="qweb-pdf"
+        name="safety_legislation.legis_edting_request_for_handbook"
+        file="safety_legislation.legis_edting_request_for_handbook"
+    /> 
+
+    <report
+        id="legis_requisition_for_handbook_revision_option"
+        string="Requisition for handbook revision"
+        model="legis.requisition.for.handbook.revision"
+        report_type="qweb-pdf"
+        name="safety_legislation.legis_requisition_for_handbook_revision"
+        file="safety_legislation.legis_requisition_for_handbook_revision"
+    />  
+
+</odoo>

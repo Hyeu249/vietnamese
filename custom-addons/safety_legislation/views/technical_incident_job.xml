@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_technical_incident_job_form" model="ir.ui.view">
+        <field name="name">legis.technical.incident.job.form</field>
+        <field name="model">legis.technical.incident.job</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="finished_at"/>
+                        <field name="technical_incident_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Material Assignments" name="material_assignment_ids">
+                            <field name="material_assignment_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_job_tree" model="ir.ui.view">
+        <field name="name">legis.technical.incident.job.tree</field>
+        <field name="model">legis.technical.incident.job</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="finished_at"/>
+                <field name="technical_incident_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_job_search" model="ir.ui.view">
+        <field name="name">legis.technical.incident.job.search</field>
+        <field name="model">legis.technical.incident.job</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="finished_at"/>
+                <field name="technical_incident_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_technical_incident_job" model="ir.actions.act_window">
+        <field name="name">Technical Incident Job</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.technical.incident.job</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_technical_incident_job"
+            name="Technical Incident Job" 
+            parent="menu_legis_technical_incidents"
+            action="action_legis_technical_incident_job"
+            sequence="10"/>
+
+</odoo>

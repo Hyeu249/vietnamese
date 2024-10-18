@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_create_review_plan_wiz_form" model="ir.ui.view">
+        <field name="name">ship.create.review.plan.wiz.form</field>
+        <field name="model">ship.create.review.plan.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Create Review Plan Wiz">
+                <group>
+                    <field name="expected_review_date"/>
+                    <field name="review_plan_id"/>
+                </group>
+
+                <footer>
+                    <button string="Confirm" type="object" name="action_confirm" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_create_review_plan_wiz" model="ir.actions.act_window">
+        <field name="name">Create Review Plan Wiz</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.create.review.plan.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_create_review_plan_wiz_form"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>
+ 

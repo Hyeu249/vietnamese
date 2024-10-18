@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_paint_quote_form" model="ir.ui.view">
+        <field name="name">ship.paint.quote.form</field>
+        <field name="model">ship.paint.quote</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm_delivered"
+                        string="Xác nhận đã nhận hàng"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', '|', ('approval_status', '!=', 'APPROVED'), ('added_to_warehouse', '=', True), ('quote_state', '=', 'REJECTED')]}"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1 id="ref-code-container">
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                        <div style="float:right; position:relative; left:150px;">
+                            <div id="qrcode-data-container" class="small_child_image"></div>
+                            <br/>
+                            <a href="#" class="btn btn-primary btn-lg" onclick="printQRCode()"><i class="fa fa-print"></i></a>
+                            <a id="download-qr-image" href="#" class="btn btn-primary btn-lg" style="margin-left: 10px;"><i class="fa fa-download"></i></a>
+                        </div>
+                        <script>
+                            $(document).ready(function() {
+                                var ref_code = $("#ref-code-container").find("div[name='ref'] span").text();
+                                new QRCode(document.getElementById("qrcode-data-container"), ref_code);
+                                $('#download-qr-image').click(function() {
+                                    downloadQRCode(ref_code);
+                                });
+                            });
+                        </script>
+                    </div>
+
+                    <group>
+                        <group string="Paint Quote">
+                            <field name="approval_status"/>
+                            <field name="quote_state"/>
+                            <field name="paint_id"/>
+                            <field name="is_quantity_liter_readonly" invisible="1"/>
+                            <field name="is_preapproved_quantity_liter_readonly" invisible="1"/>
+                            <field name="preapproved_quantity_liter" attrs="{'readonly': [('is_preapproved_quantity_liter_readonly', '=', True)]}"/>
+                            <field name="quantity_liter" attrs="{'readonly': [('is_quantity_liter_readonly', '=', True)]}"/>
+                            <field name="delivered_quantity_liter"/>
+                            <field name="expected_delivery_date"/>
+                            <field name="deadline"/>
+                            <field name="delivered_at"/>
+                            <field name="note"/>
+                        </group>
+
+                        <group string="Supplier" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}">
+                            <field name="paint_supplier_quote_id"/>
+                            <field name="unit_price"/>
+                            <field name="lowest_total_price"/>
+                            <field name="currency"/>
+                            <field name="average_quote_price"/>
+                        </group>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Paint Supplier Quotes" name="paint_supplier_quote_ids">
+                            <field name="paint_supplier_quote_ids"/>
+                        </page>
+                        <page string="Material Paint Quotes Request" name="material_paint_quotes_request_id">
+                            <field name="material_paint_quotes_request_id"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <field name="company_id" readonly="1"/>
+                                <field name="not_allowed_to_see_price" invisible="1"/>
+                                <field name="is_selected_supplier_informed"/>
+                                <field name="added_to_warehouse"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_quote_tree" model="ir.ui.view">
+        <field name="name">ship.paint.quote.tree</field>
+        <field name="model">ship.paint.quote</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <button name="open_record" type="object" icon="fa-pencil-square-o"/>
+                <field name="paint_id" width="200px"/>
+                <field name="is_quantity_liter_readonly" invisible="1"/>
+                <field name="is_preapproved_quantity_liter_readonly" invisible="1"/>
+                <field name="preapproved_quantity_liter" attrs="{'readonly': [('is_preapproved_quantity_liter_readonly', '=', True)]}"/>
+                <field name="quantity_liter" attrs="{'readonly': [('is_quantity_liter_readonly', '=', True)]}"/>
+                <field name="delivered_quantity_liter"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status != 'APPROVED' and approval_status != 'REJECTED'"
+                    widget="badge"
+                    readonly="1"
+                />
+                <field name="quote_state"/>
+                <field name="expected_delivery_date" readonly="1"/>
+                <field name="deadline" readonly="1"/>
+                <field name="paint_supplier_quote_id" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}"/>
+                <field name="currency" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}"/>
+                <field name="unit_price" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}" readonly="1"/>
+                <field name="lowest_total_price" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}" readonly="1" width="170px"/>
+                <field name="average_quote_price" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}" readonly="1"/>
+                <field name="note" readonly="1"/>
+                <field name="ref" readonly="1"/>
+                <field name="not_allowed_to_see_price" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_quote_search" model="ir.ui.view">
+        <field name="name">ship.paint.quote.search</field>
+        <field name="model">ship.paint.quote</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="approval_status"/>
+                <field name="quote_state"/>
+                <field name="is_quantity_liter_readonly" invisible="1"/>
+                <field name="is_preapproved_quantity_liter_readonly" invisible="1"/>
+                <field name="preapproved_quantity_liter" attrs="{'readonly': [('is_preapproved_quantity_liter_readonly', '=', True)]}"/>
+                <field name="quantity_liter" attrs="{'readonly': [('is_quantity_liter_readonly', '=', True)]}"/>
+                <field name="delivered_quantity_liter"/>
+                <field name="expected_delivery_date"/>
+                <field name="note"/>
+                <field name="deadline"/>
+                <field name="is_selected_supplier_informed"/>
+                <field name="paint_id"/>
+                <field name="paint_supplier_quote_id"/>
+                <field name="unit_price"/>
+                <field name="currency"/>
+                <field name="average_quote_price"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_paint_quote" model="ir.actions.act_window">
+        <field name="name">Paint Quote</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.paint.quote</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_paint_quote"
+            name="Paint Quote" 
+            parent="menu_ship_suppliers_and_quotes"
+            action="action_ship_paint_quote"
+            sequence="10"/>
+
+</odoo>

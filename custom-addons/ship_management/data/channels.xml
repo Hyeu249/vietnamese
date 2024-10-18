@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="channel_edited_record" model="mail.channel">
+            <field name="name">Edited Records</field>
+            <field name="description">Contains all notifications about some require type of edited records.</field>
+        </record>
+
+        <record id="channel_review_record" model="mail.channel">
+            <field name="name">Review Records</field>
+            <field name="description">Contains all notifications about records that needed review.</field>
+        </record>
+
+    </data>
+</odoo>

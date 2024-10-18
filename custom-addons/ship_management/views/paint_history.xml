@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_paint_history_form" model="ir.ui.view">
+        <field name="name">ship.paint.history.form</field>
+        <field name="model">ship.paint.history</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="previous_quantity"/>
+                        <field name="action"/>
+                        <field name="quantity_liter"/>
+                        <field name="occured_at"/>
+                        <field name="note"/>
+                        <field name="paint_id"/>
+                        <field name="job_quote_id"/>
+                        <field name="paint_supplier_quote_id"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_history_tree" model="ir.ui.view">
+        <field name="name">ship.paint.history.tree</field>
+        <field name="model">ship.paint.history</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="previous_quantity"/>
+                <field name="action"/>
+                <field name="occured_at"/>
+                <field name="quantity_liter"/>
+                <field name="note"/>
+                <field name="paint_id"/>
+                <field name="job_quote_id"/>
+                <field name="paint_supplier_quote_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_history_search" model="ir.ui.view">
+        <field name="name">ship.paint.history.search</field>
+        <field name="model">ship.paint.history</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="previous_quantity"/>
+                <field name="action"/>
+                <field name="occured_at"/>
+                <field name="quantity_liter"/>
+                <field name="note"/>
+                <field name="paint_id"/>
+                <field name="job_quote_id"/>
+                <field name="paint_supplier_quote_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_paint_history" model="ir.actions.act_window">
+        <field name="name">Paint History</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.paint.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_paint_history"
+            name="Paint History" 
+            parent="menu_ship_categories_supplies"
+            action="action_ship_paint_history"
+            sequence="20"/>
+
+</odoo>

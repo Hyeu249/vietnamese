@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="ship_material_paint_quotes_request_list_view_inherit" model="ir.ui.view">
+        <field name="name">ship.material.paint.quotes.request.list.view.inherit</field>
+        <field name="model">ship.material.paint.quotes.request</field>
+        <field name="inherit_id" ref="ship_management.view_ship_material_paint_quotes_request_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">material_paint_quotes_request_list_view</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ship_tele_group_settings_list_view_inherit" model="ir.ui.view">
+        <field name="name">ship.tele.group.settings.list.view.inherit</field>
+        <field name="model">ship.tele.group.settings</field>
+        <field name="inherit_id" ref="ship_management.view_ship_tele_group_settings_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">tele_config_settings_list_view</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="ship_inspection_plan_list_view_inherit" model="ir.ui.view">
+        <field name="name">ship.inspection.plan.list.view.inherit</field>
+        <field name="model">ship.inspection.plan</field>
+        <field name="inherit_id" ref="ship_management.view_ship_inspection_plan_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//tree" position="attributes">
+                <attribute name="js_class">inspection_plan_list_view</attribute>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

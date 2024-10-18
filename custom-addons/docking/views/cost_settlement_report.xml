@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_cost_settlement_report_form" model="ir.ui.view">
+        <field name="name">docking.cost.settlement.report.form</field>
+        <field name="model">docking.cost.settlement.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm_is_matched_with_supplier"
+                        string="Confirm is matched with supplier"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_confirm_is_matched_with_supplier_btn_visible', '=', False)]}"
+                    />
+
+                    <button name="action_confirm_is_not_matched_with_supplier"
+                        string="Confirm is NOT matched with supplier"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_confirm_is_matched_with_supplier_btn_visible', '=', False)]}"
+                    />
+
+                    <button name="get_approved_material_job_quote_ids_by_supplier"
+                        string="Get new quotes"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Cost Settlement Report">
+                        <field name="company_id" readonly="1"/>
+                        <field name="docking_plan_id"/>
+                        <field name="supplier_id"/>
+                        <field name="comment"/>
+                        <field name="is_matched_with_supplier" readonly="1"/>
+                    </group>
+
+                    <group>
+                        <field name="is_confirm_is_matched_with_supplier_btn_visible" invisible="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Job Quotes" name="job_quote_ids">
+                            <button string="Custom Job Export" type="object" name="custom_export_job_to_xlsx" class="oe_highlight"/>
+                            <field name="job_quote_ids">
+                                <tree>
+                                    <field name="ref"/>
+                                    <field name="approval_status"
+                                        decoration-success="approval_status == 'APPROVED'"
+                                        decoration-danger="approval_status == 'REJECTED'"
+                                        decoration-warning="approval_status == 'PENDING'"
+                                        widget="badge"
+                                    />
+                                    <field name="maintenance_scope_report_id"/>
+                                    <field name="equipment_name"/>
+                                    <field name="job_id"/>
+                                    <field name="selected_supplier_name"/>
+                                    <field name="labor_cost" groups="utilities.group_ship_cost_price_visibility"/>
+                                    <field name="final_cost" groups="utilities.group_ship_cost_price_visibility"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Material Quotes" name="material_quote_ids">
+                            <button string="Custom Material Export" type="object" name="custom_export_material_to_xlsx" class="oe_highlight"/>
+                            <field name="material_quote_ids">
+                                <tree>
+                                    <field name="ref"/>
+                                    <field name="approval_status"
+                                        decoration-success="approval_status == 'APPROVED'"
+                                        decoration-danger="approval_status == 'REJECTED'"
+                                        decoration-warning="approval_status == 'PENDING'"
+                                        widget="badge"
+                                    />
+                                    <field name="material_name"/>
+                                    <field name="quantity"/>
+                                    <field name="selected_supplier_name"/>
+                                    <field name="unit_price" groups="utilities.group_ship_cost_price_visibility"/>
+                                    <field name="total_price" groups="utilities.group_ship_cost_price_visibility"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_cost_settlement_report_tree" model="ir.ui.view">
+        <field name="name">docking.cost.settlement.report.tree</field>
+        <field name="model">docking.cost.settlement.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="docking_plan_id"/>
+                <field name="supplier_id"/>
+                <field name="comment"/>
+                <field name="approval_status"/>
+                <field name="is_matched_with_supplier" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_cost_settlement_report_search" model="ir.ui.view">
+        <field name="name">docking.cost.settlement.report.search</field>
+        <field name="model">docking.cost.settlement.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="docking_plan_id"/>
+                <field name="supplier_id"/>
+                <field name="comment"/>
+                <field name="approval_status"/>
+                <field name="is_matched_with_supplier" readonly="1"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_cost_settlement_report" model="ir.actions.act_window">
+        <field name="name">Cost Settlement Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.cost.settlement.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_cost_settlement_report"
+            name="Cost Settlement Report" 
+            parent="menu_docking_docking"
+            action="action_docking_cost_settlement_report"
+            sequence="10"/>
+
+</odoo>

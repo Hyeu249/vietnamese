@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_contract_history_form" model="ir.ui.view">
+        <field name="name">docking.contract.history.form</field>
+        <field name="model">docking.contract.history</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="contract_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Html" name="html">
+                            <field name="html" widget="html"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form> 
+        </field>
+    </record>
+
+    <record id="view_docking_contract_history_tree" model="ir.ui.view">
+        <field name="name">docking.contract.history.tree</field>
+        <field name="model">docking.contract.history</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="contract_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_contract_history_search" model="ir.ui.view">
+        <field name="name">docking.contract.history.search</field>
+        <field name="model">docking.contract.history</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="contract_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_contract_history" model="ir.actions.act_window">
+        <field name="name">Contract History</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.contract.history</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_contract_history"
+            name="Contract History" 
+            parent="menu_docking_operations"
+            action="action_docking_contract_history"
+            sequence="10"/>
+
+</odoo>

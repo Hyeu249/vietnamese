@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_expired_material_entity_replacement_proposal_form" model="ir.ui.view">
+        <field name="name">ship.expired.material.entity.replacement.proposal.form</field>
+        <field name="model">ship.expired.material.entity.replacement.proposal</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="proposed_date"/>
+                        <field name="material_entity_name_list"/>
+                    </group>
+                    <notebook>
+                        <page string="Expired material entities">
+                            <field name="material_entity_ids" nolabel="1">
+                                <tree create="0" delete="0" editable="bottom">
+                                    <field name="ref" readonly="1"/>
+                                    <field name="name" readonly="1"/>
+                                    <field name="expiration_date" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_expired_material_entity_replacement_proposal_tree" model="ir.ui.view">
+        <field name="name">ship.expired.material.entity.replacement.proposal.tree</field>
+        <field name="model">ship.expired.material.entity.replacement.proposal</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="proposed_date"/>
+                <field name="material_entity_name_list"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_expired_material_entity_replacement_proposal_search" model="ir.ui.view">
+        <field name="name">ship.expired.material.entity.replacement.proposal.search</field>
+        <field name="model">ship.expired.material.entity.replacement.proposal</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="proposed_date"/>
+                <field name="material_entity_name_list"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_expired_material_entity_replacement_proposal" model="ir.actions.act_window">
+        <field name="name">Expired Material Entity Replacement Proposal</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.expired.material.entity.replacement.proposal</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_expired_material_entity_replacement_proposal"
+            name="Expired Material Entity Replacement Proposal"
+            parent="menu_ship_supplies"
+            action="action_ship_expired_material_entity_replacement_proposal"
+            sequence="10"/>
+
+</odoo>

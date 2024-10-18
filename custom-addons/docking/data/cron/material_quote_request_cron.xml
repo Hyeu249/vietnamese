@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_run_material_quote_request_daily_cronjobs" model="ir.cron">
+            <field name="name">Docking Material quote request's daily cronjobs: Every Day</field>
+            <field name="model_id" ref="model_docking_material_quote_request"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.run_material_quote_request_daily_cronjobs()</field>
+            <field name="interval_number">1</field> <!-- Repeat every day -->
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

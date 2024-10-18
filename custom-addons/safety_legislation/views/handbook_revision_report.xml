@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_handbook_revision_report_form" model="ir.ui.view">
+        <field name="name">legis.handbook.revision.report.form</field>
+        <field name="model">legis.handbook.revision.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            BIÊN BẢN BAN HÀNH, SỬA ĐỔI VÀ HỦY BỎ CỦA SỔ TAY QLT
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="meeting_date"/>
+                            <field name="duration"/>
+                            <field name="place"/>
+                            <field name="description"/>
+                            <field name="received_date"/>
+                        </group>
+
+                        <group>
+                            <field name="attendant_ids" widget="many2many_tags"/>
+                            <field name="chaired_by"/>
+                            <field name="recorder_id"/>
+                            <field name="performer_ids" widget="many2many_tags"/>
+                            <field name="approved_id"/>
+                            <field name="receiver_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Handbook Revision Report(0103)" name="handbook_revision_report_html">
+                            <header style="margin-bottom: 20px;">
+                                <button name="move_to_prev_report_page" string="" type="object" class="fa fa-angle-double-left"/>
+                                <button name="move_to_next_report_page" string="" type="object" class="fa fa-angle-double-right"/>
+                                <field name="report_page_len"/>
+                            </header>
+                            <field name="handbook_revision_report_html" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Handbook Revision Report Pages" name="handbook_revision_report_page_ids">
+                            <field name="handbook_revision_report_page_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_handbook_revision_report_tree" model="ir.ui.view">
+        <field name="name">legis.handbook.revision.report.tree</field>
+        <field name="model">legis.handbook.revision.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="meeting_date"/>
+                <field name="duration"/>
+                <field name="place"/>
+                <field name="description"/>
+                <field name="received_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_handbook_revision_report_search" model="ir.ui.view">
+        <field name="name">legis.handbook.revision.report.search</field>
+        <field name="model">legis.handbook.revision.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="meeting_date"/>
+                <field name="duration"/>
+                <field name="place"/>
+                <field name="description"/>
+                <field name="received_date"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_handbook_revision_report" model="ir.actions.act_window">
+        <field name="name">Handbook Revision Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.handbook.revision.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_handbook_revision_report"
+            name="Handbook Revision Report" 
+            parent="menu_legis_forms"
+            action="action_legis_handbook_revision_report"
+            sequence="10"/>
+
+</odoo>

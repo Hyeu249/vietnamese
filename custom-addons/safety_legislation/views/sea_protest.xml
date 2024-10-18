@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_sea_protest_form" model="ir.ui.view">
+        <field name="name">legis.sea.protest.form</field>
+        <field name="model">legis.sea.protest</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            KHÁNG NGHỊ HÀNG HẢI
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="user_ids" invisible="1"/>
+                            <field name="imo"/>
+                            <field name="port"/>
+                            <field name="ship_owner"/>
+                            <field name="operator"/>
+                            <field name="address"/>
+                        </group>
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="weight"/>
+                            <field name="flag"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="statement"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Sea Protest" name="sea_protest_html">
+                            <header style="margin-bottom: 20px;">
+                                <button name="move_to_prev_sea_protest_page" string="" type="object" class="fa fa-angle-double-left"/>
+                                <button name="move_to_next_sea_protest_page" string="" type="object" class="fa fa-angle-double-right"/>
+                                <field name="sea_protest_page_len"/>
+                            </header>
+                            <field name="sea_protest_html" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Sea Protest Pages" name="sea_protest_page_ids">
+                            <field name="sea_protest_page_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_sea_protest_tree" model="ir.ui.view">
+        <field name="name">legis.sea.protest.tree</field>
+        <field name="model">legis.sea.protest</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="imo"/>
+                <field name="weight"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_sea_protest_search" model="ir.ui.view">
+        <field name="name">legis.sea.protest.search</field>
+        <field name="model">legis.sea.protest</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="imo"/>
+                <field name="weight"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_sea_protest" model="ir.actions.act_window">
+        <field name="name">Sea Protest</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.sea.protest</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_sea_protest"
+            name="Sea Protest"
+            parent="menu_legis_forms"
+            action="action_legis_sea_protest"
+            sequence="10"/>
+
+</odoo>

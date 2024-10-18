@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_material_quote_for_supplier_email" model="ir.cron">
+            <field name="name">Docking Send request-for-material-quote emails to all unsent supplier quotes: Every 5 mins</field>
+            <field name="model_id" ref="model_docking_material_supplier_quote"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.action_send_emails_to_all_unsent_supplier_quotes()</field>
+            <field name="nextcall" eval="DateTime.now().strftime('%Y-%m-%d 02:00:00')" />
+            <field name="interval_number">5</field> <!-- Repeat every 5 mins -->
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_send_selected_material_supplier_email" model="ir.cron">
+            <field name="name">Docking Send emails to inform that suppliers are selected for a material quote: Every 5 mins</field>
+            <field name="model_id" ref="model_docking_material_quote"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.action_send_emails_to_all_uninformed_quotes()</field>
+            <field name="nextcall" eval="DateTime.now().strftime('%Y-%m-%d 02:00:00')" />
+            <field name="interval_number">5</field> <!-- Repeat every 5 mins -->
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_send_selected_job_supplier_email" model="ir.cron">
+            <field name="name">Docking Send emails to inform that suppliers are selected for a job quote: Every 5 mins</field>
+            <field name="model_id" ref="model_docking_job_quote"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.action_send_emails_to_all_uninformed_quotes()</field>
+            <field name="nextcall" eval="DateTime.now().strftime('%Y-%m-%d 02:00:00')" />
+            <field name="interval_number">5</field> <!-- Repeat every 5 mins -->
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

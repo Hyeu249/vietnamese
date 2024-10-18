@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="contract_for_supplier_template" model="mail.template">
+            <field name="name">Thông báo có báo giá mới từ VSICO</field>
+            <field name="model_id" ref="model_docking_contract"/>
+            <field name="subject">Thông báo có hợp đồng mới từ VSICO</field>
+            <field name="report_template" ref="docking.docking_contract_report_option"/>
+            <field name="report_name">contract</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        Chúng tôi có hợp đồng mới cần quý công ty xem qua. Quý công ty vui lòng truy cập file đính kèm, để xem qua hợp đồng.
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

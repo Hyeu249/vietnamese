@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_safety_management_handbook_form" model="ir.ui.view">
+        <field name="name">legis.safety.management.handbook.form</field>
+        <field name="model">legis.safety.management.handbook</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="render_handbook"
+                        string="Render handbook"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Handbook">
+                        <field name="revision_no"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Handbook html" name="handbook_html">
+                            <field name="handbook_html" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Handbook Sections" name="handbook_section_ids">
+                            <field name="handbook_section_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_safety_management_handbook_tree" model="ir.ui.view">
+        <field name="name">legis.safety.management.handbook.tree</field>
+        <field name="model">legis.safety.management.handbook</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="revision_no"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_safety_management_handbook_search" model="ir.ui.view">
+        <field name="name">legis.safety.management.handbook.search</field>
+        <field name="model">legis.safety.management.handbook</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="revision_no"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_safety_management_handbook" model="ir.actions.act_window">
+        <field name="name">Safety Management Handbook</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.safety.management.handbook</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_safety_management_handbook"
+            name="Safety Management Handbook" 
+            parent="menu_legis_handbook"
+            action="action_legis_safety_management_handbook"
+            sequence="10"/>
+
+</odoo>

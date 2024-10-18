@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_paint_supplier_quote_form" model="ir.ui.view">
+        <field name="name">ship.paint.supplier.quote.form</field>
+        <field name="model">ship.paint.supplier.quote</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="not_allowed_to_see_price" invisible="1"/>
+                        <field name="unit_price" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}"/>
+                        <field name="currency_id"/>
+                        <field name="estimated_delivery_date"/>
+                        <field name="note"/>
+                        <field name="is_email_sent"/>
+                        <field name="is_responded"/>
+                        <field name="supplier_id"/>
+                        <field name="paint_quote_id"/>
+                        <field name="quote_date"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_supplier_quote_tree" model="ir.ui.view">
+        <field name="name">ship.paint.supplier.quote.tree</field>
+        <field name="model">ship.paint.supplier.quote</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="not_allowed_to_see_price" invisible="1"/>
+                <field name="unit_price" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}"/>
+                <field name="currency_id"/>
+                <field name="estimated_delivery_date"/>
+                <field name="note"/>
+                <field name="is_email_sent"/>
+                <field name="is_responded"/>
+                <field name="supplier_id"/>
+                <field name="paint_quote_id"/>
+                <field name="quote_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_supplier_quote_search" model="ir.ui.view">
+        <field name="name">ship.paint.supplier.quote.search</field>
+        <field name="model">ship.paint.supplier.quote</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="unit_price"/>
+                <field name="estimated_delivery_date"/>
+                <field name="note"/>
+                <field name="is_email_sent"/>
+                <field name="is_responded"/>
+                <field name="supplier_id"/>
+                <field name="paint_quote_id"/>
+                <field name="quote_date"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_paint_supplier_quote" model="ir.actions.act_window">
+        <field name="name">Paint Supplier Quote</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.paint.supplier.quote</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_paint_supplier_quote"
+            name="Paint Supplier Quote" 
+            parent="menu_ship_suppliers_and_quotes"
+            action="action_ship_paint_supplier_quote"
+            sequence="10"/>
+
+</odoo>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ir_cron_paint_available_quantity_compute" model="ir.cron">
+            <field name="name">Refresh paint avaiable quantity: Every Hour</field>
+            <field name="model_id" ref="model_ship_paint"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.compute_all_paints_available_quantity()</field>
+            <field name="interval_number">1</field> <!-- Repeat every hour -->
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_paint_auto_create_quote" model="ir.cron">
+            <field name="name">Auto create paint quote when min quantity is reached: Every 10 Minutes</field>
+            <field name="model_id" ref="model_ship_paint"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.action_create_paint_quote_when_min()</field>
+            <field name="nextcall" eval="DateTime.now().strftime('%Y-%m-%d 02:00:00')" />
+            <field name="interval_number">10</field> <!-- Repeat every 10 minutes -->
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+    </data>
+</odoo>

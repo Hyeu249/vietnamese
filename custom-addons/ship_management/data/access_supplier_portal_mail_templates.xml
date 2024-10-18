@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--        Template for accessing supplier portal -->
+        <record id="email_access_supplier_quote_portal_response" model="mail.template">
+            <field name="name">Truy cập danh sách báo giá VSICO</field>
+            <field name="model_id" ref="model_ship_material_supplier_quote"/>
+            <field name="subject">Truy cập danh sách báo giá VSICO</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi nhận đươc yêu cầu truy cập danh sách báo giá của quý công ty. Quý công ty vui lòng truy cập đường link sau để xem danh sách yêu cầu báo giá của quý công ty.
+                        <br/>
+                        <a t-att-href="ctx.get('portal_access_url')"><t t-out="ctx.get('portal_access_url')"/></a>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .Values.qltOdooPV.name | default "quan-ly-tau-data-pv-volume" }}
+  labels:
+    type: local
+  annotations:
+    "helm.sh/resource-policy": keep
+spec:
+  storageClassName: qlt-data-local-storage
+  capacity:
+    storage: 50Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: {{ .Values.qltOdooPV.hostPath | default "/home/qlt-data" }}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: quan-ly-tau-data-pv-claim
+  annotations:
+    "helm.sh/resource-policy": keep
+spec:
+  storageClassName: qlt-data-local-storage
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi

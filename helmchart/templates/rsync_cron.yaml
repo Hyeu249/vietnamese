@@ -1,0 +1,40 @@
+{{- if .Values.rsyncCron.enabled -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: rsync-cronjob
+spec:
+  schedule: "{{ .Values.rsyncCron.schedule }}"
+  jobTemplate:
+    spec:
+      backoffLimit: 0
+      template:
+        spec:
+          restartPolicy: Never
+          volumes:
+          - name: dest-volume
+            hostPath:
+              path: {{ .Values.rsyncCron.destinationPath }}
+          - name: partial-volume
+            hostPath:
+              path: {{ .Values.rsyncCron.partialPath }}
+          containers:
+          {{- range .Values.rsyncCron.containers }}
+          - name: {{ .name }}
+            image: thttechno/rsync:latest
+            imagePullPolicy: IfNotPresent
+            command: ["/bin/sh"]
+            args:
+              - "-c"
+              - |
+                sshpass -p $RSYNC_PASSWORD rsync -avz -e "ssh -o StrictHostKeyChecking=no" --timeout=290 --partial-dir=/partial_directory {{ .user }}@{{ .host }}:{{ .sourcePath }} /destination_directory/
+            env:
+            - name: RSYNC_PASSWORD
+              value: {{ .rsyncPassword }}
+            volumeMounts:
+            - name: dest-volume
+              mountPath: /destination_directory
+            - name: partial-volume
+              mountPath: /partial_directory
+          {{- end }}
+{{- end }}

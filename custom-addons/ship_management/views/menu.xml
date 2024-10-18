@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_ship_root" name="Ship" sequence="10"/>
+    <menuitem id="menu_ship_operations" name="Operation" parent="menu_ship_root" sequence="10" groups="utilities.group_ship_admin"/>
+    
+    <menuitem id="menu_ship_categories" name="Categories" parent="menu_ship_root" sequence="20"/>
+    <menuitem id="menu_ship_categories_maintenance" name="List of maintenance and repair" parent="menu_ship_categories" sequence="10"/>
+    <menuitem id="menu_ship_categories_supplies" name="List of spare parts and material" parent="menu_ship_categories" sequence="20"/>
+    <menuitem id="menu_ship_suppliers_and_quotes" name="Suppliers &amp; Quotes" parent="menu_ship_categories" sequence="30"/>
+
+    <menuitem id="menu_ship_maintenance" name="Maintenance and Repair" parent="menu_ship_root" sequence="30"/>
+
+
+    <menuitem id="menu_ship_supplies" name="Spare parts and Material" parent="menu_ship_root" sequence="40"/>
+    <menuitem id="menu_ship_supplies_liquidation" name="Liquidation of materials" parent="menu_ship_supplies" sequence="10"/>
+    
+    
+    <menuitem id="menu_ship_fuel_all" name="Fuel" parent="menu_ship_root" sequence="50"/>
+    <menuitem id="menu_ship_fuel_external" name="Fuel External" parent="menu_ship_fuel_all" sequence="10"/>
+    <menuitem id="menu_ship_fuel_internal" name="Fuel Internal" parent="menu_ship_fuel_all" sequence="20"/>
+    <menuitem id="menu_ship_fuel_grease_order" name="Grease Order" parent="menu_ship_fuel_all" sequence="30"/>
+    <menuitem id="menu_ship_sounding" name="Sounding" parent="menu_ship_fuel_all" sequence="40"/>
+
+    <menuitem id="menu_ship_inspections" name="Inspections" parent="menu_ship_root" sequence="60"/>
+    <menuitem id="menu_ship_inspection_scopes" name="Inspection Scopes" parent="menu_ship_inspections" sequence="10"/>
+    <menuitem id="menu_ship_inspection_tasks" name="Inspection Tasks" parent="menu_ship_inspections" sequence="10"/>
+    <menuitem id="menu_ship_inspection_scope_metadatas" name="Inspection Scope Metadata" parent="menu_ship_inspections" sequence="10"/>
+    <menuitem id="menu_ship_inspection_task_metadatas" name="Inspection Task Metadata" parent="menu_ship_inspections" sequence="10"/>
+    <menuitem id="menu_ship_inspection_images" name="Inspection Images" parent="menu_ship_inspections" sequence="10"/>
+    
+    <menuitem id="menu_ship_reports" name="Reports" parent="menu_ship_root" sequence="70"/>
+
+    <menuitem id="menu_ship_review" name="Review" parent="menu_ship_root" sequence="70">
+        <menuitem id="menu_ship_review_plans" name="Review Plan" sequence="10"/>
+    </menuitem>
+    
+</odoo>

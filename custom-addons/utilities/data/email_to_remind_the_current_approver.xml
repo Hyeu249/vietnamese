@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="email_to_remind_the_current_approver" model="mail.template">
+            <field name="name">Yêu cầu duyệt đơn từ phần mềm Tàu(VSICO)</field>
+            <field name="subject">Yêu cầu duyệt đơn từ phần mềm Tàu(VSICO)</field>
+            <field name="body_html" type="html">
+                <t t-set="self" t-value="ctx.get('self')"/>
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi <t t-out="ctx.get('role_name') or ''"/>,
+                        <br/>
+                        Bản ghi <t t-esc="self.ref or ''"/> của <t t-esc="self._description or ''"/> đang cần xem qua và duyệt
+                        <br/>
+                        vui lòng <t t-out="ctx.get('role_name') or ''"/> quay lại phần mềm và duyệt bản ghi
+                        <br/>
+                        <t t-out="ctx.get('record_url') or ''"/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO   
+                    </p>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

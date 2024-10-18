@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_editing_request_for_handbook_form" model="ir.ui.view">
+        <field name="name">legis.editing.request.for.handbook.form</field>
+        <field name="model">legis.editing.request.for.handbook</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="notify_DPA"
+                        string="notify_DPA"
+                        type="object"
+                        class="oe_highlight"
+                        confirm="Bạn có chắc chắn muốn tạo thông báo?"
+                    />
+                    <button name="create_new_handbook_based_on_request"
+                        string="Create new handbook"
+                        type="object"
+                        class="oe_highlight"
+                        confirm="Bạn có chắc chắn muốn tạo mới handbook?"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="edit_handbook" type="object" class="oe_stat_button" icon="fa-pencil-square-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Edit Handbook</span>
+                            </div>
+                        </button>
+                        <button name="edit_requisition_for_handbook_revision" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button bg-green-important white-important"
+                            attrs="{'invisible': [('revision_approval_status', '!=', 'APPROVED')]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0102(Requisition for Handbook Revision)</span>
+                            </div>
+                        </button>
+                        <button name="edit_requisition_for_handbook_revision" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button bg-red-important white-important"
+                            attrs="{'invisible': [('revision_approval_status', '!=', 'REJECTED')]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0102(Requisition for Handbook Revision)</span>
+                            </div>
+                        </button>
+                        <button name="edit_requisition_for_handbook_revision" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button bg-orange-important white-important"
+                            attrs="{'invisible': [('revision_approval_status', '!=', 'PENDING')]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0102(Requisition for Handbook Revision)</span>
+                            </div>
+                        </button>
+                        <button name="create_requisition_for_handbook_revision" type="object"
+                            class="oe_stat_button bg-red-important white-important"
+                            attrs="{'invisible': [('requisition_for_handbook_revision_ids', '!=', [])]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Create form 0102</span>
+                            </div>
+                        </button>
+                        <button name="edit_handbook_revision_report" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0103(Handbook Revision Report)</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Revision">
+                        <group>
+                            <field name="safety_management_handbook_id"/>
+                            <field name="request_type"/>
+                            <field name="help"/>
+                        </group>
+                        <group>
+                            <field name="request_date"/>
+                            <field name="note"/>
+                        </group>
+                    </group>
+
+                    <group string="Meta" invisible="1">
+                        <field name="requisition_for_handbook_revision_ids"/>
+                        <field name="revision_approval_status" invisible="1"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_editing_request_for_handbook_tree" model="ir.ui.view">
+        <field name="name">legis.editing.request.for.handbook.tree</field>
+        <field name="model">legis.editing.request.for.handbook</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="request_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_editing_request_for_handbook_search" model="ir.ui.view">
+        <field name="name">legis.editing.request.for.handbook.search</field>
+        <field name="model">legis.editing.request.for.handbook</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="request_date"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_editing_request_for_handbook" model="ir.actions.act_window">
+        <field name="name">Editing Request For Handbook</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.editing.request.for.handbook</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_editing_request_for_handbook"
+            name="Editing Request For Handbook" 
+            parent="menu_legis_edit_request"
+            action="action_legis_editing_request_for_handbook"
+            sequence="10"/>
+
+</odoo>

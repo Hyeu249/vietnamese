@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_ship_supplier_quote_portal_change_notification_form" model="ir.ui.view">
+        <field name="name">ship.supplier.quote.portal.change.notification.form</field>
+        <field name="model">ship.supplier.quote.portal.change.notification</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <field name="supplier_name" readonly="1"/>
+                    <field name="is_notified" readonly="1"/>
+                    <field name="notified_at" readonly="1"/>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_ship_supplier_quote_portal_change_notification_tree" model="ir.ui.view">
+        <field name="name">ship.supplier.quote.portal.change.notification.tree</field>
+        <field name="model">ship.supplier.quote.portal.change.notification</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="supplier_name"/>
+                <field name="is_notified"/>
+                <field name="notified_at"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_supplier_quote_portal_change_notification_search" model="ir.ui.view">
+        <field name="name">ship.supplier.quote.portal.change.notification.search</field>
+        <field name="model">ship.supplier.quote.portal.change.notification</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="supplier_name"/>
+                <field name="is_notified"/>
+                <field name="notified_at"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_supplier_quote_portal_change_notification" model="ir.actions.act_window">
+        <field name="name">Portal Change Notification</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.supplier.quote.portal.change.notification</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+</odoo>

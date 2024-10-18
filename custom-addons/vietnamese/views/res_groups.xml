@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_res_groups_tree_in_vietnamese" model="ir.ui.view">
+        <field name="name">res.groups.tree.in.vietnamese</field>
+        <field name="model">res.groups</field>
+        <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="category_id" invisible='1'/>
+                    <field name="name"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="action_res_groups_in_vietnamese" model="ir.actions.act_window">
+        <field name="name">Groups</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.groups</field>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="vietnamese.view_res_groups_tree_in_vietnamese"/>
+        <field name="context" eval="{
+                'default_category_id': ref('vietnamese.module_category_vietnamese')
+            }"/>
+        <field name="domain">[('category_id.name', '=', 'Vietnamese Roles')]</field>
+    </record>
+
+    <menuitem id="menu_res_groups_in_vietnamese"
+            name="Groups" 
+            parent="menu_vietnamese_operator"
+            action="action_res_groups_in_vietnamese"
+            sequence="2"/>
+
+</odoo>

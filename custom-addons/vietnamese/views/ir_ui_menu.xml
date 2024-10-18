@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ir_ui_menu_form_in_vietnamese" model="ir.ui.view">
+        <field name="name">ir.ui.menu.form.in.vietnamese</field>
+        <field name="model">ir.ui.menu</field>
+        <field name="arch" type="xml">
+                <form string="Menu">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+
+                        <notebook invisible="1">
+                            <page string="Meta" name="meta">
+                                <group string="Meta">
+                                    <field name="parent_id"/>
+                                    <field name="action"/>
+                                </group>
+                            </page>
+                        </notebook>
+                   </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id="view_ir_ui_menu_tree_in_vietnamese" model="ir.ui.view">
+        <field name="name">ir.ui.menu.tree.in.vietnamese</field>
+        <field name="model">ir.ui.menu</field>
+        <field name="arch" type="xml">
+                <tree>
+                    <field name="sequence" widget='handle'/>
+                    <field name="name" string="Menu"/>
+                </tree>
+        </field>
+    </record>
+
+    <record id="view_ir_ui_menu_search_in_vietnamese" model="ir.ui.view">
+        <field name="name">ir.ui.menu.search.in.vietnamese</field>
+        <field name="model">ir.ui.menu</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Menu"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ir_ui_menu_in_vietnamese" model="ir.actions.act_window">
+        <field name="name">Menu</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.ui.menu</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('vietnamese.view_ir_ui_menu_tree_in_vietnamese')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('vietnamese.view_ir_ui_menu_form_in_vietnamese')})]"/>
+        <field name="context" eval="{
+                'default_parent_id': ref('vietnamese.menu_vietnamese_root'),
+                'default_action': 'ir.actions.client,' +  str(ref('mail.action_discuss'))
+            }"/>
+        <field name="domain">[('parent_id.name', '=', 'Vietnamese')]</field>
+    </record>
+
+    <menuitem id="menu_ir_ui_menu_in_vietnamese"
+            name="Menu" 
+            parent="menu_vietnamese_operator"
+            action="action_ir_ui_menu_in_vietnamese"
+            sequence="1"/>
+
+</odoo>

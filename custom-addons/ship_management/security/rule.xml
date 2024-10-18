@@ -1,0 +1,499 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- multi company rules -->
+
+    <record model="ir.rule" id="area_of_paint_job_multi_company_rule">
+        <field name="name">Area of Paint Job Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_area_of_paint_job"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="equipment_multi_company_rule">
+        <field name="name">Equipment Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_equipment"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="job_material_requirement_multi_company_rule">
+        <field name="name">Job Material Requirement Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_job_material_requirement"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="job_paint_requirement_multi_company_rule">
+        <field name="name">Job Paint Requirement Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_job_paint_requirement"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="job_quote_multi_company_rule">
+        <field name="name">Job Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_job_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="job_supplier_quote_multi_company_rule">
+        <field name="name">Job Supplier Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_job_supplier_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="job_multi_company_rule">
+        <field name="name">Job Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_job"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="maintenance_scope_report_multi_company_rule">
+        <field name="name">Maintenance Scope Report Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_maintenance_scope_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="maintenance_scope_multi_company_rule">
+        <field name="name">Maintenance Scope Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_maintenance_scope"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_assignment_multi_company_rule">
+        <field name="name">Material Assignment Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_assignment"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_consumption_report_batch_multi_company_rule">
+        <field name="name">Material Consumption Report Batch Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_consumption_report_batch"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_consumption_report_multi_company_rule">
+        <field name="name">Material Consumption Report Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_consumption_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="fuel_consumption_report_batch_multi_company_rule">
+        <field name="name">Fuel Consumption Report Batch Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_consumption_report_batch"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="fuel_consumption_report_multi_company_rule">
+        <field name="name">Fuel Consumption Report Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_consumption_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="job_quote_report_batch_multi_company_rule">
+        <field name="name">Job Quote Report Batch Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_job_quote_report_batch"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="job_quote_report_multi_company_rule">
+        <field name="name">Job Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_job_quote_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+
+    <record model="ir.rule" id="material_entity_multi_company_rule">
+        <field name="name">Material Entity Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_entity"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_paint_quotes_request_multi_company_rule">
+        <field name="name">Material Paint Quotes Request Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_paint_quotes_request"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_quote_multi_company_rule">
+        <field name="name">Material Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_supplier_quote_multi_company_rule">
+        <field name="name">Material Supplier Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_supplier_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_usage_type_multi_company_rule">
+        <field name="name">Material Usage Type Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_usage_type"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_multi_company_rule">
+        <field name="name">Material Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="fuel_multi_company_rule">
+        <field name="name">Fuel Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+
+    <record model="ir.rule" id="paint_history_multi_company_rule">
+        <field name="name">Paint History Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_paint_history"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="paint_quote_multi_company_rule">
+        <field name="name">Paint Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_paint_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="paint_supplier_quote_multi_company_rule">
+        <field name="name">Paint Supplier Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_paint_supplier_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="paint_type_multi_company_rule">
+        <field name="name">Paint Type Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_paint_type"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="paint_multi_company_rule">
+        <field name="name">Paint Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_paint"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="material_group_multi_company_rule">
+        <field name="name">Material Group Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_material_group"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="utilization_time_multi_company_rule">
+        <field name="name">Utilization Time Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_utilization_time"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="fuel_quote_multi_company_rule">
+        <field name="name">Fuel Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+    
+    <record model="ir.rule" id="fuel_quotes_request_multi_company_rule">
+        <field name="name">Fuel Quotes Request Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_quotes_request"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="port_multi_company_rule">
+        <field name="name">Port Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_port"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="fuel_supplier_quote_multi_company_rule">
+        <field name="name">Fuel Supplier Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_supplier_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="replacement_diary_multi_company_rule">
+        <field name="name">Replacement Diary Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_replacement_diary"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="proposed_liquidation_multi_company_rule">
+        <field name="name">Proposed Liquidation Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_proposed_liquidation"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="liquidation_minute_multi_company_rule">
+        <field name="name">Liquidation Minute Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_liquidation_minute"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="lashing_material_fix_stats_multi_company_rule">
+        <field name="name">Lashing Material Fix Stats Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_lashing_material_fix_stats"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_technical_inspection_task_metadata_multi_company_rule">
+        <field name="name">Technical Inspection Task Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_technical_inspection_task_metadata"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_ship_management_inspection_task_multi_company_rule">
+        <field name="name">Ship Management Inspection Task Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_ship_management_inspection_task"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_ship_management_inspection_task_metadata_multi_company_rule">
+        <field name="name">Ship Management Inspection Task Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_ship_management_inspection_task_metadata"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_ship_management_inspection_scope_multi_company_rule">
+        <field name="name">Ship Management Inspection Scope Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_ship_management_inspection_scope"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_technical_inspection_task_multi_company_rule">
+        <field name="name">Technical Inspection Task Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_technical_inspection_task"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_technical_inspection_scope_multi_company_rule">
+        <field name="name">Technical Inspection Scope Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_technical_inspection_scope"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_inspection_plan_multi_company_rule">
+        <field name="name">Inspection Plan Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_inspection_plan"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_ship_management_inspection_scope_metadata_multi_company_rule">
+        <field name="name">Ship Management Inspection Scope Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_ship_management_inspection_scope_metadata"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_technical_inspection_scope_metadata_multi_company_rule">
+        <field name="name">Technical Inspection Scope Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_technical_inspection_scope_metadata"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_inspection_image_multi_company_rule">
+        <field name="name">Image Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_inspection_image"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="ship_fuel_quote_grease_multi_company_rule">
+        <field name="name">Fuel Quote Grease Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_quote_grease"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+    
+    <record model="ir.rule" id="fuel_internal_receiving_multi_company_rule">
+            <field name="name">Fuel Internal Receiving Multi Company Rule</field>
+            <field name="model_id" ref="model_ship_fuel_internal_receiving"/>
+            <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+            <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel Oil Tank Condition -->
+    <record model="ir.rule" id="fuel_oil_tank_condition_multi_company_rule">
+        <field name="name">Fuel Oil Tank Condition Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_oil_tank_condition"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel Check -->
+    <record model="ir.rule" id="fuel_check_multi_company_rule">
+        <field name="name">Fuel Check Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_check"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel Tank Measurement -->
+    <record model="ir.rule" id="fuel_tank_measurement_multi_company_rule">
+        <field name="name">Fuel Tank Measurement Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_tank_measurement"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel Tank -->
+    <record model="ir.rule" id="fuel_tank_multi_company_rule">
+        <field name="name">Fuel Tank Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_tank"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Sounding Book -->
+    <record model="ir.rule" id="sounding_book_multi_company_rule">
+        <field name="name">Sounding Book Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_sounding_book"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Sounding Table -->
+    <record model="ir.rule" id="sounding_table_multi_company_rule">
+        <field name="name">Sounding Table Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_sounding_table"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel Oil Sample Record -->
+    <record model="ir.rule" id="fuel_oil_sample_record_multi_company_rule">
+        <field name="name">Fuel Oil Sample Record Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_internal_oil_sample_record"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Bunker Transfer Barge -->
+    <record model="ir.rule" id="bunker_transfer_barge_multi_company_rule">
+        <field name="name">Bunker Transfer Barge Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_internal_bunker_barge"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+        <!-- Rule for Fuel External Diary -->
+    <record model="ir.rule" id="fuel_external_diary_multi_company_rule">
+        <field name="name">Fuel External Diary Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_diary"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel Internal Calculator -->
+    <record model="ir.rule" id="fuel_internal_calculator_multi_company_rule">
+        <field name="name">Fuel Internal Calculator Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_internal_calculator"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel External Calculator -->
+    <record model="ir.rule" id="fuel_external_calculator_multi_company_rule">
+        <field name="name">Fuel External Calculator Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_calculator"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel External Receiving -->
+    <record model="ir.rule" id="fuel_external_receiving_multi_company_rule">
+        <field name="name">Fuel External Receiving Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_receiving"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel External Oil Tank Condition -->
+    <record model="ir.rule" id="fuel_external_oil_tank_condition_multi_company_rule">
+        <field name="name">Fuel External Oil Tank Condition Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_oil_tank_condition"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel External Check -->
+    <record model="ir.rule" id="fuel_external_check_multi_company_rule">
+        <field name="name">Fuel External Check Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_check"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel External Tank Measurement -->
+    <record model="ir.rule" id="fuel_external_tank_measurement_multi_company_rule">
+        <field name="name">Fuel External Tank Measurement Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_tank_measurement"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel External Tank -->
+    <record model="ir.rule" id="fuel_external_tank_multi_company_rule">
+        <field name="name">Fuel External Tank Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_tank"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Fuel Oil Sample Record -->
+    <record model="ir.rule" id="fuel_external_oil_sample_record_multi_company_rule">
+        <field name="name">Fuel Oil Sample Record Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_oil_sample_record"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <!-- Rule for Bunker Transfer Barge -->
+    <record model="ir.rule" id="bunker_external_transfer_barge_multi_company_rule">
+        <field name="name">Bunker Transfer Barge Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_fuel_external_bunker_barge"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+        <field name="groups" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+    <record model="ir.rule" id="review_plan_multi_company_rule">
+        <field name="name">Review Plan Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_review_plan"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="internal_audit_checklist_multi_company_rule">
+        <field name="name">Internal Audit Checklist Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_internal_audit_checklist"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="internal_mlc_audit_checklist_multi_company_rule">
+        <field name="name">Internal MCL Audit Checklist Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_internal_mlc_audit_checklist"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="checklist_value_multi_company_rule">
+        <field name="name">Checklist Value Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_checklist_value"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="internal_ism_audit_report_multi_company_rule">
+        <field name="name">Internal ISM Audit Report Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_internal_ism_audit_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="list_of_ism_nonconformities_multi_company_rule">
+        <field name="name">List of ISM Nonconformities Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_list_of_ism_nonconformities"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="description_of_objective_evidence_multi_company_rule">
+        <field name="name">Description of Objective Evidence Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_description_of_objective_evidence"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="nonconformity_report_multi_company_rule">
+        <field name="name">Nonconformity Report Multi Company Rule</field>
+        <field name="model_id" ref="model_ship_nonconformity_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+</odoo>

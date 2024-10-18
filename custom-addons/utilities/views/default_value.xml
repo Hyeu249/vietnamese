@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_utilities_default_value_form" model="ir.ui.view">
+        <field name="name">utilities.default.value.form</field>
+        <field name="model">utilities.default.value</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>               
+                    <button name="get_all_fields"
+                        string="get_all_fields"
+                        type="object"
+                        class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group string="Declare">
+                        <field name="variable_name"/>
+                        <field name="value_type"/>
+                        <field name="description"/>
+                    </group>
+
+                    <group string="Value">
+                        <field name="str_field" attrs="{'invisible': [('value_type', '!=', 'STRING')]}"/>
+                        <field name="int_field" attrs="{'invisible': [('value_type', '!=', 'INTEGER')]}"/>
+                        <field name="float_field" attrs="{'invisible': [('value_type', '!=', 'FLOAT')]}"/>
+                        <field name="date_field" attrs="{'invisible': [('value_type', '!=', 'DATE')]}"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Users" name="user_ids" attrs="{'invisible': [('value_type', '!=', 'USERS')]}">
+                            <field name="user_ids"/>
+                        </page>
+                        <page string="Groups" name="group_ids" attrs="{'invisible': [('value_type', '!=', 'GROUPS')]}">
+                            <field name="group_ids"/>
+                        </page>
+                        <page string="Html" name="html_field" attrs="{'invisible': [('value_type', '!=', 'HTML')]}">
+                            <field name="html_field" widget="html"/>
+                        </page>
+                        <page string="Default values for relation" name="default_value_for_relation_ids" attrs="{'invisible': [('value_type', '!=', 'RELATION')]}">
+                            <field name="default_value_for_relation_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_utilities_default_value_tree" model="ir.ui.view">
+        <field name="name">utilities.default.value.tree</field>
+        <field name="model">utilities.default.value</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>               
+                    <button name="get_description"
+                        string="get_description"
+                        type="object"
+                        class="oe_highlight"/>
+                </header>
+                <field name="ref"/>
+                <field name="variable_name"/>
+                <field name="value_type"/>
+                <field name="str_field" attrs="{'invisible': [('value_type', '!=', 'STRING')]}"/>
+                <field name="int_field" attrs="{'invisible': [('value_type', '!=', 'INTEGER')]}"/>
+                <field name="float_field" attrs="{'invisible': [('value_type', '!=', 'FLOAT')]}"/>
+                <field name="date_field" attrs="{'invisible': [('value_type', '!=', 'DATE')]}"/>
+                <field name="user_ids" widget="many2many_tags" attrs="{'invisible': [('value_type', '!=', 'USERS')]}"/>
+                <field name="user_ids" widget="many2many_tags" attrs="{'invisible': [('value_type', '!=', 'GROUPS')]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_utilities_default_value_search" model="ir.ui.view">
+        <field name="name">utilities.default.value.search</field>
+        <field name="model">utilities.default.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="variable_name"/>
+                <field name="value_type"/>
+                <field name="str_field"/>
+                <field name="int_field"/>
+                <field name="float_field"/>
+                <field name="date_field"/>
+                <field name="user_ids"/>
+                <field name="group_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_utilities_default_value" model="ir.actions.act_window">
+        <field name="name">Default Value</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">utilities.default.value</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_utilities_default_value"
+            name="Default Value" 
+            parent="menu_utilities_operations"
+            action="action_utilities_default_value"
+            sequence="10"/>
+
+</odoo>

@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_team_checklist_form" model="ir.ui.view">
+        <field name="name">legis.team.checklist.form</field>
+        <field name="model">legis.team.checklist</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            DANH MỤC KIỂM TRA CỦA ĐỘI ỨNG CỨU TÌNH HUỐNG KHẨN CẤP
+                        </h1>
+                    </div>
+
+                    <group string="Ship infomation">
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="accident_type"/>
+                            <field name="current_condition"/>
+                            <field name="agency_notified"/>
+                            <field name="number_people"/>
+                            <field name="ship_damage"/>
+                            <field name="stability_condition"/>
+                        </group>
+
+                        <group>
+                            <field name="accident_date"/>
+                            <field name="location"/>
+                            <field name="distance_to_shore"/>
+                            <field name="direction_and_speed"/>
+                            <field name="death_injury"/>
+                            <field name="other_ship_damage"/>
+                        </group>
+                    </group>
+
+                    <group string="Pollution infomation">
+                        <group>
+                            <field name="type_of_good"/>
+                            <field name="is_pollute"/>
+                            <field name="pollution_risk"/>
+                        </group>
+
+                        <group>
+                            <field name="quantity_of_good"/>
+                            <field name="amount_of_pollution"/>
+                        </group>
+                    </group>
+
+                    <group string="Maritime accident">
+                        <group>
+                            <field name="are_charts_intact"/>
+                            <field name="is_ECDIS_retained"/>
+                        </group>
+
+                        <group>
+                            <field name="is_VDR_saved"/>
+                        </group>
+                    </group>
+
+                    <group string="Other infomation">
+                        <group>
+                            <field name="current_weather"/>
+                            <field name="local_tide_infomation"/>
+                        </group>
+
+                        <group>
+                            <field name="weather_forecast"/>
+                            <field name="local_sunsire_or_sunset_time"/>
+                        </group>
+                    </group>
+
+                    <group string="Response action">
+                        <group>
+                            <field name="action_taken"/>
+                        </group>
+
+                        <group>
+                            <field name="action_to_be_taken"/>
+                        </group>
+                    </group>
+
+                    <group string="Contract">
+                        <group>
+                            <field name="radio_station"/>
+                            <field name="will_ship_call_back"/>
+                            <field name="office_phone"/>
+                        </group>
+
+                        <group>
+                            <field name="phone_contact"/>
+                            <field name="time_ship_will_call_back"/>
+                            <field name="contact_schedule"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Team Checklist(1927)" name="team_checklist_html">
+                            <header style="margin-bottom: 20px;">
+                                <button name="move_to_prev_team_checklist_page" string="" type="object" class="fa fa-angle-double-left"/>
+                                <button name="move_to_next_team_checklist_page" string="" type="object" class="fa fa-angle-double-right"/>
+                                <field name="team_checklist_page_len"/>
+                            </header>
+                            <field name="team_checklist_html" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Team Checklist Pages" name="team_checklist_page_ids">
+                            <field name="team_checklist_page_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_team_checklist_tree" model="ir.ui.view">
+        <field name="name">legis.team.checklist.tree</field>
+        <field name="model">legis.team.checklist</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="accident_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_team_checklist_search" model="ir.ui.view">
+        <field name="name">legis.team.checklist.search</field>
+        <field name="model">legis.team.checklist</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="accident_date"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_team_checklist" model="ir.actions.act_window">
+        <field name="name">Team Checklist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.team.checklist</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_team_checklist"
+            name="Team Checklist" 
+            parent="menu_legis_forms"
+            action="action_legis_team_checklist"
+            sequence="10"/>
+
+</odoo>

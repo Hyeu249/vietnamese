@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_paint_form" model="ir.ui.view">
+        <field name="name">ship.paint.form</field>
+        <field name="model">ship.paint</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="spare_part_no"/>
+                        <field name="internal_code"/>
+                        <field name="available_quantity_liter"/>
+                        <field name="min_quantity_liter"/>
+                        <field name="origin"/>
+                        <field name="paint_type_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Paint History" name="paint_history_ids">
+                            <field name="paint_history_ids"/>
+                        </page>
+                        <page string="Supplier" name="supplier_ids">
+                            <field name="supplier_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_tree" model="ir.ui.view">
+        <field name="name">ship.paint.tree</field>
+        <field name="model">ship.paint</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="spare_part_no"/>
+                <field name="internal_code"/>
+                <field name="available_quantity_liter"/>
+                <field name="min_quantity_liter"/>
+                <field name="origin"/>
+                <field name="paint_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_paint_search" model="ir.ui.view">
+        <field name="name">ship.paint.search</field>
+        <field name="model">ship.paint</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="spare_part_no"/>
+                <field name="internal_code"/>
+                <field name="available_quantity_liter"/>
+                <field name="min_quantity_liter"/>
+                <field name="origin"/>
+                <field name="paint_type_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_paint" model="ir.actions.act_window">
+        <field name="name">Paint</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.paint</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_paint"
+            name="Paint" 
+            parent="menu_ship_categories_supplies"
+            action="action_ship_paint"
+            sequence="20"/>
+
+</odoo>

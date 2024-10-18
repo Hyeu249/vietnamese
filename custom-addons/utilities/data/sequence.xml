@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sequence_utilities_default_value_for_relation" model="ir.sequence">
+            <field name="name">Plugin Default Value For Relation</field>
+            <field name="code">utilities.default.value.for.relation</field>
+            <field name="prefix">U-GTMDFRL</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_utilities_default_value" model="ir.sequence">
+            <field name="name">Plugin Default Value</field>
+            <field name="code">utilities.default.value</field>
+            <field name="prefix">U-GTMD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_utilities_this_all_approval_group" model="ir.sequence">
+            <field name="name">This All Approval Group</field>
+            <field name="code">utilities.this.all.approval.group</field>
+            <field name="prefix">U-TAAP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

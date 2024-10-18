@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_auto_propose_to_replace_expired_material_entities" model="ir.cron">
+            <field name="name">Auto propose to replace expired material entities: Every Day at 10am</field>
+            <field name="model_id" ref="model_ship_material_entity"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.action_propose_to_replace()</field>
+            <field name="nextcall" eval="DateTime.now().strftime('%Y-%m-%d 10:00:00')" />
+            <field name="interval_number">1</field> <!-- Repeat every day -->
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+    </data>
+</odoo>

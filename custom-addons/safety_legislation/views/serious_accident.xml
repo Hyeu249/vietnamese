@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_serious_accident_form" model="ir.ui.view">
+        <field name="name">legis.serious.accident.form</field>
+        <field name="model">legis.serious.accident</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_tree" model="ir.ui.view">
+        <field name="name">legis.serious.accident.tree</field>
+        <field name="model">legis.serious.accident</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_search" model="ir.ui.view">
+        <field name="name">legis.serious.accident.search</field>
+        <field name="model">legis.serious.accident</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_serious_accident" model="ir.actions.act_window">
+        <field name="name">Serious Accident</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.serious.accident</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_serious_accident"
+            name="Serious Accident" 
+            parent="menu_legis_serious_accidents"
+            action="action_legis_serious_accident"
+            sequence="10"/>
+
+</odoo>

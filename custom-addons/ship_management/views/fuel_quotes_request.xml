@@ -1,0 +1,151 @@
+<odoo>
+    <record id="view_fuel_quotes_request_form" model="ir.ui.view">
+        <field name="name">ship.fuel.quotes.request.form</field>
+        <field name="model">ship.fuel.quotes.request</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Quotes Request">
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="order_date"/>
+                            <field name="port_id" />
+                            <field name="fuel_internal_calculator_id" />
+                            <field name="internal_bunker_request_mt_fo"/>
+                            <field name="internal_bunker_request_mt_do"/>
+                        </group>
+                        <group>
+                            <field name="internal_order_remaining_mt_fo"/>
+                            <field name="internal_order_remaining_mt_do"/>
+                            <field name="internal_bunker_remaining_mt_fo"/>
+                            <field name="internal_bunker_remaining_mt_do"/>
+                            <field name="is_email_sent"/>
+                            <field name="is_responded"/>
+                            <field name="arrival_time"/>
+                            <field name="depature_time"/>
+                            <field name="receipt" widget="image" style='max-height: 70%; max-width: 70%; object-fit: contain'/>
+                            <field name="supplier_emails"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Fuel Quotes">
+                            <field name="fuel_quote_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="ref"/>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="quantity"/>
+                                    <field name="unit"/>
+                                    <field name="quantity_received"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Fuel Quotes Grease">
+                            <field name="fuel_quote_grease_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="ref"/>
+                                    <field name="name"/>
+                                    <field name="quantity"/>
+                                    <field name="unit"/>
+                                    <field name="quantity_received"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_quotes_request_tree" model="ir.ui.view">
+        <field name="name">ship.fuel.quotes.request.tree</field>
+        <field name="model">ship.fuel.quotes.request</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Quotes Requests">
+                <field name="ref"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="order_date"/>
+                <field name="port_id"/>
+                <field name="is_email_sent"/>
+                <field name="is_responded"/>
+                <field name="arrival_time"/>
+                <field name="depature_time"/>
+                <field name="supplier_emails"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Actions and menus to access these views -->
+    <record id="action_fuel_quotes_request" model="ir.actions.act_window">
+        <field name="name">Fuel Quotes Requests</field>
+        <field name="res_model">ship.fuel.quotes.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_fuel_quotes_request"
+            name="Fuel Quotes Request" 
+            parent="menu_ship_fuel_internal"
+            action="action_fuel_quotes_request"
+            sequence="20"/>
+
+    <record id="action_fuel_quotes_request" model="ir.actions.act_window">
+        <field name="name">Fuel Quotes Requests</field>
+        <field name="res_model">ship.fuel.quotes.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_fuel_quotes_request"
+            name="Fuel Quotes Request" 
+            parent="menu_ship_fuel_internal"
+            action="action_fuel_quotes_request"
+            sequence="20"/>
+
+    <menuitem id="menu_ship_fuel_quotes_grease_request"
+            name="Fuel Quotes Request" 
+            parent="menu_ship_fuel_grease_order"
+            action="action_fuel_quotes_request"
+            sequence="20"/>
+</odoo>

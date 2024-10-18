@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_lashing_material_fix_stats_form" model="ir.ui.view">
+        <field name="name">ship.lashing.material.fix.stats.form</field>
+        <field name="model">ship.lashing.material.fix.stats</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="update_date"/>
+                        <field name="repaired"/>
+                        <field name="not_repaired"/>
+                        <field name="repairable"/>
+                        <field name="unrepairable"/>
+                        <field name="material_id"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_lashing_material_fix_stats_tree" model="ir.ui.view">
+        <field name="name">ship.lashing.material.fix.stats.tree</field>
+        <field name="model">ship.lashing.material.fix.stats</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="update_date"/>
+                <field name="repaired"/>
+                <field name="not_repaired"/>
+                <field name="repairable"/>
+                <field name="unrepairable"/>
+                <field name="material_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_lashing_material_fix_stats_search" model="ir.ui.view">
+        <field name="name">ship.lashing.material.fix.stats.search</field>
+        <field name="model">ship.lashing.material.fix.stats</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="update_date"/>
+                <field name="repaired"/>
+                <field name="not_repaired"/>
+                <field name="repairable"/>
+                <field name="unrepairable"/>
+                <field name="material_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_lashing_material_fix_stats" model="ir.actions.act_window">
+        <field name="name">Lashing Material Fix Stats</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.lashing.material.fix.stats</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_lashing_material_fix_stats"
+            name="Lashing Material Fix Stats" 
+            parent="menu_ship_categories_supplies"
+            action="action_ship_lashing_material_fix_stats"
+            sequence="10"/>
+
+</odoo>

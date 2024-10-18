@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_material_form" model="ir.ui.view">
+        <field name="name">ship.material.form</field>
+        <field name="model">ship.material</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Material">
+                            <field name="name"/>    
+                            <field name="description"/>
+                            <field name="material_group_id"/>
+                            <field name="material_type"/>
+                            <field name="note"/>
+                        </group>
+
+                        <group string="Warehouse">
+                            <field name="warehouse"/>
+                            <field name="origin"/>
+                            <field name="available_quantity"/>
+                            <field name="min_quantity"/>
+                        </group>
+
+                        <group string="Code and unit">
+                            <field name="spare_part_no"/>
+                            <field name="internal_code"/>
+                            <field name="imba_code"/>
+                            <field name="unit"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Material Entities" name="material_entity_ids">
+                            <button name="organize_for_material_have_lifespan" type="object" string="Organize for material have lifespan" class="oe_highlight btn-success"/>
+                            <button name="organize_for_material_dont_have_lifespan" type="object" string="Organize for material dont have lifespan" class="oe_highlight btn-danger"/>
+                            <field name="material_entity_ids"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <field name="company_id" readonly="1"/>
+                                <field name="is_essential_material"/>
+                                <field name="is_used_for_lifespan"/>
+                                <field name="transfer_quantity"/>
+                                <field name="material_usage_type_id"/>
+                            </group>
+                        </page>
+                        <page string="For medication" name="For_medication">
+                            <group>
+                                <field name="type_of_medicine"/>
+                                <field name="concentration"/>
+                                <field name="expiration_date"/>
+                            </group>
+                        </page>
+                        <page string="Suppliers" name="supplier_ids">
+                            <field name="supplier_ids"/>
+                        </page>
+                        <page string="Replacement Diaries" name="replacement_diary_ids">
+                            <field name="replacement_diary_ids"/>
+                        </page>
+                        <page string="Lashing Material Fix Stats" name="lashing_material_fix_stats_ids">
+                            <field name="lashing_material_fix_stats_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_get_default_unit" model="ir.actions.server">
+        <field name="name">Get default unit</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_ship_material" />
+        <field name="binding_model_id" ref="model_ship_material" />
+        <field name="state">code</field>
+        <field name="code">records.get_default_unit()</field>
+    </record>
+
+    <record id="view_ship_material_tree" model="ir.ui.view">
+        <field name="name">ship.material.tree</field>
+        <field name="model">ship.material</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="spare_part_no"/>
+                <field name="internal_code"/>
+                <field name="imba_code"/>
+                <field name="material_group_id"/>
+                <field name="available_quantity"/>
+                <field name="min_quantity"/>
+                <field name="unit"/>
+                <field name="is_used_for_lifespan"/>
+                <field name="origin"/>
+                <field name="warehouse"/>
+                <field name="material_type"/>
+                <field name="is_essential_material"/>
+                <field name="material_usage_type_id"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_material_search" model="ir.ui.view">
+        <field name="name">ship.material.search</field>
+        <field name="model">ship.material</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="spare_part_no"/>
+                <field name="internal_code"/>
+                <field name="imba_code"/>
+                <field name="material_group_id"/>
+                <field name="available_quantity"/>
+                <field name="min_quantity"/>
+                <field name="unit"/>
+                <field name="origin"/>
+                <field name="warehouse"/>
+                <field name="material_type"/>
+                <field name="is_essential_material"/>
+                <field name="material_usage_type_id"/>
+                <field name="note"/>
+                <field name="is_used_for_lifespan"/>
+                <group expand="0" string="Group By">
+                    <filter string="material_group_id" name="material_group_id" domain="[]" context="{'group_by': 'material_group_id'}"/>
+                    <filter string="material_type" name="material_type" domain="[]" context="{'group_by': 'material_type'}"/>
+                    <filter string="unit" name="unit" domain="[]" context="{'group_by': 'unit'}"/>
+                </group>
+                <searchpanel>
+                    <field name="material_group_id" icon="fa-users" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_create_transfer_quantity" model="ir.actions.server">
+        <field name="name">Create Transfer Entity Quantity</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_ship_material" />
+        <field name="binding_model_id" ref="model_ship_material" />
+        <field name="state">code</field>
+        <field name="code">records.create_transfer_quantity()</field>
+    </record>
+
+    <record id="action_remove_material_that_not_assigned" model="ir.actions.server">
+        <field name="name">Remove material that not assigned</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_ship_material" />
+        <field name="binding_model_id" ref="model_ship_material" />
+        <field name="state">code</field>
+        <field name="code">records.remove_material_that_not_assigned()</field>
+    </record>
+
+    <record id="action_ship_material" model="ir.actions.act_window">
+        <field name="name">Material</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.material</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_material"
+            name="Material" 
+            parent="menu_ship_categories_supplies"
+            action="action_ship_material"
+            sequence="10"/>
+
+</odoo>

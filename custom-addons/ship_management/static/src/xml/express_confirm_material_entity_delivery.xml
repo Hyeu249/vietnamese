@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="ship_management.express_confirm_material_entity_delivery">
+        <div style="display:flex; padding: 8px 0px;">
+            <div style="position: relative;">
+                <input style="border: none; outline: none; border-radius: 5px; padding-left: 7px; padding-right: 30px;" id="quote_ref" placeholder="Nhận sơn/vật tư"/>
+                <button style="position: absolute; top: 0; right: 0; height: 100%; border: none; background-color: transparent;" id="show_delivery_confirmation_dialog">
+                    <i class="fa fa-paper-plane"></i>
+                </button>
+                <button style="position: absolute; top: 0; right: 30px; height: 100%; border: none; background-color: transparent;" id="qr_scanner">
+                    <i class="fa fa-qrcode"></i>
+                </button>
+            </div>
+        </div>
+    </t>
+    <div t-name="ship_management.qr_scanner">
+        <div style="height: 600px;">
+            <div>
+                <label for="camera_id">Select A Camera</label>
+                <select id="camera_id">
+                    <t t-foreach="devices" t-as="dev">
+                        <option t-att-value="dev.id">
+                            <t t-raw="dev.label or dev.kind" />
+                        </option>
+                    </t>
+                </select>
+            </div>
+            <br/>
+            <br/>
+            <div id="webcam_viewport"></div>
+        </div>
+    </div>
+    <div t-name="ship_management.delivery_confirmation_dialog">
+        <div style="height: 600px;">
+            <div>
+                <h3>Xác nhận số lượng nhận hàng</h3>
+                <div>
+                    <label for="quote_ref">Mã báo giá</label>
+                    <input type="text" id="quote_ref" disabled="1" t-att-value="quote.quote_ref"/>
+                </div>
+                <div>
+                    <label for="material_paint_name">Tên vật tư/sơn</label>
+                    <input type="text" id="material_paint_name" disabled="1" t-att-value="quote.material_paint_name"/>
+                </div>
+                <div>
+                    <label for="delivered_quantity">Số lượng nhận</label>
+                    <input type="number" id="delivered_quantity" t-att-value="quote.delivered_quantity"/>
+                </div>
+                <div>
+                    <label for="unit">Unit</label>
+                    <input type="text" id="unit" disabled="1" t-att-value="quote.unit"/>
+                </div>
+                <div>
+                    <label for="unit">Nhà cung cấp được chọn</label>
+                    <input type="text" id="unit" disabled="1" t-att-value="quote.selected_supplier_name"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</templates>

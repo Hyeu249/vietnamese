@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_utilities_required_all_approval_form" model="ir.ui.view">
+        <field name="name">utilities.required.all.approval.form</field>
+        <field name="model">utilities.required.all.approval</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="implement_approval_flow"
+                            string="implement_approval_flow"
+                            type="object"
+                            class="oe_highlight"/>  
+                </header>
+                <sheet>
+                    <group>
+                        <field name="approval_status_for_all_approval"/>
+                        <field name="this_all_approval_group_id"/>
+                        <field name="is_user_allow_to_approvel"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_utilities_required_all_approval_tree" model="ir.ui.view">
+        <field name="name">utilities.required.all.approval.tree</field>
+        <field name="model">utilities.required.all.approval</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="approval_status_for_all_approval"/>
+                <field name="this_all_approval_group_id"/>
+                <field name="is_user_allow_to_approvel"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_utilities_required_all_approval_search" model="ir.ui.view">
+        <field name="name">utilities.required.all.approval.search</field>
+        <field name="model">utilities.required.all.approval</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="approval_status_for_all_approval"/>
+                <field name="this_all_approval_group_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_utilities_required_all_approval" model="ir.actions.act_window">
+        <field name="name">Required All Approval</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">utilities.required.all.approval</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_utilities_required_all_approval"
+            name="Required All Approval" 
+            parent="menu_utilities_operations"
+            action="action_utilities_required_all_approval"
+            sequence="11"/>
+
+</odoo>

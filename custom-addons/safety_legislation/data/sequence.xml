@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sequence_legis_image" model="ir.sequence">
+            <field name="name">Legis Image</field>
+            <field name="code">legis.image</field>
+            <field name="prefix">L-HINHANH</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_technical_incident" model="ir.sequence">
+            <field name="name">Legis Technical Incident</field>
+            <field name="code">legis.technical.incident</field>
+            <field name="prefix">L-SCKT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_technical_incident_job" model="ir.sequence">
+            <field name="name">Legis Technical Incident Job</field>
+            <field name="code">legis.technical.incident.job</field>
+            <field name="prefix">L-SCKTCV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_technical_incident_insurance" model="ir.sequence">
+            <field name="name">Legis Technical Incident Insurance</field>
+            <field name="code">legis.technical.incident.insurance</field>
+            <field name="prefix">L-BHSCKT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_safety_management_handbook" model="ir.sequence">
+            <field name="name">Legis Safety Management Handbook</field>
+            <field name="code">legis.safety.management.handbook</field>
+            <field name="prefix">L-QLST</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_handbook_section" model="ir.sequence">
+            <field name="name">Legis Handbook Section</field>
+            <field name="code">legis.handbook.section</field>
+            <field name="prefix">L-PST</field>
+            <field name="padding">2</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_ert_role_task_meta" model="ir.sequence">
+            <field name="name">Legis Ert Role Task Meta</field>
+            <field name="code">legis.ert.role.task.meta</field>
+            <field name="prefix">L-ECVNVMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_ert_role_meta" model="ir.sequence">
+            <field name="name">Legis Ert Role Meta</field>
+            <field name="code">legis.ert.role.meta</field>
+            <field name="prefix">L-ECVMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_incidence_type_meta" model="ir.sequence">
+            <field name="name">Legis Incidence Type Meta</field>
+            <field name="code">legis.incidence.type.meta</field>
+            <field name="prefix">L-LSCMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_serious_accident_report" model="ir.sequence">
+            <field name="name">Legis Serious Accident Report</field>
+            <field name="code">legis.serious.accident.report</field>
+            <field name="prefix">L-BCSCNT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_serious_accident" model="ir.sequence">
+            <field name="name">Legis Serious Accident</field>
+            <field name="code">legis.serious.accident</field>
+            <field name="prefix">L-SCNT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_serious_accident_team" model="ir.sequence">
+            <field name="name">Legis Serious Accident Team</field>
+            <field name="code">legis.serious.accident.team</field>
+            <field name="prefix">L-ERT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_serious_accident_task" model="ir.sequence">
+            <field name="name">Legis Serious Accident Task</field>
+            <field name="code">legis.serious.accident.task</field>
+            <field name="prefix">L-SCNTNV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_editing_request_for_handbook" model="ir.sequence">
+            <field name="name">Legis Editing Request For Handbook</field>
+            <field name="code">legis.editing.request.for.handbook</field>
+            <field name="prefix">L-YCCSST</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_changed_content_of_handbook" model="ir.sequence">
+            <field name="name">Legis Changed Content Of Handbook</field>
+            <field name="code">legis.changed.content.of.handbook</field>
+            <field name="prefix">L-NDSTDTD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_accident_report" model="ir.sequence">
+            <field name="name">Legis Accident Report</field>
+            <field name="code">legis.accident.report</field>
+            <field name="prefix">L-BCTNSC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_investigative_report" model="ir.sequence">
+            <field name="name">Legis Investigative Report</field>
+            <field name="code">legis.investigative.report</field>
+            <field name="prefix">L-BCDTBD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_sea_protest" model="ir.sequence">
+            <field name="name">Legis Sea Protest</field>
+            <field name="code">legis.sea.protest</field>
+            <field name="prefix">L-KNHH</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_team_checklist" model="ir.sequence">
+            <field name="name">Legis Team Checklist</field>
+            <field name="code">legis.team.checklist</field>
+            <field name="prefix">L-DMKTDUC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_technical_incident_report" model="ir.sequence">
+            <field name="name">Legis Technical Incident Report</field>
+            <field name="code">legis.technical.incident.report</field>
+            <field name="prefix">L-BCSCKT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_handbook_revision_report" model="ir.sequence">
+            <field name="name">Legis Handbook Revision Report</field>
+            <field name="code">legis.handbook.revision.report</field>
+            <field name="prefix">L-BCSDST</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_legis_requisition_for_handbook_revision" model="ir.sequence">
+            <field name="name">Legis Requisition For Handbook Revision</field>
+            <field name="code">legis.requisition.for.handbook.revision</field>
+            <field name="prefix">L-YCSDBSHB</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+    </data>
+</odoo>

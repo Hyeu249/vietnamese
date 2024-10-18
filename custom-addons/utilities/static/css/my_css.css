@@ -1,0 +1,51 @@
+.shadown{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.default_title_color{
+    color: rgb(103, 167, 0)
+}
+
+.title_docking_date_color{
+    color: rgb(0, 9, 128)
+}
+
+.title_inspection_event_color{
+    color: rgb(124, 0, 128)
+}
+.modal .modal-dialog .o_form_view .o_FormRenderer_chatterContainer {
+    display: block !important;
+}
+
+thead tr:nth-child(1) th{
+    background-color: #eee;
+    color: #4c4c4c;
+    border-bottom: 1px solid #cacaca;
+    position: sticky !important;
+    top: 0;
+    z-index: 10;
+}
+
+.o_content > .o_list_renderer.o_renderer.table-responsive {
+    overflow-x: unset;
+}
+
+:not(.o_content) > .o_list_renderer.o_renderer.table-responsive {
+    overflow-x: unset;
+    width: 100%;
+    /* margin-left: calc(-49.8vw + 50%); */
+}
+
+.o_list_button {
+    min-width: 50px !important;
+    width: 50px !important;
+}
+
+.row_no {
+    width: 40px !important;
+}
+
+.o_form_view.o_xxl_form_view .o_form_sheet_bg > .o_form_sheet{
+    width: 100%;
+    max-width: 100%;
+}

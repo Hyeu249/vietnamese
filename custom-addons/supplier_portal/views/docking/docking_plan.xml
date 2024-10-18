@@ -1,0 +1,217 @@
+<odoo>
+    <template id="docking_docking_plan_list_view_portal">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="text-center">code</th>
+                        <th class="text-center">name</th>
+                        <th class="text-center">date</th>
+                        <th class="text-center">description</th>
+                    </tr>
+                </thead>
+                <body>
+                    <t t-foreach="docking_plan_list" t-as="docking_plan">
+                        <tr>
+                            <td class="text-center">
+                                <a t-attf-href="/docking/docking-plan/{{docking_plan.ref}}?{{request.httprequest.query_string}}">
+                                    <t t-out="docking_plan.ref" />
+                                </a>
+                            </td>
+                            <td class="text-center">
+                                <t t-out="docking_plan.name" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="docking_plan.date" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="docking_plan.description" />
+                            </td>
+                        </tr>
+                    </t>
+                </body>
+            </t>
+        </t>
+    </template>
+
+    <template id="docking_docking_plan_detail_view_portal">
+        <t t-call="portal.portal_layout">
+            <div style="margin: 30px 0px;">
+                <t t-call="portal.portal_table">
+                    <thead>
+                        <tr class="active">
+                            <th class="text-center">name(Vật tư)</th>
+                            <th class="text-center">quantity</th>
+                            <th class="text-center">unit_price</th>
+                            <th class="text-center">origin</th>
+                            <th class="text-center">expected_delivery_date</th>
+                            <th class="text-center">estimated_delivery_date</th>
+                            <th class="text-center">is_responded</th>
+                            <th class="text-center">selected</th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <body>
+                        <t t-foreach="material_supplier_quotes" t-as="material_supplier_quote">
+                            <tr>
+                                <td class="text-center">
+                                    <t t-out="material_supplier_quote.material_quote_id.material_survey_data_id.material_survey_metadata_id.name" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="material_supplier_quote.material_quote_id.material_survey_data_id.quantity" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="material_supplier_quote.unit_price" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="material_supplier_quote.material_quote_id.material_survey_data_id.material_survey_metadata_id.origin" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="material_supplier_quote.material_quote_id.expected_delivery_date" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="material_supplier_quote.estimated_delivery_date" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="material_supplier_quote.is_responded" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-if="material_supplier_quote.supplier_id == supplier" 
+                                        t-out="material_supplier_quote.supplier_id.name"/>
+
+                                    <t t-if="material_supplier_quote.supplier_id != supplier">
+                                        <span>Không</span>
+                                    </t>
+                                </td>
+                                <td class="text-center">
+                                    <a type="button"
+                                        class="btn btn-primary float-right"
+                                        t-attf-href="/docking/material-supplier-quote/{{material_supplier_quote.ref}}?{{request.httprequest.query_string}}">Báo giá
+                                    </a>
+                                </td>
+                            </tr>
+                        </t>
+                    </body>
+                </t>
+            </div>
+
+            <div style="margin: 30px 0px;">
+                <t t-call="portal.portal_table">
+                    <thead>
+                        <tr class="active">
+                            <th class="text-center">name(Phụ tùng)</th>
+                            <th class="text-center">quantity</th>
+                            <th class="text-center">unit_price</th>
+                            <th class="text-center">origin</th>
+                            <th class="text-center">expected_delivery_date</th>
+                            <th class="text-center">estimated_delivery_date</th>
+                            <th class="text-center">is_responded</th>
+                            <th class="text-center">selected</th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <body>
+                        <t t-foreach="spare_part_supplier_quotes" t-as="spare_part_supplier_quote">
+                            <tr>
+                                <td class="text-center">
+                                    <t t-out="spare_part_supplier_quote.material_quote_id.material_survey_data_id.material_survey_metadata_id.name" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="spare_part_supplier_quote.material_quote_id.material_survey_data_id.quantity" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="spare_part_supplier_quote.unit_price" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="spare_part_supplier_quote.material_quote_id.material_survey_data_id.material_survey_metadata_id.origin" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="spare_part_supplier_quote.material_quote_id.expected_delivery_date" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="spare_part_supplier_quote.estimated_delivery_date" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="spare_part_supplier_quote.is_responded" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-if="spare_part_supplier_quote.supplier_id == supplier" 
+                                        t-out="spare_part_supplier_quote.supplier_id.name"/>
+
+                                    <t t-if="spare_part_supplier_quote.supplier_id != supplier">
+                                        <span>Không</span>
+                                    </t>
+                                </td>
+                                <td class="text-center">
+                                    <a type="button"
+                                        class="btn btn-primary float-right"
+                                        t-attf-href="/docking/material-supplier-quote/{{spare_part_supplier_quote.ref}}?{{request.httprequest.query_string}}">Báo giá
+                                    </a>
+                                </td>
+                            </tr>
+                        </t>
+                    </body>
+                </t>
+            </div>
+
+            <div>
+                <t t-call="portal.portal_table">
+                    <thead>
+                        <tr class="active">
+                            <th class="text-center">name(Sơn)</th>
+                            <th class="text-center">quantity</th>
+                            <th class="text-center">unit_price</th>
+                            <th class="text-center">origin</th>
+                            <th class="text-center">expected_delivery_date</th>
+                            <th class="text-center">estimated_delivery_date</th>
+                            <th class="text-center">is_responded</th>
+                            <th class="text-center">selected</th>
+                            <th class="text-center"></th>
+                        </tr>
+                    </thead>
+                    <body>
+                        <t t-foreach="paint_supplier_quotes" t-as="paint_supplier_quote">
+                            <tr>
+                                <td class="text-center">
+                                    <t t-out="paint_supplier_quote.material_quote_id.material_survey_data_id.material_survey_metadata_id.name" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="paint_supplier_quote.material_quote_id.material_survey_data_id.quantity" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="paint_supplier_quote.unit_price" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="paint_supplier_quote.material_quote_id.material_survey_data_id.material_survey_metadata_id.origin" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="paint_supplier_quote.material_quote_id.expected_delivery_date" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="paint_supplier_quote.estimated_delivery_date" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-out="paint_supplier_quote.is_responded" />
+                                </td>
+                                <td class="text-center">
+                                    <t t-if="paint_supplier_quote.supplier_id == supplier" 
+                                        t-out="paint_supplier_quote.supplier_id.name"/>
+
+                                    <t t-if="paint_supplier_quote.supplier_id != supplier">
+                                        <span>Không</span>
+                                    </t>
+                                </td>
+                                <td class="text-center">
+                                    <a type="button"
+                                        class="btn btn-primary float-right"
+                                        t-attf-href="/docking/material-supplier-quote/{{paint_supplier_quote.ref}}?{{request.httprequest.query_string}}">Báo giá
+                                    </a>
+                                </td>
+                            </tr>
+                        </t>
+                    </body>
+                </t>
+            </div>
+        </t>
+    </template>
+</odoo>

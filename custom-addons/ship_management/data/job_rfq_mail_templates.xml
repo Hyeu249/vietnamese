@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="quote_email_in_job_supplier_quote" model="mail.template">
+            <field name="name">Yêu cầu báo giá công việc</field>
+            <field name="subject">Yêu cầu báo giá công việc</field>
+            <field name="email_from">{{object.email_from}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="model_id" ref="ship_management.model_ship_supplier"/>
+            <field name="body_html" type="html">
+                <t t-set="self" t-value="ctx.get('self')"/>
+                <t t-set="job_id" t-value="self.job_quote_id.job_id"/>
+                <t t-set="quote_id" t-value="self.job_quote_id"/>
+                <t t-set="scope_id" t-value="quote_id.job_id.maintenance_scope_id"/>
+                    <div>
+                        <div>Kính gửi quý công ty <t t-esc="object.name"/>,</div>
+                        <br/>
+                        <br/>
+                        <div>Chúng tôi đang có nhu cầu thuê để thực hiện công việc <strong t-esc="job_id.name"/>.</div>
+                        <div>Mô tả: <strong t-esc="job_id.description"/></div>
+                        <div>Của hạng mục: <strong t-esc="scope_id.name"/></div>
+                        <div>Ngày thực hiện công việc mong muốn là: <strong t-esc="quote_id.expected_delivery_date"/></div>
+                        <div>Quý công ty vui lòng báo giá cho chúng tôi truớc ngày: <strong t-esc="quote_id.deadline"/>
+                            <br/>
+                            <a t-att-href="ctx.get('reply_quote_url')">Báo giá cho chúng tôi</a>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div>Trân trọng</div>
+                        <br/>
+                        <div>Công ty VSICO</div>
+                    </div>
+            </field>
+        </record>
+
+        <record id="selected_quote_email_in_job_supplier_quote" model="mail.template">
+            <field name="name">Báo giá công việc được chấp nhận</field>
+            <field name="subject">Báo giá công việc được chấp nhận</field>
+            <field name="email_from">{{object.email_from}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="model_id" ref="ship_management.model_ship_supplier"/>
+            <field name="body_html" type="html">
+                <t t-set="self" t-value="ctx.get('self')"/>
+                <t t-set="job_id" t-value="self.job_quote_id.job_id"/>
+                    <div>
+                        <div>Kính gửi quý công ty <t t-esc="object.name"/>,</div>
+                        <br/>
+                        <br/>
+                        <div>Chúng tôi xin thông báo rằng chúng tôi đã chấp nhận báo giá của quý công ty cho công việc <t t-esc="job_id.name"/></div>
+                        <div>Mô tả: <strong t-esc="job_id.description"/></div>
+                        <div>Mã báo giá: <strong t-esc="self.ref"/></div>
+                        <div>Giá nhân công: <strong t-esc="self.labor_cost"/> <strong t-esc="self.currency_id.name"/></div>
+                        <div>Mã báo giá: <strong t-esc="self.ref"/></div>
+                        <div>Ngày thực hiện công việc dự kiến: <strong t-esc="self.estimated_delivery_date"/></div>
+                        <br/>
+                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.
+                        <br/>
+                        <br/>
+                        <div>Trân trọng</div>
+                        <br/>
+                        <div>Công ty VSICO</div>
+                    </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

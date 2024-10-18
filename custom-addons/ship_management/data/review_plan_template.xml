@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="email_review_plan_template" model="mail.template">
+            <field name="name">Thông báo có báo giá mới từ VSICO</field>
+            <field name="model_id" ref="model_ship_review_plan"/>
+            <field name="subject">Thông báo có báo giá mới từ VSICO</field>
+            <field name="body_html" type="html">
+                <t t-set="self" t-value="ctx.get('self')"/>
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        <div>Kính gửi phòng/ tàu: <strong t-esc="self.company_id.name"/></div>
+                        <div>Thừa lệnh Tổng giám đốc, phòng QLT thông báo lịch đánh giá nội bộ tàu/phòng <strong t-esc="self.company_id.name"/> vào ngày <strong t-esc="self.review_approval_date"/></div>
+                        <div>Kính đề nghị tàu/phòng <strong t-esc="self.company_id.name"/> chuẩn bị các nội dung như thông báo đính kèm dưới đây để đạt kết quả tốt.</div>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        DPA
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

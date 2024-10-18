@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_internal_mcl_audit_checklist_form" model="ir.ui.view">
+        <field name="name">ship.internal.mlc.audit.checklist.form</field>
+        <field name="model">ship.internal.mlc.audit.checklist</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="audit_date"/>
+                            <field name="captain_id"/>
+                            <field name="auditor_id"/>
+                        </group>
+
+                        <group>
+                            <field name="audit_no"/>
+                            <field name="port"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Audit Questions" name="audit_question_ids">
+                            <field name="audit_question_ids">
+                                <tree editable="bottom">
+                                    <field name="name" readonly="1"/>
+                                    <field name="yes_no"/>
+                                    <field name="answer"/>
+                                    <field name="attachment"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_internal_mcl_audit_checklist_tree" model="ir.ui.view">
+        <field name="name">ship.internal.mlc.audit.checklist.tree</field>
+        <field name="model">ship.internal.mlc.audit.checklist</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="audit_date"/>
+                <field name="audit_no"/>
+                <field name="port"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_internal_mcl_audit_checklist_search" model="ir.ui.view">
+        <field name="name">ship.internal.mlc.audit.checklist.search</field>
+        <field name="model">ship.internal.mlc.audit.checklist</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="audit_date"/>
+                <field name="audit_no"/>
+                <field name="port"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_internal_mcl_audit_checklist" model="ir.actions.act_window">
+        <field name="name">Internal MCL Audit Checklist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.internal.mlc.audit.checklist</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_internal_mcl_audit_checklist"
+            name="Internal MCL Audit Checklist" 
+            parent="menu_ship_review_plans"
+            action="action_ship_internal_mcl_audit_checklist"
+            sequence="10"/>
+
+</odoo>

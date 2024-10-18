@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_technical_inspection_scope_form" model="ir.ui.view">
+        <field name="name">ship.technical.inspection.scope.form</field>
+        <field name="model">ship.technical.inspection.scope</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="status"
+                            decoration-success="status == 'SATISFIED'"
+                            decoration-danger="status == 'UNSATISFIED'"
+                            decoration-warning="status == 'PENDING'"    
+                            widget="badge"
+                        />
+                    </group>
+
+                    <notebook>
+                        <page string="Technical Inspection Tasks" name="technical_inspection_task_ids">
+                            <field name="technical_inspection_task_ids"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <field name="inspection_plan_id"/>
+                                <field name="technical_inspection_scope_metadata_id"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_technical_inspection_scope_tree" model="ir.ui.view">
+        <field name="name">ship.technical.inspection.scope.tree</field>
+        <field name="model">ship.technical.inspection.scope</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="status"
+                    decoration-success="status == 'SATISFIED'"
+                    decoration-danger="status == 'UNSATISFIED'"
+                    decoration-warning="status == 'PENDING'"    
+                    widget="badge"
+                />
+                <field name="inspection_plan_id" invisible="1"/>
+                <field name="technical_inspection_scope_metadata_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_technical_inspection_scope_search" model="ir.ui.view">
+        <field name="name">ship.technical.inspection.scope.search</field>
+        <field name="model">ship.technical.inspection.scope</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="status"/>
+                <field name="inspection_plan_id"/>
+                <field name="technical_inspection_scope_metadata_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_technical_inspection_scope" model="ir.actions.act_window">
+        <field name="name">Technical Inspection Scope</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.technical.inspection.scope</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_technical_inspection_scope"
+            name="Technical Inspection Scope" 
+            parent="menu_ship_inspection_scopes"
+            action="action_ship_technical_inspection_scope"
+            sequence="10"/>
+
+</odoo>

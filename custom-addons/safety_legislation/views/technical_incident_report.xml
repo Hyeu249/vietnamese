@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_technical_incident_report_form" model="ir.ui.view">
+        <field name="name">legis.technical.incident.report.form</field>
+        <field name="model">legis.technical.incident.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            Báo cáo sự cố kỹ thật
+                        </h1>
+                    </div>
+
+                    <group string="Technical Incident Report">
+                        <group string="Normal Info">
+                            <field name="trip"/>
+                            <field name="report_date"/>
+                            <field name="report_number"/>
+                        </group>
+
+                        <group string="For P.QLT">
+                            <field name="assigned_cvkt"/>
+                            <field name="director_comment_for_PQLT"/>
+                        </group>
+
+                        <group string="For SHIP">
+                            <field name="department_in_charge"/>
+                            <field name="maintenance_scope_ids" widget="many2many_tags"/>
+                            <field name="problem"/>
+                            <field name="temporary_action"/>
+                            <field name="recommend"/>
+                        </group>
+
+                        <group string="Others">
+                            <field name="method"/>
+                            <field name="time"/>
+                            <field name="cost"/>
+                            <field name="origin"/>
+                            <field name="insurance"/>
+                            <field name="attachment_for_technical_incident"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Technical Incident Report" name="technical_incident_report_html">
+                            <header style="margin-bottom: 20px;">
+                                <button name="move_to_prev_technical_incident_report_page" string="" type="object" class="fa fa-angle-double-left"/>
+                                <button name="move_to_next_technical_incident_report_page" string="" type="object" class="fa fa-angle-double-right"/>
+                                <field name="technical_incident_report_page_len"/>
+                            </header>
+                            <field name="technical_incident_report_html" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Report Pages" name="technical_incident_report_page_ids">
+                            <field name="technical_incident_report_page_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_report_tree" model="ir.ui.view">
+        <field name="name">legis.technical.incident.report.tree</field>
+        <field name="model">legis.technical.incident.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="trip"/>
+                <field name="report_date"/>
+                <field name="report_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_report_search" model="ir.ui.view">
+        <field name="name">legis.technical.incident.report.search</field>
+        <field name="model">legis.technical.incident.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="trip"/>
+                <field name="report_date"/>
+                <field name="report_number"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_technical_incident_report" model="ir.actions.act_window">
+        <field name="name">Technical Incident Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.technical.incident.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_technical_incident_report"
+            name="Technical Incident Report"
+            parent="menu_legis_forms"
+            action="action_legis_technical_incident_report"
+            sequence="10"/>
+
+</odoo>

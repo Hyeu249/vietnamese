@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+
+    <t t-name="owl.MaterialPaintQuotesRequestListView.Buttons" t-inherit="web.ListView.Buttons" owl="1">
+        <xpath expr="//t[contains(@t-if, 'isExportEnable')]" position="before">
+            <button class="btn btn-secondary fa fa-question-circle" t-on-click="openHelp"></button>
+        </xpath>
+    </t>
+
+    <t t-name="owl.TeleConfigSettingsListView.Buttons" t-inherit="web.ListView.Buttons" owl="1">
+        <xpath expr="//t[contains(@t-if, 'isExportEnable')]" position="before">
+            <button class="btn btn-secondary fa fa-telegram" t-on-click="getTeleChatIds"></button>
+        </xpath>
+    </t>
+
+    <t t-name="owl.InspectionPlanListView.Buttons" t-inherit="web.ListView.Buttons" owl="1">
+        <xpath expr="//t[contains(@t-if, 'isExportEnable')]" position="before">
+            <button class="btn btn-secondary fa fa-question-circle" t-on-click="openHelp"></button>
+        </xpath>
+    </t>
+</templates>

@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="sequence_ship_material_group" model="ir.sequence">
+            <field name="name">Ship Material Group</field>
+            <field name="code">ship.material.group</field>
+            <field name="prefix">NVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material_usage_type" model="ir.sequence">
+            <field name="name">Ship Material Usage Type</field>
+            <field name="code">ship.material.usage.type</field>
+            <field name="prefix">LSVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material" model="ir.sequence">
+            <field name="name">Ship Material</field>
+            <field name="code">ship.material</field>
+            <field name="prefix">VTU</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material_entity" model="ir.sequence">
+            <field name="name">Ship Material Entity</field>
+            <field name="code">ship.material.entity</field>
+            <field name="prefix">ME</field>
+            <field name="padding">0</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material_paint_quotes_request" model="ir.sequence">
+            <field name="name">Ship Material Paint Quotes Request</field>
+            <field name="code">ship.material.paint.quotes.request</field>
+            <field name="prefix">YCBGSV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material_quote" model="ir.sequence">
+            <field name="name">Ship Material Quote</field>
+            <field name="code">ship.material.quote</field>
+            <field name="prefix">BGVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material_supplier_quote" model="ir.sequence">
+            <field name="name">Ship Material Supplier Quote</field>
+            <field name="code">ship.material.supplier.quote</field>
+            <field name="prefix">NBGVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_supplier" model="ir.sequence">
+            <field name="name">Ship Supplier</field>
+            <field name="code">ship.supplier</field>
+            <field name="prefix">NCC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_paint" model="ir.sequence">
+            <field name="name">Ship Paint</field>
+            <field name="code">ship.paint</field>
+            <field name="prefix">SON</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_paint_type" model="ir.sequence">
+            <field name="name">Ship Paint Type</field>
+            <field name="code">ship.paint.type</field>
+            <field name="prefix">LSON</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_paint_history" model="ir.sequence">
+            <field name="name">Ship Paint History</field>
+            <field name="code">ship.paint.history</field>
+            <field name="prefix">SLS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_paint_quote" model="ir.sequence">
+            <field name="name">Ship Paint Quote</field>
+            <field name="code">ship.paint.quote</field>
+            <field name="prefix">BGS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_paint_supplier_quote" model="ir.sequence">
+            <field name="name">Ship Paint Supplier Quote</field>
+            <field name="code">ship.paint.supplier.quote</field>
+            <field name="prefix">NBGS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_equipment" model="ir.sequence">
+            <field name="name">Ship Equipment</field>
+            <field name="code">ship.equipment</field>
+            <field name="prefix">TB</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_maintenance_scope" model="ir.sequence">
+            <field name="name">Ship Maintenance Scope</field>
+            <field name="code">ship.maintenance.scope</field>
+            <field name="prefix">HMSC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_job" model="ir.sequence">
+            <field name="name">Ship Job</field>
+            <field name="code">ship.job</field>
+            <field name="prefix">CV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_job_material_requirement" model="ir.sequence">
+            <field name="name">Ship Job Material Requirement</field>
+            <field name="code">ship.job.material.requirement</field>
+            <field name="prefix">CVYCVL</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_maintenance_scope_report" model="ir.sequence">
+            <field name="name">Ship Maintenance Scope Report</field>
+            <field name="code">ship.maintenance.scope.report</field>
+            <field name="prefix">BCHMSC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_job_quote" model="ir.sequence">
+            <field name="name">Ship Job Quote</field>
+            <field name="code">ship.job.quote</field>
+            <field name="prefix">BGCV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_job_supplier_quote" model="ir.sequence">
+            <field name="name">Ship Job Supplier Quote</field>
+            <field name="code">ship.job.supplier.quote</field>
+            <field name="prefix">NBGCV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material_assignment" model="ir.sequence">
+            <field name="name">Ship Material Assignment</field>
+            <field name="code">ship.material.assignment</field>
+            <field name="prefix">GVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_area_of_paint_job" model="ir.sequence">
+            <field name="name">Ship Area Of Paint Job</field>
+            <field name="code">ship.area.of.paint.job</field>
+            <field name="prefix">DTSON</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_job_paint_requirement" model="ir.sequence">
+            <field name="name">Ship Job Paint Requirement</field>
+            <field name="code">ship.job.paint.requirement</field>
+            <field name="prefix">NCSCV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_classify" model="ir.sequence">
+            <field name="name">Ship Classify</field>
+            <field name="code">ship.classify</field>
+            <field name="prefix">PLNCC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_material_consumption_report_batch" model="ir.sequence">
+            <field name="name">Ship Material Consumption Report Batch</field>
+            <field name="code">ship.material.consumption.report.batch</field>
+            <field name="prefix">TKSDVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_unit" model="ir.sequence">
+            <field name="name">Ship Unit</field>
+            <field name="code">ship.unit</field>
+            <field name="prefix">DV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_utilization_time" model="ir.sequence">
+            <field name="name">Ship Utilization Time</field>
+            <field name="code">ship.utilization.time</field>
+            <field name="prefix">TGSD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_ship_fuel_quote" model="ir.sequence">
+            <field name="name">Ship Fuel Quote</field>
+            <field name="code">ship.fuel.quote</field>
+            <field name="prefix">FQ</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_supplier_quote" model="ir.sequence">
+            <field name="name">Ship Fuel Supplier Quote</field>
+            <field name="code">ship.fuel.supplier.quote</field>
+            <field name="prefix">FSQ</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_quote_grease" model="ir.sequence">
+            <field name="name">Ship Grease Quote</field>
+            <field name="code">ship.fuel.quote.grease</field>
+            <field name="prefix">GF</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_supplier_quote_grease" model="ir.sequence">
+            <field name="name">Ship Grease Supplier Quote </field>
+            <field name="code">ship.fuel.supplier.quote.grease</field>
+            <field name="prefix">GFQ</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_quote_request" model="ir.sequence">
+            <field name="name">Ship Fuel Quote Request</field>
+            <field name="code">ship.fuel.quotes.request</field>
+            <field name="prefix">FQR</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_replacement_diary" model="ir.sequence">
+            <field name="name">Ship Replacement Diary</field>
+            <field name="code">ship.replacement.diary</field>
+            <field name="prefix">NKTR</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_proposed_liquidation" model="ir.sequence">
+            <field name="name">Ship Proposed Liquidation</field>
+            <field name="code">ship.proposed.liquidation</field>
+            <field name="prefix">DNTL</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="sequence_ship_liquidation_minute" model="ir.sequence">
+            <field name="name">Ship Liquidation Minute</field>
+            <field name="code">ship.liquidation.minute</field>
+            <field name="prefix">BBTL</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_expired_material_entity_replacement_proposal" model="ir.sequence">
+            <field name="name">Ship Expired Material Entity Replacement Proposal</field>
+            <field name="code">ship.expired.material.entity.replacement.proposal</field>
+            <field name="prefix">EMERP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_lashing_material_fix_stats" model="ir.sequence">
+            <field name="name">Ship Lashing Material Fix Stats</field>
+            <field name="code">ship.lashing.material.fix.stats</field>
+            <field name="prefix">TTVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_technical_inspection_task_metadata" model="ir.sequence">
+            <field name="name">Technical Inspection Task Metadata</field>
+            <field name="code">ship.technical.inspection.task.metadata</field>
+            <field name="prefix">NDKTMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_ship_management_inspection_task" model="ir.sequence">
+            <field name="name">Ship Management Inspection Task</field>
+            <field name="code">ship.ship.management.inspection.task</field>
+            <field name="prefix">NDKTQLT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_ship_management_inspection_task_metadata" model="ir.sequence">
+            <field name="name">Ship Management Inspection Task Metadata</field>
+            <field name="code">ship.ship.management.inspection.task.metadata</field>
+            <field name="prefix">NDKTQLTMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_ship_management_inspection_scope" model="ir.sequence">
+            <field name="name">Ship Management Inspection Scope</field>
+            <field name="code">ship.ship.management.inspection.scope</field>
+            <field name="prefix">NDKTQLTHM</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_technical_inspection_task" model="ir.sequence">
+            <field name="name">Technical Inspection Task</field>
+            <field name="code">ship.technical.inspection.task</field>
+            <field name="prefix">NDKTKT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_technical_inspection_scope" model="ir.sequence">
+            <field name="name">Technical Inspection Scope</field>
+            <field name="code">ship.technical.inspection.scope</field>
+            <field name="prefix">KTKTHM</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_inspection_plan" model="ir.sequence">
+            <field name="name">Inspection Plan</field>
+            <field name="code">ship.inspection.plan</field>    
+            <field name="prefix">KHKT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_ship_management_inspection_scope_metadata" model="ir.sequence">
+            <field name="name">Ship Management Inspection Scope Metadata</field>
+            <field name="code">ship.ship.management.inspection.scope.metadata</field>
+            <field name="prefix">NDKTQLTHMMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_technical_inspection_scope_metadata" model="ir.sequence">
+            <field name="name">Technical Inspection Scope Metadata</field>
+            <field name="code">ship.technical.inspection.scope.metadata</field>
+            <field name="prefix">NDKTKTHMMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_inspection_image" model="ir.sequence">
+            <field name="name">Inspection Image</field>
+            <field name="code">ship.inspection.image</field>
+            <field name="prefix">INSPIMG</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        
+
+        <record id="sequence_ship_fuel_external_calculator" model="ir.sequence">
+            <field name="name">Ship Fuel External Calculator</field>
+            <field name="code">ship.fuel.external.calculator</field>
+            <field name="prefix">TNLQT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_external_receiving" model="ir.sequence">
+            <field name="name">Ship Fuel External Receiving</field>
+            <field name="code">ship.fuel.external.receiving</field>
+            <field name="prefix">NNLQT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_internal_calculator" model="ir.sequence">
+            <field name="name">Ship Fuel Internal Calculator</field>
+            <field name="code">ship.fuel.internal.calculator</field>
+            <field name="prefix">TNLND</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_internal_receiving" model="ir.sequence">
+            <field name="name">Ship Fuel Internal Receiving</field>
+            <field name="code">ship.fuel.internal.receiving</field>
+            <field name="prefix">NNLND</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_ship_fuel_quote_request_external" model="ir.sequence">
+            <field name="name">Ship Fuel Quote Request External</field>
+            <field name="code">ship.fuel.quotes.request.external</field>
+            <field name="prefix">EFQR</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+        <record id="seq_ship_fuel_external_diary" model="ir.sequence">
+            <field name="name">Ship Fuel External Diary</field>
+            <field name="code">ship.fuel.external.diary</field>
+            <field name="prefix">NKQT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_review_plan" model="ir.sequence">
+            <field name="name">Ship Internal Audit Checklist</field>
+            <field name="code">ship.review.plan</field>
+            <field name="prefix">KHDGNB</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_internal_audit_checklist" model="ir.sequence">
+            <field name="name">Ship Internal Audit Checklist</field>
+            <field name="code">ship.internal.audit.checklist</field>
+            <field name="prefix">DGNB</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_internal_mlc_audit_checklist" model="ir.sequence">
+            <field name="name">Ship Internal MCL Audit Checklist</field>
+            <field name="code">ship.internal.mlc.audit.checklist</field>
+            <field name="prefix">DGNBMCL</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_checklist_value" model="ir.sequence">
+            <field name="name">Ship Checklist Value</field>
+            <field name="code">ship.checklist.value</field>
+            <field name="prefix">CLVL</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_internal_ism_audit_report" model="ir.sequence">
+            <field name="name">Ship Internal ISM Audit Report</field>
+            <field name="code">ship.internal.ism.audit.report</field>
+            <field name="prefix">BCDGNBISM</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_list_of_ism_nonconformities" model="ir.sequence">
+            <field name="name">Ship List of ISM Nonconfirmities</field>
+            <field name="code">ship.list.of.ism.nonconformities</field>
+            <field name="prefix">DSCSKPH</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_description_of_objective_evidence" model="ir.sequence">
+            <field name="name">Ship Description Of Objective Evidence</field>
+            <field name="code">ship.description.of.objective.evidence</field>
+            <field name="prefix">NDBCKQ</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="seq_ship_nonconformity_report" model="ir.sequence">
+            <field name="name">Ship Nonconformity Report</field>
+            <field name="code">ship.nonconformity.report</field>
+            <field name="prefix">BCSKPH</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

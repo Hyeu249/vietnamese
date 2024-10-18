@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="sequence_docking_docking_plan" model="ir.sequence">
+            <field name="name">Docking Docking Plan</field>
+            <field name="code">docking.docking.plan</field>
+            <field name="prefix">D-KHDK</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_equipment_survey_group" model="ir.sequence">
+            <field name="name">Docking Equipment Survey Group</field>
+            <field name="code">docking.equipment.survey.group</field>
+            <field name="prefix">D-NKSTB</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_material_group" model="ir.sequence">
+            <field name="name">Docking Material Group</field>
+            <field name="code">docking.material.group</field>
+            <field name="prefix">D-NVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_equipment_survey_metadata" model="ir.sequence">
+            <field name="name">Docking Equipment Survey Metadata</field>
+            <field name="code">docking.equipment.survey.metadata</field>
+            <field name="prefix">D-KSTBMD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_equipment_survey_data" model="ir.sequence">
+            <field name="name">Docking Equipment Survey Data</field>
+            <field name="code">docking.equipment.survey.data</field>
+            <field name="prefix">D-DLKSTB</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_maintenance_scope" model="ir.sequence">
+            <field name="name">Docking Maintenance Scope</field>
+            <field name="code">docking.maintenance.scope</field>
+            <field name="prefix">D-HMSC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_job" model="ir.sequence">
+            <field name="name">Docking Job</field>
+            <field name="code">docking.job</field>
+            <field name="prefix">D-CV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_supplier" model="ir.sequence">
+            <field name="name">Docking Supplier</field>
+            <field name="code">docking.supplier</field>
+            <field name="prefix">D-NCC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_maintenance_scope_report" model="ir.sequence">
+            <field name="name">Docking Maintenance Scope Report</field>
+            <field name="code">docking.maintenance.scope.report</field>
+            <field name="prefix">D-BCHMSC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_job_quote" model="ir.sequence">
+            <field name="name">Docking Job Quote</field>
+            <field name="code">docking.job.quote</field>
+            <field name="prefix">D-BGCV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_job_supplier_quote" model="ir.sequence">
+            <field name="name">Docking Job Supplier Quote</field>
+            <field name="code">docking.job.supplier.quote</field>
+            <field name="prefix">D-NBGCV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_material_survey_metadata" model="ir.sequence">
+            <field name="name">Docking Material Survey Metadata</field>
+            <field name="code">docking.material.survey.metadata</field>
+            <field name="prefix">D-KSVTMD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_material_quote" model="ir.sequence">
+            <field name="name">Docking Material Quote</field>
+            <field name="code">docking.material.quote</field>
+            <field name="prefix">D-BGVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_material_supplier_quote" model="ir.sequence">
+            <field name="name">Docking Material Supplier Quote</field>
+            <field name="code">docking.material.supplier.quote</field>
+            <field name="prefix">D-NBGVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_material_survey_data" model="ir.sequence">
+            <field name="name">Docking Material Survey Data</field>
+            <field name="code">docking.material.survey.data</field>
+            <field name="prefix">D-DLKSVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_expected_cost_report" model="ir.sequence">
+            <field name="name">Docking Expected Cost Report</field>
+            <field name="code">docking.expected.cost.report</field>
+            <field name="prefix">D-DTCP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_material_quote_request" model="ir.sequence">
+            <field name="name">Docking Material Quote Request</field>
+            <field name="code">docking.material.quote.request</field>
+            <field name="prefix">D-YCBGVT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_job_quote_request" model="ir.sequence">
+            <field name="name">Docking Job Quote Request</field>
+            <field name="code">docking.job.quote.request</field>
+            <field name="prefix">D-YCBGCV</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_inspection_event_metadata" model="ir.sequence">
+            <field name="name">Docking Inspection Event Metadata</field>
+            <field name="code">docking.inspection.event.metadata</field>
+            <field name="prefix">D-SKDKMT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_inspection_event" model="ir.sequence">
+            <field name="name">Docking Inspection Event</field>
+            <field name="code">docking.inspection.event</field>
+            <field name="prefix">D-SKDK</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_contract" model="ir.sequence">
+            <field name="name">Docking Contract</field>
+            <field name="code">docking.contract</field>
+            <field name="prefix">D-CONTRACT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_contract_payment_instalment" model="ir.sequence">
+            <field name="name">Docking Contract Payment Instalment</field>
+            <field name="code">docking.contract.payment.instalment</field>
+            <field name="prefix">D-HDTT</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_cost_settlement_report" model="ir.sequence">
+            <field name="name">Docking Cost Settlement Report</field>
+            <field name="code">docking.cost.settlement.report</field>
+            <field name="prefix">D-QTCP</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_job_quote_final_parameter_set" model="ir.sequence">
+            <field name="name">Docking Job Quote Final Parameter Set</field>
+            <field name="code">docking.job.quote.final.parameter.set</field>
+            <field name="prefix">D-BTS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_job_quote_expected_parameter_set" model="ir.sequence">
+            <field name="name">Docking Job Quote Expected Parameter Set</field>
+            <field name="code">docking.job.quote.expected.parameter.set</field>
+            <field name="prefix">D-DTTS</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_contract_history" model="ir.sequence">
+            <field name="name">Docking Contract History</field>
+            <field name="code">docking.contract.history</field>
+            <field name="prefix">D-LSHD</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+
+        <record id="sequence_docking_factor_note_option" model="ir.sequence">
+            <field name="name">Docking Factor Note Option</field>
+            <field name="code">docking.factor.note.option</field>
+            <field name="prefix">D-GCHSTC</field>
+            <field name="padding">5</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

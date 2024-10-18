@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ir_model_fields_form_in_vietnamese" model="ir.ui.view">
+        <field name="name">ir.model.fields.form.in.vietnamese</field>
+        <field name="model">ir.model.fields</field>
+        <field name="arch" type="xml">
+                <form string="Menu">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="field_description"/>
+                                <field name="help"/>
+                            </group>
+                            <group>
+                                <field name="ttype"/>
+                                <field name="relation_selection" attrs="{'invisible': [('ttype', 'not in', ['one2many', 'many2one'])]}"/>
+                            </group>
+                        </group>
+
+                        <group>
+                            <group string ="Base Properties">
+                                <field name="required"/>
+                                <field name="readonly"/>
+                                <field name="name_select"/>
+                            </group>
+                            <group string ="Views">
+                                <field name="hide_tree_view"/>
+                                <field name="hide_form_view"/>
+                                <field name="meta_field"/>
+                            </group>
+                        </group>
+
+                        <notebook>
+                            <page string="Selection Value" name="selection_ids" attrs="{'invisible': [('ttype', '!=', 'selection')]}">
+                                <field name="selection_ids">
+                                    <tree editable="bottom">
+                                        <field name="sequence" widget='handle'/>
+                                        <field name="value" invisible="1"/>
+                                        <field name="name"/>
+                                    </tree>
+                                </field>
+                            </page>
+
+                            <page string="Advanced Properties" name="advanced_properties">
+                                <group>
+                                    <field name="depends"/>
+                                    <field name="compute"/>
+                                </group>
+                            </page>
+                            <page string="Meta" name="meta">
+                                <group>
+                                    <group>
+                                        <field name="name"/>
+                                        <field name="related"/>
+                                    </group>
+                                    <group>
+                                        <field name="relation"/>
+                                        <field name="relation_field"/>
+                                    </group>
+                                </group>
+                            </page>
+                        </notebook>
+                   </sheet>
+                </form>
+        </field>
+    </record>
+
+</odoo>

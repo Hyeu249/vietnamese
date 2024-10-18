@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_accident_report_form" model="ir.ui.view">
+        <field name="name">legis.accident.report.form</field>
+        <field name="model">legis.accident.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            BÁO CÁO TAI NẠN/ SỰ CỐ
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="date_of_event"/>
+                            <field name="ship_movement"/>
+                            <field name="location"/>
+                            <field name="weather_condition"/>
+                            <field name="deck_condition"/>
+                            <field name="lighting_condition"/>
+                        </group>
+
+                        <group>
+                            <field name="create_date"/>
+                            <field name="voy_no"/>
+                        </group>
+                    </group>
+
+                    <group string="Incident">
+                        <field name="damage"/>
+                        <field name="reason"/>
+                        <field name="review"/>
+                        <field name="comment"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Accident Report(0402)" name="accident_report_html">
+                            <header style="margin-bottom: 20px;">
+                                <button name="move_to_prev_accident_page" string="" type="object" class="fa fa-angle-double-left"/>
+                                <button name="move_to_next_accident_page" string="" type="object" class="fa fa-angle-double-right"/>
+                                <field name="accident_page_len"/>
+                            </header>
+                            <field name="accident_report_html" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Accident Page" name="accident_page_ids">
+                            <field name="accident_page_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_accident_report_tree" model="ir.ui.view">
+        <field name="name">legis.accident.report.tree</field>
+        <field name="model">legis.accident.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="create_date"/>
+                <field name="date_of_event"/>
+                <field name="ship_movement"/>
+                <field name="voy_no"/>
+                <field name="location"/>
+                <field name="weather_condition"/>
+                <field name="deck_condition"/>
+                <field name="lighting_condition"/>
+                <field name="damage"/>
+                <field name="reason"/>
+                <field name="review"/>
+                <field name="comment"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_accident_report_search" model="ir.ui.view">
+        <field name="name">legis.accident.report.search</field>
+        <field name="model">legis.accident.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="create_date"/>
+                <field name="date_of_event"/>
+                <field name="ship_movement"/>
+                <field name="voy_no"/>
+                <field name="location"/>
+                <field name="weather_condition"/>
+                <field name="deck_condition"/>
+                <field name="lighting_condition"/>
+                <field name="damage"/>
+                <field name="reason"/>
+                <field name="review"/>
+                <field name="comment"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_accident_report" model="ir.actions.act_window">
+        <field name="name">Accident report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.accident.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_accident_report"
+            name="Accident report" 
+            parent="menu_legis_forms"
+            action="action_legis_accident_report"
+            sequence="10"/>
+
+</odoo>

@@ -1,0 +1,3259 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* docking
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20230720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-06-24 13:31+0000\n"
+"PO-Revision-Date: 2024-06-24 13:31+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: docking
+#: model:mail.template,body_html:docking.material_quote_for_supplier_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Kính gửi quý công ty <t t-out=\"ctx.get('supplier_name') or ''\"></t>,\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Chúng tôi có yêu cầu báo giá mới cần quý công ty báo giá. Quý công ty vui lòng truy cập đường link sau để xem danh sách yêu cầu báo giá của quý công ty.\n"
+"                        <br>\n"
+"                        <a t-att-href=\"ctx.get('portal_access_url')\">Báo giá cho chúng tôi</a>\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Trân trọng,\n"
+"                        <br>\n"
+"                        Công ty VSICO\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: docking
+#: model:mail.template,body_html:docking.docking_email_access_supplier_quote_portal_response
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Kính gửi quý công ty <t t-out=\"ctx.get('supplier_name') or ''\"></t>,\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Chúng tôi nhận đươc yêu cầu truy cập danh sách báo giá của quý công ty. Quý công ty vui lòng truy cập đường link sau để xem danh sách yêu cầu báo giá của quý công ty.\n"
+"                        <br>\n"
+"                        <a t-att-href=\"ctx.get('portal_access_url')\"><t t-out=\"ctx.get('portal_access_url')\"></t></a>\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Trân trọng,\n"
+"                        <br>\n"
+"                        Công ty VSICO\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: docking
+#: model:mail.template,body_html:docking.job_quote_for_supplier_mark_done_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Kính gửi quý công ty <t t-out=\"ctx.get('supplier_name') or ''\"></t>,\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Chúng tôi xin thông báo rằng chúng tôi đã <b>chấp nhận</b> báo giá của quý công ty cho công việc\n"
+"                        <strong t-out=\"ctx.get('job_name') or ''\"></strong>.\n"
+"                        <t t-if=\"ctx.get('job_description')\">\n"
+"                            <br>\n"
+"                            Mô tả: <strong t-out=\"ctx.get('job_description')\"></strong>.\n"
+"                        </t>\n"
+"                        <t t-if=\"ctx.get('quote_ref')\">\n"
+"                            <br>\n"
+"                            Mã báo giá: <strong t-out=\"ctx.get('quote_ref')\"></strong>.\n"
+"                        </t>\n"
+"                        <br>\n"
+"                        Giá nhân công: <strong t-out=\"ctx.get('labor_cost')\"></strong> <t t-out=\"ctx.get('currency') or ''\"></t>.\n"
+"                        <br>\n"
+"                        Ngày thực hiện công việc dự kiến: <strong t-out=\"ctx.get('estimated_delivery_date') or ''\"></strong>.\n"
+"                        <br>\n"
+"                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Trân trọng,\n"
+"                        <br>\n"
+"                        Công ty VSICO\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: docking
+#: model:mail.template,body_html:docking.material_quote_for_supplier_mark_done_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Kính gửi quý công ty <t t-out=\"ctx.get('supplier_name') or ''\"></t>,\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Chúng tôi xin thông báo rằng chúng tôi đã <b>chấp nhận</b> báo giá của quý công ty cho sản phẩm\n"
+"                        <strong t-out=\"ctx.get('prod_name') or ''\"></strong>.\n"
+"                        <t t-if=\"ctx.get('prod_origin')\">\n"
+"                            <br>\n"
+"                            Xuất xứ: <strong t-out=\"ctx.get('prod_origin')\"></strong>.\n"
+"                        </t>\n"
+"                        <t t-if=\"ctx.get('prod_description')\">\n"
+"                            <br>\n"
+"                            Mô tả: <strong t-out=\"ctx.get('prod_description')\"></strong>.\n"
+"                        </t>\n"
+"                        <t t-if=\"ctx.get('quote_ref')\">\n"
+"                            <br>\n"
+"                            Mã báo giá: <strong t-out=\"ctx.get('quote_ref')\"></strong>.\n"
+"                        </t>\n"
+"                        <br>\n"
+"                        Số lượng: <strong t-out=\"ctx.get('quantity')\"></strong> <strong t-out=\"ctx.get('unit')\"></strong>.\n"
+"                        <br>\n"
+"                        Đơn giá: <strong t-out=\"ctx.get('unit_price')\"></strong> <t t-out=\"ctx.get('currency') or ''\"></t>.\n"
+"                        <br>\n"
+"                        Tổng giá trị: <strong t-out=\"ctx.get('total_price')\"></strong> <t t-out=\"ctx.get('currency') or ''\"></t>. \n"
+"                        <br>\n"
+"                        Ngày giao hàng dự kiến: <strong t-out=\"ctx.get('estimated_delivery_date') or ''\"></strong>.\n"
+"                        <br>\n"
+"                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.\n"
+"                        <br>\n"
+"                        <a t-att-href=\"ctx.get('portal_access_url')\">In mã QR(trong chi tiết sản phẩm)</a>\n"
+"                        <br>\n"
+"                        Trân trọng,\n"
+"                        <br>\n"
+"                        Công ty VSICO\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: docking
+#: model:mail.template,body_html:docking.job_quote_for_supplier_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Kính gửi quý công ty <t t-out=\"ctx.get('supplier_name') or ''\"></t>,\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Chúng tôi đang có nhu cầu thuê để thực hiện công việc\n"
+"                        <strong t-out=\"ctx.get('job_name') or ''\"></strong>.\n"
+"                        <t t-if=\"ctx.get('job_description')\">\n"
+"                            <br>\n"
+"                            Mô tả: <strong t-out=\"ctx.get('job_description')\"></strong>\n"
+"                        </t>\n"
+"                        <br>\n"
+"                        <t t-if=\"ctx.get('expected_delivery_date')\">\n"
+"                            <br>\n"
+"                            Ngày thực hiện công việc mong muốn là\n"
+"                            <strong t-out=\"ctx.get('expected_delivery_date')\"></strong>.\n"
+"                        </t>\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Quý công ty vui lòng báo giá cho chúng tôi ở đường link sau \n"
+"                        <t t-if=\"ctx.get('deadline')\">\n"
+"                            truớc ngày\n"
+"                            <strong t-out=\"ctx.get('deadline')\"></strong>\n"
+"                        </t>\n"
+"                        <br>\n"
+"                        <a t-att-href=\"ctx.get('reply_quote_url')\">Báo giá cho chúng tôi</a>\n"
+"                        <br>\n"
+"                        <br>\n"
+"                        Trân trọng,\n"
+"                        <br>\n"
+"                        Công ty VSICO\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: docking
+#: model:mail.template,body_html:docking.contract_for_supplier_template
+msgid ""
+"<div style=\"margin: 0px; padding: 0px;\">\n"
+"                    <p style=\"margin: 0px; padding: 0px; font-size: 13px;\">\n"
+"                        Kính gửi quý công ty <t t-out=\"ctx.get('supplier_name') or ''\"></t>,\n"
+"                        <br>\n"
+"                        Chúng tôi có hợp đồng mới cần quý công ty xem qua. Quý công ty vui lòng truy cập file đính kèm, để xem qua hợp đồng.\n"
+"                        <br>\n"
+"                        Trân trọng,\n"
+"                        <br>\n"
+"                        Công ty VSICO\n"
+"                    </p>\n"
+"                </div>\n"
+"            "
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_kanban
+msgid "<span class=\"bold_black_important\"> trên dock</span>"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_kanban
+msgid "<span class=\"bold_black_important\">Ngày </span>"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__access_token
+msgid "Access Token for supplier quote portal"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__access_token
+msgid "Access token"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_needaction
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_needaction
+msgid "Action Needed"
+msgstr "hành động cần thiết"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__address
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__amount
+msgid "Amount"
+msgstr "Số tiền"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__approval_flow_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__approval_flow_id
+msgid "Approval flow"
+msgstr "Luồng duyệt"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__approval_status
+msgid "Approval status"
+msgstr "Trạng thái duyệt"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__secondary_approval_status
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__secondary_approval_status
+msgid "Approval status 2"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+msgid "Approve All"
+msgstr "Chấp thuận"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_equipment_survey_data__survey_type__arise
+#: model:ir.model.fields.selection,name:docking.selection__docking_job_quote_request__survey_type__arise
+#: model:ir.model.fields.selection,name:docking.selection__docking_material_survey_data__survey_type__arise
+#: model:ir.model.fields.selection,name:docking.selection__docking_material_quote_request__survey_type__arise
+msgid "Arise"
+msgstr "Phát sinh"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__attachment
+msgid "Attachment"
+msgstr "Đính kèm"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_attachment_count
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__back_image
+msgid "Back image"
+msgstr "Ảnh sau"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope__department_in_charge__boong
+msgid "Boong"
+msgstr ""
+
+#. module: docking
+#: model:mail.template,name:docking.job_quote_for_supplier_mark_done_template
+#: model:mail.template,subject:docking.job_quote_for_supplier_mark_done_template
+msgid "Báo giá công việc được chấp nhận"
+msgstr ""
+
+#. module: docking
+#: model:mail.template,name:docking.material_quote_for_supplier_mark_done_template
+#: model:mail.template,subject:docking.material_quote_for_supplier_mark_done_template
+msgid "Báo giá được chấp nhận"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Bạn có chắc chắn muốn hoàn thành Docking Plan này?"
+msgstr ""
+
+#. module: docking
+#. odoo-python
+#: code:addons/docking/models/job_final_cost_formula.py:0
+#: code:addons/docking/models/job_final_cost_formula.py:0
+#: code:addons/docking/models/job_quote.py:0
+#: code:addons/docking/models/job_quote.py:0
+#, python-format
+msgid "Cannot divide by zero"
+msgstr ""
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_categories
+msgid "Categories"
+msgstr "Hạng mục"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__ref
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__ref
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__ref
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__ref
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__ref
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__code
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__ref
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__ref
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__ref
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__ref
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__ref
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__ref
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__ref
+#: model:ir.model.fields,field_description:docking.field_docking_job__ref
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__ref
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__ref
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__ref
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__ref
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__ref
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__ref
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__ref
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__ref
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__ref
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__ref
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__ref
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__ref
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__ref
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__ref
+msgid "Code"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__comment
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__comment
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__comment
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__comment
+msgid "Comment"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_job__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__company_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__company_id
+msgid "Company"
+msgstr "Tên tàu"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Complete contract"
+msgstr "Hoàn thành hợp đồng"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Complete docking plan"
+msgstr "Hoàn thành docking"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+msgid "Complete job quote"
+msgstr "Hoàn thành báo giá"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_contract_payment_instalment__status__completed
+#: model:ir.model.fields.selection,name:docking.selection__docking_job_quote__job_state__completed
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope_report__report_state__completed
+msgid "Completed"
+msgstr "Đã hoàn thành"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_factor_note_option_form
+msgid "Condition"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_inspection_event_form
+msgid "Confirm inspection"
+msgstr "Xác nhận đăng kiểm"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+msgid "Confirm is NOT matched with supplier"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+msgid "Confirm is matched with supplier"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_job_quote__job_state__confirmed
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope_report__report_state__confirmed
+msgid "Confirmed"
+msgstr "Đã xác nhận"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_contract
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__contract_id
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__contract_id
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__contract_ids
+#: model:ir.ui.menu,name:docking.menu_docking_contract
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Contract"
+msgstr "Hợp đồng"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_contract_history
+#: model:ir.ui.menu,name:docking.menu_docking_contract_history
+msgid "Contract History"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_contract_history
+msgid "Contract History records"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_contract_payment_instalment
+#: model:ir.model.fields,field_description:docking.field_docking_contract__contract_payment_instalment_id
+#: model:ir.model.fields,field_description:docking.field_docking_contract__contract_payment_instalment_ids
+#: model:ir.ui.menu,name:docking.menu_docking_contract_payment_instalment
+msgid "Contract Payment Instalment"
+msgstr "Thanh toán"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Contract Payment Instalments"
+msgstr "Thanh toán"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Contract diff"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__contract_history_ids
+msgid "Contract history"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_contract_payment_instalment
+msgid "Contract payment instalment records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_contract
+msgid "Contract records"
+msgstr ""
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_contracts
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Contracts"
+msgstr "Hợp đồng"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_cost_settlement_report
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__cost_settlement_report_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__cost_settlement_report_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__cost_settlement_report_id
+#: model:ir.ui.menu,name:docking.menu_docking_cost_settlement_report
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+msgid "Cost Settlement Report"
+msgstr "Quyết toán chi phí"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_cost_settlement_report
+msgid "Cost Settlement Report records"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Cost Settlement Reports"
+msgstr "Quyết toán chi phí"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Create cost settlement reports"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Create expect cost report"
+msgstr "Tạo dự toán chi phí"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Create inspection event"
+msgstr "Tạo lịch đăng kiểm"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__create_uid
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__create_date
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__currency_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__currency_id
+msgid "Currency"
+msgstr "Tiền tệ"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+msgid "Custom Job Export"
+msgstr "Xuất file"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+msgid "Custom Material Export"
+msgstr "xuất file"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "Các biến có thể sử dụng trong công thức tính toán:"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__list_no
+msgid "D/D List no"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__date
+msgid "Date"
+msgstr "Ngày"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__day_num
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__day_num
+msgid "Day num"
+msgstr "Số ngày"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__days_after_real_docking_start_date
+msgid "Days after real docking start date"
+msgstr "Số ngày, sau ngày docking thực tế"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__deadline
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__deadline
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__deadline
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__deadline
+msgid "Deadline"
+msgstr "Thời hạn"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__is_consistent_status
+msgid "Is consistent status"
+msgstr "Các trạng thái có nhất quán?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__delivered_at
+msgid "Delivered at"
+msgstr "Giao vào lúc"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__delivered_quantity
+msgid "Delivered quantity"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__department_in_charge
+msgid "Department in charge"
+msgstr "Bộ phận phụ trách"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__description
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__description
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__description
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__description
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__description
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__description
+#: model:ir.model.fields,field_description:docking.field_docking_job__description
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__description
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__description
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__description
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__display_name
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__display_name
+msgid "Display Name"
+msgstr "Hiển thị tên"
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_docking
+msgid "Docking"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_auto_notifications_in_docking_plan_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_auto_notifications_in_docking_plan
+msgid "Docking Auto notifications in docking plan: Every: 12 hours"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_confirm_inspection_date_notification_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_confirm_inspection_date_notification
+msgid "Docking Confirm inspection date notification: Every 12 hours"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Docking Date And Location"
+msgstr "Vị trí & ngày lên dock"
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_run_job_quote_request_daily_cronjobs_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_run_job_quote_request_daily_cronjobs
+msgid "Docking Job quote request's daily cronjobs: Every Day"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_run_material_quote_request_daily_cronjobs_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_run_material_quote_request_daily_cronjobs
+msgid "Docking Material quote request's daily cronjobs: Every Day"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_docking_plan
+#: model:ir.ui.menu,name:docking.menu_docking_docking_plan
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Docking Plan"
+msgstr "Kế hoạch docking"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_group_form
+msgid "Docking Plans"
+msgstr "Kế hoạch docking"
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_send_selected_job_supplier_email_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_send_selected_job_supplier_email
+msgid ""
+"Docking Send emails to inform that suppliers are selected for a job quote: "
+"Every 5 mins"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_send_selected_material_supplier_email_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_send_selected_material_supplier_email
+msgid ""
+"Docking Send emails to inform that suppliers are selected for a material "
+"quote: Every 5 mins"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_job_quote_for_supplier_email_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_job_quote_for_supplier_email
+msgid ""
+"Docking Send request-for-job-quote emails to all unsent supplier quotes: "
+"Every 5 mins"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.server,name:docking.ir_cron_material_quote_for_supplier_email_ir_actions_server
+#: model:ir.cron,cron_name:docking.ir_cron_material_quote_for_supplier_email
+msgid ""
+"Docking Send request-for-material-quote emails to all unsent supplier "
+"quotes: Every 5 mins"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_docking_plan
+msgid "Docking plain records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__docking_plan_ids
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__docking_plan_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__docking_plan_id
+msgid "Docking plan"
+msgstr "Kế hoạch docking"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Edit Contract Content"
+msgstr "Chỉnh sửa nội dung hợp đồng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__unrendered_html_content
+msgid "Editable contract content"
+msgstr "Nội dung hợp đồng có thể chỉnh sửa"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__email
+msgid "Email"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__end_date
+msgid "End date"
+msgstr "Ngày kết thúc"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_metadata_form
+msgid "Equipment Survey"
+msgstr "Khảo sát thiết bị"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_equipment_survey_data
+#: model:ir.ui.menu,name:docking.menu_docking_equipment_survey_data
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+msgid "Equipment Survey Data"
+msgstr "Khảo sát thiết bị"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_metadata_form
+msgid "Equipment Survey Datas"
+msgstr "Khảo sát thiết bị"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_equipment_survey_group
+#: model:ir.ui.menu,name:docking.menu_docking_equipment_survey_group
+msgid "Equipment Survey Group"
+msgstr "Nhóm khảo sát thiết bị"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_equipment_survey_metadata
+#: model:ir.ui.menu,name:docking.menu_docking_equipment_survey_metadata
+msgid "Equipment Survey Metadata"
+msgstr "Khảo sát thiết bị metadata"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_group_form
+msgid "Equipment Survey Metadatas"
+msgstr "Khảo sát thiết bị metadata"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__equipment_name
+msgid "Equipment name"
+msgstr "Tên thiết bị"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__equipment_survey_data_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__equipment_survey_data_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__equipment_survey_data_id
+msgid "Equipment survey data"
+msgstr "Khảo sát thiết bị"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_equipment_survey_data
+msgid "Equipment survey data records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__equipment_survey_group_id
+msgid "Equipment survey group"
+msgstr "Nhóm khảo sát thiết bị"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_equipment_survey_group
+msgid "Equipment survey group records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__equipment_survey_metadata_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__equipment_survey_metadata_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__equipment_survey_metadata_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__equipment_survey_metadata_id
+msgid "Equipment survey metadata"
+msgstr "Khảo sát thiết bị metadata"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_equipment_survey_metadata
+msgid "Equipment survey metadata records"
+msgstr ""
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_equipments
+msgid "Equipments"
+msgstr "Thiết bị"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__estimated_delivery_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__estimated_delivery_date
+msgid "Estimated delivery date"
+msgstr "Ngày giao hàng dự kiến"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_expected_cost_report
+#: model:ir.ui.menu,name:docking.menu_docking_expected_cost_report
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+msgid "Expected Cost Report"
+msgstr "Dự toán chi phí"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Expected Cost Reports"
+msgstr "Dự toán chi phí"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__expected_cost_report_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_cost_report_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__expected_cost_report_id
+msgid "Expected cost report"
+msgstr "Dự toán chi phí"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_expected_cost_report
+msgid "Expected cost report records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_delivery_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__expected_delivery_date
+msgid "Expected delivery date"
+msgstr "Ngày giao hàng dự kiến"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__expected_end_date
+msgid "Expected end date"
+msgstr "Ngày kết thúc dự kiến"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__expected_implement_date_end
+msgid "Expected implement date end"
+msgstr "Ngày kết thúc triển khai dự kiến"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__expected_implement_date_start
+msgid "Expected implement date start"
+msgstr "Ngày bắt đầu triển khai dự kiến"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__expected_start_date
+msgid "Expected start date"
+msgstr "Ngày bắt đầu dự kiến"
+
+#. module: docking
+#: model:ir.actions.report,name:docking.docking_equipment_surveys_xlsx_for_docking_plan_option
+msgid "Export Equipment Surveys For Excel"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.report,name:docking.docking_equipment_survey_data_xlsx_report_option
+#: model:ir.actions.report,name:docking.docking_material_survey_data_xlsx_report_option
+msgid "Export Excel"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.report,name:docking.docking_material_surveys_xlsx_for_docking_plan_option
+msgid "Export Material Surveys For Excel"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__factor
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__factor
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__factor
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__factor
+msgid "Factor"
+msgstr "Hệ số"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_factor_note_option
+#: model:ir.ui.menu,name:docking.menu_docking_factor_note_option
+msgid "Factor Note Option"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__factor_note_option_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__factor_note_option_id
+msgid "Factor note option"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_factor_note_option
+msgid "Factor note option records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__final_cost
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__final_cost
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__final_cost
+msgid "Final Cost"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__final_cost_mathematic_formula
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__final_cost_mathematic_formula
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__final_cost_mathematic_formula
+msgid "Final Cost Mathematic Formula"
+msgstr "Công thức tính toán"
+
+#. module: docking
+#. odoo-python
+#: code:addons/docking/models/job_final_cost_formula.py:0
+#: code:addons/docking/models/job_final_cost_formula.py:0
+#: code:addons/docking/models/job_quote.py:0
+#: code:addons/docking/models/job_quote.py:0
+#: code:addons/docking/models/job_quote.py:0
+#: code:addons/docking/models/job_quote.py:0
+#, python-format
+msgid "Final cost mathematic formula is not valid."
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__finished_at
+msgid "Finished at"
+msgstr "Kết thúc vào"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__first_job_is_for_crew
+msgid "First job is for crew"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__first_job_name
+msgid "First job name"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__first_job_supplier
+msgid "First job supplier"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_follower_ids
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_partner_ids
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__formula
+msgid "Formula"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__front_image
+msgid "Front image"
+msgstr "Ảnh trước"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+msgid "Get new quotes"
+msgstr "Lấy các báo giá"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.docking_material_quote_report
+msgid "Ghi chú:"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__xml_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__xml_id
+msgid "Group xml id"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__has_message
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__height
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__height
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__height
+msgid "Height"
+msgstr "Chiều Cao"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope_report__priority__high
+msgid "High"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__html
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_history_form
+msgid "Html"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.report,name:docking.docking_contract_report_option
+msgid "Html Contract"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.docking_material_quote_report
+msgid "Hạn giao hàng:"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__id
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__id
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__id
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__id
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__id
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__id
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__id
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__id
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__id
+#: model:ir.model.fields,field_description:docking.field_docking_job__id
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__id
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__id
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__id
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__id
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__id
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__id
+msgid "ID"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_contract_history__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_contract_payment_instalment__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_cost_settlement_report__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_docking_plan__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_data__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_group__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_metadata__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_expected_cost_report__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_factor_note_option__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_inspection_event__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_inspection_event_metadata__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_formula__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_predefined_factor__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job_quote__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job_quote_expected_parameter_set__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job_quote_final_parameter_set__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job_quote_request__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_job_supplier_quote__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope_report__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_material_group__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_material_quote__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_material_quote_request__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_material_supplier_quote__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_material_survey_data__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_material_survey_metadata__message_needaction
+#: model:ir.model.fields,help:docking.field_docking_supplier__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_contract__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_contract_history__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_contract_history__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_contract_payment_instalment__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_contract_payment_instalment__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_cost_settlement_report__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_cost_settlement_report__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_docking_plan__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_docking_plan__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_data__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_data__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_group__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_group__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_metadata__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_metadata__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_expected_cost_report__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_expected_cost_report__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_factor_note_option__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_factor_note_option__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_inspection_event__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_inspection_event__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_inspection_event_metadata__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_inspection_event_metadata__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_formula__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_formula__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_predefined_factor__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_predefined_factor__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote_expected_parameter_set__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote_expected_parameter_set__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote_final_parameter_set__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote_final_parameter_set__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote_request__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job_quote_request__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_job_supplier_quote__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_job_supplier_quote__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope_report__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope_report__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_material_group__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_material_group__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_material_quote__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_material_quote__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_material_quote_request__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_material_quote_request__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_material_supplier_quote__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_material_supplier_quote__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_material_survey_data__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_material_survey_data__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_material_survey_metadata__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_material_survey_metadata__message_has_sms_error
+#: model:ir.model.fields,help:docking.field_docking_supplier__message_has_error
+#: model:ir.model.fields,help:docking.field_docking_supplier__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+msgid "Implement date"
+msgstr "Ngày triển khai"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__implement_date_end
+msgid "Implement date end"
+msgstr "Ngày kết thúc triển khai"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__implement_date_start
+msgid "Implement date start"
+msgstr "Ngày bắt đầu triển khai"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_inspection_event
+#: model:ir.ui.menu,name:docking.menu_docking_inspection_event
+msgid "Inspection Event"
+msgstr "Lịch đăng kiểm"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_inspection_event_metadata
+#: model:ir.ui.menu,name:docking.menu_docking_inspection_event_metadata
+msgid "Inspection Event Metadata"
+msgstr "Lịch đăng kiểm metadata"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_inspection_event_metadata_form
+msgid "Inspection Events"
+msgstr "Lịch đăng kiểm"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__inspection_date
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__inspection_date
+msgid "Inspection date"
+msgstr "Ngày đăng kiểm"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__inspection_event_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__inspection_event_ids
+msgid "Inspection event"
+msgstr "Lịch đăng kiểm"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__inspection_event_len
+msgid "Inspection event len"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__inspection_event_metadata_id
+msgid "Inspection event metadata"
+msgstr "Lịch đăng kiểm metadata"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_inspection_event_metadata
+msgid "Inspection event metadata records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_inspection_event
+msgid "Inspection event records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__is_3_months_noti_off
+msgid "Is 3 months noti off"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__is_6_months_noti_off
+msgid "Is 6 months noti off"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_is_follower
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__is_responded
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__is_responded
+msgid "Is Responded"
+msgstr "Đã phản hồi?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__is_allow_create_report
+msgid "Is allow create report"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__is_completed
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__is_completed
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__is_completed
+msgid "Is completed"
+msgstr "Đã hoàn thành?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__is_confirm_is_matched_with_supplier_btn_visible
+msgid "Is confirm is matched with supplier btn visible"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__is_confirmed
+msgid "Is confirmed"
+msgstr "Đã xác nhận?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__is_email_sent
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__is_email_sent
+msgid "Is email sent"
+msgstr "Đã gửi email?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__is_for_crew
+msgid "Is for crew"
+msgstr "Thuyền viên làm?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__is_for_secondary_approval_flow
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__is_for_secondary_approval_flow
+msgid "Is for secondary approval flow"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__is_in_proposal_process
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__is_in_proposal_process
+msgid "Is in approval flow"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__is_inspected
+msgid "Is inspected"
+msgstr "Đã đăng kiểm?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__is_matched_with_supplier
+msgid "Is matched with supplier"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__is_off_approval
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__is_off_approval
+msgid "Is off approval"
+msgstr "Đã tắt luồng duyệt?"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__is_selected_supplier_informed
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__is_selected_supplier_informed
+msgid "Is selected supplier informed"
+msgstr "Đã thông báo cho NCC được chọn?"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__job_ids
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__job_ids
+#: model:ir.ui.menu,name:docking.menu_docking_job
+msgid "Job"
+msgstr "Công việc"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job_final_cost_formula
+#: model:ir.actions.act_window,name:docking.action_docking_job_final_cost_predefined_factor
+#: model:ir.ui.menu,name:docking.menu_docking_job_final_cost_formula
+msgid "Job Final Cost Formula"
+msgstr ""
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_job_final_cost_predefined_factor
+msgid "Job Final Cost Predefined Factor"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job_quote
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__job_quote_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__job_quote_ids
+#: model:ir.ui.menu,name:docking.menu_docking_job_quote
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+msgid "Job Quote"
+msgstr "Báo giá công việc"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+msgid "For cost settlement report"
+msgstr "Thông số chính thức"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+msgid "For expected cost report"
+msgstr "Thông số dự toán"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job_quote_expected_parameter_set
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_quote_expected_parameter_set_ids
+#: model:ir.ui.menu,name:docking.menu_docking_job_quote_expected_parameter_set
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_expected_parameter_set_form
+msgid "Job Quote Expected Parameter Set"
+msgstr "Bảng dự toán"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+msgid "Job Quote Expected Parameter Sets"
+msgstr "Bảng dự toán"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job_quote_final_parameter_set
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_quote_final_parameter_set_ids
+#: model:ir.ui.menu,name:docking.menu_docking_job_quote_final_parameter_set
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_final_parameter_set_form
+msgid "Job Quote Final Parameter Set"
+msgstr "Bảng nghiệm thu"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+msgid "Job Quote Final Parameter Sets"
+msgstr "Bảng nghiệm thu"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job_quote_request
+#: model:ir.ui.menu,name:docking.menu_docking_job_quote_request
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_form
+msgid "Job Quote Request"
+msgstr "Yêu cầu báo giá công việc"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Job Quote Requests"
+msgstr "Yêu cầu báo giá công việc"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job_quote_expected_parameter_set
+msgid "Job Quote expected parameter set records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job_quote_final_parameter_set
+msgid "Job Quote final parameter set records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__job_quote_ids
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+msgid "Job Quotes"
+msgstr "Báo giá công việc"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job_supplier_quote
+#: model:ir.ui.menu,name:docking.menu_docking_job_supplier_quote
+msgid "Job Supplier Quote"
+msgstr "Báo giá NCC nhân công"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_supplier_form
+msgid "Job Supplier Quotes"
+msgstr "Báo giá NCC nhân công"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job__job_final_cost_formula_id
+msgid "Job final cost formula"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_predefined_factor_id
+msgid "Job predefined factor"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job__job_quote_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__job_quote_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__job_quote_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__job_quote_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__job_quote_ids
+msgid "Job quote"
+msgstr "Báo giá công việc"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job_final_cost_formula
+msgid "Job quote cost formula records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job_quote
+msgid "Job quote records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__job_quote_request_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_quote_request_id
+msgid "Job quote request"
+msgstr "Yêu cầu báo giá công việc"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job_quote_request
+msgid "Job quote request records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job
+msgid "Job records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_state
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__ref_job_state
+msgid "Job state"
+msgstr "Trạng thái công việc"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__job_supplier_quote_ids
+msgid "Job supplier quote"
+msgstr "Báo giá NCC lao động"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job_supplier_quote
+msgid "Job supplier quote records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_supplier_quote_ids
+msgid "Job supplier quotes"
+msgstr "Báo giá NCC lao động"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__job_total_price
+msgid "Job total price"
+msgstr "Tổng giá công việc"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__job_ids
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_supplier_form
+msgid "Jobs"
+msgstr "Công việc"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_job_quote_kanban
+#: model:ir.ui.menu,name:docking.menu_docking_job_quote_kanban
+msgid "Kanban for Job Quote"
+msgstr "Quản lý công việc"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_maintenance_scope_report
+#: model:ir.ui.menu,name:docking.menu_docking_maintenance_scope_report
+msgid "Kanban for Maintenance Scope Report"
+msgstr "Quản lý báo cáo hạng mục"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__labor_cost
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__labor_cost
+msgid "Labor cost"
+msgstr "Giá nhân công"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_material_group____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata____last_update
+#: model:ir.model.fields,field_description:docking.field_docking_supplier____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__write_uid
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__write_date
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__length
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__length
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__length
+msgid "Length"
+msgstr "Chiều dài"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__location
+msgid "Location"
+msgstr "Vị trí"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope_report__priority__low
+msgid "Low"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope__department_in_charge__machinery
+msgid "Machinery"
+msgstr "Máy"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_main_attachment_id
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_maintenance_scope
+#: model:ir.ui.menu,name:docking.menu_docking_maintenance_scope
+msgid "Maintenance Scope"
+msgstr "Hạng mục sửa chữa"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+msgid "Maintenance Scope Report"
+msgstr "Báo cáo hạng mục sửa chữa"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_form
+msgid "Maintenance Scope Reports"
+msgstr "Báo cáo hạng mục sửa chữa"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_metadata_form
+msgid "Maintenance Scopes"
+msgstr "Hạng mục sửa chữa"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__maintenance_scope_ids
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__maintenance_scope_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job__maintenance_scope_id
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__maintenance_scope_name
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__maintenance_scope_name
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__ship_maintenance_scope_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__maintenance_scope_id
+msgid "Maintenance scope"
+msgstr "Hạng mục sửa chữa"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_maintenance_scope
+msgid "Maintenance scope records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__maintenance_scope_report_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__maintenance_scope_report_id
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__maintenance_scope_report_ids
+msgid "Maintenance scope report"
+msgstr "Báo cáo hạng mục sửa chữa"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_maintenance_scope_report
+msgid "Maintenance scope report records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__maintenance_scope_string
+msgid "Maintenance scope string"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_material_survey_metadata__material_type__material
+msgid "Material"
+msgstr "Vật tư"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_material_group
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__material_group_id
+#: model:ir.ui.menu,name:docking.menu_docking_material_group
+msgid "Material Group"
+msgstr "Nhóm vật tư"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_material_quote
+#: model:ir.actions.report,name:docking.docking_material_quote_report_option
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__material_quote_ids
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__material_quote_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__material_quote_ids
+#: model:ir.ui.menu,name:docking.menu_docking_material_quote
+#: model_terms:ir.ui.view,arch_db:docking.docking_material_quote_report
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_form
+msgid "Material Quote"
+msgstr "Báo giá vật tư"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_material_quote_request
+#: model:ir.ui.menu,name:docking.menu_docking_material_quote_request
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_form
+msgid "Material Quote Request"
+msgstr "Yêu cầu báo giá vật tư"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+msgid "Material Quote Requests"
+msgstr "Yêu cầu báo giá vật tư"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_data_form
+msgid "Material Quotes"
+msgstr "Báo giá vật tư"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_material_supplier_quote
+#: model:ir.ui.menu,name:docking.menu_docking_material_supplier_quote
+msgid "Material Supplier Quote"
+msgstr "Báo giá NCC vật tư"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_supplier_form
+msgid "Material Supplier Quotes"
+msgstr "Báo giá NCC vật tư"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_material_survey_data
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__material_survey_data_ids
+#: model:ir.ui.menu,name:docking.menu_docking_material_survey_data
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_data_form
+msgid "Material Survey Data"
+msgstr "Khảo sát vật tư"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_metadata_form
+msgid "Material Survey Datas"
+msgstr "Khảo sát vật tư"
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_material_survey_metadata
+#: model:ir.ui.menu,name:docking.menu_docking_material_survey_metadata
+msgid "Material Survey Metadata"
+msgstr "Khảo sát vật tư metadata"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_group_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_supplier_form
+msgid "Material Survey Metadatas"
+msgstr "Khảo sát vật tư metadata"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__material_type
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__material_type
+msgid "Material Type"
+msgstr "Loại vật tư"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_material_group
+msgid "Material group records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__material_name
+msgid "Material name"
+msgstr "Tên vật tư"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__material_quote_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__material_quote_ids
+msgid "Material quote"
+msgstr "Báo giá vật tư"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_material_quote
+msgid "Material quote records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__material_quote_request_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__material_quote_request_id
+msgid "Material quote request"
+msgstr "Yêu cầu báo giá vật tư"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_material_quote_request
+msgid "Material quote request records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__material_supplier_quote_ids
+msgid "Material supplier quote"
+msgstr "Báo giá NCC vật tư"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_material_supplier_quote
+msgid "Material supplier quote records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__material_supplier_quote_ids
+msgid "Material supplier quotes"
+msgstr "Báo giá NCC vật tư"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__material_survey_data_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__material_survey_data_id
+msgid "Material survey data"
+msgstr "Khảo sát vật tư"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_material_survey_data
+msgid "Material survey data records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__material_survey_metadata_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__material_survey_metadata_id
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__material_survey_metadata_ids
+msgid "Material survey metadata"
+msgstr "Khảo sát vật tư metadata"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_material_survey_metadata
+msgid "Material survey metadata records"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__material_total_price
+msgid "Material total price"
+msgstr "Tổng giá vật tư"
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_materials
+msgid "Materials"
+msgstr "Vật tư"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_has_error
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__name
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__name
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__name
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__name
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__name
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__name
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__name
+#: model:ir.model.fields,field_description:docking.field_docking_job__name
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__name
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__name
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__name
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__name
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__name
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__name_for_noti
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__name_for_noti
+msgid "Name for noti"
+msgstr ""
+
+#. module: docking
+#. odoo-python
+#: code:addons/docking/models/contract.py:0
+#: code:addons/docking/models/contract_history.py:0
+#: code:addons/docking/models/contract_history.py:0
+#: code:addons/docking/models/contract_payment_instalment.py:0
+#: code:addons/docking/models/contract_payment_instalment.py:0
+#: code:addons/docking/models/cost_settlement_report.py:0
+#: code:addons/docking/models/cost_settlement_report.py:0
+#: code:addons/docking/models/docking_ incurred_report.py:0
+#: code:addons/docking/models/docking_ incurred_report.py:0
+#: code:addons/docking/models/docking_plan.py:0
+#: code:addons/docking/models/docking_plan.py:0
+#: code:addons/docking/models/docking_report.py:0
+#: code:addons/docking/models/docking_report.py:0
+#: code:addons/docking/models/equipment_survey_data.py:0
+#: code:addons/docking/models/equipment_survey_data.py:0
+#: code:addons/docking/models/equipment_survey_group.py:0
+#: code:addons/docking/models/equipment_survey_group.py:0
+#: code:addons/docking/models/equipment_survey_metadata.py:0
+#: code:addons/docking/models/equipment_survey_metadata.py:0
+#: code:addons/docking/models/expected_cost_report.py:0
+#: code:addons/docking/models/expected_cost_report.py:0
+#: code:addons/docking/models/factor_note_option.py:0
+#: code:addons/docking/models/factor_note_option.py:0
+#: code:addons/docking/models/inspection_event.py:0
+#: code:addons/docking/models/inspection_event.py:0
+#: code:addons/docking/models/inspection_event_metadata.py:0
+#: code:addons/docking/models/inspection_event_metadata.py:0
+#: code:addons/docking/models/job.py:0 code:addons/docking/models/job.py:0
+#: code:addons/docking/models/job_quote.py:0
+#: code:addons/docking/models/job_quote.py:0
+#: code:addons/docking/models/job_quote_expected_parameter_set.py:0
+#: code:addons/docking/models/job_quote_expected_parameter_set.py:0
+#: code:addons/docking/models/job_quote_final_parameter_set.py:0
+#: code:addons/docking/models/job_quote_final_parameter_set.py:0
+#: code:addons/docking/models/job_quote_request.py:0
+#: code:addons/docking/models/job_quote_request.py:0
+#: code:addons/docking/models/job_supplier_quote.py:0
+#: code:addons/docking/models/job_supplier_quote.py:0
+#: code:addons/docking/models/maintenance_scope.py:0
+#: code:addons/docking/models/maintenance_scope.py:0
+#: code:addons/docking/models/maintenance_scope_report.py:0
+#: code:addons/docking/models/maintenance_scope_report.py:0
+#: code:addons/docking/models/material_group.py:0
+#: code:addons/docking/models/material_group.py:0
+#: code:addons/docking/models/material_quote.py:0
+#: code:addons/docking/models/material_quote.py:0
+#: code:addons/docking/models/material_quote_request.py:0
+#: code:addons/docking/models/material_quote_request.py:0
+#: code:addons/docking/models/material_supplier_quote.py:0
+#: code:addons/docking/models/material_supplier_quote.py:0
+#: code:addons/docking/models/material_survey_data.py:0
+#: code:addons/docking/models/material_survey_data.py:0
+#: code:addons/docking/models/material_survey_metadata.py:0
+#: code:addons/docking/models/material_survey_metadata.py:0
+#: code:addons/docking/models/supplier.py:0
+#: code:addons/docking/models/supplier.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.docking_material_quote_report
+msgid "Ngày giao hàng mong muốn:"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_kanban
+msgid "Ngày thứ"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_equipment_survey_data__survey_type__normal
+#: model:ir.model.fields.selection,name:docking.selection__docking_job_quote_request__survey_type__normal
+#: model:ir.model.fields.selection,name:docking.selection__docking_material_survey_data__survey_type__normal
+#: model:ir.model.fields.selection,name:docking.selection__docking_material_quote_request__survey_type__normal
+msgid "Normal"
+msgstr "Kế hoạch"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__note
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__note
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__note
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__note
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_needaction_counter
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_has_error_counter
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_contract_history__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_contract_payment_instalment__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_cost_settlement_report__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_docking_plan__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_data__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_group__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_metadata__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_expected_cost_report__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_factor_note_option__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_inspection_event__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_inspection_event_metadata__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_formula__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_predefined_factor__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote_expected_parameter_set__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote_final_parameter_set__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote_request__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_job_supplier_quote__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope_report__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_material_group__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_material_quote__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_material_quote_request__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_material_supplier_quote__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_material_survey_data__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_material_survey_metadata__message_needaction_counter
+#: model:ir.model.fields,help:docking.field_docking_supplier__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_contract_history__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_contract_payment_instalment__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_cost_settlement_report__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_docking_plan__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_data__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_group__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_metadata__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_expected_cost_report__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_factor_note_option__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_inspection_event__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_inspection_event_metadata__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_formula__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_predefined_factor__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote_expected_parameter_set__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote_final_parameter_set__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job_quote_request__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_job_supplier_quote__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope_report__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_material_group__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_material_quote__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_material_quote_request__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_material_supplier_quote__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_material_survey_data__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_material_survey_metadata__message_has_error_counter
+#: model:ir.model.fields,help:docking.field_docking_supplier__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__contract_history_id
+msgid "Old contract"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_expected_parameter_set_tree
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_final_parameter_set_tree
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_tree
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_tree
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_tree
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_tree
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_tree
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_data_tree
+msgid "Open"
+msgstr ""
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_operations
+msgid "Operation"
+msgstr "Vận hành"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__paid_at
+msgid "Paid at"
+msgstr "Trả vào lúc"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_material_survey_metadata__material_type__paint
+msgid "Paint"
+msgstr "Sơn"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_contract_payment_instalment__status__pending
+msgid "Pending"
+msgstr "Chờ duyệt"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__percentage
+msgid "Percentage"
+msgstr "Phần trăm"
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_job_final_cost_predefined_factor
+msgid "Predefined factors for job final cost calculation"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__priority
+msgid "Priority"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__problem_description
+msgid "Problem description"
+msgstr "Mô tả hiện tượng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__progress
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__progress
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Progress"
+msgstr "Tiến độ"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+msgid "Propose All"
+msgstr "Trình duyệt"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__qr_code
+msgid "QR code"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__quantity
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__quantity
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__quantity
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__quantity
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__quantity
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_quantity
+msgid "Quantity"
+msgstr "Số lượng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_weight
+msgid "Weight"
+msgstr "Khối lượng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_length
+msgid "Length"
+msgstr "Chiều dài"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_width
+msgid "Width"
+msgstr "Chiều rộng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_height
+msgid "Height"
+msgstr "Chiều Cao"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__expected_factor
+msgid "Factor"
+msgstr "Hệ số"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__reason
+msgid "Reason"
+msgstr "Nguyên nhân"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+msgid "Reject All"
+msgstr "Từ chối"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+msgid "Relations"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Rendered Contract"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__rendered_html_content
+msgid "Rendered contract"
+msgstr ""
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_reports
+msgid "Reports"
+msgstr "Báo cáo"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__request_for_approval_date
+msgid "Request for approval date"
+msgstr "Yêu cầu ngày duyệt"
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_requests
+msgid "Requests"
+msgstr "Yêu cầu"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__activity_user_id
+msgid "Responsible User"
+msgstr "Người chịu trách nhiệm"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Restart flow"
+msgstr "Làm mới luồng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__result_evaluate
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__result_evaluate
+msgid "Result Evaluation"
+msgstr "Đánh giá kết quả"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__message_has_sms_error
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__job_supplier_quote_id
+msgid "Selected job supplier quote"
+msgstr "Báo giá NCC lao động"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__material_supplier_quote_id
+msgid "Selected material supplier quote"
+msgstr "Báo giá NCC vật tư"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__selected_supplier_name
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__selected_supplier_name
+msgid "Selected supplier name"
+msgstr "Nhà cung cấp được chọn"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+msgid "Send contract"
+msgstr "Gửi hợp đồng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__sequence
+msgid "Sequence"
+msgstr "Thứ tự"
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_root
+msgid "Ship for Docking"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_material_survey_metadata__material_type__spare_part
+msgid "Spare part"
+msgstr "Phụ tùng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__spare_part_no
+msgid "Spare part no"
+msgstr "Số phụ tùng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__specification
+msgid "Specification"
+msgstr "Thông số"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__start_date
+msgid "Start date"
+msgstr "Ngày bắt đầu"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__status
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__status
+msgid "Status"
+msgstr "Trạng thái"
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: docking
+#: model:ir.actions.act_window,name:docking.action_docking_supplier
+#: model:ir.model.fields,field_description:docking.field_docking_contract__supplier_id
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__supplier_id
+#: model:ir.model.fields,field_description:docking.field_docking_job__supplier_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__supplier_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__supplier_id
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__supplier_ids
+#: model:ir.ui.menu,name:docking.menu_docking_supplier
+msgid "Supplier"
+msgstr "Nhà cung cấp"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__supplier_emails
+msgid "Supplier emails"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_docking_supplier
+msgid "Supplier records"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_metadata_form
+msgid "Suppliers"
+msgstr "Nhà cung cấp"
+
+#. module: docking
+#: model:ir.ui.menu,name:docking.menu_docking_suppliers_and_quotes
+msgid "Suppliers & Quotes"
+msgstr "NCC & Báo giá"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__survey_date
+msgid "Survey date"
+msgstr "Ngày khảo sát"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__survey_type
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__survey_type
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__survey_type
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__survey_type
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__survey_type
+msgid "Survey type"
+msgstr "Loại khảo sát"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.docking_material_quote_report
+msgid "Số lượng:"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__contract_old_new_diff
+msgid "Test diff"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_kanban
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_kanban
+msgid "Thuyền viên"
+msgstr ""
+
+#. module: docking
+#: model:mail.template,name:docking.contract_for_supplier_template
+#: model:mail.template,name:docking.material_quote_for_supplier_template
+#: model:mail.template,subject:docking.material_quote_for_supplier_template
+msgid "Thông báo có báo giá mới từ VSICO"
+msgstr ""
+
+#. module: docking
+#: model:mail.template,subject:docking.contract_for_supplier_template
+msgid "Thông báo có hợp đồng mới từ VSICO"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__time_consumption
+msgid "Time consumption"
+msgstr "Thời gian tiêu thụ"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_job_quote__job_state__todo
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope_report__report_state__todo
+msgid "Todo"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__total_price
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__total_price
+msgid "Total price"
+msgstr "Tổng giá"
+
+#. module: docking
+#: model:mail.template,name:docking.docking_email_access_supplier_quote_portal_response
+#: model:mail.template,subject:docking.docking_email_access_supplier_quote_portal_response
+msgid "Truy cập danh sách báo giá VSICO"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.docking_material_quote_report
+msgid "Tên vật tư:"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_job_quote__job_state__unapproved
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope_report__report_state__unapproved
+msgid "Unapproved"
+msgstr "Chưa duyệt"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_form
+msgid "Uncomplete job quote"
+msgstr "Hủy hoàn thành báo giá"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__unit
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__unit
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__unit
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__unit
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__unit
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__unit_price
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__unit
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__unit
+msgid "Unit"
+msgstr "Đơn vị"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__unit_price
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__unit_price
+msgid "Unit price"
+msgstr "Giá đơn vị"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__unit_price
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__unit_price
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__unit_price
+msgid "Unit price"
+msgstr "Đơn giá"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_docking_plan_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+msgid "Unpropose All"
+msgstr "Trả lại"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__value
+msgid "Value"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_contract__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_history__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_contract_payment_instalment__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_cost_settlement_report__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_docking_plan__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_data__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_group__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_equipment_survey_metadata__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_expected_cost_report__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_factor_note_option__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_inspection_event_metadata__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_formula__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_final_cost_predefined_factor__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_request__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_job_supplier_quote__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_maintenance_scope_report__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_group__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote_request__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_supplier_quote__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_data__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__website_message_ids
+#: model:ir.model.fields,field_description:docking.field_docking_supplier__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,help:docking.field_docking_contract__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_contract_history__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_contract_payment_instalment__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_cost_settlement_report__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_docking_plan__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_data__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_group__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_equipment_survey_metadata__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_expected_cost_report__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_factor_note_option__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_inspection_event__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_inspection_event_metadata__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_formula__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job_final_cost_predefined_factor__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job_quote__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job_quote_expected_parameter_set__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job_quote_final_parameter_set__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job_quote_request__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_job_supplier_quote__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_maintenance_scope_report__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_material_group__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_material_quote__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_material_quote_request__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_material_supplier_quote__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_material_survey_data__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_material_survey_metadata__website_message_ids
+#: model:ir.model.fields,help:docking.field_docking_supplier__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__weight
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__weight
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__weight
+msgid "Weight"
+msgstr "Khối lượng"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote__width
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_expected_parameter_set__width
+#: model:ir.model.fields,field_description:docking.field_docking_job_quote_final_parameter_set__width
+msgid "Width"
+msgstr "Chiều rộng"
+
+#. module: docking
+#: model:ir.model.fields.selection,name:docking.selection__docking_job_quote__job_state__working
+#: model:ir.model.fields.selection,name:docking.selection__docking_maintenance_scope_report__report_state__working
+msgid "Working"
+msgstr "Đang làm"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_form
+msgid "Xác nhận đã nhận hàng"
+msgstr ""
+
+#. module: docking
+#: model:mail.template,name:docking.job_quote_for_supplier_template
+#: model:mail.template,subject:docking.job_quote_for_supplier_template
+msgid "Yêu cầu báo giá công việc"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_final_parameter_set_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_data_form
+msgid "action_approve"
+msgstr "Chấp thuận"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_final_parameter_set_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_data_form
+msgid "action_propose"
+msgstr "Trình duyệt"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_final_parameter_set_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_data_form
+msgid "action_reject"
+msgstr "Từ chối"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_contract_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_cost_settlement_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_equipment_survey_data_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_final_parameter_set_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_maintenance_scope_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_survey_data_form
+msgid "action_unpropose"
+msgstr "Trả lại"
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_quote__added_to_warehouse
+msgid "added to warehouse"
+msgstr "Đã thêm vào kho?"
+
+#. module: docking
+#: model:mail.template,report_name:docking.contract_for_supplier_template
+msgid "contract"
+msgstr "Hợp đồng"
+
+#. module: docking
+#: model:ir.model.constraint,message:docking.constraint_docking_cost_settlement_report_unique_docking_plan_id_supplier_id
+msgid "docking_plan_id and supplier_id must be unique."
+msgstr ""
+
+#. module: docking
+#: model:ir.model.constraint,message:docking.constraint_docking_expected_cost_report_unique_docking_plan_id
+#: model:ir.model.constraint,message:docking.constraint_docking_material_quote_request_unique_docking_plan_id
+msgid "docking_plan_id must be unique."
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "factor (hệ số)"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_expected_cost_report_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_quote_request_form
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_material_quote_request_form
+msgid "get new quotes"
+msgstr "Lấy các báo giá"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "height (chiều cao)"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.constraint,message:docking.constraint_docking_job_quote_expected_parameter_set_unique_job_quote_id
+#: model:ir.model.constraint,message:docking.constraint_docking_job_quote_final_parameter_set_unique_job_quote_id
+msgid "job_quote_id must be unique."
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "labor_cost (chi phí nhân công)"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "length (chiều dài)"
+msgstr ""
+
+#. module: docking
+#: model:ir.model.constraint,message:docking.constraint_docking_material_quote_unique_material_survey_data_id
+msgid "material_survey_data_id must be unique."
+msgstr ""
+
+#. module: docking
+#: model:ir.model.fields,field_description:docking.field_docking_material_survey_metadata__origin
+msgid "origin"
+msgstr "Nguồn gốc"
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "quantity (số lượng)"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_report_docking_docking_equipment_survey_data_xlsx_report
+msgid "report.docking.docking_equipment_survey_data_xlsx_report"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_report_docking_docking_equipment_surveys_xlsx_for_docking_plan
+msgid "report.docking.docking_equipment_surveys_xlsx_for_docking_plan"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_report_docking_docking_material_survey_data_xlsx_report
+msgid "report.docking.docking_material_survey_data_xlsx_report"
+msgstr ""
+
+#. module: docking
+#: model:ir.model,name:docking.model_report_docking_docking_material_surveys_xlsx_for_docking_plan
+msgid "report.docking.docking_material_surveys_xlsx_for_docking_plan"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "weight (trọng lượng)"
+msgstr ""
+
+#. module: docking
+#: model_terms:ir.ui.view,arch_db:docking.view_docking_job_final_cost_formula_form
+msgid "width (chiều rộng)"
+msgstr ""

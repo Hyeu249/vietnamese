@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_utilities_required_all_approval_group_form" model="ir.ui.view">
+        <field name="name">utilities.required.all.approval.group.form</field>
+        <field name="model">utilities.required.all.approval.group</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="user_id"/>
+                        <field name="color"/>
+                        <field name="this_all_approval_group_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_utilities_required_all_approval_group_tree" model="ir.ui.view">
+        <field name="name">utilities.required.all.approval.group.tree</field>
+        <field name="model">utilities.required.all.approval.group</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="user_id"/>
+                <field name="color"/>
+                <field name="this_all_approval_group_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_utilities_required_all_approval_group_search" model="ir.ui.view">
+        <field name="name">utilities.required.all.approval.group.search</field>
+        <field name="model">utilities.required.all.approval.group</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="user_id"/>
+                <field name="color"/>
+                <field name="this_all_approval_group_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_utilities_required_all_approval_group" model="ir.actions.act_window">
+        <field name="name">Required All Approval Group</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">utilities.required.all.approval.group</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_utilities_required_all_approval_group"
+            name="Required All Approval Group" 
+            parent="menu_utilities_operations"
+            action="action_utilities_required_all_approval_group"
+            sequence="11"/>
+
+</odoo>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_ert_role_task_meta_form" model="ir.ui.view">
+        <field name="name">legis.ert.role.task.meta.form</field>
+        <field name="model">legis.ert.role.task.meta</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="ert_role_meta_id"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_ert_role_task_meta_tree" model="ir.ui.view">
+        <field name="name">legis.ert.role.task.meta.tree</field>
+        <field name="model">legis.ert.role.task.meta</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref" invisible="1"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="ert_role_meta_id" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_ert_role_task_meta_search" model="ir.ui.view">
+        <field name="name">legis.ert.role.task.meta.search</field>
+        <field name="model">legis.ert.role.task.meta</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="ert_role_meta_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_ert_role_task_meta" model="ir.actions.act_window">
+        <field name="name">Ert Role Task Meta</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.ert.role.task.meta</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_ert_role_task_meta"
+            name="Ert Role Task Meta" 
+            parent="menu_legis_handbook"
+            action="action_legis_ert_role_task_meta"
+            sequence="10"/>
+
+</odoo>

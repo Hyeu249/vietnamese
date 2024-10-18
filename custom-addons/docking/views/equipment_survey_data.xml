@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_equipment_survey_data_form" model="ir.ui.view">
+        <field name="name">docking.equipment.survey.data.form</field>
+        <field name="model">docking.equipment.survey.data</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Equipment Survey Data">
+                        <field name="company_id" readonly="1"/>
+                        <field name="survey_type"/>
+                        <field name="code"/>
+                        <field name="survey_date"/>
+                        <field name="list_no"/>
+                        <field name="docking_plan_id"/>
+                        <field name="equipment_survey_metadata_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Maintenance Scope Reports" name="maintenance_scope_report_ids">
+                            <header attrs="{'invisible': [('approval_status', '!=', 'APPROVED')]}">
+                                <button name="unpropose_all_reports" type="object" string="Unpropose All" class="oe_highlight btn-danger"/>
+                                <button name="propose_all_reports" type="object" string="Propose All" class="oe_highlight btn-success"/>
+                                <button name="action_reject_all_reports" type="object" string="Reject All" class="oe_highlight btn-danger"/>
+                                <button name="action_approve_all_reports" type="object" string="Approve All" class="oe_highlight btn-success"/>
+                            </header>
+
+                            <field name="maintenance_scope_report_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_equipment_survey_data_tree" model="ir.ui.view">
+        <field name="name">docking.equipment.survey.data.tree</field>
+        <field name="model">docking.equipment.survey.data</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref" readonly="1"/>
+                <field name="survey_type" readonly="1"/>
+                <field name="code"/>
+                <field name="survey_date"/>
+                <field name="list_no"/>
+                <field name="docking_plan_id"/>
+                <field name="equipment_survey_metadata_id"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_equipment_survey_data_search" model="ir.ui.view">
+        <field name="name">docking.equipment.survey.data.search</field>
+        <field name="model">docking.equipment.survey.data</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="survey_type"/>
+                <field name="code"/>
+                <field name="survey_date"/>
+                <field name="list_no"/>
+                <field name="docking_plan_id"/>
+                <field name="equipment_survey_metadata_id"/>
+                <field name="approval_status"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_equipment_survey_data" model="ir.actions.act_window">
+        <field name="name">Equipment Survey Data</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.equipment.survey.data</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_equipment_survey_data"
+            name="Equipment Survey Data" 
+            parent="menu_docking_docking"
+            action="action_docking_equipment_survey_data"
+            sequence="10"/>
+
+</odoo>

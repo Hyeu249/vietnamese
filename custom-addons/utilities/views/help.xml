@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_utilities_help_form" model="ir.ui.view">
+        <field name="name">utilities.help.form</field>
+        <field name="model">utilities.help</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="model"/>
+                        <field name="help"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_utilities_help_tree" model="ir.ui.view">
+        <field name="name">utilities.help.tree</field>
+        <field name="model">utilities.help</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="model"/>
+                <field name="help"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_utilities_help_search" model="ir.ui.view">
+        <field name="name">utilities.help.search</field>
+        <field name="model">utilities.help</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="model"/>   
+                <field name="help"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_utilities_help" model="ir.actions.act_window">
+        <field name="name">Help</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">utilities.help</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_utilities_help"
+            name="Help" 
+            parent="menu_utilities_operations"
+            action="action_utilities_help"
+            sequence="11"/>
+
+</odoo>

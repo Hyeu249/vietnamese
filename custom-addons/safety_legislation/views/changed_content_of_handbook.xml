@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_changed_content_of_handbook_form" model="ir.ui.view">
+        <field name="name">legis.changed.content.of.handbook.form</field>
+        <field name="model">legis.changed.content.of.handbook</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Changed Content">
+                        <field name="control_number"/>
+                        <field name="revision_state"/>
+                        <field name="existing_content"/>
+                        <field name="change_to"/>
+                        <field name="content_old_new_diff"/>
+                        <field name="note"/>
+                    </group>
+
+                    <group string="Relations">
+                        <field name="requisition_for_handbook_revision_id"/>
+                        <field name="existing_handbook_section_content_id"/>
+                        <field name="handbook_section_change_to_id"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_changed_content_of_handbook_tree" model="ir.ui.view">
+        <field name="name">legis.changed.content.of.handbook.tree</field>
+        <field name="model">legis.changed.content.of.handbook</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <button name="open_record" type="object" icon="fa-pencil-square-o"/>
+                <field name="ref" invisible="1"/>
+                <field name="control_number" readonly="1"/>
+                <field name="revision_state"/>
+                <field name="existing_content" readonly="1"/>
+                <field name="change_to" readonly="1"/>
+                <field name="note"/>
+                <field name="content_old_new_diff" attrs="{'invisible': [('is_hide_content_old_new_diff', '=', True)]}" readonly="1"/>
+                <field name="is_hide_content_old_new_diff" invisible="1"/>
+                <field name="requisition_for_handbook_revision_id" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_changed_content_of_handbook_search" model="ir.ui.view">
+        <field name="name">legis.changed.content.of.handbook.search</field>
+        <field name="model">legis.changed.content.of.handbook</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="control_number"/>
+                <field name="revision_state"/>
+                <field name="existing_content"/>
+                <field name="change_to"/>
+                <field name="note"/>
+                <field name="requisition_for_handbook_revision_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_changed_content_of_handbook" model="ir.actions.act_window">
+        <field name="name">Changed Content Of Handbook</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.changed.content.of.handbook</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_changed_content_of_handbook"
+            name="Changed Content Of Handbook" 
+            parent="menu_legis_edit_request"
+            action="action_legis_changed_content_of_handbook"
+            sequence="10"/>
+
+</odoo>

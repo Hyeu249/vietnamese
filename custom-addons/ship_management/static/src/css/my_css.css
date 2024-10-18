@@ -1,0 +1,112 @@
+.my_form_view{
+    font-size: 1.08333333rem;
+    line-height: 1.5;
+    font-weight: 500;
+    color:blue
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.text-red{
+    color: red;
+}
+
+.text-orange{
+    color: orange;
+}
+
+.text-green{
+    color: green;
+}
+
+.radius-5{
+    border-radius: 5px;
+}
+
+.mb-7{
+    margin-bottom: 7px;
+}
+
+.cornor{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.not_color > *{
+    color:black !important;
+}
+
+.bg-red{
+    background-color: red;
+}
+
+.bg-mediumvioletred{
+    background-color:  mediumvioletred;
+}
+
+.bg-darkred{
+    background-color: #e30000;
+}
+
+.bg-green{
+    background-color:  green;
+}
+
+.bg-red-important{
+    background-color:  red !important;
+}
+
+.bg-green-important{
+    background-color:  green !important;
+}
+
+.bg-orange-important{
+    background-color:  orange !important;
+}
+
+.white-important{
+    color: white !important;
+}
+
+.title_replacement_proposal_color{
+    color: rgb(185, 83, 0)
+}
+
+.title_quote_color{
+    color: green
+}
+
+.technical_incident_color{
+    color: rgb(0, 27, 180)
+}
+
+.title_request_color{
+    color: darkred
+}
+
+.bold_black_important{
+    color: #141414 !important;
+    font-weight: 500 !important;
+}
+
+.small_child_image > img{
+    width: 100px;
+    height: 100px;
+}
+
+.modal .modal-dialog .o_form_view .o_FormRenderer_chatterContainer {
+    display: block !important;
+}
+
+table.diff {font-family:Courier; border:medium;margin-bottom: 30px;}
+table.diff > tbody {border: 1px solid black}
+table.diff > tbody  > tr > td {padding-right: 10px}
+.diff_header {background-color:#e0e0e0}
+td.diff_header {text-align:right}
+.diff_next {background-color:#c0c0c0}
+.diff_add {background-color:#aaffaa}
+.diff_chg {background-color:#ffff77}
+.diff_sub {background-color:#ffaaaa}

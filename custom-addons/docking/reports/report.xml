@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report
+        id="docking_material_quote_report_option"
+        string="Material Quote"
+        model="docking.material.quote"
+        report_type="qweb-pdf"
+        name="docking.docking_material_quote_report"
+        file="docking.docking_material_quote_report"
+    />
+
+    <report
+        id="docking_contract_report_option"
+        string="Html Contract"
+        model="docking.contract"
+        report_type="qweb-pdf"
+        name="docking.docking_contract_report"
+        file="docking.docking_contract_report"
+    />
+
+    <report
+        id="docking_equipment_survey_data_xlsx_report_option"
+        string="Export Excel"
+        model="docking.equipment.survey.data"
+        report_type="xlsx"
+        name="docking.docking_equipment_survey_data_xlsx_report"
+        file="docking.docking_equipment_survey_data_xlsx_report"
+    />
+
+    <report
+        id="docking_material_survey_data_xlsx_report_option"
+        string="Export Excel"
+        model="docking.material.survey.data"
+        report_type="xlsx"
+        name="docking.docking_material_survey_data_xlsx_report"
+        file="docking.docking_material_survey_data_xlsx_report"
+    />
+
+    <report
+        id="docking_equipment_surveys_xlsx_for_docking_plan_option"
+        string="Export Equipment Surveys For Excel"
+        model="docking.docking.plan"
+        report_type="xlsx"
+        name="docking.docking_equipment_surveys_xlsx_for_docking_plan"
+        file="docking.docking_equipment_surveys_xlsx_for_docking_plan"
+    />
+
+    <report
+        id="docking_material_surveys_xlsx_for_docking_plan_option"
+        string="Export Material Surveys For Excel"
+        model="docking.docking.plan"
+        report_type="xlsx"
+        name="docking.docking_material_surveys_xlsx_for_docking_plan"
+        file="docking.docking_material_surveys_xlsx_for_docking_plan"
+    />
+
+</odoo>

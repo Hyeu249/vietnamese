@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_utilities_root" name="Ship common utilities" sequence="10"/>
+    <menuitem id="menu_utilities_operations" name="Operation" parent="menu_utilities_root" sequence="10" groups="utilities.group_ship_admin"/>
+</odoo>

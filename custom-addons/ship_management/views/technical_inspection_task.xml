@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_technical_inspection_task_form" model="ir.ui.view">
+        <field name="name">ship.technical.inspection.task.form</field>
+        <field name="model">ship.technical.inspection.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="add_inspector"
+                        string="Add inspector"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('is_approved_inspection_plan', '=', False), ('is_user_allow_for_editing', '=', True)]}"
+                    />
+                    <button name="complete_the_fix"
+                        string="Complete the fix"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('status', '!=', 'UNSATISFIED')]}"
+                    />
+                    <field 
+                        name="status" 
+                        widget="statusbar" 
+                        options="{'clickable': '1', 'fold_field': 'fold'}"
+                        attrs="{'invisible': ['|', ('is_approved_inspection_plan', '=', False), ('is_user_allow_for_editing', '=', False)]}"
+                    />
+                </header>      
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Metadata">
+                        <field name="company_id" readonly="1"/>
+                        <field name="is_ceo"/>
+                        <field name="is_approved_inspection_plan"/>
+                        <field name="is_user_allow_for_editing"/>
+                        <field name="technical_inspection_task_metadata_id"/>
+                        <field name="technical_inspection_scope_id"/>
+                    </group>
+
+                    <group string="Inspection Task">
+                        <field name="task_name"/>
+                        <field name="task_description"/>
+                        <field name="status"
+                            decoration-success="status == 'SATISFIED'"
+                            decoration-danger="status == 'UNSATISFIED'"
+                            decoration-warning="status == 'PENDING'"
+                            widget="badge"
+                        />
+                        <field name="task_type"/>
+                        <field name="inspection_date" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="expected_fix_date" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="real_fix_date" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="deadline" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="backlog" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="fix_plan" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="fix_content" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="is_severe" attrs="{'readonly': ['|', '|', ('is_approved_inspection_plan', '=', False), ('status', '!=', 'UNSATISFIED'), ('is_user_allow_for_editing', '=', False)]}"/>
+                        <field name="user_ids" widget="many2many_tags" attrs="{'readonly': [('is_approved_inspection_plan', '=', False)]}"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Director Comment" name="comment">
+                            <field name="comment" widget="html" attrs="{'readonly': [('is_ceo', '=', False)]}"/>
+                        </page>
+                        <page string="Images" name="image_ids">
+                            <field name="image_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_technical_inspection_task_tree" model="ir.ui.view">
+        <field name="name">ship.technical.inspection.task.tree</field>
+        <field name="model">ship.technical.inspection.task</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="task_name"/>
+                <field name="task_description"/>
+                <field name="status"
+                    decoration-success="status == 'SATISFIED'"
+                    decoration-danger="status == 'UNSATISFIED'"
+                    decoration-warning="status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="task_type"/>
+                <field name="inspection_date"/>
+                <field name="expected_fix_date"/>
+                <field name="real_fix_date"/>
+                <field name="deadline"/>
+                <field name="backlog"/>
+                <field name="fix_plan"/>
+                <field name="fix_content"/>
+                <field name="is_severe"/>
+                <field name="comment"/>
+                <field name="user_ids" widget="many2many_tags"/>
+                <field name="technical_inspection_task_metadata_id"/>
+                <field name="technical_inspection_scope_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_technical_inspection_task_search" model="ir.ui.view">
+        <field name="name">ship.technical.inspection.task.search</field>
+        <field name="model">ship.technical.inspection.task</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="task_name"/>
+                <field name="task_description"/>
+                <field name="task_type"/>
+                <field name="status"/>
+                <field name="inspection_date"/>
+                <field name="expected_fix_date"/>
+                <field name="real_fix_date"/>
+                <field name="deadline"/>
+                <field name="backlog"/>
+                <field name="fix_plan"/>
+                <field name="fix_content"/>
+                <field name="is_severe"/>
+                <field name="comment"/>
+                <field name="user_ids"/>
+                <field name="technical_inspection_task_metadata_id"/>
+                <field name="technical_inspection_scope_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_technical_inspection_task" model="ir.actions.act_window">
+        <field name="name">Technical Inspection Task</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.technical.inspection.task</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_technical_inspection_task"
+            name="Technical Inspection Task" 
+            parent="menu_ship_inspection_tasks"
+            action="action_ship_technical_inspection_task"
+            sequence="10"/>
+
+</odoo>

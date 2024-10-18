@@ -1,0 +1,1687 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* safety_legislation
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0-20230720\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-03-05 04:39+0000\n"
+"PO-Revision-Date: 2024-03-05 04:39+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_needaction
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+msgid "Add inspector"
+msgstr "Thêm người kiểm tra"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Approval"
+msgstr "Luồng duyệt"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__approval_flow_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__approval_flow_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__approval_flow_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__approval_flow_id
+msgid "Approval flow"
+msgstr "Luồng duyệt"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__approval_status
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__approval_status
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__approval_status
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__approval_status
+msgid "Approval status"
+msgstr "Trạng thái duyệt"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Approve proposal"
+msgstr "Chấp thuận"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_attachment_count
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__backlog
+msgid "Back log"
+msgstr "Nội dung tồn đọng"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__ref
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__ref
+msgid "Code"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_accident_report__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_changed_content_of_handbook__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_editing_request_for_handbook__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ert_role_meta__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ert_role_task_meta__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_handbook_revision_report__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_handbook_section__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_incidence_type_meta__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_investigative_report__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_safety_management_handbook__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_sea_protest__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_serious_accident__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_serious_accident_report__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_serious_accident_task__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_serious_accident_team__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_team_checklist__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_job__company_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_report__company_id
+msgid "Company"
+msgstr "Công ty"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__finished_at
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_job__finished_at
+msgid "Finished at"
+msgstr "Hoàn thành lúc"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__repair_status
+msgid "Repair status"
+msgstr "Trạng thái sửa chữa"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_incident__repair_status__fixable
+msgid "Fixable"
+msgstr "Có thể sửa chữa"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_incident__repair_status__unfixable
+msgid "Unfixable"
+msgstr "Không thể sửa chữa"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__total_price
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__total_price
+msgid "Total price"
+msgstr "Tổng giá"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__trip
+msgid "Trip"
+msgstr "Chuyến"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__report_date
+msgid "Report date"
+msgstr "Ngày báo cáo"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__report_number
+msgid "Report number"
+msgstr "Số báo cáo"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__assigned_cvkt
+msgid "Assigned cvkt"
+msgstr "Phân công chuyên viên KT phụ trách tàu xử lý"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__director_comment_for_PQLT
+msgid "Director comment for PQLT"
+msgstr "Ý kiến chỉ đạo khắc phục khiếm khuyết"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__department_in_charge
+msgid "Department in charge"
+msgstr "Bộ phận phụ trách"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_incident__department_in_charge__machinery
+msgid "Machinery"
+msgstr "Máy"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__maintenance_scope_ids
+msgid "Maintenance scope"
+msgstr "Hạng mục sửa chữa"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__problem
+msgid "Problem"
+msgstr "Nguyên nhân cơ bản"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__temporary_action
+msgid "Temporary action"
+msgstr "Hành động khắc phục tạm thời tàu đã thực hiện"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__recommend
+msgid "Recommend"
+msgstr "Đề nghị biện pháp khắc phục lâu dài/ phòng ngừa tái diễn"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__method
+msgid "Method"
+msgstr "Biện pháp"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__time
+msgid "Time(waiting for materials + repair)"
+msgstr "Thời gian (chờ vật tư + sửa chữa)"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__cost
+msgid "Cost"
+msgstr "Chi phí (Mua, vận chuyển, lắp đặt, sửa)"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__origin
+msgid "Origin"
+msgstr "Xuất xứ"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__insurance
+msgid "Insurance"
+msgstr "Bảo hành"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__attachment_for_technical_incident
+msgid "Attachment for technical incident"
+msgstr "Tài liệu đính kèm"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Sea protest"
+msgstr "Kháng nghị hàng hải"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__incident_date
+msgid "Incident date"
+msgstr "Ngày xãy ra sự cố"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__captain_name
+msgid "Captain name"
+msgstr "Tên thuyền trường"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__port_location
+msgid "Port location"
+msgstr "Vị trí cảng"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__IMO
+msgid "IMO"
+msgstr "Hô hiệu/IMO"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__payload
+msgid "Payload"
+msgstr "Trọng tải"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__port_of_registration
+msgid "Port of registration"
+msgstr "Cảng đăng ký"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__ship_owner
+msgid "Ship owner"
+msgstr "Chủ tàu"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__operator
+msgid "Operator"
+msgstr "Người khai thác"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_safety_management_handbook
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_safety_management_handbook
+msgid "Safety Management Handbook"
+msgstr "Sổ tay PCAT"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_editing_request_for_handbook__safety_management_handbook_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_handbook_section__safety_management_handbook_id
+msgid "Safety management handbook"
+msgstr "Sổ tay PCAT"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_editing_request_for_handbook
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_changed_content_of_handbook__editing_request_for_handbook_id
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_editing_request_for_handbook
+msgid "Editing Request For Handbook"
+msgstr "Phát hiện sự không phù hợp trong sổ tay"
+
+#. module: safety_legislation
+#: model:ir.actions.report,name:safety_legislation.legis_edting_request_for_handbook_option
+msgid "Editing request for handbook"
+msgstr "Phát hiện sự không phù hợp trong sổ tay"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "<span class=\"o_stat_text\">Create Insurance</span>"
+msgstr "<span class=\"o_stat_text\">Tạo bảo hiểm</span>"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__address
+msgid "Address"
+msgstr "Địa chỉ"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__sea_protest_description
+msgid "Sea protest description"
+msgstr "Tuyên bố kháng nghị hàng"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__insurance_deductible_cost
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__insurance_deductible_cost
+msgid "Insurance deductible cost"
+msgstr "Chi phí khấu trừ(bảo hiểm)"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__is_noti_for_legal_department
+msgid "is noti for legal department"
+msgstr "Đã thông báo cho pháp chế?"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__create_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__create_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__current_approval_level_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__current_approval_level_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__current_approval_level_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident__current_approval_level_id
+msgid "Current approval level"
+msgstr "Tầng duyệt hiện tại"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__deadline
+msgid "Deal line"
+msgstr "Thời hạn"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_default_value_form
+msgid "Declare"
+msgstr "Khai báo"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_default_value
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_default_value
+msgid "Default Value"
+msgstr "Giá trị mặc định"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_default_value_for_model
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_default_value_for_model
+msgid "Default Value For Model"
+msgstr "Giá trị mặc định cho Model"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_default_value_for_model_form
+msgid "Default Values"
+msgstr "Giá trị mặc định"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__default_type
+msgid "Default type"
+msgstr "Loại mặc định"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__default_value_ids
+msgid "Default value"
+msgstr "Giá trị mặc định"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__default_value_for_model_id
+msgid "Default value for model"
+msgstr "Giá trị mặc định cho Model"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_default_value_for_model
+msgid "Default value for model records"
+msgstr "Giá trị mặc định cho Model"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_default_value
+msgid "Default value records"
+msgstr "Giá trị mặc định"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_job__description
+msgid "Description"
+msgstr "Mô tả"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+msgid "Director Comment"
+msgstr "Bình luận của giám đốc"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__comment
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__comment
+msgid "Director comment"
+msgstr "Bình luận của giám đốc"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__display_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__expected_date
+msgid "Expected date"
+msgstr "Ngày dự kiến"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__expected_fix_date
+msgid "Expected fix date"
+msgstr "Ngày dự kiến khắc phục"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__default_type__field
+msgid "Field"
+msgstr "Trường"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__field_name
+msgid "Field name"
+msgstr "Tên trường"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__field_type
+msgid "Field type"
+msgstr "Loại trường"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__fix_content
+msgid "Fix content"
+msgstr "Nội dung khắc phục"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__fix_plan
+msgid "Fix plan"
+msgstr "Kế hoạch khắc phục"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__field_type__float
+msgid "Float"
+msgstr "Float"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__float_field
+msgid "Float value"
+msgstr "Giá trị Float"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_follower_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_partner_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__general_prenoti_days
+msgid "General prenoti days"
+msgstr "Ngày thông báo chuẩn bị"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__has_message
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__field_type__html
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_default_value_form
+msgid "Html"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__html_field
+msgid "Html value"
+msgstr "Giá trị html"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__id
+msgid "ID"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value_for_model__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_inspection_plan__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_image__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope_metadata__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_image__message_needaction
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_metadata__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value_for_model__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value_for_model__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_inspection_plan__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_inspection_plan__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_image__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_image__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope_metadata__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope_metadata__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_image__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_image__message_has_sms_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_metadata__message_has_error
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_metadata__message_has_sms_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__image
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__image
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_inspection_plan
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_inspection_plan
+msgid "Inspection Plan"
+msgstr "Kế hoạch kiểm tra hàng tháng"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+msgid "Inspection Task"
+msgstr "Nội dung kiểm tra"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__inspection_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__inspection_date
+msgid "Inspection date"
+msgstr "Ngày phát hiện"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__inspection_plan_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__inspection_plan_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__inspection_plan_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__inspection_plan_id
+msgid "Inspection plan"
+msgstr "Kế hoạch kiểm tra hàng tháng"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_inspection_plan
+msgid "Inspection plan records"
+msgstr "Kế hoạch kiểm tra hàng tháng"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__user_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__user_ids
+msgid "Inspectors"
+msgstr "Người kiểm tra"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__int_field
+msgid "Int value"
+msgstr "Giá trị Int"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__field_type__integer
+msgid "Integer"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_is_follower
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__is_approve_button_hidden
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__is_approve_button_hidden
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__is_approve_button_hidden
+msgid "Is approve button hidden"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__is_approved_inspection_plan
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__is_approved_inspection_plan
+msgid "Is approved inspection plan"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__is_propose
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__is_propose
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__is_propose
+msgid "Is propose"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__is_severe
+msgid "Is severe"
+msgstr "Có tồn đọng lớn?"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image____last_update
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__write_uid
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__write_date
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.actions.server,name:safety_legislation.ir_cron_prepare_for_inspection_plan_ir_actions_server
+#: model:ir.cron,cron_name:safety_legislation.ir_cron_prepare_for_inspection_plan
+msgid "Legis Need Prepare For Inspection Plan: Everyday"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.actions.server,name:safety_legislation.ir_cron_need_real_date_for_inspection_plan_ir_actions_server
+#: model:ir.cron,cron_name:safety_legislation.ir_cron_need_real_date_for_inspection_plan
+msgid "Legis Need Real Date For Inspection Plan: Everyday"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_main_attachment_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_has_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_default_value_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+msgid "Metadata"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__model
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__model
+msgid "Model"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__notification_type__need_real_date_for_inspection_plan
+msgid "NEED_REAL_DATE_FOR_INSPECTION_PLAN"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__notification_type__notification_for_approved
+msgid "NOTIFICATION_FOR_APPROVED"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_job__name
+msgid "Name"
+msgstr "Tên"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__name_for_noti
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__name_for_noti
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__name_for_noti
+msgid "Name for noti"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__task_name
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__task_name
+msgid "Task name"
+msgstr "Nội dung kiểm tra"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__task_description
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__task_description
+msgid "Task description"
+msgstr "Mô tả nội dung kiểm tra"
+
+#. module: safety_legislation
+#. odoo-python
+#: code:addons/safety_legislation/models/default_value.py:0
+#: code:addons/safety_legislation/models/default_value.py:0
+#: code:addons/safety_legislation/models/default_value_for_model.py:0
+#: code:addons/safety_legislation/models/default_value_for_model.py:0
+#: code:addons/safety_legislation/models/inspection_plan.py:0
+#: code:addons/safety_legislation/models/inspection_plan.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_task_metadata.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_task_metadata.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_scope.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_scope.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_scope_metadata.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_scope_metadata.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_task.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_task.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_task_image.py:0
+#: code:addons/safety_legislation/models/ship_management_inspection_task_image.py:0
+#: code:addons/safety_legislation/models/technical_inspection_scope.py:0
+#: code:addons/safety_legislation/models/technical_inspection_scope.py:0
+#: code:addons/safety_legislation/models/technical_inspection_scope_metadata.py:0
+#: code:addons/safety_legislation/models/technical_inspection_scope_metadata.py:0
+#: code:addons/safety_legislation/models/technical_inspection_task.py:0
+#: code:addons/safety_legislation/models/technical_inspection_task.py:0
+#: code:addons/safety_legislation/models/technical_inspection_task_image.py:0
+#: code:addons/safety_legislation/models/technical_inspection_task_image.py:0
+#: code:addons/safety_legislation/models/technical_inspection_task_metadata.py:0
+#: code:addons/safety_legislation/models/technical_inspection_task_metadata.py:0
+#, python-format
+msgid "New"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__note
+msgid "Note"
+msgstr "Ghi chú"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_editing_request_for_handbook__request_type
+msgid "Request type"
+msgstr "Loại yêu cầu"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_editing_request_for_handbook__request_type__periodic
+msgid "Periodic"
+msgstr "Định kỳ"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_editing_request_for_handbook__request_type__unexpect
+msgid "Unexpect"
+msgstr "Bất thường"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__default_type__notification_for_user
+msgid "Notification for users"
+msgstr "Thông báo cho người dùng"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__notification_run
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__notification_run
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__notification_run
+msgid "Notification run"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__notification_type
+msgid "Notification type"
+msgstr "Loại thông báo"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_needaction_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_has_error_counter
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value_for_model__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_inspection_plan__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_image__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope_metadata__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_image__message_needaction_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_metadata__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value_for_model__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_inspection_plan__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_image__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope_metadata__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_image__message_has_error_counter
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_metadata__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_operations
+msgid "Operation"
+msgstr "Vận hành"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__notification_type__prepare_for_inspection_plan
+msgid "PREPARE_FOR_INSPECTION_PLAN"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_ship_management_inspection_task__status__pending
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_inspection_task__status__pending
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_incident__repair_status__pending
+msgid "Pending"
+msgstr "Đang chờ"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Propose proposal"
+msgstr "Trình duyệt"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__real_date
+msgid "Real date"
+msgstr "Ngày thực tế"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__real_fix_date
+msgid "Real fix date"
+msgstr "Ngày khắc phục"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Reject proposal"
+msgstr "Từ chối"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__message_has_sms_error
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_ship_management_inspection_task__status__satisfied
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_inspection_task__status__satisfied
+msgid "Satisfied"
+msgstr "Thỏa mãn"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_ship_management_inspection_task_metadata
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_ship_management_inspection_task_metadata
+msgid "Ship Management Inspection Task Metadata"
+msgstr "Nội dung kiểm tra của P.QLT metadata"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_scope_metadata_form
+msgid "Ship Management Inspection Task Metadatas"
+msgstr "Nội dung kiểm tra của P.QLT metadata"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_ship_management_inspection_scope
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_ship_management_inspection_scope
+msgid "Ship Management Inspection Scope"
+msgstr "Hạng mục kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_ship_management_inspection_scope_metadata
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_ship_management_inspection_scope_metadata
+msgid "Ship Management Inspection Scope Metadata"
+msgstr "Hạng mục kiểm tra của P.QLT metadata"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_scope_metadata_form
+msgid "Ship Management Inspection Scopes"
+msgstr "Hạng mục kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_ship_management_inspection_task
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_ship_management_inspection_task
+msgid "Ship Management Inspection Task"
+msgstr "Nội dung kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_ship_management_inspection_task_image
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_ship_management_inspection_task_image
+msgid "Ship Management Inspection Task Image"
+msgstr "Hình ảnh của NVKT tàu"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+msgid "Ship Management Inspection Task Images"
+msgstr "Hình ảnh của NVKT tàu"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_metadata_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_scope_form
+msgid "Ship Management Inspection Tasks"
+msgstr "Nội dung kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__ship_management_inspection_task_metadata_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__ship_management_inspection_task_metadata_id
+msgid "Ship management inspection task metadata"
+msgstr "Nội dung kiểm tra của P.QLT metadata"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_ship_management_inspection_task_metadata
+msgid "Ship management inspection task metadata records"
+msgstr "Nội dung kiểm tra của P.QLT metadata"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__ship_management_inspection_scope_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__ship_management_inspection_scope_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__ship_management_inspection_scope_id
+msgid "Ship management inspection scope"
+msgstr "Hạng mục kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__ship_management_inspection_scope_metadata_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__ship_management_inspection_scope_metadata_id
+msgid "Ship management inspection scope metadata"
+msgstr "Hạng mục kiểm tra của P.QLT metadata"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_ship_management_inspection_scope_metadata
+msgid "Ship management inspection scope metadata records"
+msgstr "Hạng mục kiểm tra của P.QLT metadata"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_ship_management_inspection_scope
+msgid "Ship management inspection scope records"
+msgstr "Hạng mục kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__ship_management_inspection_task_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__ship_management_inspection_task_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__ship_management_inspection_task_id
+msgid "Ship management inspection task"
+msgstr "Nội dung kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__ship_management_inspection_task_image_ids
+msgid "Ship management inspection task image"
+msgstr "Hình ảnh của NVKT tàu"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_ship_management_inspection_task_image
+msgid "Ship management inspection task image records"
+msgstr "Hình ảnh của NVKT tàu"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_ship_management_inspection_task
+msgid "Ship management inspection task records"
+msgstr "Nội dung kiểm tra của P.QLT"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__ship_management_report_date
+msgid "Ship management report date"
+msgstr "Ngày báo cáo cho form tàu"
+
+#. module: safety_legislation
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_root
+msgid "Ship safety legislation"
+msgstr "Pháp chế an toàn"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__speciallist_prenoti_days
+msgid "Speciallist prenoti days"
+msgstr "Ngày thông báo để điền ngày thực tế"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__status
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__status
+msgid "Status"
+msgstr "Trạng thái kiểm tra"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__stop_notification_for_prepare
+msgid "Stop notification for prepare"
+msgstr "Dừng thông báo cho chuẩn bị"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_default_value__field_type__string
+msgid "String"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__str_field
+msgid "String value"
+msgstr "Giá trị String"
+
+#. module: safety_legislation
+#: model:ir.ui.menu,name:safety_legislation.top_menu_legis_inspection_plan
+msgid "Inspection plan"
+msgstr "Kế hoạch kiểm tra hàng tháng"
+
+#. module: safety_legislation
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_inspection_scope
+msgid "Inspection scope"
+msgstr "Hạng mục kiểm tra"
+
+#. module: safety_legislation
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_task
+msgid "Task"
+msgstr "Nội dung kiểm tra"
+
+#. module: safety_legislation
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_images
+msgid "Image"
+msgstr "Hình ảnh"
+
+#. module: safety_legislation
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_incidents
+msgid "Technical Incidents"
+msgstr "Sự cố kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_inspection_scope
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_inspection_scope
+msgid "Technical Inspection Scope"
+msgstr "Báo cáo tình trạng kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_inspection_scope_metadata
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_inspection_scope_metadata
+msgid "Technical Inspection Scope Metadata"
+msgstr "Báo cáo tình trạng kỹ thuật metadata"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__technical_incident_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_job__technical_incident_id
+#: model:ir.model.fields,field_description:safety_legislation.field_ship_maintenance_scope_report_legis_technical_incident_rel__technical_incident_id
+msgid "Technical incident"
+msgstr "Sự cố kỹ thuật"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_job_form
+msgid "Material Assignments"
+msgstr "Sử dụng vật tư"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_scope_metadata_form
+msgid "Technical Inspection Scopes"
+msgstr "Báo cáo tình trạng kỹ thuật"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_safety_management_handbook_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_insurance_form
+msgid "All Approval"
+msgstr "Luồng duyệt đồng thời"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_safety_management_handbook__approval_status_for_all_approval
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__approval_status_for_all_approval
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_requisition_for_handbook_revision__approval_status_for_all_approval
+msgid "All approval status"
+msgstr "Trạng thái duyệt"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_requisition_for_handbook_revision__required_all_approval_group_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__required_all_approval_group_ids
+msgid "Required All Approval Group"
+msgstr "Người duyệt"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_safety_management_handbook__this_all_approval_group_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__this_all_approval_group_id
+msgid "This all approval group"
+msgstr "Luồng duyệt đồng thời"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_safety_management_handbook__is_user_allow_to_approvel
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__is_user_allow_to_approvel
+msgid "Is user allow to approve"
+msgstr "Người dùng có quyền duyệt đồng thời?"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__document
+msgid "Upload Document"
+msgstr "Tải tài liệu"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__is_completed
+msgid "Is completed"
+msgstr "Đã hoàn thành?"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_handbook_section__title
+msgid "Title"
+msgstr "Tiêu đề"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_content_page__content
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_handbook_section__content
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_incidence_type_meta__content
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_content_page_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_handbook_section_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_incidence_type_meta_form
+msgid "Content"
+msgstr "Nội dung"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_handbook_section__modified_content
+msgid "Modified content"
+msgstr "Nội dung sửa đổi thành"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_safety_management_handbook__is_off_all_approval
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_incident_insurance__is_off_all_approval
+msgid "Is off all approval"
+msgstr "Tắt duyệt đồng thời?"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_incident
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_incident
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Technical Incident"
+msgstr "Sự cố kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_incident_insurance
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_incident_insurance
+msgid "Technical Incident Insurance"
+msgstr "Bảo hiểm sự cố kỹ thuật"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Technical Incident Insurances"
+msgstr "Bảo hiểm sự cố kỹ thuật"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_requisition_for_handbook_revision_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_insurance_form
+msgid "user_approve"
+msgstr "Chấp thuận"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_requisition_for_handbook_revision_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_insurance_form
+msgid "user_unapprove"
+msgstr "Từ chối"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_requisition_for_handbook_revision_form
+msgid "Get changed content of handbook"
+msgstr "Lấy nội dung thay đổi"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_requisition_for_handbook_revision_form
+msgid "implement_approval_flow"
+msgstr "Trình duyệt BLĐ"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_editing_request_for_handbook_form
+msgid "Create new handbook"
+msgstr "Tạo mới sổ tay"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_editing_request_for_handbook_form
+msgid "notify_DPA"
+msgstr "Thông báo DPA"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_requisition_for_handbook_revision_form
+msgid "render_report"
+msgstr "Lấy từ nội dung thay đổi"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_requisition_for_handbook_revision_form
+msgid "Changed Content Of handbooks"
+msgstr "Nội dung thay đổi"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_requisition_for_handbook_revision_form
+msgid "Requisition html(0102)"
+msgstr "Yêu cầu sửa đổi, bổ sung, huỷ bỏ(0102)"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_incident_job
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_incident_job
+msgid "Technical Incident Job"
+msgstr "Công việc của SCKT"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Technical Incident Jobs"
+msgstr "Công việc của SCKT"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Technical Incident Report"
+msgstr "Báo cáo sự cố kỹ thuật"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Technical Incident html"
+msgstr "Sự cố kỹ thuật PDF"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Maintenance Scope Reports"
+msgstr "Báo cáo sửa chữa"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Material Paint Quotes Requests"
+msgstr "Yêu cầu cấp vật tư, sơn"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_serious_accident_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Sea Protest html"
+msgstr "Kháng nghị hàng hải PDF"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_inspection_task
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_inspection_task
+msgid "Technical Inspection Task"
+msgstr "Nội dung của BCTT kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_inspection_task_image
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_inspection_task_image
+msgid "Technical Inspection Task Image"
+msgstr "Hình ảnh của NVKT kỹ thuật"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+msgid "Technical Inspection Task Images"
+msgstr "Hình ảnh của NVKT kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.actions.act_window,name:safety_legislation.action_legis_technical_inspection_task_metadata
+#: model:ir.ui.menu,name:safety_legislation.menu_legis_technical_inspection_task_metadata
+msgid "Technical Inspection Task Metadata"
+msgstr "Nội dung của BCTT kỹ thuật metadata"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_scope_metadata_form
+msgid "Technical Inspection Task Metadatas"
+msgstr "Nội dung của BCTT kỹ thuật metadata"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_scope_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_metadata_form
+msgid "Technical Inspection Tasks"
+msgstr "Nội dung của BCTT kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__technical_inspection_scope_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__technical_inspection_scope_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__technical_inspection_scope_id
+msgid "Technical inspection scope"
+msgstr "Báo cáo tình trạng kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__technical_inspection_scope_metadata_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__technical_inspection_scope_metadata_id
+msgid "Technical inspection scope metadata"
+msgstr "Báo cáo tình trạng kỹ thuật metadata"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_technical_inspection_scope_metadata
+msgid "Technical inspection scope metadata records"
+msgstr "Báo cáo tình trạng kỹ thuật metadata"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_technical_inspection_scope
+msgid "Technical inspection scope records"
+msgstr "Báo cáo tình trạng kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__technical_inspection_task_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__technical_inspection_task_id
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__technical_inspection_task_ids
+msgid "Technical inspection task"
+msgstr "Nội dung của BCTT kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__technical_inspection_task_image_ids
+msgid "Technical inspection task image"
+msgstr "Hình ảnh của NVKT kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_technical_inspection_task_image
+msgid "Technical inspection task image records"
+msgstr "Hình ảnh của NVKT kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__technical_inspection_task_metadata_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__technical_inspection_task_metadata_id
+msgid "Technical inspection task metadata"
+msgstr "Nội dung của BCTT kỹ thuật metadata"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_technical_inspection_task_metadata
+msgid "Technical inspection task metadata records"
+msgstr "Nội dung của BCTT kỹ thuật metadata"
+
+#. module: safety_legislation
+#: model:ir.model,name:safety_legislation.model_legis_technical_inspection_task
+msgid "Technical inspection task records"
+msgstr "Nội dung của BCTT kỹ thuật"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__technical_report_date
+msgid "Technical report date"
+msgstr "Ngày báo cáo cho form kỹ thuật"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_inspection_plan_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_ship_management_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_inspection_task_form
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_technical_incident_form
+msgid "Unpropose proposal"
+msgstr "Trả lại"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_ship_management_inspection_task__status__unsatisfied
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_inspection_task__status__unsatisfied
+msgid "Unsatisfied"
+msgstr "Chưa thỏa mãn"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_ship_management_inspection_task__status__need_review
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_inspection_task__status__need_review
+msgid "Need review"
+msgstr "Cần xem lại"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__user_ids
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_default_value_form
+msgid "Users"
+msgstr "Người dùng"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__task_type
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__task_type
+msgid "Task type"
+msgstr "Loại nội dung"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_ship_management_inspection_task__task_type__backlogged
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_inspection_task__task_type__backlogged
+msgid "Backlogged"
+msgstr "Bị tồn đọng"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_ship_management_inspection_task__task_type__last_month_backlog
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_inspection_task__task_type__last_month_backlog
+msgid "Backlog from last month"
+msgstr "Tồn đọng từ tháng trước"
+
+#. module: safety_legislation
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_ship_management_inspection_task__task_type__new
+#: model:ir.model.fields.selection,name:safety_legislation.selection__legis_technical_inspection_task__task_type__new
+msgid "New"
+msgstr "Mới"
+
+#. module: safety_legislation
+#: model_terms:ir.ui.view,arch_db:safety_legislation.view_legis_default_value_form
+msgid "Value"
+msgstr "Giá trị"
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_default_value_for_model__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_inspection_plan__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_metadata__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_scope_metadata__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task_image__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_scope_metadata__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_image__website_message_ids
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task_metadata__website_message_ids
+msgid "Website Messages"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_default_value_for_model__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_inspection_plan__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_metadata__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_scope_metadata__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_ship_management_inspection_task_image__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_scope_metadata__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_image__website_message_ids
+#: model:ir.model.fields,help:safety_legislation.field_legis_technical_inspection_task_metadata__website_message_ids
+msgid "Website communication history"
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_ship_management_inspection_task__is_ceo
+#: model:ir.model.fields,field_description:safety_legislation.field_legis_technical_inspection_task__is_ceo
+msgid "is ceo"
+msgstr "Có phải CEO?"
+
+#. module: safety_legislation
+#: model:ir.model.constraint,message:safety_legislation.constraint_legis_default_value_for_model_unique_model
+msgid "model must be unique."
+msgstr ""
+
+#. module: safety_legislation
+#: model:ir.model.constraint,message:safety_legislation.constraint_legis_default_value_unique_notification_type
+msgid "notification_type must be unique."
+msgstr ""

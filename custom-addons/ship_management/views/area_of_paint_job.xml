@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_area_of_paint_job_form" model="ir.ui.view">
+        <field name="name">ship.area.of.paint.job.form</field>
+        <field name="model">ship.area.of.paint.job</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Meta">
+                        <field name="company_id" readonly="1"/>
+                        <field name="job_quote_id"/>
+                        <field name="job_paint_requirement_id"/>
+                    </group>
+
+                    <group string="Area Of Paint Job">
+                        <field name="paint_id"/>
+                        <field name="paint_area_m2"/>
+                        <field name="paint_position"/>
+                        <field name="layer_count"/>
+                        <field name="required_quantity_liter_m2"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_area_of_paint_job_tree" model="ir.ui.view">
+        <field name="name">ship.area.of.paint.job.tree</field>
+        <field name="model">ship.area.of.paint.job</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="paint_area_m2"/>
+                <field name="paint_position"/>
+                <field name="job_paint_requirement_id"/>
+                <field name="job_quote_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_area_of_paint_job_search" model="ir.ui.view">
+        <field name="name">ship.area.of.paint.job.search</field>
+        <field name="model">ship.area.of.paint.job</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="paint_area_m2"/>
+                <field name="paint_position"/>
+                <field name="job_paint_requirement_id"/>
+                <field name="job_quote_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_area_of_paint_job" model="ir.actions.act_window">
+        <field name="name">Area Of Paint Job</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.area.of.paint.job</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_area_of_paint_job"
+            name="Area Of Paint Job" 
+            parent="menu_ship_operations"
+            action="action_ship_area_of_paint_job"
+            sequence="10"/>
+
+</odoo>

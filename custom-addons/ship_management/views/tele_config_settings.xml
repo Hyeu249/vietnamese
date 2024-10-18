@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_tele_config_settings_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.ship.management</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="90"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+
+                <div class="app_settings_block" data-string="VSICO Quản lý tàu" id="ship_management" string="Quản lý tàu" data-key="ship_management">
+                    <h2>Ship Management</h2>
+                    <div class="row mt16 o_settings_container" id="ship_management_setting">
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Telegram settings</span>
+                                <div class="text-muted content-group mt16" style="display:flex;">
+                                    <div style="min-width: 100px">Active telegram</div>
+                                    <field name="is_active_telegram"/>
+                                </div>
+                                <div class="text-muted content-group mt12" style="display:flex;">
+                                    <div style="min-width: 100px">Bot token</div>
+                                    <field name="bot_token" password="True"/>
+                                </div>
+                                <button name="move_to_setting_tele_groups" icon="fa-arrow-right" type="object" string="Manage telegram groups" class="btn-link o_web_settings_access_rights"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+
+    <record id="action_tele_config_settings" model="ir.actions.act_window">
+        <field name="name">Tele config settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'ship_management', 'bin_size': False}</field>
+    </record>
+
+    <menuitem id="menu_tele_config_settings"
+        name="Settings"
+        parent="menu_ship_operations"
+        action="action_tele_config_settings"
+        sequence="110"/>
+
+    <!-- Tele setting groups -->
+    <record id="view_ship_tele_group_settings_form" model="ir.ui.view">
+        <field name="name">ship.tele.group.settings.form</field>
+        <field name="model">ship.tele.group.settings</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>Telegram Bot</h1>
+                    </div>
+                    <group>
+                        <field name="company_ids" widget="many2many_tags" options="{'no_create': True, 'no_create_edit':True}"/>
+                        <field name="chat_id"/>
+                        <field name="token" password="True"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_tele_group_settings_tree" model="ir.ui.view">
+        <field name="name">ship.tele.group.settings.tree</field>
+        <field name="model">ship.tele.group.settings</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom"
+                decoration-success="is_active == True"
+                decoration-warning="is_active != True"
+            >
+                <field name="company_ids" widget="many2many_tags"/>
+                <field name="chat_id"/>
+                <field name="token" password="True"/>
+                <field name="is_active" widget="boolean_toggle" readonly="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_tele_group_settings_search" model="ir.ui.view">
+        <field name="name">ship.tele.group.settings.search</field>
+        <field name="model">ship.tele.group.settings</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="company_ids" widget="many2many_tags"/>
+                <field name="token"/>
+                <field name="chat_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_tele_group_settings" model="ir.actions.act_window">
+        <field name="name">Telegram Group Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.tele.group.settings</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_tele_group_settings"
+            name="Telegram Group Settings"
+            parent="menu_ship_operations"
+            action="action_ship_tele_group_settings"
+            sequence="100"/>
+
+</odoo>

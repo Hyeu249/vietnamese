@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_category_vietnamese" model="ir.module.category">
+        <field name="name">Vietnamese Roles</field>
+        <field name="description">Category For Vietnamese</field>
+    </record>
+
+    <record id="group_vietnamese_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="module_category_vietnamese"/>
+    </record>
+
+</odoo>

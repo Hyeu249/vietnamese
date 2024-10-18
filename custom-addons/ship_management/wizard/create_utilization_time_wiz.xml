@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_create_utilization_time_wiz_form" model="ir.ui.view">
+        <field name="name">ship.create.utilization.time.wiz.form</field>
+        <field name="model">ship.create.utilization.time.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Create Utilization Time Wiz">
+                <group>
+                    <field name="date"/>
+                </group>
+
+                <footer>
+                    <button string="Confirm" type="object" name="action_confirm" class="btn-primary"/>
+                </footer>
+                
+                <notebook>
+                    <page string="Utilization times" name="utilization_time_ids">
+                        <field name="utilization_time_ids"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_create_utilization_time_wiz" model="ir.actions.act_window">
+        <field name="name">Create Utilization Time Wiz</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.create.utilization.time.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_create_utilization_time_wiz_form"/>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem id="menu_ship_create_utilization_time" name="Create Utilization Time" parent="menu_ship_supplies" action="action_create_utilization_time_wiz" sequence="10"/>
+
+</odoo>
+ 

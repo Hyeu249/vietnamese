@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="module_ship_power_level" model="ir.module.category">
+        <field name="name">Ship Power Levels</field>
+        <field name="description">Power Level For Ship</field>
+    </record>
+
+    <record id="group_ship_pa" model="res.groups">
+        <field name="name">PA(Perform All)</field>
+        <field name="category_id" ref="module_ship_power_level"/>
+    </record>
+
+    <record id="module_category_ship" model="ir.module.category">
+        <field name="name">Ship Roles</field>
+        <field name="description">Category For Ship</field>
+    </record>
+
+    <record id="group_ship_cost_price_visibility" model="res.groups">
+        <field name="name">Cost and Price visibilty</field>
+        <field name="category_id" ref="module_category_ship"/>
+    </record>
+
+    <record id="group_ship_admin" model="res.groups">
+        <field name="name">Admin</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_vice_captain_head_machinery" model="res.groups">
+        <field name="name">Vice Captain And Head Machinery</field>
+        <field name="category_id" ref="module_category_ship" />
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_ceo" model="res.groups">
+        <field name="name">CEO</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_head_of_department" model="res.groups">
+        <field name="name">Head of Department</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_technical_expert" model="res.groups">
+        <field name="name">Technical Expert</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_ship_crew" model="res.groups">
+        <field name="name">Ship Crew</field>
+        <field name="category_id" ref="module_category_ship"/>
+    </record>
+
+    <record id="group_ship_captain" model="res.groups">
+        <field name="name">Captain</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa'))]"/>
+    </record>
+
+    <record id="group_ship_vice_captain" model="res.groups">
+        <field name="name">Vice Captain</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_head_of_machinery" model="res.groups">
+        <field name="name">Head of Machinery</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_material_expert" model="res.groups">
+        <field name="name">Material Expert</field>
+        <field name="category_id" ref="module_category_ship"/>
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_supplier" model="res.groups">
+        <field name="name">Supplier</field>
+        <field name="category_id" ref="module_category_ship" />
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa'))]"/>
+    </record>
+
+    <record id="group_ship_head_of_manager" model="res.groups">
+        <field name="name">Head of Manager</field>
+        <field name="category_id" ref="module_category_ship" />
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa')), (4, ref('group_ship_cost_price_visibility'))]"/>
+    </record>
+
+    <record id="group_ship_head_of_legal" model="res.groups">
+        <field name="name">Head of Legal</field>
+        <field name="category_id" ref="module_category_ship" />
+        <field name="implied_ids" eval="[(4, ref('group_ship_pa'))]"/>
+    </record>
+</odoo>

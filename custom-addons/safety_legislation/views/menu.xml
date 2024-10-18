@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_legis_root" name="Ship safety legislation" sequence="10"/>
+    <menuitem id="menu_legis_operations" name="Operation" parent="menu_legis_root" sequence="10" groups="utilities.group_ship_admin"/>
+    <menuitem id="menu_legis_forms" name="Form" parent="menu_legis_operations" sequence="10"/>
+    <menuitem id="menu_legis_pages" name="Page" parent="menu_legis_operations" sequence="10"/>
+    <menuitem id="top_menu_legis_inspection_plan" name="Inspection plan" parent="menu_legis_root" sequence="10"/>
+    <menuitem id="menu_legis_inspection_scope" name="Inspection scope" parent="menu_legis_root" sequence="10"/>
+    <menuitem id="menu_legis_task" name="Task" parent="menu_legis_root" sequence="10"/>
+    <menuitem id="menu_legis_images" name="Image" parent="menu_legis_root" sequence="10"/>
+    <menuitem id="menu_legis_technical_incidents" name="Technical Incidents" parent="menu_legis_root" sequence="10"/>
+    <menuitem id="menu_legis_handbook" name="VSICO handbook" parent="menu_legis_root" sequence="10"/>
+    <menuitem id="menu_legis_edit_request" name="Request" parent="menu_legis_handbook" sequence="10"/>
+    <menuitem id="menu_legis_serious_accidents" name="Serious Accident" parent="menu_legis_root" sequence="10"/>
+</odoo>

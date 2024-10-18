@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_serious_accident_report_form" model="ir.ui.view">
+        <field name="name">legis.serious.accident.report.form</field>
+        <field name="model">legis.serious.accident.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="edit_accident_report" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0402(Accident Report)</span>
+                            </div>
+                        </button>
+                        <button name="edit_investigative_report" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">1928(Investigate Report)</span>
+                            </div>
+                        </button>
+                        <button name="edit_sea_protest" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Sea Protest</span>
+                            </div>
+                        </button>
+                        <button name="edit_team_checklist" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">1927(Team Checklist)</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Serious Accident">
+                            <field name="company_id" readonly="1"/>
+                            <field name="serious_accident_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="description"/>
+                            <field name="is_completed"/>
+                            <field name="help"/>
+                        </group>
+                        <group string="report" invisible="1">
+                            <field name="accident_report_id"/>
+                            <field name="investigative_report_id"/>
+                            <field name="sea_protest_id"/>
+                            <field name="team_checklist_id"/>
+                            <field name="serious_accident_team_len"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Serious Accident Team" name="serious_accident_team_ids" autofocus="autofocus">
+                            <header>
+                                <button 
+                                    name="ert_assemble" 
+                                    string="ert_assemble" 
+                                    type="object" 
+                                    class="oe_highlight" 
+                                    attrs="{'invisible': [('serious_accident_team_len', '!=', 0)]}"
+                                    groups="utilities.group_ship_head_of_legal"/>
+                                <button 
+                                    name="open_ert_tree_view" 
+                                    type="object" 
+                                    string="Open Ert Tree View" 
+                                    class="btn-primary" 
+                                    attrs="{'invisible': [('serious_accident_team_len', '=', 0)]}"/>
+                            </header>
+                            <field name="serious_accident_team_ids" mode="kanban">
+                                <kanban>
+                                    <field name="user_id"/>
+                                    <field name="avatar_128"/>
+                                    <field name="login"/>
+                                    <field name="phone"/>
+                                    <field name="mobile"/>
+                                    <templates>
+                                        <t t-name="kanban-box">
+                                            <div class="oe_kanban_global_click">
+                                                <div class="o_kanban_image">
+                                                    <img alt="Contact image" t-att-src="kanban_image('legis.serious.accident.team', 'avatar_128', record.id? record.id.raw_value: record.id)"/>
+                                                </div>
+                                                <div class="oe_kanban_details">
+                                                    <div><field name="user_id"/></div>
+                                                    <div><field name="login"/></div>
+                                                    <div><field name="phone"/></div>
+                                                    <div attrs="{'invisible': [('mobile', '=', False)]}">Điện thoại: <field name="mobile"/></div>
+                                                    <button name="unlink" string="delete" type="object" class="oe_stat_button cornor"/>
+                                                </div>
+                                            </div>
+                                        </t>    
+                                    </templates>
+                                </kanban>
+                            </field>
+                        </page>
+                        <page string="Contact Information" name="contact_information">
+                            <div>Contact Information</div>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_report_tree" model="ir.ui.view">
+        <field name="name">legis.serious.accident.report.tree</field>
+        <field name="model">legis.serious.accident.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="serious_accident_id"/>
+                <field name="is_completed"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_report_search" model="ir.ui.view">
+        <field name="name">legis.serious.accident.report.search</field>
+        <field name="model">legis.serious.accident.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="serious_accident_id"/>
+                <field name="is_completed"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_serious_accident_report" model="ir.actions.act_window">
+        <field name="name">Serious Accident Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.serious.accident.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_serious_accident_report"
+            name="Serious Accident Report" 
+            parent="menu_legis_serious_accidents"
+            action="action_legis_serious_accident_report"
+            sequence="5"/>
+
+</odoo>

@@ -1,0 +1,56 @@
+.o_kanban_record > div::after {
+  bottom: 8px !important;
+}
+
+.o_kanban_renderer
+  .o_kanban_record
+  .o_kanban_record_bottom
+  .oe_kanban_bottom_left
+  > * {
+  color: green;
+  font-weight: 500;
+}
+
+.o_Chatter_scrollPanel
+  .o_Message.o-discussion.o-notification.o_MessageList_item.o_MessageList_message {
+  display: none;
+}
+
+.o_list_table.table.o_list_table_ungrouped.table-striped {
+  /* table-layout: auto !important; */
+}
+
+.o_form_button_save.btn {
+  font-size: 16px;
+}
+.o_form_button_cancel.btn {
+  font-size: 16px;
+}
+
+.o_form_button_save.btn {
+  font-size: 21px;
+}
+
+.o_form_button_cancel.btn {
+  font-size: 21px;
+}
+
+.o_form_button_save.btn.btn-light {
+  color: #ffffff;
+  background-color: #71639e;
+  border-color: #71639e;
+  margin-left: 10px;
+}
+.o_form_button_save.btn.btn-light::after {
+  content: "LƯU";
+}
+.o_form_button_cancel.btn.btn-light::after {
+  content: "HỦY BỎ";
+}
+
+.o_form_button_save.btn.btn-light i.fa-cloud-upload {
+  display: none;
+}
+.o_form_button_cancel.btn.btn-light i.fa-undo {
+  display: none;
+}

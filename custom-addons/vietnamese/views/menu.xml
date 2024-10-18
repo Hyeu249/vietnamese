@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_vietnamese_root" name="Vietnamese" sequence="10">
+        <menuitem id="menu_vietnamese_operator" name="Operation" sequence="10"/>
+        <menuitem id="menu_vietnamese_tables" name="Tables" sequence="10"/>
+    </menuitem>
+
+</odoo>

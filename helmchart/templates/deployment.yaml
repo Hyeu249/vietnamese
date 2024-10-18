@@ -1,0 +1,103 @@
+{{- if .Values.deployemtEnabled }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helmchart.fullname" . }}
+  labels:
+    {{- include "helmchart.labels" . | nindent 4 }}
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      {{- include "helmchart.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "helmchart.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      serviceAccountName: {{ include "helmchart.serviceAccountName" . }}
+      securityContext:
+        {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      initContainers:
+      - name: wait-for-postgres
+        image: jwilder/dockerize:0.6.1
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: DB_HOST
+          value: {{ .Release.Name }}-postgresql
+        - name: DB_PORT
+          value: "{{ .Values.postgresql.primary.service.ports.postgresql }}"
+        command:
+          - /bin/sh
+          - -c
+          - dockerize -wait "tcp://$DB_HOST:$DB_PORT" -timeout 120s
+      - name: chown-data-to-odoo-user-101
+        image: busybox
+        command: ["sh", "-c", "chown -R 101:101 /var/lib/odoo"]
+        securityContext:
+          runAsUser: 0
+          runAsGroup: 0
+        volumeMounts:
+          - mountPath: "/var/lib/odoo"
+            name: data-pv-storage
+      containers:
+        - name: {{ .Chart.Name }}
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 8069
+              protocol: TCP
+            - name: longpolling
+              containerPort: 8072
+              protocol: TCP
+          volumeMounts:
+            - mountPath: "/var/lib/odoo"
+              name: data-pv-storage
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          args:
+            - "-i base"
+            {{- if .Values.qltWorker.enabled }}
+            - "--workers={{ .Values.qltWorker.count }}"
+            {{- end }}
+          env:
+          - name: POSTGRES_DB
+            value: {{ .Values.global.postgresql.auth.database }}
+          - name: HOST
+            value: {{ .Release.Name }}-postgresql
+          - name: PORT
+            value: "{{ .Values.postgresql.primary.service.ports.postgresql }}"
+          - name: USER
+            value: {{ .Values.global.postgresql.auth.username }}
+          - name: PASSWORD
+            value: {{ .Values.global.postgresql.auth.password }}
+      volumes:
+        - name: data-pv-storage
+          persistentVolumeClaim:
+            claimName: quan-ly-tau-data-pv-claim
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+{{- end }}

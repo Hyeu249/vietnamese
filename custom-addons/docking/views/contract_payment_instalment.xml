@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_contract_payment_instalment_form" model="ir.ui.view">
+        <field name="name">docking.contract.payment.instalment.form</field>
+        <field name="model">docking.contract.payment.instalment</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="status"/>
+                        <field name="sequence"/>
+                        <field name="percentage"/>
+                        <field name="amount"/>
+                        <field name="paid_at"/>
+                        <field name="attachment"/>
+                        <field name="contract_id"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_contract_payment_instalment_tree" model="ir.ui.view">
+        <field name="name">docking.contract.payment.instalment.tree</field>
+        <field name="model">docking.contract.payment.instalment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="status"
+                    decoration-success="status == 'COMPLETED'"
+                    decoration-warning="status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="sequence"/>
+                <field name="percentage" widget="progressbar"/>
+                <field name="amount"/>
+                <field name="paid_at"/>
+                <field name="attachment"/>
+                <field name="contract_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_contract_payment_instalment_search" model="ir.ui.view">
+        <field name="name">docking.contract.payment.instalment.search</field>
+        <field name="model">docking.contract.payment.instalment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="status"/>
+                <field name="sequence"/>
+                <field name="percentage"/>
+                <field name="amount"/>
+                <field name="paid_at"/>
+                <field name="attachment"/>
+                <field name="contract_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_contract_payment_instalment" model="ir.actions.act_window">
+        <field name="name">Contract Payment Instalment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.contract.payment.instalment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_contract_payment_instalment"
+            name="Contract Payment Instalment" 
+            parent="menu_docking_contracts"
+            action="action_docking_contract_payment_instalment"
+            sequence="10"/>
+
+</odoo>

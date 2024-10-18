@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_replacement_diary_form" model="ir.ui.view">
+        <field name="name">ship.replacement.diary.form</field>
+        <field name="model">ship.replacement.diary</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="date"/>
+                        <field name="description"/>
+                        <field name="material_entity_id"/>
+                        <field name="material_id" attrs="{'invisible':[('is_material_visible', '!=', True)]}"/>
+                        <field name="quantity" attrs="{'invisible':[('is_material_visible', '!=', True)]}"/>
+                        <field name="reason"/>
+                        <field name="condition"/>
+                        <field name="year_used"/>
+                        <field name="internal_code"/>
+                        <field name="material_description"/>
+                        <field name="note"/>
+                        <field name="is_material_visible" invisible="1"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_replacement_diary_tree" model="ir.ui.view">
+        <field name="name">ship.replacement.diary.tree</field>
+        <field name="model">ship.replacement.diary</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="custom_export_diary_to_xlsx" string="Export Diary" type="object" class="oe_highlight"/>
+                </header>
+                <field name="ref"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="material_entity_id"/>
+                <field name="material_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_replacement_diary_search" model="ir.ui.view">
+        <field name="name">ship.replacement.diary.search</field>
+        <field name="model">ship.replacement.diary</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="date"/>
+                <field name="description"/>
+                <field name="material_entity_id"/>
+                <field name="material_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_replacement_diary" model="ir.actions.act_window">
+        <field name="name">Replacement Diary</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.replacement.diary</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_replacement_diary"
+            name="Replacement Diary"
+            parent="menu_ship_supplies_liquidation"
+            action="action_ship_replacement_diary"
+            sequence="10"/>
+
+</odoo>

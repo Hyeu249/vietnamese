@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_serious_accident_task_form" model="ir.ui.view">
+        <field name="name">legis.serious.accident.task.form</field>
+        <field name="model">legis.serious.accident.task</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="is_completed"/>
+                        </group>
+
+                        <group>
+                            <field name="serious_accident_team_id"/>
+                            <field name="serious_accident_report_id"/>
+                        </group>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_task_tree" model="ir.ui.view">
+        <field name="name">legis.serious.accident.task.tree</field>
+        <field name="model">legis.serious.accident.task</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name" readonly="1"/>
+                <field name="description"/>
+                <field name="is_completed"/>
+                <field name="serious_accident_report_id" invisible="1"/>
+                <button name="open_record" type="object" icon="fa-pencil-square-o"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_task_search" model="ir.ui.view">
+        <field name="name">legis.serious.accident.task.search</field>
+        <field name="model">legis.serious.accident.task</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="is_completed"/>
+                <field name="serious_accident_team_id"/>
+                <field name="serious_accident_report_id"/>
+
+                <searchpanel>
+                    <field name="serious_accident_report_id" icon="fa-users" enable_counters="1"/>
+                </searchpanel>
+            </search>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_task_kanban" model="ir.ui.view">
+        <field name="name">legis.serious.accident.task.kanban</field>
+        <field name="model">legis.serious.accident.task</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="user_id">
+                <field name="user_id"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="is_completed"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <div><field name="name"/></div>
+                                <div><field name="description"/></div>
+                                <div><field name="is_completed"/></div>
+                                <button name="complete_task" string="Complete" type="object" class="oe_stat_button cornor" attrs="{'invisible': [('is_completed', '=', True)]}"/>
+                                <button name="uncomplete_task" string="Uncomplete" type="object" class="oe_stat_button cornor" attrs="{'invisible': [('is_completed', '=', False)]}"/>
+                            </div>
+                        </div>
+                    </t>    
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="action_legis_serious_accident_task" model="ir.actions.act_window">
+        <field name="name">Serious Accident Task</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.serious.accident.task</field>
+        <field name="view_mode">kanban,tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_serious_accident_task"
+            name="Serious Accident Task" 
+            parent="menu_legis_serious_accidents"
+            action="action_legis_serious_accident_task"
+            sequence="10"/>
+
+</odoo>

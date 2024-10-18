@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_docking_root" name="Ship for Docking" sequence="10"/>
+    <menuitem id="menu_docking_operations" name="Operation" parent="menu_docking_root" sequence="10" groups="utilities.group_ship_admin"/>
+    <menuitem id="menu_docking_docking" name="Docking" parent="menu_docking_root" sequence="10"/>
+
+    <menuitem id="menu_docking_reports" name="Reports" parent="menu_docking_root" sequence="10"/>
+    <menuitem id="menu_docking_categories" name="Categories" parent="menu_docking_root" sequence="10"/>
+    <menuitem id="menu_docking_equipments" name="Equipments" parent="menu_docking_root" sequence="10"/>
+    <menuitem id="menu_docking_materials" name="Materials" parent="menu_docking_root" sequence="10"/>
+    <menuitem id="menu_docking_requests" name="Requests" parent="menu_docking_root" sequence="10"/>
+    <menuitem id="menu_docking_suppliers_and_quotes" name="Suppliers &amp; Quotes" parent="menu_docking_root" sequence="10"/>
+    <menuitem id="menu_docking_contracts" name="Contracts" parent="menu_docking_root" sequence="11"/>
+</odoo>

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vietnamese_table_form" model="ir.ui.view">
+        <field name="name">vietnamese.table.form</field>
+        <field name="model">vietnamese.table</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_advanced_settings" type="object" icon="fa-cogs" class="oe_stat_button bg-palevioletred-important white-important" attrs="{'invisible': [('is_show_settings', '=', False)]}">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Ẩn thiết lập</span>
+                            </div>
+                        </button>
+                        <button name="toggle_advanced_settings" type="object" icon="fa-cogs" class="oe_stat_button bg-green-important white-important" attrs="{'invisible': [('is_show_settings', '=', True)]}">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Thiết lập</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="prefix" attrs="{'invisible': [('is_show_settings', '=', False)]}"/>
+                            <field name="parent_menu_id" options="{'no_create': True, 'no_create_edit':True}" attrs="{'invisible': [('is_show_settings', '=', False)]}"/>
+                        </group>
+                        <group>
+                            <field name="is_show_settings" invisible="1"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Fields" name="field_ids">
+                            <field name="field_ids" context="{'default_model_id': model_id, 'default_ttype': 'char', 'table_view': True}">
+                                <tree editable="bottom">
+                                    <field name="model_id" invisible="1"/>
+                                    <field name="name" invisible="1"/>
+                                    <field name="default_char" invisible="1"/>
+                                    <field name="name_select" invisible="1"/>
+                                    <field name="sequence" widget='handle'/>
+                                    <field name="field_description"/>
+                                    <field name="ttype"/>
+                                    <button name="open_edit_view" type="object" icon="fa-pencil-square-o"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Access rights" name="ir_model_access_ids" attrs="{'invisible': [('is_show_settings', '=', False)]}">
+                            <field name="ir_model_access_ids" context="{'default_name': model, 'default_model_id': model_id}">
+                                <tree editable="bottom">
+                                    <field name="name" invisible="1"/>
+                                    <field name="model_id" invisible="1"/>
+                                    <field name="group_id" width="250px" domain="[('category_id.name', '=', 'Vietnamese Roles')]" options="{'no_create': True, 'no_create_edit':True}"/>
+                                    <field name="perm_read"/>
+                                    <field name="perm_write"/>
+                                    <field name="perm_create"/>
+                                    <field name="perm_unlink"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Base Automations" name="base_automation_ids" attrs="{'invisible': [('is_show_settings', '=', False)]}">
+                            <field name="base_automation_ids" context="{'default_name': model, 'default_model_id': model_id, 'table_id': active_id}">
+                                <tree editable="bottom">
+                                    <field name="model_id" invisible="1"/>
+                                    <field name="trigger" invisible="1"/>
+                                    <field name="state" invisible="1"/>
+                                    <field name="code" invisible="1"/>
+                                    <field name="name"/>
+                                    <field name="auto_action_type" widget="auto_action_type"/>
+                                    <field name="based_on" widget="based_on"/>
+                                    <button name="open_edit_view" type="object" icon="fa-pencil-square-o"/>
+                                </tree>
+                            </field>
+                        </page>
+
+                        <page string="Meta" name="Meta" attrs="{'invisible': [('is_show_settings', '=', False)]}">
+                            <group>
+                                <group>
+                                    <field name="model"/>
+                                    <field name="menu_id"/>
+                                    <field name="sequence_id"/>
+                                </group>
+                                <group>
+                                    <field name="model_id"/>
+                                    <field name="tree_view_id"/>
+                                    <field name="form_view_id"/>
+                                    <field name="search_view_id"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_vietnamese_table_tree" model="ir.ui.view">
+        <field name="name">vietnamese.table.tree</field>
+        <field name="model">vietnamese.table</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="prefix"/>
+                <field name="model"/>
+                <field name="menu_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_vietnamese_table_search" model="ir.ui.view">
+        <field name="name">vietnamese.table.search</field>
+        <field name="model">vietnamese.table</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="model"/>
+                <field name="name"/>
+                <field name="prefix"/>
+                <field name="menu_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_vietnamese_table" model="ir.actions.act_window">
+        <field name="name">Table</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vietnamese.table</field>
+        <field name="view_mode">tree,form</field>
+        <field name="context" eval="{ 'table_view': True }"/>
+    </record>
+
+    <menuitem id="menu_vietnamese_table"
+            name="Table" 
+            parent="menu_vietnamese_operator"
+            action="action_vietnamese_table"
+            sequence="10"/>
+
+</odoo>

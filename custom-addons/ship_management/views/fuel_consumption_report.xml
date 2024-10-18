@@ -1,0 +1,80 @@
+<odoo>
+
+    <!-- Form View for the Fuel Consumption Report Batch -->
+    <record id="view_ship_fuel_consumption_report_batch_form" model="ir.ui.view">
+        <field name="name">ship.fuel.consumption.report.batch.form</field>
+        <field name="model">ship.fuel.consumption.report.batch</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Generate Report" type="object" name="generate_report" class="oe_highlight"/>
+                    <button string="Custom Export" type="object" name="custom_export_to_xlsx" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <notebook>
+                        <page string="Report Lines">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="company_id" readonly="1" invisible="1"/>
+                                    <field name="voy"/>
+                                    <field name="local_date"/>
+                                    <field name="local_time_hour_minute"/>
+                                    <field name="voy_status"/>
+                                    <field name="voy_position"/>
+                                    <field name="time_diff_hours"/>
+                                    <field name="fo_diff"/>
+                                    <field name="do_diff"/>
+                                    <field name="cyl_diff"/>
+                                    <field name="lome_diff"/>
+                                    <field name="loge_diff"/>
+                                    <field name="me_rpm"/>
+                                    <field name="load"/>
+                                    <field name="tc_rpm"/>
+                                    <field name="pa"/>
+                                    <field name="spd"/>
+                                    <field name="distance_run"/>
+                                    <field name="notes"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for the Fuel Consumption Report Batch -->
+    <record id="view_ship_fuel_consumption_report_batch_tree" model="ir.ui.view">
+        <field name="name">ship.fuel.consumption.report.batch.tree</field>
+        <field name="model">ship.fuel.consumption.report.batch</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for the Fuel Consumption Report Batch -->
+    <record id="action_ship_fuel_consumption_report_batch" model="ir.actions.act_window">
+        <field name="name">Fuel Consumption Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.fuel.consumption.report.batch</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item for the Fuel Consumption Report Batch -->
+    <menuitem id="menu_ship_fuel_consumption_report_batch" 
+            name="Fuel Consumption Report" 
+            parent="menu_ship_reports"
+            action="action_ship_fuel_consumption_report_batch" 
+            sequence="10"/>
+
+</odoo>

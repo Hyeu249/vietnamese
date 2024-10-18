@@ -1,0 +1,33 @@
+<odoo>
+    <template id="portal_my_home" inherit_id="portal.portal_my_home">
+        <xpath expr="//div[hasclass('o_portal_docs')]" position="inside">
+            <t t-call="portal.portal_docs_entry">
+                <t t-set="url">/material-paint-quotes</t>
+                <t t-set="title">Material Paint Quotes</t>
+                <t t-set="placeholder_count" t-value="'material_paint_quotes_count'"/>
+            </t>
+        </xpath>
+    </template>
+
+    <template id="portal_home">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="text-center" style="text-align: left !important;">Documents</th>
+                    </tr>
+                </thead>
+                <body>
+                    <t t-foreach="pages" t-as="page">
+                        <tr>
+                            <td class="text-center" style="text-align: left !important;">
+                                <a t-attf-href="{{page[0]}}?{{request.httprequest.query_string}}"><t t-out="page[1]" /></a>
+                            </td>
+                        </tr>
+                    </t>
+                </body>
+            </t>
+        </t>
+    </template>
+
+</odoo>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_maintenance_scope_form" model="ir.ui.view">
+        <field name="name">docking.maintenance.scope.form</field>
+        <field name="model">docking.maintenance.scope</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="department_in_charge"/>
+                        <field name="equipment_survey_metadata_id"/>
+                        <field name="maintenance_type"/>
+                        <field name="ship_maintenance_scope_id"/>
+                    </group>
+                    
+                    <notebook>
+                        <page string="Jobs" name="job_ids">
+                            <field name="job_ids"/>
+                        </page>
+                        <page string="Maintenance Threshold" name="maintenance_threshold" attrs="{'invisible': [('maintenance_type', '=', 'CONSUMPTION')]}">
+                            <group>
+                                <field name="next_maintenance_date"/>
+                                <field name="last_maintenance_date"/>
+                                <field name="maintenance_interval"/>
+                                <field name="interval_days"/>
+                            </group>
+                        </page>
+                        <page string="Maintenance Consumption" name="maintenance_consumption" attrs="{'invisible': [('maintenance_type', '!=', 'CONSUMPTION')]}">
+                            <group>
+                                <field name="utilization_time"/>
+                                <field name="allowed_usage_time"/>
+                            </group>
+                        </page>
+                        <page string="Maintenance Scope Report" name="maintenance_scope_report_ids">
+                            <field name="maintenance_scope_report_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_maintenance_scope_tree" model="ir.ui.view">
+        <field name="name">docking.maintenance.scope.tree</field>
+        <field name="model">docking.maintenance.scope</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="maintenance_type"/>
+                <field name="department_in_charge"/>
+                <field name="equipment_survey_metadata_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_maintenance_scope_search" model="ir.ui.view">
+        <field name="name">docking.maintenance.scope.search</field>
+        <field name="model">docking.maintenance.scope</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="maintenance_type"/>
+                <field name="department_in_charge"/>
+                <field name="equipment_survey_metadata_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_maintenance_scope" model="ir.actions.act_window">
+        <field name="name">Maintenance Scope</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.maintenance.scope</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_maintenance_scope"
+            name="Maintenance Scope" 
+            parent="menu_docking_categories"
+            action="action_docking_maintenance_scope"
+            sequence="10"/>
+
+</odoo>

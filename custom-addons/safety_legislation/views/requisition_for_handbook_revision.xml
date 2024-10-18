@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_requisition_for_handbook_revision_form" model="ir.ui.view">
+        <field name="name">legis.requisition.for.handbook.revision.form</field>
+        <field name="model">legis.requisition.for.handbook.revision</field>
+        <field name="arch" type="xml">
+            <form>
+                <header attrs="{'invisible': [('is_off_all_approval', '=', True)]}">
+                    <button name="implement_approval_flow"
+                        string="implement_approval_flow"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button name="user_approve"
+                        string="user_approve"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_user_allow_to_approvel', '=', False)]}"
+                    />
+                    <button name="user_unapprove"
+                        string="user_unapprove"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_user_allow_to_approvel', '=', False)]}"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            Yêu cầu sửa đổi, bổ sung, hủy bỏ
+                        </h1>
+                    </div>
+
+                    <group string="All Approval" attrs="{'invisible': [('is_off_all_approval', '=', True)]}">
+                        <field name="approval_status_for_all_approval"
+                            decoration-success="approval_status_for_all_approval == 'APPROVED'"
+                            decoration-danger="approval_status_for_all_approval == 'REJECTED'"
+                            decoration-warning="approval_status_for_all_approval == 'PENDING'"
+                            widget="badge"
+                        />
+                        <field name="required_all_approval_group_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </group>
+
+                    <group string="Meta" invisible="1">
+                        <field name="this_all_approval_group_id"/>
+                        <field name="is_user_allow_to_approvel"/>
+                        <field name="is_off_all_approval"/>
+                    </group>
+
+                    <group>
+                        <field name="note"/>
+                        <field name="is_hide_content_old_new_diff"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Changed Content Of handbooks" name="changed_content_of_handbook_ids">
+                            <header>
+                                <button name="get_changed_content_of_handbook"
+                                    string="Get changed content of handbook"
+                                    type="object"
+                                    class="oe_highlight"
+                                />
+                            </header>
+                            <field name="changed_content_of_handbook_ids"/>
+                        </page>
+                        <page string="Requisition html(0102)" name="requisition_html">
+                            <field name="requisition_html" widget="html"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <field name="editing_request_for_handbook_id"/>
+                                <field name="safety_management_handbook_id"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_requisition_for_handbook_revision_tree" model="ir.ui.view">
+        <field name="name">legis.requisition.for.handbook.revision.tree</field>
+        <field name="model">legis.requisition.for.handbook.revision</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="note"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_requisition_for_handbook_revision_search" model="ir.ui.view">
+        <field name="name">legis.requisition.for.handbook.revision.search</field>
+        <field name="model">legis.requisition.for.handbook.revision</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="note"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_requisition_for_handbook_revision" model="ir.actions.act_window">
+        <field name="name">Requisition For Handbook Revision</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.requisition.for.handbook.revision</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_requisition_for_handbook_revision"
+            name="Requisition For Handbook Revision" 
+            parent="menu_legis_edit_request"
+            action="action_legis_requisition_for_handbook_revision"
+            sequence="10"/>
+
+</odoo>

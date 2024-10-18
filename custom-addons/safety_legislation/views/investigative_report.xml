@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_investigative_report_form" model="ir.ui.view">
+        <field name="name">legis.investigative.report.form</field>
+        <field name="model">legis.investigative.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="local_time"/>
+                        <field name="result_of_incident"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Initial Investigation Report(1928)" name="investigative_report_html">
+                            <header style="margin-bottom: 20px;">
+                                <button name="move_to_prev_investigative_page" string="" type="object" class="fa fa-angle-double-left"/>
+                                <button name="move_to_next_investigative_page" string="" type="object" class="fa fa-angle-double-right"/>
+                                <field name="investigative_page_len"/>
+                            </header>
+                            <field name="investigative_report_html" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Investigative Page" name="investigative_page_ids">
+                            <field name="investigative_page_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_investigative_report_tree" model="ir.ui.view">
+        <field name="name">legis.investigative.report.tree</field>
+        <field name="model">legis.investigative.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="result_of_incident"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_investigative_report_search" model="ir.ui.view">
+        <field name="name">legis.investigative.report.search</field>
+        <field name="model">legis.investigative.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="result_of_incident"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_investigative_report" model="ir.actions.act_window">
+        <field name="name">Investigative report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.investigative.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_investigative_report"
+            name="Investigative report" 
+            parent="menu_legis_forms"
+            action="action_legis_investigative_report"
+            sequence="10"/>
+
+</odoo>

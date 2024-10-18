@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--        Template for RFQ-->
+        <record id="email_template_paint_rfq_request" model="mail.template">
+            <field name="name">Yêu cầu báo giá</field>
+            <field name="model_id" ref="model_ship_paint_supplier_quote"/>
+            <field name="subject">Yêu cầu báo giá</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi đang có nhu cầu mua
+                        <strong t-out="ctx.get('prod_name') or ''"/>.
+                        <t t-if="ctx.get('prod_origin')">
+                            <br/>
+                            Xuất xứ: <strong t-out="ctx.get('prod_origin')"/>
+                        </t>
+                        <t t-if="ctx.get('prod_description')">
+                            <br/>
+                            Mô tả: <strong t-out="ctx.get('prod_description')"/>
+                        </t>
+                        <br/>
+                        Với số lượng là
+                        <strong t-out="ctx.get('quantity')"/>
+                        <strong t-out="ctx.get('unit')"/>.
+                        <t t-if="ctx.get('expected_delivery_date')">
+                            <br/>
+                            Ngày giao hàng mong muốn là
+                            <strong t-out="ctx.get('expected_delivery_date')"/>.
+                        </t>
+                        <br/>
+                        <br/>
+                        Quý công ty vui lòng báo giá cho chúng tôi ở đường link sau 
+                        <t t-if="ctx.get('deadline')">
+                            truớc ngày
+                            <strong t-out="ctx.get('deadline')"/>
+                        </t>
+                        <br/>
+                        <a t-att-href="ctx.get('reply_quote_url')">Báo giá cho chúng tôi</a>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+        
+        <!--    Template for Accepted Quote-->
+        <record id="email_template_paint_rfq_mark_done" model="mail.template">
+            <field name="name">Báo giá được chấp nhận</field>
+            <field name="model_id" ref="model_ship_paint_supplier_quote"/>
+            <field name="subject">Báo giá được chấp nhận</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi xin thông báo rằng chúng tôi đã <b>chấp nhận</b> báo giá của quý công ty cho sản phẩm
+                        <strong t-out="ctx.get('prod_name') or ''"/>.
+                        <t t-if="ctx.get('prod_origin')">
+                            <br/>
+                            Xuất xứ: <strong t-out="ctx.get('prod_origin')"/>.
+                        </t>
+                        <t t-if="ctx.get('prod_description')">
+                            <br/>
+                            Mô tả: <strong t-out="ctx.get('prod_description')"/>.
+                        </t>
+                        <t t-if="ctx.get('quote_ref')">
+                            <br/>
+                            Mã báo giá: <strong t-out="ctx.get('quote_ref')"/>.
+                        </t>
+                        <br/>
+                        Số lượng: <strong t-out="ctx.get('quantity')"/> <strong t-out="ctx.get('unit')"/>.
+                        <br/>
+                        Đơn giá: <strong t-out="ctx.get('unit_price')"/> <t t-out="ctx.get('currency') or ''"/>.
+                        <br/>
+                        Tổng giá trị: <strong t-out="ctx.get('total_price')"/> <t t-out="ctx.get('currency') or ''"/>. 
+                        <br/>
+                        Ngày giao hàng dự kiến: <strong t-out="ctx.get('estimated_delivery_date') or ''"/>.
+                        <br/>
+                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.
+                        <br/>
+                        <a t-att-href="ctx.get('portal_access_url')">In mã QR(trong chi tiết sản phẩm)</a>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

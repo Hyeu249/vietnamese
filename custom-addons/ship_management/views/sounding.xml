@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_sounding_book_form" model="ir.ui.view">
+        <field name="name">sounding.book.form</field>
+        <field name="model">ship.sounding.book</field>
+        <field name="arch" type="xml">
+            <form string="Sounding Book">
+                <sheet>
+                    <group>
+                        <field name="table_type"/>
+                        <field name="tank_name"/>
+                        <field name="company_id"/>
+                    </group>
+                    <notebook>
+                        <!-- Add an editable notebook page for Sounding Tables -->
+                        <page string="Sounding Tables">
+                            <form>
+                                <field name="sounding_table_ids">
+                                    <!-- Define fields to display and edit inline -->
+                                    <tree editable="bottom">
+                                        <field name="sounding_book_id"/>
+                                        <field name="sound"/>
+                                        <field name="ullage"/>
+                                        <field name="table_value"/>
+                                        <field name="volume"/>
+                                    </tree>
+                                </field>
+                            </form>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="view_sounding_book_tree" model="ir.ui.view">
+        <field name="name">sounding.book.tree</field>
+        <field name="model">ship.sounding.book</field>
+        <field name="arch" type="xml">
+            <tree string="Sounding Books">
+                <field name="table_type"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_sounding_table_tree" model="ir.ui.view">
+        <field name="name">sounding.table.tree</field>
+        <field name="model">ship.sounding.table</field>
+        <field name="arch" type="xml">
+            <tree string="Sounding Table">
+                <field name="sounding_book_id"/>
+                <field name="table_value"/>
+                <field name="sound"/>
+                <field name="ullage"/>
+                <field name="volume"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Sounding Table Form View -->
+    <record id="view_sounding_table_form" model="ir.ui.view">
+        <field name="name">sounding.table.form</field>
+        <field name="model">ship.sounding.table</field>
+        <field name="arch" type="xml">
+            <form string="Sounding Table">
+                <sheet>
+                    <group>
+                        <field name="table_value"/>
+                        <field name="sound"/>
+                        <field name="ullage"/>
+                        <field name="volume"/>
+                        <field name="sounding_book_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+
+    <record id="action_sounding_book" model="ir.actions.act_window">
+        <field name="name">Sounding Book</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.sounding.book</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sounding Book Menu Item -->
+    <menuitem id="menu_sounding_book"
+        name="Sounding Book"
+        parent="menu_ship_sounding" 
+        action="action_sounding_book"
+        sequence="10"/>
+
+    <!-- Sounding Table Action -->
+    <record id="action_sounding_table" model="ir.actions.act_window">
+        <field name="name">Sounding Table</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.sounding.table</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Sounding Table Menu Item -->
+    <menuitem id="menu_sounding_table"
+        name="Sounding Table"
+        parent="menu_ship_sounding"
+        action="action_sounding_table"
+        sequence="11"/>
+
+</odoo>

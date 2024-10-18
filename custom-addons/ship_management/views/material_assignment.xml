@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_material_assignment_form" model="ir.ui.view">
+        <field name="name">ship.material.assignment.form</field>
+        <field name="model">ship.material.assignment</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_reset_usage_time"
+                            string="Reset usage time"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('total_hours', '&lt;=', 0)]}"/>
+
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="material_id"/>
+                        <field name="material_entity_id"/>
+                        <field name="quantity"/>
+                        <field name="unit"/>
+                        <field name="start_time_of_use"/>
+                        <field name="end_time_of_use"/>
+                        <field name="total_hours"/>
+                    </group>
+
+                    <group string="Receiver Relation">
+                        <field name="job_quote_id"/>
+                        <field name="technical_incident_job_id"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_material_assignment_tree" model="ir.ui.view">
+        <field name="name">ship.material.assignment.tree</field>
+        <field name="model">ship.material.assignment</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="material_id"/>
+                <field name="material_entity_id"/>
+                <field name="quantity"/>
+                <field name="unit"/>
+                <field name="start_time_of_use"/>
+                <field name="end_time_of_use"/>
+                <field name="total_hours"/>
+                <field name="job_quote_id"/>
+                <field name="technical_incident_job_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_material_assignment_search" model="ir.ui.view">
+        <field name="name">ship.material.assignment.search</field>
+        <field name="model">ship.material.assignment</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="material_id"/>
+                <field name="material_entity_id"/>
+                <field name="quantity"/>
+                <field name="unit"/>
+                <field name="job_quote_id"/>
+                <field name="technical_incident_job_id"/>
+
+                <filter name="technical_incident_job_id" string="Serious incident job" domain="[('technical_incident_job_id', '!=', False)]" />
+
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_material_assignment" model="ir.actions.act_window">
+        <field name="name">Material Assignment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.material.assignment</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_material_assignment"
+            name="Material Assignment" 
+            parent="menu_ship_operations"
+            action="action_ship_material_assignment"
+            sequence="10"/>
+
+</odoo>

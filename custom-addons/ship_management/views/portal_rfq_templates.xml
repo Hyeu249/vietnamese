@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    Templates for vendor portal-->
+    <template id="portal_my_vendor_rfq" name="Vendor RFQs">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <div class="col-6">
+                                    <span t-field="supplier.name"
+                                          class="text-truncate"/> (
+                                            <span t-field="supplier.address"
+                                                class="text-truncate"/>
+                                          )
+                                    <small class="text-muted d-none d-md-inline"/>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"/>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                            crossorigin="anonymous"/>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                            crossorigin="anonymous"/>
+                </t>
+                <t t-set="card_body">
+                    <style>
+                        table {
+                        font-family: arial, sans-serif;
+                        border-collapse: collapse;
+                        width: 100%;
+                        }
+
+                        td, th {
+                        border: 1px solid #dddddd;
+                        text-align: left;
+                        padding: 8px;
+                        }
+
+                        .orange-text {
+                            color: orange;
+                        }
+                        .green-text {
+                            color: green;
+                        }
+                    </style>
+                    <t t-foreach="mateial_paint_quotes_request_ref_list" t-as="mat_paint_quote_req_ref">
+                        <h3>Yêu cầu báo giá sơn vật tư <span t-esc="mat_paint_quote_req_ref"/>:</h3>
+                        <h4>Bảng yêu cầu báo giá vật liệu</h4>
+                        <table>
+                            <tr>
+                                <th>Vật liệu</th>
+                                <th>Xuất xứ</th>
+                                <th>Ngày giao hàng mong muốn</th>
+                                <th>Số lượng yêu cầu</th>
+                                <th>Mã yêu cầu báo giá sơn vật tư</th>
+                                <th>Hạn báo giá</th>
+                                <th>Trạng thái báo giá</th>
+                                <th>Đơn giá vật liệu</th>
+                                <th>Ngày giao hàng dự kiến</th>
+                                <th>Action</th>
+                            </tr>
+                            <t t-foreach="material_supplier_quote_list" t-as="quote">
+                                <tr t-if="quote.material_quote_id.material_paint_quotes_request_id.ref == mat_paint_quote_req_ref" t-attf-class="{{ 'orange-row' if not quote.is_responded else '' }}">
+                                    <td><span t-field="quote.material_quote_id.material_id.name"/></td>
+                                    <td><span t-field="quote.material_quote_id.material_id.origin"/></td>
+                                    <td><span t-field="quote.material_quote_id.expected_delivery_date"/></td>
+                                    <td><span t-field="quote.material_quote_id.quantity"/></td>
+                                    <td><span t-field="quote.material_quote_id.material_paint_quotes_request_id.ref"/></td>
+                                    <td><span t-field="quote.material_quote_id.deadline"/></td>
+                                    <td>
+                                        <span t-if="quote.is_responded" class="green-text">
+                                            Đã báo giá
+                                        </span>
+                                        <span t-else="" class="orange-text">
+                                            Chưa báo giá
+                                        </span>
+                                    </td>
+                                    <td><span id="unit_price" t-field="quote.unit_price"/></td>
+                                    <td><span t-field="quote.estimated_delivery_date"/></td>
+                                    <td>
+                                        <a type="button"
+                                            class="btn btn-primary float-right"
+                                            t-attf-href="/vendor_rfmq/{{ quote.ref }}?access_token={{ quote.access_token }}">Chi tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                        <br/>
+                        <h4>Bảng yêu cầu báo giá sơn</h4>
+                        <table>
+                            <tr>
+                                <th>Tên sơn</th>
+                                <th>Xuất xứ</th>
+                                <th>Ngày giao hàng mong muốn</th>
+                                <th>Số lượng yêu cầu (Lít)</th>
+                                <th>Mã yêu cầu báo giá sơn vật tư</th>
+                                <th>Hạn báo giá</th>
+                                <th>Trạng thái báo giá</th>
+                                <th>Đơn giá vật liệu</th>
+                                <th>Ngày giao hàng dự kiến</th>
+                                <th>Action</th>
+                            </tr>
+                            <t t-foreach="paint_supplier_quote_list" t-as="quote">
+                                <tr t-if="quote.paint_quote_id.material_paint_quotes_request_id.ref == mat_paint_quote_req_ref" t-attf-class="{{ 'orange-row' if not quote.is_responded else '' }}">
+                                    <td><span t-field="quote.paint_quote_id.paint_id.name"/></td>
+                                    <td><span t-field="quote.paint_quote_id.paint_id.origin"/></td>
+                                    <td><span t-field="quote.paint_quote_id.expected_delivery_date"/></td>
+                                    <td><span t-field="quote.paint_quote_id.quantity_liter"/></td>
+                                    <td><span t-field="quote.paint_quote_id.material_paint_quotes_request_id.ref"/></td>
+                                    <td><span t-field="quote.paint_quote_id.deadline"/></td>
+                                    <td>
+                                        <span t-if="quote.is_responded" class="green-text">
+                                            Đã báo giá
+                                        </span>
+                                        <span t-else="" class="orange-text">
+                                            Chưa báo giá
+                                        </span>
+                                    </td>
+                                    <td><span id="unit_price" t-field="quote.unit_price"/></td>
+                                    <td><span t-field="quote.estimated_delivery_date"/></td>
+                                    <td>
+                                        <a type="button"
+                                            class="btn btn-primary float-right"
+                                            t-attf-href="/vendor_rfpq/{{ quote.ref }}?access_token={{ quote.access_token }}">Chi tiết
+                                        </a>
+                                    </td>
+                                </tr>
+                            </t>
+                        </table>
+                        <br/>
+                        <br/>
+                        <br/>
+                    </t>
+                    <h3>Yêu cầu báo giá công việc:</h3>
+                    <table>
+                        <tr>
+                            <th>Tên công việc</th>
+                            <th>Mô tả công việc</th>
+                            <th>Ngày thực hiện mong muốn</th>
+                            <th>Hạn báo giá</th>
+                            <th>Trạng thái báo giá</th>
+                            <th>Chi phí thực hiện công việc </th>
+                            <th>Ngày thực hiện dự kiến</th>
+                            <th>Action</th>
+                        </tr>
+                        <t t-foreach="job_supplier_quote_list" t-as="quote">
+                            <tr t-attf-class="{{ 'orange-row' if not quote.is_responded else '' }}">
+                                <td><span t-field="quote.job_quote_id.job_id.name"/></td>
+                                <td><span t-field="quote.job_quote_id.job_id.description"/></td>
+                                <td><span t-field="quote.job_quote_id.expected_delivery_date"/></td>
+                                <td><span t-field="quote.job_quote_id.deadline"/></td>
+                                <td>
+                                    <span t-if="quote.is_responded" class="green-text">
+                                        Đã báo giá
+                                    </span>
+                                    <span t-else="" class="orange-text">
+                                        Chưa báo giá
+                                    </span>
+                                </td>
+                                <td><span t-field="quote.labor_cost"/></td>
+                                <td><span t-field="quote.estimated_delivery_date"/></td>
+                                <td>
+                                    <a type="button"
+                                        class="btn btn-primary float-right"
+                                        t-attf-href="/vendor_rfjq/{{ quote.ref }}?access_token={{ quote.access_token }}">Chi tiết
+                                    </a>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </t>
+            </t>
+        </t>
+    </template>
+    <!--    Templates for requesting access to vendor portal-->
+    <template id="portal_request_access_my_vendor_rfq" name="Request Access Vendor RFQs">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <div class="col-6">
+                                    <span t-field="supplier.name"
+                                          class="text-truncate"/> (
+                                            <span t-field="supplier.address"
+                                                class="text-truncate"/>
+                                          )
+                                    <small class="text-muted d-none d-md-inline"/>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"/>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                            crossorigin="anonymous"/>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                            crossorigin="anonymous"/>
+                </t>
+                <t t-set="card_body">
+                    <a type="button"
+                        class="btn btn-primary float-right"
+                        t-attf-href="/request_access_vendor_rfq/{{ supplier.ref }}">Yêu cầu truy cập
+                    </a>
+                </t>
+            </t>
+        </t>
+    </template>
+    <template id="portal_request_access_my_vendor_rfq_sent" name="Request Access Vendor RFQs Has Been Sent">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <div class="col-6">
+                                    <span t-field="supplier.name"
+                                          class="text-truncate"/> (
+                                            <span t-field="supplier.address"
+                                                class="text-truncate"/>
+                                          )
+                                    <small class="text-muted d-none d-md-inline"/>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"/>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                            crossorigin="anonymous"/>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                            crossorigin="anonymous"/>
+                </t>
+                <t t-set="card_body">
+                    <p>Yêu cầu truy cập đã được gửi đến quý công ty. Xin hãy kiểm tra email để truy cập vào danh sách báo giá của quý công ty.</p>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

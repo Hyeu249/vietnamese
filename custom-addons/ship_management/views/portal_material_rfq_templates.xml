@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--    Templates for vendor portal-->
+    <template id="portal_my_vendor_material_rfq" name="Vendor RFQ">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <div class="col-6">
+                                    <span t-field="supplier.name"
+                                          class="text-truncate"/> (
+                                            <span t-field="supplier.address"
+                                                class="text-truncate"/>
+                                          )
+                                    <small class="text-muted d-none d-md-inline"/>
+                                    <a type="button"
+                                        class="btn btn-info float-left"
+                                        t-attf-href="/vendor_rfq/{{ supplier.ref }}?access_token={{ supplier.access_token }}">Danh sách báo giá
+                                    </a>
+                                </div>
+                                <div class="col-4">
+                                    <button type="button"
+                                            class="btn btn-primary float-right"
+                                            data-toggle="modal"
+                                            data-target="#addQuoteModal">Báo giá
+                                    </button>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"/>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                            crossorigin="anonymous"/>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                            crossorigin="anonymous"/>
+                    <script>
+                        $(document).ready(function () {
+                            var unit_price = parseFloat($('#quoted_unit_price').val());
+                            var quantity = parseFloat($('#required_quantity').val());
+                            var total_price = unit_price * quantity;
+                            $('#total_price').text(total_price);
+                        });
+                    </script>
+                    <div class="modal se-modal" id="addQuoteModal"
+                         tabindex="-1" role="dialog"
+                         aria-labelledby="addTagLabel" aria-hidden="true">
+                        <div class="modal-dialog se-modal__dialog"
+                             role="document">
+                            <div class="modal-content se-modal__content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title se-modal__title"
+                                        id="addTagModalLabel">Báo giá
+                                    </h5>
+                                    <button type="button" class="close"
+                                            data-dismiss="modal"
+                                            aria-label="Close">
+                                        <span aria-hidden="false">X</span>
+                                    </button>
+                                </div>
+                                <script>
+                                    function calculateTotalPrice() {
+                                        var unit_price = parseFloat($('#quoted_unit_price').val());
+                                        var quantity = parseFloat($('#required_quantity').val());
+                                        var total_price = unit_price * quantity;
+                                        $('#quoted_total_price').val(total_price);
+                                    }
+                                    $(document).ready(function () {
+                                        calculateTotalPrice();
+                                        $('#quoted_unit_price').on('input', function () {
+                                            calculateTotalPrice();
+                                        });
+                                    });
+                                </script>
+                                <form action="/vendor_rfmq/submit" method="post"
+                                      enctype="multipart/form-data">
+                                    <input type="hidden" name="csrf_token"
+                                           t-att-value="request.csrf_token()"/>
+                                    <input type="hidden" name="rfq_ref"
+                                           t-att-value="vendor_rfq['rfq_ref']"/>
+                                     <input type="hidden" name="access_token"
+                                           t-att-value="vendor_rfq['access_token']"/>
+                                    <div class="modal-body">
+                                        <div class="row px-4">
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 py-3">
+                                                <label class="se-form-label"
+                                                       for="required_quantity">
+                                                    Số lượng yêu cầu
+                                                </label>
+                                                <input type="text"
+                                                       class="form-control se-form-control"
+                                                       t-att-value="material_quote.quantity"
+                                                       id="required_quantity"
+                                                       disabled=""/>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 py-3">
+                                                <label class="se-form-label"
+                                                       for="quoted_unit_price">Đơn giá vật liệu
+                                                </label>
+                                                <span t-field="quote.currency_id.symbol" />
+                                                <input type="text"
+                                                       class="form-control se-form-control"
+                                                       id="quoted_unit_price"
+                                                       name="quoted_unit_price"
+                                                       t-att-value="quote.unit_price"
+                                                       required="true"/>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 py-3">
+                                                <label class="se-form-label"
+                                                       for="estimated_delivery_date">
+                                                    Ngày giao hàng dự kiến
+                                                </label>
+                                                <input type="date"
+                                                       class="form-control se-form-control"
+                                                       id="estimated_delivery_date"
+                                                       name="estimated_delivery_date"
+                                                       t-att-value="quote.estimated_delivery_date"
+                                                       required="true"/>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-6 col-lg-6 py-3">
+                                                <label class="se-form-label"
+                                                       for="quoted_total_price">
+                                                    Tổng giá
+                                                </label>
+                                                <span t-field="quote.currency_id.symbol" />
+                                                <input type="text"
+                                                       class="form-control se-form-control"
+                                                       id="quoted_total_price"
+                                                       disabled=""/>
+                                            </div>
+                                            <div class="col-12 col-sm-12 col-md-12 col-lg-12 py-3">
+                                                <label class="se-form-label"
+                                                       for="tag_name">
+                                                    Ghi chú từ nhà cung cấp
+                                                </label>
+                                                <textarea
+                                                        class="form-control se-form-control"
+                                                        id="note"
+                                                        t-att-value="quote.note"
+                                                        name="note"><t t-esc="quote.note"/></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer d-flex justify-content-between align-items-center">
+                                        <input type="submit"
+                                               class="btn btn-primary px-5"
+                                               value="Quote"
+                                               style="border-radius: 5px !important; margin-right: 0 !important;
+                                                                                                    margin-left: auto;"
+                                        />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+                <t t-set="card_body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div>
+                                <b>Vật liệu :</b>
+                                <br/>
+                                <span t-field="material.name"/>
+                            </div>
+                            <br/>
+                            <div>
+                                <strong>Xuất xứ :</strong>
+                                <br/>
+                                <span t-field="material.origin"/>
+                            </div>
+                            <br/>
+                            <div>
+                                <strong>Mô tả :</strong>
+                                <br/>
+                                <span t-field="material.description"/>
+                            </div>
+                            <br/>
+                            <div>
+                                <b>Ngày giao hàng mong muốn:</b>
+                                <span t-field="material_quote.expected_delivery_date"/>
+                            </div>
+                            <t t-if="material_quote.note">
+                                <br/>
+                                <div>
+                                    <strong>Ghi chú từ VSICO :</strong>
+                                    <br/>
+                                    <span t-field="material_quote.note"/>
+                                </div>
+                            </t>
+                        </div>
+                        <div class="col-lg-6">
+                            <div>
+                                <b>Số lượng yêu cầu :</b>
+                                <span id="quantity" t-field="material_quote.quantity"/>
+                            </div>
+                            <t t-if="quote.unit_price">
+                                <br/>
+                                <div>
+                                    <b>Đơn giá vật liệu :</b>
+                                    <span id="unit_price" t-field="quote.unit_price"/>
+                                    <span t-field="quote.currency_id.symbol" />
+                                </div>
+                            </t>
+                            <t>
+                                <br/>
+                                <div>
+                                    <b>Tổng giá :</b>
+                                    <span id="total_price"/>
+                                    <span t-field="quote.currency_id.symbol" />
+                                </div>
+                            </t>
+                            <t t-if="quote.estimated_delivery_date">
+                                <br/>
+                                <div>
+                                    <b>Ngày giao hàng dự kiến :</b>
+                                    <span t-field="quote.estimated_delivery_date"/>
+                                </div>
+                            </t>
+                            <t t-if="quote.note">
+                                <br/>
+                                <div>
+                                    <strong>Ghi chú từ nhà cung cấp :</strong>
+                                    <br/>
+                                    <span t-field="quote.note"/>
+                                </div>
+                            </t>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

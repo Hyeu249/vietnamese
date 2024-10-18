@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--        Template for RFQ-->
+        <record id="email_template_fuel_rfq_request" model="mail.template">
+            <field name="name">Yêu cầu nhiên liệu</field>
+            <field name="model_id" ref="model_ship_fuel_supplier_quote"/>
+            <field name="subject">Yêu cầu nhiên liệu</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi đang có nhu cầu mua
+                        <strong t-out="ctx.get('prod_name') or ''"/>.
+                        <br/>
+                        Với số lượng là
+                        <strong t-out="ctx.get('quantity')"/>
+                        <strong t-out="ctx.get('unit')"/>.
+                        <br/>
+                        <br/>
+                        Quý công ty vui lòng xác nhận cho chúng tôi ở đường link sau 
+                        <br/>
+                        <a t-att-href="ctx.get('reply_quote_url')">Xác nhận cho chúng tôi</a>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <!-- Template for Fuel Quote Requests -->
+        <record id="email_template_fuel_quote_request" model="mail.template">
+            <field name="name">Yêu cầu báo giá nhiên liệu</field>
+            <field name="model_id" ref="model_ship_fuel_quotes_request"/>
+            <field name="subject">Yêu cầu báo giá nhiên liệu</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi đang có nhu cầu báo giá cho các mặt hàng nhiên liệu sau:
+                        <br/>
+                        <table>
+                            <tr>
+                                <th>Product description</th>
+                                <th style="width: 85px; text-align: center;">Qty</th>
+                                <th style="width: 125px;">Unit</th>
+                            </tr>
+                            <tr t-foreach="ctx.get('fuel_quotes', [])" t-as="quote">
+                                    <td><span t-esc="quote['name']"/></td>
+                                    <td style="text-align: center;"><span t-esc="quote['quantity'] or ''"/></td>
+                                    <td><span t-esc="quote['unit']"/></td>
+                            </tr>
+                        </table>
+                        <a t-att-href="ctx.get('reply_quote_url')">Xác nhận cho chúng tôi</a>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

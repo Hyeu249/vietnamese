@@ -1,0 +1,17 @@
+.shadown{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.title_docking_date_color{
+    color: rgb(0, 9, 128)
+}
+
+.title_inspection_event_color{
+    color: rgb(124, 0, 128)
+}
+.modal .modal-dialog .o_form_view .o_FormRenderer_chatterContainer {
+    display: block !important;
+}
+.time_new_roman{
+    font-family: "Times New Roman", Times, serif;
+}

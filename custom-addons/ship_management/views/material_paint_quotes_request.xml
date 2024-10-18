@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_material_paint_quotes_request_form" model="ir.ui.view">
+        <field name="name">ship.material.paint.quotes.request.form</field>
+        <field name="model">ship.material.paint.quotes.request</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Request">
+                            <field name="expected_delivery_date"/>
+                            <field name="deadline"/>
+                            <field name="description"/>
+                        </group>
+
+                        <group string="Cost" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}">
+                            <field name="supplier_for_filter_id" options="{'no_create': True, 'no_create_edit':True}"/>
+                            <field name="total_price_on_supplier" />
+                            <field name="total_prices" />
+                            <field name="lowest_total_price" />
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="technical_incident_id"/>
+                        <field name="serious_accident_team_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Material Quotes" name="material_quote_ids">
+                            <button name="create_material_quotes"
+                                string="Create material quotes"
+                                type="object"
+                                class="oe_highlight"/>
+                            <field name="material_quote_ids"/>
+                        </page>
+                        <page string="Spare Part Quotes" name="spare_part_quote_ids">
+                            <button name="create_material_quotes"
+                                string="Create material quotes"
+                                type="object"
+                                class="oe_highlight"/>
+                            <field name="spare_part_quote_ids"/>
+                        </page>
+                        <page string="Paint Quotes" name="paint_quote_ids">
+                            <button name="add_paint_quote" string="add_paint_quote" type="object" class="oe_highlight" />
+                            <field name="paint_quote_ids"/>
+                        </page>
+                        <page string="Unsent Supplier Quote Portal Update Notifications">
+                            <field name="unsent_supplier_quote_portal_change_notification_ids">
+                                <tree create="0" delete="0" editable="bottom">
+                                    <field name="supplier_name" readonly="1"/>
+                                    <field name="is_notified" readonly="1"/>
+                                    <field name="notified_at" readonly="1"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group>
+                                <field name="company_id" readonly="1"/>
+                                <field name="supplier_emails"/>
+                                <field name="not_allowed_to_see_price" invisible="1"/>
+                                <field name="selected_supplier_ids" invisible="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_material_paint_quotes_request_tree" model="ir.ui.view">
+        <field name="name">ship.material.paint.quotes.request.tree</field>
+        <field name="model">ship.material.paint.quotes.request</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="not_allowed_to_see_price" invisible="1"/>
+                <field name="ref"/>
+                <field name="description"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status != 'APPROVED' and approval_status != 'REJECTED'"
+                    widget="badge"
+                />
+                <field name="expected_delivery_date"/>
+                <field name="deadline"/>
+                <field name="supplier_emails"/>
+                <field name="total_prices" attrs="{'invisible': [('not_allowed_to_see_price', '=', True)]}"/>
+                <field name="technical_incident_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_material_paint_quotes_request_search" model="ir.ui.view">
+        <field name="name">ship.material.paint.quotes.request.search</field>
+        <field name="model">ship.material.paint.quotes.request</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="description"/>
+                <field name="expected_delivery_date"/>
+                <field name="deadline"/>
+                <field name="technical_incident_id"/>
+                <field name="serious_accident_team_id"/>
+
+                <filter name="Material paint quotes request" string="Material paint quotes request" domain="['|', ('technical_incident_id', '=', False), ('serious_accident_team_id', '=', False)]" />
+                <filter name="technical_incident_id" string="Technical incident" domain="[('technical_incident_id', '!=', False)]" />
+                <filter name="serious_accident_team_id" string="Serious accident team" domain="[('serious_accident_team_id', '!=', False)]" />
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_material_paint_quotes_request" model="ir.actions.act_window">
+        <field name="name">Material Paint Quotes Request</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.material.paint.quotes.request</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_material_paint_quotes_request"
+            name="Material Paint Quotes Request" 
+            parent="menu_ship_supplies"
+            action="action_ship_material_paint_quotes_request"
+            sequence="10"/>
+
+</odoo>

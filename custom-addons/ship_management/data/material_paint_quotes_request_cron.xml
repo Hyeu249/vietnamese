@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_run_material_paint_quote_requests_daily_cronjobs" model="ir.cron">
+            <field name="name">Material paint quote request's daily cronjobs: Every Day</field>
+            <field name="model_id" ref="model_ship_material_paint_quotes_request"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.run_material_paint_quote_requests_daily_cronjobs()</field>
+            <field name="interval_number">1</field> <!-- Repeat every day -->
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_send_emails_to_inform_selected_suppliers_for_material_quotes" model="ir.cron">
+            <field name="name">Send emails to inform that suppliers are selected for material quotes: Every 5 mins</field>
+            <field name="model_id" ref="model_ship_material_paint_quotes_request"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.action_send_emails_to_all_uninformed_requests()</field>
+            <field name="nextcall" eval="DateTime.now().strftime('%Y-%m-%d 02:00:00')" />
+            <field name="interval_number">5</field> <!-- Repeat every 5 mins -->
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

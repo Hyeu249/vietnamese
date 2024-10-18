@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_technical_incident_insurance_form" model="ir.ui.view">
+        <field name="name">legis.technical.incident.insurance.form</field>
+        <field name="model">legis.technical.incident.insurance</field>
+        <field name="arch" type="xml">
+            <form>
+                <header attrs="{'invisible': [('is_off_all_approval', '=', True)]}">
+                    <button name="user_approve"
+                        string="user_approve"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_user_allow_to_approvel', '=', False)]}"
+                    />
+                    <button name="user_unapprove"
+                        string="user_unapprove"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('is_user_allow_to_approvel', '=', False)]}"
+                    />
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="All Approval" attrs="{'invisible': [('is_off_all_approval', '=', True)]}">
+                        <field name="approval_status_for_all_approval"
+                            decoration-success="approval_status_for_all_approval == 'APPROVED'"
+                            decoration-danger="approval_status_for_all_approval == 'REJECTED'"
+                            decoration-warning="approval_status_for_all_approval == 'PENDING'"
+                            widget="badge"
+                        />
+                        <field name="required_all_approval_group_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </group>
+
+                    <group string="Insurance">
+                        <field name="company_id" readonly="1"/>
+                        <field name="total_price"/>
+                        <field name="insurance_deductible_cost"/>
+                        <field name="document"/>
+                        <field name="is_completed"/>
+                        <field name="technical_incident_id"/>
+                    </group>
+
+                    <group string="Meta" invisible="1">
+                        <field name="this_all_approval_group_id"/>
+                        <field name="is_user_allow_to_approvel"/>
+                        <field name="is_off_all_approval"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_insurance_tree" model="ir.ui.view">
+        <field name="name">legis.technical.incident.insurance.tree</field>
+        <field name="model">legis.technical.incident.insurance</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="approval_status_for_all_approval"
+                    decoration-success="approval_status_for_all_approval == 'APPROVED'"
+                    decoration-danger="approval_status_for_all_approval == 'REJECTED'"
+                    decoration-warning="approval_status_for_all_approval == 'PENDING'"
+                    widget="badge"
+                    attrs="{'invisible': [('is_off_all_approval', '=', True)]}"
+                />
+                <field name="is_off_all_approval"/>
+                <field name="total_price"/>
+                <field name="insurance_deductible_cost"/>
+                <field name="document"/>
+                <field name="is_completed"/>
+                <field name="technical_incident_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_insurance_search" model="ir.ui.view">
+        <field name="name">legis.technical.incident.insurance.search</field>
+        <field name="model">legis.technical.incident.insurance</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="approval_status_for_all_approval"/>
+                <field name="total_price"/>
+                <field name="insurance_deductible_cost"/>
+                <field name="document"/>
+                <field name="is_completed"/>
+                <field name="technical_incident_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_technical_incident_insurance" model="ir.actions.act_window">
+        <field name="name">Technical Incident Insurance</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.technical.incident.insurance</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_technical_incident_insurance"
+            name="Technical Incident Insurance" 
+            parent="menu_legis_technical_incidents"
+            action="action_legis_technical_incident_insurance"
+            sequence="10"/>
+
+</odoo>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_serious_accident_team_form" model="ir.ui.view">
+        <field name="name">legis.serious.accident.team.form</field>
+        <field name="model">legis.serious.accident.team</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="user_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Serious Accident Tasks" name="serious_accident_task_ids">
+                            <field name="serious_accident_task_ids"/>
+                        </page>
+                        <page string="Maintenance Scope Reports" name="maintenance_scope_report_ids">
+                            <field name="maintenance_scope_report_ids"/>
+                        </page>
+                        <page string="Material Paint Quotes Requests" name="material_paint_quotes_request_ids">
+                            <field name="material_paint_quotes_request_ids"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <field name="serious_accident_report_id"/>
+                                <field name="ert_role_meta_id" context="{'ert_role_meta_id': 5}"/>
+                                <field name="avatar_128" invisible="1"/>
+                                <field name="login" invisible="1"/>
+                                <field name="phone" invisible="1"/>
+                                <field name="mobile" invisible="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_team_tree" model="ir.ui.view">
+        <field name="name">legis.serious.accident.team.tree</field>
+        <field name="model">legis.serious.accident.team</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="user_id"/>
+                <field name="serious_accident_report_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_serious_accident_team_search" model="ir.ui.view">
+        <field name="name">legis.serious.accident.team.search</field>
+        <field name="model">legis.serious.accident.team</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="user_id"/>
+                <field name="serious_accident_report_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_serious_accident_team" model="ir.actions.act_window">
+        <field name="name">Serious Accident Team</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.serious.accident.team</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_serious_accident_team"
+            name="Serious Accident Team" 
+            parent="menu_legis_serious_accidents"
+            action="action_legis_serious_accident_team"
+            sequence="10"/>
+
+</odoo>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_material_supplier_quote_form" model="ir.ui.view">
+        <field name="name">docking.material.supplier.quote.form</field>
+        <field name="model">docking.material.supplier.quote</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="unit_price" groups="utilities.group_ship_cost_price_visibility"/>
+                        <field name="estimated_delivery_date"/>
+                        <field name="note"/>
+                        <field name="material_quote_id"/>
+                        <field name="supplier_id"/>
+                        <field name="is_responded"/>
+                        <field name="material_type"/>
+                        <field name="is_email_sent"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_material_supplier_quote_tree" model="ir.ui.view">
+        <field name="name">docking.material.supplier.quote.tree</field>
+        <field name="model">docking.material.supplier.quote</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="unit_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="estimated_delivery_date"/>
+                <field name="note"/>
+                <field name="material_quote_id"/>
+                <field name="supplier_id"/>
+                <field name="is_responded"/>
+                <field name="material_type"/>
+                <field name="is_email_sent"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_material_supplier_quote_search" model="ir.ui.view">
+        <field name="name">docking.material.supplier.quote.search</field>
+        <field name="model">docking.material.supplier.quote</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="unit_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="estimated_delivery_date"/>
+                <field name="note"/>
+                <field name="material_quote_id"/>
+                <field name="supplier_id"/>
+                <field name="is_responded"/>
+                <field name="material_type"/>
+                <field name="is_email_sent"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_material_supplier_quote" model="ir.actions.act_window">
+        <field name="name">Material Supplier Quote</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.material.supplier.quote</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_material_supplier_quote"
+            name="Material Supplier Quote" 
+            parent="menu_docking_suppliers_and_quotes"
+            action="action_docking_material_supplier_quote"
+            sequence="10"/>
+
+</odoo>

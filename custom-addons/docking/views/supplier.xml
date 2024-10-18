@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_supplier_form" model="ir.ui.view">
+        <field name="name">docking.supplier.form</field>
+        <field name="model">docking.supplier</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="address"/>
+                        <field name="access_token"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Material Survey Metadatas" name="material_survey_metadata_ids">
+                            <field name="material_survey_metadata_ids"/>
+                        </page>
+                        <page string="Jobs" name="job_ids">
+                            <field name="job_ids"/>
+                        </page>
+                        <page string="Material Supplier Quotes" name="material_supplier_quote_ids">
+                            <field name="material_supplier_quote_ids"/>
+                        </page>
+                        <page string="Job Supplier Quotes" name="job_supplier_quote_ids">
+                            <field name="job_supplier_quote_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_supplier_tree" model="ir.ui.view">
+        <field name="name">docking.supplier.tree</field>
+        <field name="model">docking.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="address"/>
+                <field name="access_token"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_supplier_search" model="ir.ui.view">
+        <field name="name">docking.supplier.search</field>
+        <field name="model">docking.supplier</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="address"/>
+                <field name="access_token"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_supplier" model="ir.actions.act_window">
+        <field name="name">Supplier</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.supplier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_supplier"
+            name="Supplier" 
+            parent="menu_docking_suppliers_and_quotes"
+            action="action_docking_supplier"
+            sequence="10"/>
+
+</odoo>

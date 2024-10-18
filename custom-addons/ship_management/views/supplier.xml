@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_supplier_form" model="ir.ui.view">
+        <field name="name">ship.supplier.form</field>
+        <field name="model">ship.supplier</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="name"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="address"/>
+                        <field name="access_token"/>
+                        <field name="classify_ids" widget="many2many_tags"/>
+                        <field name="classified_for_material" invisible="1"/>
+                        <field name="classified_for_paint" invisible="1"/>
+                        <field name="classified_for_job" invisible="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Materials" name="material_ids" attrs="{'invisible': [('classified_for_material', '=', False)]}">
+                            <field name="material_ids"/>
+                        </page>
+                        <page string="Paints" name="paint_ids" attrs="{'invisible': [('classified_for_paint', '=', False)]}">
+                            <field name="paint_ids"/>
+                        </page>
+                        <page string="Jobs" name="job_ids" attrs="{'invisible': [('classified_for_job', '=', False)]}">
+                            <field name="job_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_supplier_tree" model="ir.ui.view">
+        <field name="name">ship.supplier.tree</field>
+        <field name="model">ship.supplier</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="address"/>
+                <field name="classify_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_supplier_search" model="ir.ui.view">
+        <field name="name">ship.supplier.search</field>
+        <field name="model">ship.supplier</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="phone"/>
+                <field name="email"/>
+                <field name="address"/>
+                <field name="classify_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_supplier" model="ir.actions.act_window">
+        <field name="name">Supplier</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.supplier</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_supplier"
+            name="Supplier" 
+            parent="menu_ship_suppliers_and_quotes"
+            action="action_ship_supplier"
+            sequence="10"/>
+
+</odoo>

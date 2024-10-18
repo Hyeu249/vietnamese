@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_internal_audit_checklist_form" model="ir.ui.view">
+        <field name="name">ship.internal.audit.checklist.form</field>
+        <field name="model">ship.internal.audit.checklist</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <field name="company_id" readonly="1"/>
+                    <group string="Audit Date">
+                        <group>
+                            <field name="audit_date"/>
+                        </group>
+
+                        <group>
+                            <field name="audit_no"/>
+                        </group>
+                    </group>
+
+                    <group string="Auditors">
+                        <group>
+                            <field name="auditor_ids" widget="many2many_tags"/>
+                        </group>
+                        <group>
+                            <field name="auditee_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+
+                    <group string="Purpose">
+                        <field name="purpose"/>
+                        <field name="scope"/>
+                    </group>
+
+                    <group string="Internal SMS Audit Plan">
+                        <group>
+                            <field name="meeting_open_at"/>
+                            <field name="meeting_close_at"/>
+                        </group>
+                        <group>
+                            <field name="audit_open_at"/>
+                            <field name="audit_close_at"/>
+                        </group>
+                    </group>
+
+                    <group>
+                        <field name="participant_ids" widget="many2many_tags"/>
+                        <field name="remark"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Audit Questions" name="audit_question_ids">
+                            <field name="audit_question_ids">
+                                <tree editable="bottom">
+                                    <field name="name" readonly="1"/>
+                                    <field name="yes_no"/>
+                                    <field name="answer"/>
+                                    <field name="attachment"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_internal_audit_checklist_tree" model="ir.ui.view">
+        <field name="name">ship.internal.audit.checklist.tree</field>
+        <field name="model">ship.internal.audit.checklist</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="audit_date"/>
+                <field name="audit_no"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_internal_audit_checklist_search" model="ir.ui.view">
+        <field name="name">ship.internal.audit.checklist.search</field>
+        <field name="model">ship.internal.audit.checklist</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="audit_date"/>
+                <field name="audit_no"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_internal_audit_checklist" model="ir.actions.act_window">
+        <field name="name">Internal Audit Checklist</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.internal.audit.checklist</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_internal_audit_checklist"
+            name="Internal Audit Checklist" 
+            parent="menu_ship_review_plans"
+            action="action_ship_internal_audit_checklist"
+            sequence="10"/>
+
+</odoo>

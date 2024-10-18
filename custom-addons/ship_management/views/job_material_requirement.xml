@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_job_material_requirement_form" model="ir.ui.view">
+        <field name="name">ship.job.material.requirement.form</field>
+        <field name="model">ship.job.material.requirement</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="job_id"/>
+                        <field name="material_id"/>
+                        <field name="required_quantity"/>
+                        <field name="unit"/>
+                    </group>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_job_material_requirement_tree" model="ir.ui.view">
+        <field name="name">ship.job.material.requirement.tree</field>
+        <field name="model">ship.job.material.requirement</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="job_id"/>
+                <field name="material_id"/>
+                <field name="required_quantity"/>
+                <field name="unit"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_job_material_requirement_search" model="ir.ui.view">
+        <field name="name">ship.job.material.requirement.search</field>
+        <field name="model">ship.job.material.requirement</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="job_id"/>
+                <field name="material_id"/>
+                <field name="required_quantity"/>
+                <field name="unit"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_job_material_requirement" model="ir.actions.act_window">
+        <field name="name">Job Material Requirement</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.job.material.requirement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_job_material_requirement"
+            name="Job Material Requirement" 
+            parent="menu_ship_operations"
+            action="action_ship_job_material_requirement"
+            sequence="10"/>
+
+</odoo>

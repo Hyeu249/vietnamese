@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="view_ship_job_quote_kanban_calendar" model="ir.ui.view">
+        <field name="name">ship.job.quote.calendar</field>
+        <field name="model">ship.job.quote</field>
+        <field name="arch" type="xml">
+            <calendar string="Job Quote Calendar" date_start="implement_date" quick_add="False" color="maintenance_scope_name" mode="month">
+                <field name="job_state" invisible="1" filters="1"/>
+                <field name="approval_status" invisible="1" filters="1"/>
+                <field name="maintenance_scope_name"/>
+                <field name="job_id"/>
+                <field name="is_for_crew" attrs="{'invisible': [('is_for_crew', '!=', True)]}"/>
+                <field name="job_supplier_quote_id" attrs="{'invisible': [('is_for_crew', '=', True)]}"/>
+                <field name="inspection_date"/>
+                <field name="approval_status" attrs="{'invisible': [('approval_status', '=', 'APPROVED')]}"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_ship_job_quote_kanban" model="ir.ui.view">
+        <field name="name">ship.job.quote.kanban</field>
+        <field name="model">ship.job.quote</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="job_state">
+                <field name="maintenance_scope_name"/>
+                <field name="approval_status"/>
+                <field name="job_state"/>
+                <field name="implement_date"/>
+                <field name="job_id"/>
+                <field name="is_for_crew"/>
+                <field name="job_supplier_quote_id"/>
+                <field name="progress_by_date"/>
+                <field name="week_number"/>
+                <field name="priority"/>
+                <field name="ribbon_color"/>
+                <progressbar field="progress_by_date" colors="{&quot;OVERDUE&quot;: &quot;danger&quot;, &quot;TODAY&quot;: &quot;warning&quot;, &quot;UNDUE&quot;: &quot;success&quot;}"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="{{'oe_kanban_color_' + kanban_getcolor(record.ribbon_color.raw_value)}} oe_kanban_global_click radius-5 mb-7 shadown">
+                            <div class="oe_kanban_content">
+                                <div class="o_kanban_record_top">
+                                    <div class="o_kanban_record_headings">
+                                        <strong class="o_kanban_record_title">
+                                            <field name="maintenance_scope_name"/>
+                                        </strong>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_body">
+                                    <div>
+                                        <field name="job_id"/>
+                                    </div>
+                                    <div attrs="{'invisible': [('is_for_crew', '!=', True)]}">
+                                        <div>Thuyền viên</div>
+                                    </div>
+                                    <div>
+                                        <field name="job_supplier_quote_id" attrs="{'invisible': [('is_for_crew', '=', True)]}"/>
+                                    </div>
+                                    <div attrs="{'invisible': [('approval_status', '=', 'APPROVED')]}">
+                                        <field name="approval_status"/>
+                                    </div>
+                                </div>
+                                <div class="o_kanban_record_bottom">
+                                    <div class="oe_kanban_bottom_left">
+                                        <field name="priority" widget="priority"/>
+                                        <field name="implement_date" widget="remaining_days"
+                                            attrs="{'invisible': [
+                                                '|', '|', 
+                                                '&amp;', ('job_state', '!=', 'WORKING'), ('progress_by_date', '!=', 'BLANK'),
+                                                '&amp;', ('job_state', '!=', 'COMPLETED'), ('progress_by_date', '!=', 'BLANK'),
+                                                '&amp;', ('job_state', '!=', 'CONFIRMED'), ('progress_by_date', '!=', 'BLANK'),
+                                            ]}"
+                                            class="not_color"
+                                        />
+                                        <field name="implement_date" widget="remaining_days"
+                                            attrs="{'invisible': [
+                                                '|', '|', 
+                                                '&amp;', ('job_state', '=', 'WORKING'), ('progress_by_date', '=', 'BLANK'),
+                                                '&amp;', ('job_state', '=', 'COMPLETED'), ('progress_by_date', '=', 'BLANK'),
+                                                '&amp;', ('job_state', '=', 'CONFIRMED'), ('progress_by_date', '=', 'BLANK'),
+                                            ]}"
+                                        />
+                                        <div class="bold_black_important">Week: <field name="week_number"/></div>
+                                        <div class="bold_black_important"><field name="inspection_date"/></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="view_ship_job_quote_form" model="ir.ui.view">
+        <field name="name">ship.job.quote.form</field>
+        <field name="model">ship.job.quote</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="get_approval_status" 
+                        string="get_approval_status"
+                        type="object"
+                        class="oe_highlight"
+                        widget="button"
+                        groups="utilities.group_ship_admin"
+                    />
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', '|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED'), ('secondary_approval_status', '=', 'APPROVED')]}"
+                    />  
+                </header>
+                <header>
+                    <field 
+                        name="approval_status" 
+                        widget="statusbar" 
+                        attrs="{'invisible': ['|', ('is_for_secondary_approval_flow', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                        readonly="1"
+                    />
+                    <field 
+                        name="secondary_approval_status" 
+                        widget="statusbar" 
+                        attrs="{'invisible': ['|', ('is_for_secondary_approval_flow', '=', False), ('secondary_approval_status', '=', 'APPROVED')]}"
+                        readonly="1"
+                    />
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="is_for_secondary_approval_flow" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                    <field name="secondary_approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <header>               
+                    <field name="job_state" widget="statusbar" options="{'clickable': '1', 'fold_field': 'fold'}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group string="Job Quote">
+                            <field name="job_id"/>
+                            <field name="is_for_crew"/>
+                            <field name="note"/>
+                            <field name="inspection_date"/>
+                            <field name="maintenance_scope_report_id"/>
+                        </group>
+
+                        <group string="Operation">
+                            <field name="implement_date"/>
+                            <field name="finished_at"/>
+                            <field name="acceptance_quality_level"/>
+                            <field name="progress_by_date"/>
+                        </group>
+                    </group>
+
+                    <group string="Outsource" attrs="{'invisible': [('is_for_crew', '=', True)]}">
+                        <field name="job_supplier_quote_id"/>
+                        <field name="expected_delivery_date"/>
+                        <field name="deadline"/>
+                        <field name="labor_cost"/>
+                        <field name="average_quote_price"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Job Supplier Quotes" name="job_supplier_quote_ids">
+                            <field name="job_supplier_quote_ids"/>
+                        </page>
+                        <page string="Material Assignments" name="material_assignment_ids">
+                            <field name="material_assignment_ids"/>
+                        </page>
+                        <page string="Area of Paint Jobs" name="area_of_paint_job_ids">
+                            <field name="area_of_paint_job_ids"/>
+                        </page>
+                        <page string="Images" name="images">
+                            <group>
+                                <field name="front_image" widget="image" style='max-height: 70%; max-width: 70%; object-fit: contain'/>
+                                <field name="back_image" widget="image" style='max-height: 70%; max-width: 70%; object-fit: contain'/>
+                            </group>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <field name="company_id" readonly="1"/>
+                                <field name="create_date"/>
+                                <field name="is_selected_supplier_informed"/>
+                                <field name="approved_implement_date" readonly="1"/>
+                                <field name="maintenance_scope_job_ids" invisible="1"/>
+                                <field name="view_type" invisible="1"/>
+                            </group>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_job_quote_tree" model="ir.ui.view">
+        <field name="name">ship.job.quote.tree</field>
+        <field name="model">ship.job.quote</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="job_id" width="75px"/>
+                <field name="is_for_crew" width="135px"/>
+                <field name="implement_date" width="188px"/>
+                <field name="finished_at" width="125px"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                    width="170px"
+                    attrs="{'invisible': [('is_for_secondary_approval_flow', '=', True)]}"
+                />
+                <field name="secondary_approval_status"
+                    decoration-success="secondary_approval_status == 'APPROVED'"
+                    decoration-danger="secondary_approval_status == 'REJECTED'"
+                    decoration-warning="secondary_approval_status == 'PENDING'"
+                    widget="badge"
+                    width="145px"
+                    attrs="{'invisible': [('is_for_secondary_approval_flow', '=', False)]}"
+                />
+                <field name="job_state"
+                    decoration-success="job_state == 'CONFIRMED'"
+                    decoration-info="job_state == 'COMPLETED'"
+                    decoration-danger="job_state == 'UNAPPROVED'"
+                    decoration-warning="job_state == 'WORKING'"
+                    widget="badge"
+                    width="155px"/>
+                <field name="job_supplier_quote_id" width="125px"/>
+                <field name="labor_cost" width="125px" attrs="{'invisible': [('is_for_crew', '=', True)]}"/>
+                <field name="average_quote_price" width="120px"/>
+                <field name="expected_delivery_date" width="200px"/>
+                <field name="deadline" width="50px"/>
+                <field name="note" width="50px"/>
+                <field name="acceptance_quality_level" width="170px"/>
+                <field name="inspection_date"/>
+                <field name="is_for_secondary_approval_flow" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_job_quote_search" model="ir.ui.view">
+        <field name="name">ship.job.quote.search</field>
+        <field name="model">ship.job.quote</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="approval_status"/>
+                <field name="secondary_approval_status"/>
+                <field name="progress_by_date"/>
+                <field name="job_state"/>
+                <field name="job_id"/>
+                <field name="labor_cost"/>
+                <field name="is_for_crew"/>
+                <field name="implement_date"/>
+                <field name="finished_at"/>
+                <field name="job_supplier_quote_id"/>
+                <field name="maintenance_scope_report_id"/>
+                <field name="note"/>
+                <field name="deadline"/>
+                <field name="front_image"/>
+                <field name="back_image"/>
+                <field name="acceptance_quality_level"/>
+                <field name="expected_delivery_date"/>
+                <field name="is_selected_supplier_informed"/>
+                <field name="approved_implement_date"/>
+
+                <filter name="week_1" string="Week 1" domain="[('week_number', '=', 1)]" />
+                <filter name="week_2" string="Week 2" domain="[('week_number', '=', 2)]" />
+                <filter name="week_3" string="Week 3" domain="[('week_number', '=', 3)]" />
+                <filter name="week_4" string="Week 4" domain="[('week_number', '=', 4)]" />
+                <filter name="week_5" string="Week 5" domain="[('week_number', '=', 5)]" />
+                <filter name="week_6" string="Week 6" domain="[('week_number', '=', 6)]" />
+                <filter name="week_7" string="Week 7" domain="[('week_number', '=', 7)]" />
+                <filter name="week_8" string="Week 8" domain="[('week_number', '=', 8)]" />
+                <filter name="week_9" string="Week 9" domain="[('week_number', '=', 9)]" />
+                <filter name="week_10" string="Week 10" domain="[('week_number', '=', 10)]" />
+                <filter name="week_11" string="Week 11" domain="[('week_number', '=', 11)]" />
+                <filter name="week_12" string="Week 12" domain="[('week_number', '=', 12)]" />
+                <filter name="week_13" string="Week 13" domain="[('week_number', '=', 13)]" />
+                <filter name="week_14" string="Week 14" domain="[('week_number', '=', 14)]" />
+                <filter name="week_15" string="Week 15" domain="[('week_number', '=', 15)]" />
+                <filter name="week_16" string="Week 16" domain="[('week_number', '=', 16)]" />
+                <filter name="week_17" string="Week 17" domain="[('week_number', '=', 17)]" />
+                <filter name="week_18" string="Week 18" domain="[('week_number', '=', 18)]" />
+                <filter name="week_19" string="Week 19" domain="[('week_number', '=', 19)]" />
+                <filter name="week_20" string="Week 20" domain="[('week_number', '=', 20)]" />
+                <filter name="week_21" string="Week 21" domain="[('week_number', '=', 21)]" />
+                <filter name="week_22" string="Week 22" domain="[('week_number', '=', 22)]" />
+                <filter name="week_23" string="Week 23" domain="[('week_number', '=', 23)]" />
+                <filter name="week_24" string="Week 24" domain="[('week_number', '=', 24)]" />
+                <filter name="week_25" string="Week 25" domain="[('week_number', '=', 25)]" />
+                <filter name="week_26" string="Week 26" domain="[('week_number', '=', 26)]" />
+                <filter name="week_27" string="Week 27" domain="[('week_number', '=', 27)]" />
+                <filter name="week_28" string="Week 28" domain="[('week_number', '=', 28)]" />
+                <filter name="week_29" string="Week 29" domain="[('week_number', '=', 29)]" />
+                <filter name="week_30" string="Week 30" domain="[('week_number', '=', 30)]" />
+                <filter name="week_31" string="Week 31" domain="[('week_number', '=', 31)]" />
+                <filter name="week_32" string="Week 32" domain="[('week_number', '=', 32)]" />
+                <filter name="week_33" string="Week 33" domain="[('week_number', '=', 33)]" />
+                <filter name="week_34" string="Week 34" domain="[('week_number', '=', 34)]" />
+                <filter name="week_35" string="Week 35" domain="[('week_number', '=', 35)]" />
+                <filter name="week_36" string="Week 36" domain="[('week_number', '=', 36)]" />
+                <filter name="week_37" string="Week 37" domain="[('week_number', '=', 37)]" />
+                <filter name="week_38" string="Week 38" domain="[('week_number', '=', 38)]" />
+                <filter name="week_39" string="Week 39" domain="[('week_number', '=', 39)]" />
+                <filter name="week_40" string="Week 40" domain="[('week_number', '=', 40)]" />
+                <filter name="week_41" string="Week 41" domain="[('week_number', '=', 41)]" />
+                <filter name="week_42" string="Week 42" domain="[('week_number', '=', 42)]" />
+                <filter name="week_43" string="Week 43" domain="[('week_number', '=', 43)]" />
+                <filter name="week_44" string="Week 44" domain="[('week_number', '=', 44)]" />
+                <filter name="week_45" string="Week 45" domain="[('week_number', '=', 45)]" />
+                <filter name="week_46" string="Week 46" domain="[('week_number', '=', 46)]" />
+                <filter name="week_47" string="Week 47" domain="[('week_number', '=', 47)]" />
+                <filter name="week_48" string="Week 48" domain="[('week_number', '=', 48)]" />
+                <filter name="week_49" string="Week 49" domain="[('week_number', '=', 49)]" />
+                <filter name="week_50" string="Week 50" domain="[('week_number', '=', 50)]" />
+                <filter name="week_51" string="Week 51" domain="[('week_number', '=', 51)]" />
+                <filter name="week_52" string="Week 52" domain="[('week_number', '=', 52)]" />
+                <filter name="week_53" string="Week 53" domain="[('week_number', '=', 53)]" />
+
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_job_quote" model="ir.actions.act_window">
+        <field name="name">Job Quote</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.job.quote</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_job_quote"
+            name="Job Quote" 
+            parent="menu_ship_suppliers_and_quotes"
+            action="action_ship_job_quote"
+            sequence="10"/>
+
+    <record id="action_ship_job_quote_kanban" model="ir.actions.act_window">
+        <field name="name">Kanban for Job Quote</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.job.quote</field>
+        <field name="view_mode">kanban,calendar,form</field>
+    </record>
+
+    <menuitem id="menu_ship_job_quote_kanban"
+            name="Kanban for Job Quote" 
+            parent="menu_ship_maintenance"
+            action="action_ship_job_quote_kanban"
+            sequence="10"/>
+
+</odoo>

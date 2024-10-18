@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_help_wiz_form" model="ir.ui.view">
+        <field name="name">ship.help.wiz.form</field>
+        <field name="model">ship.help.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Help">
+                <group>
+                    <field name="help" string="" widget="help_field"/>
+                </group>
+
+                <notebook>
+                    <page string="Default Values" name="default_value_ids">
+                        <field name="default_value_ids"/>
+                    </page>
+                    <page string="Crons" name="cron_ids">
+                        <field name="cron_ids"/>
+                    </page>
+                </notebook>
+
+                <footer>
+                </footer>
+
+
+            </form>
+        </field>
+    </record>
+
+    <record id="action_help_wiz" model="ir.actions.act_window">
+        <field name="name">Ship Help</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.help.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_help_wiz_form"/>
+        <field name="target">new</field>
+    </record>
+    
+</odoo>
+ 

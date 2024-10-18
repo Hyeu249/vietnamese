@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_material_survey_metadata_form" model="ir.ui.view">
+        <field name="name">docking.material.survey.metadata.form</field>
+        <field name="model">docking.material.survey.metadata</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="spare_part_no"/>
+                        <field name="unit"/>
+                        <field name="origin"/>
+                        <field name="material_type"/>
+                        <field name="material_group_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Material Survey Datas" name="material_survey_data_ids">
+                            <field name="material_survey_data_ids"/>
+                        </page>
+                        <page string="Suppliers" name="supplier_ids">
+                            <field name="supplier_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_material_survey_metadata_tree" model="ir.ui.view">
+        <field name="name">docking.material.survey.metadata.tree</field>
+        <field name="model">docking.material.survey.metadata</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="spare_part_no"/>
+                <field name="unit"/>
+                <field name="origin"/>
+                <field name="material_type"/>
+                <field name="material_group_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_material_survey_metadata_search" model="ir.ui.view">
+        <field name="name">docking.material.survey.metadata.search</field>
+        <field name="model">docking.material.survey.metadata</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="spare_part_no"/>
+                <field name="unit"/>
+                <field name="origin"/>
+                <field name="material_type"/>
+                <field name="material_group_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_material_survey_metadata" model="ir.actions.act_window">
+        <field name="name">Material Survey Metadata</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.material.survey.metadata</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_material_survey_metadata"
+            name="Material Survey Metadata" 
+            parent="menu_docking_materials"
+            action="action_docking_material_survey_metadata"
+            sequence="10"/>
+
+</odoo>

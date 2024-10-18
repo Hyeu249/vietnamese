@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_internal_ism_audit_report_form" model="ir.ui.view">
+        <field name="name">ship.internal.ism.audit.report.form</field>
+        <field name="model">ship.internal.ism.audit.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="lead_auditor_id"/>
+                        <field name="internal_auditor_ids" widget="many2many_tags"/>
+                        <field name="audit_open_at"/>
+                        <field name="audit_close_at"/>
+                        <field name="scope"/>
+                    </group>
+
+                    <group>
+                        <field name="is_major_NC"/>
+                        <field name="is_NC"/>
+                        <field name="are_previous_NC_cleared"/>
+                        <field name="is_additional_assessment_required"/>
+                        <field name="are_major_NC_cleared"/>
+                        <field name="comment"/>
+                    </group>
+
+                    <group invisible="1">
+                        <field name="review_plan_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Audit Questions" name="audit_question_ids">
+                            <field name="audit_question_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_internal_ism_audit_report_tree" model="ir.ui.view">
+        <field name="name">ship.internal.ism.audit.report.tree</field>
+        <field name="model">ship.internal.ism.audit.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="lead_auditor_id"/>
+                <field name="audit_open_at"/>
+                <field name="audit_close_at"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_internal_ism_audit_report_search" model="ir.ui.view">
+        <field name="name">ship.internal.ism.audit.report.search</field>
+        <field name="model">ship.internal.ism.audit.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="lead_auditor_id"/>
+                <field name="audit_open_at"/>
+                <field name="audit_close_at"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_internal_ism_audit_report" model="ir.actions.act_window">
+        <field name="name">Internal ISM Audit Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.internal.ism.audit.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_internal_ism_audit_report"
+            name="Internal ISM Audit Report" 
+            parent="menu_ship_review_plans"
+            action="action_ship_internal_ism_audit_report"
+            sequence="10"/>
+
+</odoo>

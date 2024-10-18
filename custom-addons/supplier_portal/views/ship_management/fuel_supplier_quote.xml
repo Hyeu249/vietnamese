@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="portal_my_vendor_fuel_rfq" name="Vendor Fuel RFQ">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_table">
+                <thead>
+                    <tr class="active">
+                        <th class="text-center">RFQ Code</th>
+                        <th class="text-center">Fuel Type</th>
+                        <th class="text-center">Quantity</th>
+                        <th class="text-center">Unit</th>
+                        <th class="text-center">Delivery Location</th>
+                        <th class="text-center">Arrival Time</th>
+                        <th class="text-center">Departure Time</th>
+                    </tr>
+                </thead>
+                <input type="hidden" id="access_token" value="t-esc='access_token'" />
+                <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"/>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                            crossorigin="anonymous"/>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                            crossorigin="anonymous"/>
+                <div class="text-center mt-3">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#confirmRfqModal">Confirm RFQ</button>
+                </div>
+                <div class="modal" id="confirmRfqModal" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Confirm RFQ</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Are you sure you want to confirm this RFQ?</p>
+                            </div>
+                            <div class="modal-footer">
+                                <form action="/vendor_rfuq/confirm" method="post">
+                                    <input type="hidden" name="rfuq_ref" t-att-value="rfuq_ref"/>
+                                    <input type="hidden" name="access_token" t-att-value="access_token"/>
+                                    <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                                    <button type="submit" class="btn btn-primary">Confirm</button>
+                                </form>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <t t-if="message">
+                    <div class="alert" t-att-class="'alert-success' if 'successfully' in message else 'alert-danger'" role="alert">
+                        <t t-esc="message"/>
+                    </div>
+                </t>
+                <tbody>
+                    <t t-foreach="fuel_quotes" t-as="fuel_quote">
+                        <tr>
+                            <td class="text-center">
+                                <t t-out="fuel_quote.ref" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="fuel_quote.full_name" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="fuel_quote.quantity" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="fuel_quote.unit" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="fuel_request.port_id.name" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="fuel_request.arrival_time" />
+                            </td>
+                            <td class="text-center">
+                                <t t-out="fuel_request.depature_time" />
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </t>
+        </t>
+    </template>
+</odoo>

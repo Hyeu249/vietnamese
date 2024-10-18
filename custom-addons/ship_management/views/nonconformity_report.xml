@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_nonconformity_report_form" model="ir.ui.view">
+        <field name="name">ship.nonconformity.report.form</field>
+        <field name="model">ship.nonconformity.report</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>  
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="report_date"/>
+                            <field name="deadline"/>
+                        </group>
+                        <group>
+                            <field name="NCR_no"/>
+                            <field name="department"/>
+                        </group>
+                    </group>
+
+                    <group string="Description">
+                        <field name="ism_code"/>
+                        <field name="sms_procedure"/>
+                        <field name="description"/>
+                    </group>
+
+                    <group string="Suggested Corrective Action for Non-conformity">
+                        <field name="cause"/>
+                        <field name="corrective_action"/> 
+                        <field name="preventive_action"/>
+                        <field name="proposed_date_of_completion"/>
+                    </group>
+
+                    <group string="Complete">
+                        <group>
+                            <field name="complete_date"/>
+                            <field name="master_head_of_department_sign"/>
+                        </group>
+                        <group>
+                            <field name="the_NC_cleared_on"/>
+                            <field name="signature"/>
+                        </group>
+                    </group>    
+
+                    <group invisible="1">
+                        <field name="list_of_ism_nonconformities_id"/>
+                        <field name="description_of_objective_evidence_id"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_nonconformity_report_tree" model="ir.ui.view">
+        <field name="name">ship.nonconformity.report.tree</field>
+        <field name="model">ship.nonconformity.report</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="description"/>
+                <field name="NCR_no"/>
+                <field name="department"/>
+                <field name="deadline"
+                    decoration-success="is_overdue == False"
+                    decoration-danger="is_overdue == True"
+                    widget="badge"
+                />
+                <field name="is_overdue" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_nonconformity_report_search" model="ir.ui.view">
+        <field name="name">ship.nonconformity.report.search</field>
+        <field name="model">ship.nonconformity.report</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="description"/>
+                <field name="NCR_no"/>
+                <field name="department"/>
+                <field name="deadline"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_nonconformity_report" model="ir.actions.act_window">
+        <field name="name">Nonconformity Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.nonconformity.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_nonconformity_report"
+            name="Nonconformity Report" 
+            parent="menu_ship_review_plans"
+            action="action_ship_nonconformity_report"
+            sequence="10"/>
+
+</odoo>

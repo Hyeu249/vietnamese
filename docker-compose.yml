@@ -1,0 +1,46 @@
+version: "3.1"
+services:
+  web:
+    image: odoo-local:16.0
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    links:
+      - db:db
+    volumes:
+      - odoo-web-data:/var/lib/odoo
+      - ./config:/etc/odoo
+      - ./custom-addons:/mnt/extra-addons
+    environment:
+      - HOST=db
+      - PORT=5432
+      - USER=odoo
+      - PASSWORD=odoo
+      - POSTGRES_DB=ship_management
+    command: ["-i base", "-u all"]
+  db:
+    image: postgres:15
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+      - POSTGRES_DB=ship_management
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - odoo-db-data:/var/lib/postgresql/data/pgdata
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pg_admin
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: test@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: test
+    ports:
+      - "82:80"
+    depends_on:
+      - db
+volumes:
+  odoo-web-data:
+  odoo-db-data:

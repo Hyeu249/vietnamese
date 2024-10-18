@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_proposed_liquidation_form" model="ir.ui.view">
+        <field name="name">ship.proposed.liquidation.form</field>
+        <field name="model">ship.proposed.liquidation</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Custom Export Proposal" type="object" name="custom_export_proposal_form_to_xlsx" class="oe_highlight"/>
+                    <button string="Custom Export Decision" type="object" name="custom_export_decision_form_to_xlsx" class="oe_highlight"/>                   
+                    <button string="Custom Export Agreement" type="object" name="custom_export_agreement_form_to_xlsx" class="oe_highlight"/>                   
+
+                    <button name="get_materials_by_replace_date"
+                        string="Get material by replace date"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Proposed Liquidation">
+                        <field name="name"/>
+                        <field name="name_decision"/>
+                        <field name="name_agreement"/>
+                        <field name="description"/>
+                        <field name="proposed_date"/>
+                        <field name="liquidation_method"/>
+                        <field name="liquidation_location"/>
+                        <field name="liquidation_agency"/>
+                    </group>
+
+                    <group string="Replace date">
+                        <field name="replace_date_from"/>
+                        <field name="replace_date_to"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Replacement Diary" name="replacement_diary_ids">
+                            <field name="replacement_diary_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_proposed_liquidation_tree" model="ir.ui.view">
+        <field name="name">ship.proposed.liquidation.tree</field>
+        <field name="model">ship.proposed.liquidation</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_proposed_liquidation_search" model="ir.ui.view">
+        <field name="name">ship.proposed.liquidation.search</field>
+        <field name="model">ship.proposed.liquidation</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="approval_status"/>
+                <field name="name"/>
+                <field name="description"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_proposed_liquidation" model="ir.actions.act_window">
+        <field name="name">Proposed Liquidation</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.proposed.liquidation</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_proposed_liquidation"
+            name="Proposed Liquidation"
+            parent="menu_ship_supplies_liquidation"
+            action="action_ship_proposed_liquidation"
+            sequence="10"/>
+
+</odoo>

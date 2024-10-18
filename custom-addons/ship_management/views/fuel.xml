@@ -1,0 +1,78 @@
+<odoo>
+
+    <!-- Form View for Ship Fuel -->
+    <record id="view_ship_fuel_form" model="ir.ui.view">
+        <field name="name">ship.fuel.form</field>
+        <field name="model">ship.fuel</field>
+        <field name="arch" type="xml">
+            <form string="Ship Fuel">
+                <header>
+                    <button name="check_fuel_threshold_and_notify" string="Send notification Threshold" type="object" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="voy"/>
+                        <field name="voy_position"/>
+                        <field name="status"/>
+                        <field name="voy_status"/>
+                        <field name="time"/>
+                        <field name="me_rpm"/>
+                        <field name="load"/>
+                        <field name="tc_rpm"/>
+                        <field name="pa"/>
+                        <field name="spd"/>
+                        <field name="distance_run"/>
+                        <field name="weather"/>
+                    </group>
+                    <group string="Fuel Data">
+                        <field name="current_fo"/>
+                        <field name="current_do"/>
+                        <field name="current_cyl"/>
+                        <field name="current_lome"/>
+                        <field name="current_loge"/>
+                        <field name="re_fo"/>
+                        <field name="re_do"/>
+                        <field name="re_cyl"/>
+                        <field name="re_lome"/>
+                        <field name="re_loge"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <!-- Tree View for Ship Fuel -->
+    <record id="view_ship_fuel_tree" model="ir.ui.view">
+        <field name="name">ship.fuel.tree</field>
+        <field name="model">ship.fuel</field>
+        <field name="arch" type="xml">
+            <tree string="Ship Fuel">
+                <field name="company_id"/>
+                <field name="voy"/>
+                <field name="status"/>
+                <field name="voy_status"/>
+                <field name="time"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for Ship Fuel -->
+    <record id="action_ship_fuel" model="ir.actions.act_window">
+        <field name="name">Ship Fuel</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.fuel</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu item to access the Ship Fuel -->
+    <!-- Adjust the parent attribute if you don't have a menu with id "menu_ship_operations" -->
+    <menuitem id="menu_ship_fuel"
+        name="Fuel Tracking" 
+        parent="menu_ship_fuel_all"
+        action="action_ship_fuel"
+        sequence="50"/>
+
+</odoo>
+
+

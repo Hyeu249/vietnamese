@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_content_page_form" model="ir.ui.view">
+        <field name="name">legis.content.page.form</field>
+        <field name="model">legis.content.page</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <notebook>
+                        <page string="Content" name="content">
+                            <field name="content" widget="html"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_content_page_tree" model="ir.ui.view">
+        <field name="name">legis.content.page.tree</field>
+        <field name="model">legis.content.page</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="meta_form_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_content_page_search" model="ir.ui.view">
+        <field name="name">legis.content.page.search</field>
+        <field name="model">legis.content.page</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="meta_form_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_content_page" model="ir.actions.act_window">
+        <field name="name">Content Page</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.content.page</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_content_page"
+            name="Content Page" 
+            parent="menu_legis_operations"
+            action="action_legis_content_page"
+            sequence="10"/>
+
+</odoo>

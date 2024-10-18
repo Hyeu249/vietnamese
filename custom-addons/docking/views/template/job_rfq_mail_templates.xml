@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+
+        <record id="quote_email_in_docking_job_supplier_quote" model="mail.template">
+            <field name="name">Yêu cầu báo giá công việc</field>
+            <field name="subject">Yêu cầu báo giá công việc</field>
+            <field name="email_from">{{object.email_from}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="model_id" ref="docking.model_docking_supplier"/>
+            <field name="body_html" type="html">
+                <t t-set="self" t-value="ctx.get('self')"/>
+                <t t-set="job_id" t-value="self.job_quote_id.job_id"/>
+                <t t-set="quote_id" t-value="self.job_quote_id"/>
+                <t t-set="scope_id" t-value="quote_id.job_id.maintenance_scope_id"/>
+                    <div>
+                        <div>Kính gửi quý công ty <t t-esc="object.name"/>,</div>
+                        <br/>
+                        <br/>
+                        <div>Chúng tôi đang có nhu cầu thuê để thực hiện công việc <strong t-esc="job_id.name"/>.</div>
+                        <div>Mô tả: <strong t-esc="job_id.description"/></div>
+                        <div>Của hạng mục: <strong t-esc="scope_id.name"/></div>
+                        <div>Ngày thực hiện công việc mong muốn là: <strong t-esc="quote_id.expected_delivery_date"/></div>
+                        <div>Quý công ty vui lòng báo giá cho chúng tôi truớc ngày: <strong t-esc="quote_id.deadline"/>
+                            <br/>
+                            <a t-att-href="ctx.get('reply_quote_url')">Báo giá cho chúng tôi</a>
+                        </div>
+                        <br/>
+                        <br/>
+                        <div>Trân trọng</div>
+                        <br/>
+                        <div>Công ty VSICO</div>
+                    </div>
+            </field>
+        </record>
+
+        <record id="selected_quote_email_in_docking_job_supplier_quote" model="mail.template">
+            <field name="name">Báo giá công việc được chấp nhận</field>
+            <field name="subject">Báo giá công việc được chấp nhận</field>
+            <field name="email_from">{{object.email_from}}</field>
+            <field name="email_to">{{object.email}}</field>
+            <field name="model_id" ref="docking.model_docking_supplier"/>
+            <field name="body_html" type="html">
+                <t t-set="self" t-value="ctx.get('self')"/>
+                <t t-set="job_id" t-value="self.job_quote_id.job_id"/>
+                    <div>
+                        <div>Kính gửi quý công ty <t t-esc="object.name"/>,</div>
+                        <br/>
+                        <br/>
+                        <div>Chúng tôi xin thông báo rằng chúng tôi đã chấp nhận báo giá của quý công ty cho công việc <strong t-esc="job_id.name"/></div>
+                        <div>Mô tả: <strong t-esc="job_id.description"/></div>
+                        <div>Mã báo giá: <strong t-esc="self.ref"/></div>
+                        <div>Giá nhân công: <strong t-esc="self.labor_cost"/> <strong t-esc="self.currency_id.name"/></div>
+                        <div>Mã báo giá: <strong t-esc="self.ref"/></div>
+                        <div>Ngày thực hiện công việc dự kiến: <strong t-esc="self.estimated_delivery_date"/></div>
+                        <br/>
+                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.
+                        <br/>
+                        <br/>
+                        <div>Trân trọng</div>
+                        <br/>
+                        <div>Công ty VSICO</div>
+                    </div>
+            </field>
+        </record>
+
+        <!--        Template for RFQ-->
+        <record id="job_quote_for_supplier_template" model="mail.template">
+            <field name="name">Yêu cầu báo giá công việc</field>
+            <field name="model_id" ref="model_docking_supplier"/>
+            <field name="subject">Yêu cầu báo giá công việc</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi đang có nhu cầu thuê để thực hiện công việc
+                        <strong t-out="ctx.get('job_name') or ''"/>.
+                        <t t-if="ctx.get('job_description')">
+                            <br/>
+                            Mô tả: <strong t-out="ctx.get('job_description')"/>
+                        </t>
+                        <br/>
+                        <t t-if="ctx.get('expected_delivery_date')">
+                            <br/>
+                            Ngày thực hiện công việc mong muốn là
+                            <strong t-out="ctx.get('expected_delivery_date')"/>.
+                        </t>
+                        <br/>
+                        <br/>
+                        Quý công ty vui lòng báo giá cho chúng tôi ở đường link sau 
+                        <t t-if="ctx.get('deadline')">
+                            truớc ngày
+                            <strong t-out="ctx.get('deadline')"/>
+                        </t>
+                        <br/>
+                        <a t-att-href="ctx.get('reply_quote_url')">Báo giá cho chúng tôi</a>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+        
+        <!--    Template for Accepted Quote-->
+        <record id="job_quote_for_supplier_mark_done_template" model="mail.template">
+            <field name="name">Báo giá công việc được chấp nhận</field>
+            <field name="model_id" ref="model_docking_supplier"/>
+            <field name="subject">Báo giá công việc được chấp nhận</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi xin thông báo rằng chúng tôi đã <b>chấp nhận</b> báo giá của quý công ty cho công việc
+                        <strong t-out="ctx.get('job_name') or ''"/>.
+                        <t t-if="ctx.get('job_description')">
+                            <br/>
+                            Mô tả: <strong t-out="ctx.get('job_description')"/>.
+                        </t>
+                        <t t-if="ctx.get('quote_ref')">
+                            <br/>
+                            Mã báo giá: <strong t-out="ctx.get('quote_ref')"/>.
+                        </t>
+                        <br/>
+                        Giá nhân công: <strong t-out="ctx.get('labor_cost')"/> <t t-out="ctx.get('currency') or ''"/>.
+                        <br/>
+                        Ngày thực hiện công việc dự kiến: <strong t-out="ctx.get('estimated_delivery_date') or ''"/>.
+                        <br/>
+                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+    </data>
+</odoo>

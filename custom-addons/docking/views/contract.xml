@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_contract_form" model="ir.ui.view">
+        <field name="name">docking.contract.form</field>
+        <field name="model">docking.contract</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="restart_flow"
+                        string="Restart flow"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button name="complete_contract"
+                        string="Complete contract"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('approval_status', '!=', 'APPROVED'), ('is_completed', '=', True)]}"
+                    />
+                    <button name="send_contract_to_supplier_by_email"
+                        string="Send contract"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': [('approval_status', '!=', 'APPROVED')]}"
+                    />
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+
+                    <group string="Contract">
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="is_completed"/>
+                        <field name="total_price" groups="utilities.group_ship_cost_price_visibility"/>
+                        <field name="docking_plan_id"/>
+                        <field name="supplier_id"/>
+                        <field name="contract_payment_instalment_id"/>
+                        <field name="contract_history_ids" widget="many2many_tags" groups="utilities.group_ship_admin"/>
+                    </group>
+
+
+                    <group string="Progress">
+                        <field name="progress" widget="progressbar"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Rendered Contract" name="rendered_html_content">
+                            <field name="rendered_html_content" widget="html" readonly="1" class="time_new_roman"/>
+                        </page>
+                        <page string="Edit Contract Content" name="unrendered_html_content">
+                            <field name="unrendered_html_content" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Contract diff" name="contract_old_new_diff">
+                            <group>
+                                <field name="contract_history_id"/>
+                            </group>
+                            <field name="contract_old_new_diff" widget="html" readonly="1"/>
+                        </page>
+                        <page string="Contract Payment Instalments" name="contract_payment_instalment_ids">
+                            <field name="contract_payment_instalment_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_contract_tree" model="ir.ui.view">
+        <field name="name">docking.contract.tree</field>
+        <field name="model">docking.contract</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="is_completed"/>
+                <field name="total_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="docking_plan_id"/>
+                <field name="supplier_id"/>
+                <field name="contract_payment_instalment_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_contract_search" model="ir.ui.view">
+        <field name="name">docking.contract.search</field>
+        <field name="model">docking.contract</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="is_completed"/>
+                <field name="total_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="docking_plan_id"/>
+                <field name="supplier_id"/>
+                <field name="contract_payment_instalment_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_contract" model="ir.actions.act_window">
+        <field name="name">Contract</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.contract</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_contract"
+            name="Contract" 
+            parent="menu_docking_contracts"
+            action="action_docking_contract"
+            sequence="10"/>
+
+</odoo>

@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- multi company rules -->
+
+    <record model="ir.rule" id="docking_contract_multi_company_rule">
+        <field name="name">Docking Contract Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_contract"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_docking_plan_multi_company_rule">
+        <field name="name">Docking Docking Plan Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_docking_plan"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_equipment_survey_data_multi_company_rule">
+        <field name="name">Docking Equipment Survey Data Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_equipment_survey_data"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_equipment_survey_group_multi_company_rule">
+        <field name="name">Docking Equipment Survey Group Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_equipment_survey_group"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_equipment_survey_metadata_multi_company_rule">
+        <field name="name">Docking Equipment Survey Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_equipment_survey_metadata"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_expected_cost_report_multi_company_rule">
+        <field name="name">Docking Expected Cost Report Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_expected_cost_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_inspection_event_metadata_multi_company_rule">
+        <field name="name">Docking Inspection Event Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_inspection_event_metadata"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_inspection_event_multi_company_rule">
+        <field name="name">Docking Inspection Event Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_inspection_event"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_job_quote_request_multi_company_rule">
+        <field name="name">Docking Job Quote Request Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_job_quote_request"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_job_quote_multi_company_rule">
+        <field name="name">Docking Job Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_job_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_job_supplier_quote_multi_company_rule">
+        <field name="name">Docking Job Supplier Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_job_supplier_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+
+    <record model="ir.rule" id="docking_job_multi_company_rule">
+        <field name="name">Docking Job Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_job"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_maintenance_scope_report_multi_company_rule">
+        <field name="name">Docking Maintenance Scope Report Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_maintenance_scope_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_maintenance_scope_multi_company_rule">
+        <field name="name">Docking Maintenance Scope Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_maintenance_scope"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_material_group_multi_company_rule">
+        <field name="name">Docking Material Group Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_material_group"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_material_quote_request_multi_company_rule">
+        <field name="name">Docking Material Quote Request Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_material_quote_request"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_material_quote_multi_company_rule">
+        <field name="name">Docking Material Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_material_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_material_supplier_quote_multi_company_rule">
+        <field name="name">Docking Material Supplier Quote Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_material_supplier_quote"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_material_survey_data_multi_company_rule">
+        <field name="name">Docking Material Survey Data Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_material_survey_data"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_material_survey_metadata_multi_company_rule">
+        <field name="name">Docking Material Survey Metadata Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_material_survey_metadata"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_contract_payment_instalment_multi_company_rule">
+        <field name="name">Docking Contract Payment Instalment Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_contract_payment_instalment"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_cost_settlement_report_multi_company_rule">
+        <field name="name">Docking Cost Settlement Report Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_cost_settlement_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_job_quote_final_parameter_set_multi_company_rule">
+        <field name="name">Docking Job Quote Final Parameter Set Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_job_quote_final_parameter_set"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_job_quote_expected_parameter_set_multi_company_rule">
+        <field name="name">Docking Job Quote Expected Parameter Set Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_job_quote_expected_parameter_set"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_contract_history_multi_company_rule">
+        <field name="name">Docking Contract History Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_contract_history"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="docking_factor_note_option_multi_company_rule">
+        <field name="name">Docking Factor Note Option Multi Company Rule</field>
+        <field name="model_id" ref="model_docking_factor_note_option"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+</odoo>

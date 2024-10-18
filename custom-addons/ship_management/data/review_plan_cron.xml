@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ir_cron_prepare_review_plan" model="ir.cron">
+            <field name="name">Prepare Review Plan: Every days</field>
+            <field name="model_id" ref="model_ship_review_plan"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.prepare_review_plan()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_request_review_approval_date" model="ir.cron">
+            <field name="name">Request Review Approval Date in Review Plan: Every days</field>
+            <field name="model_id" ref="model_ship_review_plan"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.request_review_approval_date()</field>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+    </data>
+</odoo>

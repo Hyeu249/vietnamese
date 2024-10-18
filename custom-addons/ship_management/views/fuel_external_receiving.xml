@@ -1,0 +1,928 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Define views for FuelInternalReceiving model -->
+    <record id="view_fuel_external_receiving_form" model="ir.ui.view">
+        <field name="name">Fuel External Receiving</field>
+        <field name="model">ship.fuel.external.receiving</field>
+        <field name="arch" type="xml">
+            <form string="Fuel External Receiving">
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id"/>
+                        <field name="arrival_datetime"/>
+                        <field name="voyage_number"/>
+                        <field name="order_number"/>
+                        <field name="heel"/>
+                        <field name="trim"/>
+                        <field name="temperature"/>
+                        <field name="attachment_file" widget="image" style='max-height: 70%; max-width: 70%; object-fit: contain'/>
+                    </group>
+                    <group>
+                        <!-- Diesel Oil (DO) Group -->
+                        <group>
+                            <field name="do_received"/>
+                            <field name="do_volume_received"/>
+                            <field name="do_density"/>
+                            <field name="do_received_final"/>
+
+                        </group>
+                        <!-- Fuel Oil (FO) Group -->
+                        <group>
+                            <field name="hfo_received"/>
+                            <field name="hfo_volume_received"/>
+                            <field name="hfo_density"/>
+                            <field name="hfo_received_final"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Fuel Tank Measurements">
+                            <form>
+                                <field name="fuel_tank_measurement_ids">
+                                    <tree editable="bottom">
+                                        <field name="fuel_type"/>
+                                        <field name="tank_name"/>
+                                        <field name="measure_type"/>
+                                        <field name="tank_measurement_at_100"/>
+                                        <field name="tank_measurement_at_85"/>
+                                        <field name="measure_adjustment"/>
+                                        <field name="volume_m3"/>
+                                        <field name="receiving_volume"/>
+                                        <field name="after_bunkering_estimate"/>
+                                        <field name="tank_measurement_at_0"/>
+                                        <field name="tank_measurement_at_1"/>
+                                        <field name="tank_measurement_at_2"/>
+                                        <field name="tank_measurement_at_3"/>
+                                        <field name="percentage_fill"/>
+                                    </tree>
+                                </field>
+                            </form>
+                        </page>
+                        <page string="Bunkers Transfer Bagre">
+                            <form>
+                                <field name="bunker_ids">
+                                    <!-- Define fields to display and edit inline -->
+                                    <tree editable="bottom">
+                                        <field name="fuel_type"/>
+                                        <field name="grade"/>
+                                        <field name="weight_tonnes"/>
+                                        <field name="volume_loading_temp"/>
+                                        <field name="loading_temperature"/>
+                                        <field name="max_transfer_rate"/>
+                                        <field name="max_line_pressure"/>
+                                        <!-- Add more fields as needed -->
+                                    </tree>
+                                </field>
+                            </form>
+                        </page>
+                        <page string="Fuel Checks">
+                            <form>
+                                <field name="fuel_check_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="check_type"/>
+                                        <field name="code"/>
+                                        <field name="remark"/>
+                                        <field name="is_satisfied_ship" string="Ship Check"/>
+                                        <field name="is_satisfied_barge" string="Barge Check"/>
+                                    </tree>
+                                </field>
+                            </form>
+                        </page>
+                        <page string="Fuel Oil Tank Conditions">
+                            <form>
+                                <field name="fuel_condition_ids">
+                                    <!-- Define fields to display and edit inline -->
+                                    <tree>
+                                        <field name="tank_datetime"/>
+                                        <field name="condition"/>
+                                        <field name="heel"/>
+                                        <field name="trim"/>
+                                        <field name="density_hfo"/>
+                                        <field name="density_do"/>
+                                        <field name="sea_water_temperature"/>
+                                        <field name="total_FO_weight"/>
+                                        <field name="total_DO_weight"/>
+                                    </tree>
+                                </field>
+                            </form>
+                        </page>
+                        <page string="Fuel Oil Sample Record">
+                            <form>
+                                <field name="fuel_oil_sample_record_ids">
+                                    <!-- Define fields to display and edit inline -->
+                                    <tree>
+                                        <field name="company_id"/>
+                                        <field name="fuel_oil_sample_locker_location"/>
+                                        <field name="vessel_flag"/>
+                                        <field name="fuel_oil_analysis_company"/>
+                                    </tree>
+                                </field>
+                            </form>
+                        </page>
+                        <page string="Bunkering Safety Checklist html" name="bunkering_safety_checklist_html" groups="utilities.group_ship_admin">
+                            <field name="bunkering_safety_checklist_html" widget="html"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_external_receiving_tree" model="ir.ui.view">
+        <field name="name">Fuel External Receiving</field>
+        <field name="model">ship.fuel.external.receiving</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel External Receiving">
+                <!-- Define all fields to display in the tree view -->
+                <field name="ref"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="company_id"/>
+                <field name="arrival_datetime"/>
+                <field name="voyage_number"/>
+                <field name="order_number"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define views for FuelOilTankCondition model -->
+    <record id="view_fuel_external_oil_tank_condition_form" model="ir.ui.view">
+        <field name="name">Fuel External Oil Tank Condition</field>
+        <field name="model">ship.fuel.external.oil.tank.condition</field>
+        <field name="arch" type="xml">
+            <form string="Fuel External Oil Tank Condition">
+                <sheet>
+                    <group string="Info">
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="density_hfo"/>
+                            <field name="density_do"/>
+                            <field name="condition"/>
+                            <field name="trim"/>
+                        </group>
+                        <group>
+                            <field name="tank_datetime"/>
+                            <field name="heel"/>
+                            <field name="sea_water_temperature"/>
+                            <field name="fuel_external_diary_id"/>
+                            <field name="fuel_external_receiving_id"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Fuel Tanks">
+                            <field name="fuel_tank_ids" widget="one2many_list">
+                                <tree editable="bottom">
+                                    <field name="tank_name"/>
+                                    <field name="fuel_type"/>
+                                    <field name="tank_type"/>
+                                    <field name="measure_type"/>
+                                    <field name="measurement"/>
+                                    <field name="temperature"/>
+                                    <field name="volumetric_capacity"/>
+                                    <field name="volumetric_at_150C"/>
+                                    <field name="weight"/>
+                                </tree>
+                            </field>
+                        </page>
+                        <page string="Fuel info">
+                            <group>
+                                <group string="FO">
+                                    <!-- Fields related to FO -->
+                                    <field name="total_FO_weight"/>
+                                    <field name="last_measured_weight_FO"/>
+                                    <field name="consumption_between_measurements_FO"/>
+                                    <field name="weight_in_eng_log_FO"/>
+                                    <field name="weight_difference_FO"/>
+                                </group>
+                                <group string="DO">
+                                    <!-- Fields related to DO -->
+                                    <field name="total_DO_weight"/>
+                                    <field name="last_measured_weight_DO"/>
+                                    <field name="consumption_between_measurements_DO"/>
+                                    <field name="weight_in_eng_log_DO"/>
+                                    <field name="weight_difference_DO"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_external_oil_tank_condition_tree" model="ir.ui.view">
+        <field name="name">Fuel External Oil Tank Condition</field>
+        <field name="model">ship.fuel.external.oil.tank.condition</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel External Oil Tank Conditions">
+                <field name="fuel_external_receiving_id"/>
+                <field name="fuel_external_diary_id"/>
+                <field name="condition"/>
+                <field name="trim"/>
+                <field name="heel"/>
+                <field name="density_hfo"/>
+                <field name="density_do"/>
+                
+            </tree>
+        </field>
+    </record>
+
+
+    <record id="view_fuel_external_check_tree" model="ir.ui.view">
+        <field name="name">Fuel External Check Tree</field>
+        <field name="model">ship.fuel.external.check</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Checks">
+                <field name="name"/>
+                <field name="check_type"/>
+                <field name="code"/>
+                <field name="remark"/>
+                <field name="is_satisfied_ship" string="Ship Check"/>
+                <field name="is_satisfied_barge" string="Barge Check"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_fuel_external_check_form" model="ir.ui.view">
+        <field name="name">Fuel External Check Form</field>
+        <field name="model">ship.fuel.external.check</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Check">
+                <group>
+                    <field name="name"/>
+                    <field name="check_type"/>
+                    <field name="code"/>
+                    <field name="remark"/>
+                    <field name="is_satisfied_ship" string="Ship Check"/>
+                    <field name="is_satisfied_barge" string="Barge Check"/> 
+
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <!-- Define views for FuelTankMeasurement model -->
+    <record id="view_fuel_external_tank_measurement_tree" model="ir.ui.view">
+        <field name="name">Fuel External Tank Measurement </field>
+        <field name="model">ship.fuel.external.tank.measurement</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Tank Measurements">
+                <field name="fuel_external_receiving_id"/>
+                <field name="tank_name"/>
+                <field name="measure_type"/>
+                <field name="fuel_type"/>
+            </tree>
+        </field>
+    </record>
+    <record id="view_fuel_external_tank_measurement_form" model="ir.ui.view">
+        <field name="name">Fuel External Tank Measurement Form</field>
+        <field name="model">ship.fuel.external.tank.measurement</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Tank Measurement">
+                <group>
+                    <field name="fuel_external_receiving_id"/>
+                    <field name="tank_name"/>
+                    <field name="measure_type"/>
+                    <field name="fuel_type"/>
+                    <field name="tank_measurement_at_100"/>
+                    <field name="tank_measurement_at_85"/>
+                    <field name="measure_adjustment"/>
+                    <field name="volume_m3"/>
+                    <field name="receiving_volume"/>
+                    <field name="after_bunkering_estimate"/>
+                    <field name="tank_measurement_at_0"/>
+                    <field name="tank_measurement_at_1"/>
+                    <field name="tank_measurement_at_2"/>
+                    <field name="tank_measurement_at_3"/>
+                    <field name="percentage_fill"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record id="view_fuel_external_tank_form" model="ir.ui.view">
+        <field name="name">Fuel External Tank</field>
+        <field name="model">ship.fuel.external.tank</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Tank Form">
+                <sheet>
+                    <group>
+                        <field name="fuel_external_oil_tank_condition_id"/>
+                        <field name="fuel_type"/>
+                        <field name="tank_type"/>
+                        <field name="tank_name"/>
+                        <field name="measure_type"/>
+                        <field name="measurement"/>
+                        <field name="volumetric_capacity"/>
+                        <field name="volumetric_at_150C"/>
+                        <field name="weight"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_external_tank_tree" model="ir.ui.view">
+        <field name="name">Fuel External Tank Tree</field>
+        <field name="model">ship.fuel.external.tank</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Tank Tree">
+                <field name="fuel_external_oil_tank_condition_id"/>
+                <field name="fuel_type"/>
+                <field name="tank_type"/>
+            </tree>
+        </field>
+    </record>
+
+        <!-- Tree view for FuelInternalCalculator -->
+    <record id="view_fuel_external_calculator_tree" model="ir.ui.view">
+        <field name="name">Fuel External Calculator Tree</field>
+        <field name="model">ship.fuel.external.calculator</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel External Calculator">
+                <field name="ref"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="order_date"/>
+                <field name="ref"/>
+                
+
+            </tree>
+        </field>
+    </record>
+
+
+
+    <!-- Form view for FuelInternalCalculator -->
+    <record id="view_fuel_external_calculator_form" model="ir.ui.view">
+        <field name="name">Fuel External Calculator Form</field>
+        <field name="model">ship.fuel.external.calculator</field>
+        <field name="arch" type="xml">
+            <form string="Fuel External Calculator">
+                <header>
+                    <button string="Find or create fuel request" type="object" name="find_or_create_fuel_request" class="oe_highlight"/>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="order_date"/>
+                        <field name="ref"/>
+                        <field name="sailing_days"/>
+                        <field name="stopping_days"/>
+                        <field name="expected_arrival_date"/>
+
+                    </group>
+                    <group>
+                        <group>
+                        <!-- Basic Information -->
+                        <!-- Fields related to FO -->
+                            <field name="hfo_density"/>
+                            <field name="tank_capacity_fo_100"/>
+                            <field name="tank_capacity_fo_90"/>
+                            <field name="tank_capacity_fo_85"/>
+                            <field name="tank_capacity_fo_80"/>
+                            <field name="remaining_oil_serv_tank_fo"/>
+                            <field name="remaining_oil_other_tanks_fo"/>
+                            <field name="consumption_to_bunk_port_mt_fo"/>
+                            <field name="me_consumption_fo"/>
+                            <field name="boiler_consumption_fo"/>
+                            <field name="ge_consumption_sailing_ship_fo"/>
+                            <field name="ge_consumption_stopping_ship_fo"/>
+                            <field name="remaining_oil_bunk_port_mt_fo"/>
+                            <field name="bunkering_quantity_90_percent_fo"/>
+                            <field name="bunkering_quantity_85_percent_fo"/>
+                            <field name="bunkering_quantity_80_percent_fo"/>
+                            <field name="reasonable_quantity_fo"/>
+                            <field name="bunker_request_mt_fo"/>
+                            <field name="filling_percentage_fo"/>
+                        </group>
+                        <group>
+                            <!-- Fields related to DO -->
+                            <field name="do_density"/>
+                            <field name="tank_capacity_do_100"/>
+                            <field name="tank_capacity_do_90"/>
+                            <field name="tank_capacity_do_85"/>
+                            <field name="tank_capacity_do_80"/>
+                            <field name="remaining_oil_serv_tank_do"/>
+                            <field name="remaining_oil_other_tanks_do"/>
+                            <field name="consumption_to_bunk_port_mt_do"/>
+                            <field name="me_consumption_do"/>
+                            <field name="boiler_consumption_do"/>
+                            <field name="ge_consumption_sailing_ship_do"/>
+                            <field name="ge_consumption_stopping_ship_do"/>
+                            <field name="remaining_oil_bunk_port_mt_do"/>
+                            <field name="bunkering_quantity_90_percent_do"/>
+                            <field name="bunkering_quantity_85_percent_do"/>
+                            <field name="bunkering_quantity_80_percent_do"/>
+                            <field name="reasonable_quantity_do"/>
+                            <field name="bunker_request_mt_do"/>
+                            <field name="filling_percentage_do"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="view_fuel_quotes_request_external_tree" model="ir.ui.view">
+        <field name="name">Fuel Quotes Request External Tree</field>
+        <field name="model">ship.fuel.quotes.request.external</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Quotes Request External">
+                <field name="ref"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="order_date"/>
+                <field name="expected_delivery_date"/>
+                <field name="deadline"/>
+                <field name="port_id"/>
+                <field name="arrival_time"/>
+                <field name="departure_time"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fuel_quotes_request_external_form" model="ir.ui.view">
+        <field name="name">Fuel Quotes Request External Form</field>
+        <field name="model">ship.fuel.quotes.request.external</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Quotes Request External">
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>  
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="order_date"/>
+                            <field name="expected_delivery_date"/>
+                            <field name="deadline"/>
+                            <field name="port_id"/>
+                            <field name="arrival_time"/>
+                        </group>
+                        <group>
+                            <field name="fuel_external_calculator_id" />
+                            <field name="external_bunker_request_mt_fo"/>
+                            <field name="external_bunker_request_mt_do"/>
+                            <field name="external_order_remaining_mt_fo"/>
+                            <field name="external_order_remaining_mt_do"/>
+                            <field name="external_bunker_remaining_mt_fo"/>
+                            <field name="external_bunker_remaining_mt_do"/>
+                            <field name="departure_time"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Fuel Quote External">
+                            <field name="fuel_quote_external_ids">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="description"/>
+                                    <field name="quantity"/>
+                                    <field name="unit"/>
+                                    <field name="price_per_unit"/>
+                                    <field name="quantity_received"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- View for FuelQuoteExternal -->
+    <record id="view_fuel_quote_external_tree" model="ir.ui.view">
+        <field name="name">Fuel Quote External Tree</field>
+        <field name="model">ship.fuel.quote.external</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Quote External">
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="quantity"/>
+                <field name="unit"/>
+                <field name="price_per_unit"/>
+                <field name="quantity_received"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_fuel_quote_external_form" model="ir.ui.view">
+        <field name="name">Fuel Quote External Form</field>
+        <field name="model">ship.fuel.quote.external</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Quote External">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="quantity"/>
+                        <field name="unit"/>
+                        <field name="price_per_unit"/>
+                        <field name="quantity_received"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+    <record id="view_fuel_external_diary_tree" model="ir.ui.view">
+        <field name="name">Fuel External Diary Tree</field>
+        <field name="model">ship.fuel.external.diary</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel External Diary">
+                <field name="ref"/>
+                <field name="departure"/>
+                <field name="destination"/>
+                <field name="journey_duration"/>
+                <field name="weather_conditions"/>
+                <field name="nearest_oil_receiving_port"/>
+                <field name="fuel_calculator_ids"/>
+            </tree>
+        </field>
+    </record>
+
+        <!-- Fuel External Diary Form View -->
+    <record id="view_fuel_external_diary_form" model="ir.ui.view">
+        <field name="name">Fuel External Diary Form</field>
+        <field name="model">ship.fuel.external.diary</field>
+        <field name="arch" type="xml">
+            <form string="Fuel External Diary">
+                <header>
+                    <button name="check_fuel_threshold_and_notify" string="Check fuel threshold" type="object"/>
+                </header>
+                <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                </div>
+                <group>
+                    <group>
+                        <field name="datetime"/>
+                        <field name="departure"/>
+                        <field name="destination"/>
+                        <field name="journey_duration"/>
+                        <field name="weather_conditions"/>
+                        <field name="nearest_oil_receiving_port"/>
+                        <field name="minimum_reserve_days"/>
+                    </group>
+                    <group>
+                        <group>
+                            <field name="minimum_reserve_quantity_fo"/>
+                            <field name="me_consumption_fo"/>
+                            <field name="remaining_oil_bunk_port_mt_fo"/>
+                        </group>
+                        <group>
+                            <field name="minimum_reserve_quantity_do"/>
+                            <field name="me_consumption_do"/>
+                            <field name="remaining_oil_bunk_port_mt_do"/>
+                        </group>
+                    </group>
+                </group>
+                <notebook>
+                    <page string="Fuel Calculators">
+                        <field name="fuel_calculator_ids">
+                            <tree>
+                                <field name="order_date"/>
+                                <field name="ref"/>
+                                <field name="bunker_request_mt_fo"/>
+                                <field name="filling_percentage_fo"/>
+                                <field name="bunker_request_mt_do"/>
+                                <field name="filling_percentage_do"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Fuel Oil Condition">
+                        <field name="fuel_condition_ids">
+                            <tree>
+                                <field name="tank_datetime"/>
+                                <field name="condition"/>
+                                <field name="trim"/>
+                                <field name="heel"/>
+                                <field name="total_FO_weight"/>
+                                <field name="total_DO_weight"/>
+                            </tree>
+                        </field>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+
+
+
+    <record id="view_bunker_external_tree" model="ir.ui.view">
+            <field name="name">Bunker Barge Tree</field>
+            <field name="model">ship.fuel.external.bunker.barge</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <!-- Define tree columns here -->
+                    <field name="fuel_type"/>
+                    <field name="grade"/>
+                    <field name="weight_tonnes"/>
+                    <!-- Add more fields as needed -->
+                </tree>
+            </field>
+    </record>
+
+    <!-- Bunker Form View -->
+    <record id="view_bunker_external_form" model="ir.ui.view">
+        <field name="name">Bunker Barge Form</field>
+        <field name="model">ship.fuel.external.bunker.barge</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="fuel_type"/>
+                    <field name="grade"/>
+                    <field name="weight_tonnes"/>
+                    <field name="volume_loading_temp"/>
+                    <field name="loading_temperature"/>
+                    <field name="max_transfer_rate"/>
+                    <field name="max_line_pressure"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_external_oil_sample_record_form" model="ir.ui.view">
+        <field name="name">Fuel Oil Sample Record Form</field>
+        <field name="model">ship.fuel.external.oil.sample.record</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Oil Sample Record">
+                <sheet>
+                    <group>
+                        <field name="company_id"/>
+                        <field name="datetime"/>
+                        <field name="voyage_number"/>
+                        <field name="fuel_oil_sample_locker_location"/>
+                        <field name="vessel_flag"/>
+                        <field name="fuel_oil_analysis_company"/>
+                    </group>
+                    <group>
+                        <group name="hfo_fields" string="HFO">
+                            <field name="hfo_date_of_bunker"/>
+                            <field name="hfo_location"/>
+                            <field name="hfo_bunker_receipt_number"/>
+                            <field name="hfo_sulphur_declared"/>
+                            <field name="hfo_sample_number"/>
+                            <field name="hfo_fuel_seal_number"/>
+                            <field name="hfo_analysed_sulphur_content"/>
+                        </group>
+                        <group name="mdo_fields" string="MDO">
+                            <field name="mdo_date_of_bunker"/>
+                            <field name="mdo_location"/>
+                            <field name="mdo_bunker_receipt_number"/>
+                            <field name="mdo_sulphur_declared"/>
+                            <field name="mdo_sample_number"/>
+                            <field name="mdo_fuel_seal_number"/>
+                            <field name="mdo_analysed_sulphur_content"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_external_oil_sample_record_tree" model="ir.ui.view">
+        <field name="name">Fuel Oil Sample Record Tree</field>
+        <field name="model">ship.fuel.external.oil.sample.record</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Oil Sample Records">
+                <!-- Define columns to display in the tree view -->
+                <field name="company_id"/>
+                <field name="fuel_oil_sample_locker_location"/>
+                <field name="vessel_flag"/>
+                <field name="fuel_oil_analysis_company"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_fuel_external_diary" model="ir.actions.act_window">
+        <field name="name">Fuel External Diary</field>
+        <field name="res_model">ship.fuel.external.diary</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem id="menu_fuel_external_diary" name="Fuel External Diary" action="action_fuel_external_diary" parent="menu_ship_fuel_external"/>
+
+
+    <!-- Define actions and menus for Fuel External Calculator -->
+    <record id="action_fuel_external_calculator" model="ir.actions.act_window">
+        <field name="name">Fuel External Calculator</field>
+        <field name="res_model">ship.fuel.external.calculator</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Create a menu item for Fuel External Calculator -->
+    <menuitem id="menu_fuel_external_calculator" name="Fuel External Calculator" action="action_fuel_external_calculator" parent="menu_ship_fuel_external" sequence="10"/>
+
+    <!-- Define actions and menus for Fuel Quotes Request External -->
+    <record id="action_fuel_quotes_request_external" model="ir.actions.act_window">
+        <field name="name">Fuel Quotes Request External</field>
+        <field name="res_model">ship.fuel.quotes.request.external</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define menuitem for Fuel Quotes Request External -->
+    <menuitem id="menu_fuel_quotes_request_external" name="Fuel Quotes Request External" action="action_fuel_quotes_request_external" parent="menu_ship_fuel_external" sequence="20"/>
+
+    <!-- Define actions and menus for Fuel Quote External -->
+    <record id="action_fuel_quote_external" model="ir.actions.act_window">
+        <field name="name">Fuel Quote External</field>
+        <field name="res_model">ship.fuel.quote.external</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Define menuitem for Fuel Quote External -->
+    <menuitem id="menu_fuel_quote_external" name="Fuel Quote External" action="action_fuel_quote_external" parent="menu_ship_fuel_external" sequence="30"/>
+
+    <!-- Define actions and menus for Fuel External Oil Tank Condition -->
+    <record id="action_fuel_external_oil_tank_condition" model="ir.actions.act_window">
+        <field name="name">Fuel External Oil Tank Condition</field>
+        <field name="res_model">ship.fuel.external.oil.tank.condition</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_fuel_external_oil_tank_condition" name="Fuel External Oil Tank Condition" action="action_fuel_external_oil_tank_condition" parent="menu_ship_fuel_external" sequence="40"/>
+
+    <!-- Define actions and menus for Fuel External Tank -->
+    <record id="action_fuel_external_tank" model="ir.actions.act_window">
+        <field name="name">Fuel External Tank</field>
+        <field name="res_model">ship.fuel.external.tank</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_fuel_external_tank" name="Fuel External Tank" action="action_fuel_external_tank" parent="menu_ship_fuel_external" sequence="50"/>
+
+    <!-- Define actions and menus for Fuel External Receiving -->
+    <record id="action_fuel_external_receiving" model="ir.actions.act_window">
+        <field name="name">Fuel External Receiving</field>
+        <field name="res_model">ship.fuel.external.receiving</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_fuel_external_receiving" name="Fuel External Receiving" action="action_fuel_external_receiving" parent="menu_ship_fuel_external" sequence="60"/>
+
+    <!-- Define actions and menus for Fuel External Tank Measurement -->
+    <record id="action_fuel_external_tank_measurement" model="ir.actions.act_window">
+        <field name="name">Fuel External Tank Measurement</field>
+        <field name="res_model">ship.fuel.external.tank.measurement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_fuel_external_tank_measurement" name="Fuel Tank Measurement" action="action_fuel_external_tank_measurement" parent="menu_ship_fuel_external" sequence="70"/>
+
+    <!-- Define actions and menus for Fuel External Check -->
+    <record id="action_fuel_external_check" model="ir.actions.act_window">
+        <field name="name">Fuel External Check</field>
+        <field name="res_model">ship.fuel.external.check</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_fuel_external_check" name="Fuel External Check" action="action_fuel_external_check" parent="menu_ship_fuel_external" sequence="80"/>
+
+    <!-- Define actions and menus for Bunker Tree View -->
+    <record id="action_bunker_external" model="ir.actions.act_window">
+        <field name="name">Bunkers</field>
+        <field name="res_model">ship.fuel.external.bunker.barge</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu item for Bunker Tree View -->
+    <menuitem id="menu_bunker_external" name="Bunker Barge" action="action_bunker_external" parent="menu_ship_fuel_external" sequence="90"/>
+
+    <!-- Action for Tree View -->
+    <record id="action_fuel_external_oil_sample_record" model="ir.actions.act_window">
+        <field name="name">Fuel Oil Sample Records</field>
+        <field name="res_model">ship.fuel.external.oil.sample.record</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menu Item for Fuel Oil Sample Record -->
+    <menuitem id="menu_fuel_external_oil_sample_record" name="Fuel Oil Sample Records" action="action_fuel_external_oil_sample_record"  parent="menu_ship_fuel_external" sequence="100"/>
+
+</odoo>

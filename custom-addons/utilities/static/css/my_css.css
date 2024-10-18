@@ -1,0 +1,29 @@
+.shadown{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.default_title_color{
+    color: rgb(103, 167, 0)
+}
+
+.title_docking_date_color{
+    color: rgb(0, 9, 128)
+}
+
+.title_inspection_event_color{
+    color: rgb(124, 0, 128)
+}
+.modal .modal-dialog .o_form_view .o_FormRenderer_chatterContainer {
+    display: block !important;
+}
+
+
+.o_list_button {
+    min-width: 50px !important;
+    width: 50px !important;
+}
+
+.row_no {
+    width: 40px !important;
+}
+

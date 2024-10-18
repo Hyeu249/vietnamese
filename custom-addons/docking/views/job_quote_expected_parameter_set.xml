@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_job_quote_expected_parameter_set_form" model="ir.ui.view">
+        <field name="name">docking.job.quote.expected.parameter.set.form</field>
+        <field name="model">docking.job.quote.expected.parameter.set</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Job Quote Expected Parameter Set">
+                        <field name="company_id" readonly="1"/>
+                        <field name="quantity"/>
+                        <field name="weight"/>
+                        <field name="length"/>
+                        <field name="width"/>
+                        <field name="height"/>
+                        <field name="factor_note_option_id"/>
+                        <field name="factor"/>
+                        <field name="unit_price"/>
+                        <field name="unit"/>
+                        <field name="final_cost_mathematic_formula"/>
+                        <field name="final_cost"/>
+                        <field name="job_quote_id"/>
+                        <field name="maintenance_scope_name"/>
+                    </group>
+                </sheet>
+
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_job_quote_expected_parameter_set_tree" model="ir.ui.view">
+        <field name="name">docking.job.quote.expected.parameter.set.tree</field>
+        <field name="model">docking.job.quote.expected.parameter.set</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <button name="open_record" type="object" icon="fa-pencil-square-o"/>
+                <field name="ref" readonly="1"/>
+                <field name="quantity"/>
+                <field name="weight"/>
+                <field name="length"/>
+                <field name="width"/>
+                <field name="height"/>
+                <field name="factor"/>
+                <field name="unit_price"/>
+                <field name="unit"/>
+                <field name="final_cost_mathematic_formula"/>
+                <field name="final_cost"/>
+                <field name="job_quote_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_job_quote_expected_parameter_set_search" model="ir.ui.view">
+        <field name="name">docking.job.quote.expected.parameter.set.search</field>
+        <field name="model">docking.job.quote.expected.parameter.set</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="quantity"/>
+                <field name="weight"/>
+                <field name="length"/>
+                <field name="width"/>
+                <field name="height"/>
+                <field name="factor"/>
+                <field name="unit_price"/>
+                <field name="unit"/>
+                <field name="final_cost_mathematic_formula"/>
+                <field name="final_cost"/>
+                <field name="job_quote_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_job_quote_expected_parameter_set" model="ir.actions.act_window">
+        <field name="name">Job Quote Expected Parameter Set</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.job.quote.expected.parameter.set</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_job_quote_expected_parameter_set"
+            name="Job Quote Expected Parameter Set" 
+            parent="menu_docking_suppliers_and_quotes"
+            action="action_docking_job_quote_expected_parameter_set"
+            sequence="10"/>
+
+</odoo>

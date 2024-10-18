@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_material_entity_form" model="ir.ui.view">
+        <field name="name">ship.material.entity.form</field>
+        <field name="model">ship.material.entity</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_discard"
+                            string="Discard"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('is_discarded', '=', True)]}"/>
+                    <button name="action_undiscard"
+                            string="Undiscard"
+                            type="object"
+                            class="oe_highlight"
+                            attrs="{'invisible': [('is_discarded', '=', False)]}"/>
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="create_date"/>
+                        <field name="delivered_at"/>
+                        <field name="material_id"/>
+                        <field name="name"/>
+                        <field name="quantity"/>
+                        <field name="available_quantity"/>
+                        <field name="unit"/>
+                        <field name="expiration_date"/>
+                        <field name="material_type"/>
+                        <field name="is_used_for_lifespan"/>
+                        <field name="min_life_span_hours"/>
+                        <field name="max_life_span_hours"/>
+                        <field name="material_supplier_quote_id"/>
+                        <field name="image" widget="image"/>
+                        <field name="total_hours"/>
+                        <field name="is_discarded"/>
+                        <field name="discard_date"/>
+                        <field name="is_suggested_to_discard"/>
+                        <field name="is_currently_proposed_to_replace"/>
+                    </group>
+                    <notebook>
+                        <page string="Material Assignments" name="material_assignment_ids">
+                            <field name="material_assignment_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_hard_unlink" model="ir.actions.server">
+        <field name="name">Hard Unlink Entity</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_ship_material_entity" />
+        <field name="binding_model_id" ref="model_ship_material_entity" />
+        <field name="state">code</field>
+        <field name="code">records.hard_unlink()</field>
+    </record>
+
+    <record id="view_ship_material_entity_tree" model="ir.ui.view">
+        <field name="name">ship.material.entity.tree</field>
+        <field name="model">ship.material.entity</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="material_id"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="available_quantity" width="170px"/>
+                <field name="unit"/>
+                <field name="material_type"/>
+                <field name="is_used_for_lifespan"/>
+                <field name="delivered_at"/>
+                <field name="expiration_date"/>
+                <field name="min_life_span_hours"/>
+                <field name="max_life_span_hours"/>
+                <field name="material_supplier_quote_id"/>
+                <field name="image"/>
+                <field name="total_hours"/>
+                <field name="is_discarded"/>
+                <field name="discard_date"/>
+                <field name="is_suggested_to_discard"/>
+                <button name="hard_unlink" string="Hard delete" type="object" class="btn-danger" groups="utilities.group_ship_admin"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_material_entity_search" model="ir.ui.view">
+        <field name="name">ship.material.entity.search</field>
+        <field name="model">ship.material.entity</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="material_id"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="available_quantity"/>
+                <field name="unit"/>
+                <field name="material_type"/>
+                <field name="is_used_for_lifespan"/>
+                <field name="delivered_at"/>
+                <field name="expiration_date"/>
+                <field name="min_life_span_hours"/>
+                <field name="max_life_span_hours"/>
+                <field name="material_supplier_quote_id"/>
+                <field name="image"/>
+                <field name="total_hours"/>
+                <field name="is_discarded"/>
+                <field name="discard_date"/>
+                <field name="is_suggested_to_discard"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_remove_material_entity_that_not_assigned" model="ir.actions.server">
+        <field name="name">Remove material entity that not assigned</field>
+        <field name="type">ir.actions.server</field>
+        <field name="model_id" ref="model_ship_material_entity" />
+        <field name="binding_model_id" ref="model_ship_material_entity" />
+        <field name="state">code</field>
+        <field name="code">records.remove_material_entity_that_not_assigned()</field>
+    </record>
+
+    <record id="action_ship_material_entity" model="ir.actions.act_window">
+        <field name="name">Material Entity</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.material.entity</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_material_entity"
+            name="Material Entity" 
+            parent="menu_ship_categories_supplies"
+            action="action_ship_material_entity"
+            sequence="10"/>
+
+</odoo>

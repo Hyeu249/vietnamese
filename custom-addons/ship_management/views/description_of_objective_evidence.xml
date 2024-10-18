@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_description_of_objective_evidence_form" model="ir.ui.view">
+        <field name="name">ship.description.of.objective.evidence.form</field>
+        <field name="model">ship.description.of.objective.evidence</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="grading"/>
+                        <field name="ism_code"/>
+                        <field name="status"/>
+                        <field name="deadline"/>
+                    </group>
+
+                    <group invisible="1">
+                        <field name="list_of_ism_nonconformities_id" invisible="1"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_description_of_objective_evidence_tree" model="ir.ui.view">
+        <field name="name">ship.description.of.objective.evidence.tree</field>
+        <field name="model">ship.description.of.objective.evidence</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="grading"/>
+                <field name="ism_code"/>
+                <field name="status"/>
+                <field name="deadline"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_description_of_objective_evidence_search" model="ir.ui.view">
+        <field name="name">ship.description.of.objective.evidence.search</field>
+        <field name="model">ship.description.of.objective.evidence</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="grading"/>
+                <field name="ism_code"/>
+                <field name="status"/>
+                <field name="deadline"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_description_of_objective_evidence" model="ir.actions.act_window">
+        <field name="name">Description of Objective Evidence</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.description.of.objective.evidence</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_description_of_objective_evidence"
+            name="Description of Objective Evidence" 
+            parent="menu_ship_review_plans"
+            action="action_ship_description_of_objective_evidence"
+            sequence="10"/>
+
+</odoo>

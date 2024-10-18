@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_technical_incident_form" model="ir.ui.view">
+        <field name="name">legis.technical.incident.form</field>
+        <field name="model">legis.technical.incident</field>
+        <field name="arch" type="xml">
+            <form>
+                <header attrs="{'invisible': [('is_off_approval', '=', True)]}">
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header attrs="{'invisible': [('is_off_approval', '=', True)]}">
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="edit_sea_protest" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Sea Protest</span>
+                            </div>
+                        </button>
+                        <button name="edit_technical_incident_report" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Technical Incident Report</span>
+                            </div>
+                        </button>
+                        <button name="edit_technical_incident_insurance" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button bg-green-important white-important"
+                            attrs="{'invisible': [('insurance_approval_status', '!=', 'APPROVED')]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Insurance</span>
+                            </div>
+                        </button>
+                        <button name="edit_technical_incident_insurance" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button bg-red-important white-important"
+                            attrs="{'invisible': [('insurance_approval_status', '!=', 'REJECTED')]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Insurance</span>
+                            </div>
+                        </button>
+                        <button name="edit_technical_incident_insurance" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button bg-orange-important white-important"
+                            attrs="{'invisible': [('insurance_approval_status', '!=', 'PENDING')]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Insurance</span>
+                            </div>
+                        </button>
+                        <button name="create_technical_incident_insurance" type="object"
+                            class="oe_stat_button bg-red-important white-important"
+                            attrs="{'invisible': [('warning_text', '!=', 'Yêu cầu PCAT xem xét mời bảo hiểm')]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Create Insurance</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Approval" attrs="{'invisible': [('is_off_approval', '=', True)]}">
+                        <field name="is_off_approval" invisible="1"/>
+                    </group>
+
+                    <group string="Technical Incident">
+                        <group>
+                            <field name="company_id" readonly="1"/>
+                            <field name="repair_status"/>
+                            <field name="finished_at"/>
+                            <field name="help"/>
+                            <field name="insurance_approval_status" invisible="1"/>
+                        </group>
+                        <group>
+                            <!-- <field name="is_insurace_involved"/> -->
+                            <field name="total_price"/>
+                            <field name="insurance_deductible_cost"/>
+                            <field name="warning_text" 
+                                decoration-success="warning_text in ['Tổng giá ổn định', 'Bảo hiểm đã được chấp thuận']" 
+                                decoration-danger="warning_text in ['Yêu cầu PCAT xem xét mời bảo hiểm', 'Bảo hiểm đã bị hủy']"
+                                decoration-warning="warning_text in ['Bảo hiểm đang được phê duyệt']"
+                                widget="badge"/>
+                            <field name="is_noti_for_legal_department"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Technical Incident Jobs" name="technical_incident_job_ids" 
+                            attrs="{'invisible': [('repair_status', '!=', 'FIXABLE')]}">
+                            <field name="technical_incident_job_ids"/>
+                        </page>
+                        <page string="Maintenance Scope Reports" name="maintenance_scope_report_ids"
+                            attrs="{'invisible': [('repair_status', '!=', 'UNFIXABLE')]}"
+                        >
+                            <field name="maintenance_scope_report_ids"/>
+                        </page>
+                        <page string="Material Paint Quotes Requests" name="material_paint_quotes_request_ids"
+                            attrs="{'invisible': [('repair_status', '!=', 'UNFIXABLE')]}"
+                        >
+                            <field name="material_paint_quotes_request_ids"/>
+                        </page>
+                        <page string="Technical Incident Insurances" name="technical_incident_insurance_ids"
+                            attrs="{'invisible': [('repair_status', '!=', 'UNFIXABLE')]}"
+                            invisible="1"
+                        >
+                            <field name="technical_incident_insurance_ids"/>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_tree" model="ir.ui.view">
+        <field name="name">legis.technical.incident.tree</field>
+        <field name="model">legis.technical.incident</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                    attrs="{'invisible': [('is_off_approval', '=', True)]}"
+                />
+                <field name="finished_at"/>
+                <field name="repair_status"/>
+                <!-- <field name="is_insurace_involved"/> -->
+                <field name="total_price"/>
+                <field name="insurance_deductible_cost"/>
+                <field name="is_off_approval" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_technical_incident_search" model="ir.ui.view">
+        <field name="name">legis.technical.incident.search</field>
+        <field name="model">legis.technical.incident</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="approval_status"/>
+                <field name="finished_at"/>
+                <field name="repair_status"/>
+                <!-- <field name="is_insurace_involved"/> -->
+                <field name="total_price"/>
+                <field name="insurance_deductible_cost"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_technical_incident" model="ir.actions.act_window">
+        <field name="name">Technical Incident</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.technical.incident</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_technical_incident"
+            name="Technical Incident" 
+            parent="menu_legis_technical_incidents"
+            action="action_legis_technical_incident"
+            sequence="10"/>
+
+</odoo>

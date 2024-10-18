@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <report
+        id="ship_material_consumption_xlsx_report_option"
+        string="Export Excel"
+        model="ship.material.consumption.report.batch"
+        report_type="xlsx"
+        name="ship_management.ship_material_consumption_xlsx_report"
+        file="ship_management.ship_material_consumption_xlsx_report"
+    />
+
+    <report
+        id="ship_material_paint_quotes_request_xlsx_option"
+        string="Export Excel"
+        model="ship.material.paint.quotes.request"
+        report_type="xlsx"
+        name="ship_management.ship_material_paint_quotes_request_xlsx"
+        file="ship_management.ship_material_paint_quotes_request_xlsx"
+    />
+
+    <report
+        id="ship_maintenance_scope_report_xlsx_option"
+        string="Export Excel"
+        model="ship.maintenance.scope.report"
+        report_type="xlsx"
+        name="ship_management.ship_maintenance_scope_report_xlsx"
+        file="ship_management.ship_maintenance_scope_report_xlsx"
+    />
+
+    <report
+        id="ship_paint_history_wiz_xlsx_option"
+        string="Export Excel"
+        model="ship.export.report.wiz"
+        report_type="xlsx"
+        name="ship_management.ship_paint_history_wiz_xlsx"
+        file="ship_management.ship_paint_history_wiz_xlsx"
+    />
+
+    <report
+        id="ship_essential_material_wiz_xlsx_option"
+        string="Export Excel"
+        model="ship.export.report.wiz"
+        report_type="xlsx"
+        name="ship_management.ship_essential_material_wiz_xlsx"
+        file="ship_management.ship_essential_material_wiz_xlsx"
+    />
+
+    <report
+        id="ship_material_history_wiz_xlsx_option"
+        string="Export Material Categories Excel"
+        model="ship.export.report.wiz"
+        report_type="xlsx"
+        name="ship_management.ship_material_history_wiz_xlsx"
+        file="ship_management.ship_material_history_wiz_xlsx"
+    />
+
+    <report
+        id="ship_lashing_material_fix_wiz_xlsx_option"
+        string="Export Lashing Material Excel"
+        model="ship.export.report.wiz"
+        report_type="xlsx"
+        name="ship_management.ship_lashing_material_fix_wiz_xlsx"
+        file="ship_management.ship_lashing_material_fix_wiz_xlsx"
+    />
+
+    <report
+        id="ship_fuel_i_oil_sample_record_xlsx_option"
+        string="Export fuel oil sample record"
+        model="ship.fuel.internal.receiving"
+        report_type="xlsx"
+        name="ship_management.ship_fuel_i_oil_sample_record_xlsx"
+        file="ship_management.ship_fuel_i_oil_sample_record_xlsx"
+    />
+
+    <report
+        id="ship_fuel_e_oil_sample_record_xlsx_option"
+        string="Export fuel oil sample record"
+        model="ship.fuel.external.receiving"
+        report_type="xlsx"
+        name="ship_management.ship_fuel_e_oil_sample_record_xlsx"
+        file="ship_management.ship_fuel_e_oil_sample_record_xlsx"
+    />
+
+    <report
+        id="ship_fuel_i_calculator_xlsx_option"
+        string="Export fuel external calculator"
+        model="ship.fuel.internal.calculator"
+        report_type="xlsx"
+        name="ship_management.ship_fuel_e_calculator_xlsx"
+        file="ship_management.ship_fuel_e_calculator_xlsx"
+    />
+
+    <report
+        id="ship_fuel_i_oil_tank_condition_xlsx_option"
+        string="Export fuel oil tank condition"
+        model="ship.fuel.internal.receiving"
+        report_type="xlsx"
+        name="ship_management.ship_fuel_i_oil_tank_condition_xlsx"
+        file="ship_management.ship_fuel_i_oil_tank_condition_xlsx"
+    />
+
+    <report
+        id="ship_fuel_e_oil_tank_condition_xlsx_option"
+        string="Export fuel oil tank condition"
+        model="ship.fuel.external.receiving"
+        report_type="xlsx"
+        name="ship_management.ship_fuel_e_oil_tank_condition_xlsx"
+        file="ship_management.ship_fuel_e_oil_tank_condition_xlsx"
+    />
+
+    <report
+        id="ship_i_bunker_receiving_plan_xlsx_option"
+        string="Export bunker receiving plan"
+        model="ship.fuel.internal.receiving"
+        report_type="xlsx"
+        name="ship_management.ship_i_bunker_receiving_plan_xlsx"
+        file="ship_management.ship_i_bunker_receiving_plan_xlsx"
+    />
+
+    <report
+        id="ship_e_bunker_receiving_plan_xlsx_option"
+        string="Export bunker receiving plan"
+        model="ship.fuel.external.receiving"
+        report_type="xlsx"
+        name="ship_management.ship_e_bunker_receiving_plan_xlsx"
+        file="ship_management.ship_e_bunker_receiving_plan_xlsx"
+    />
+
+    <report
+        id="ship_fuel_e_calculator_xlsx_option"
+        string="Export fuel external calculator"
+        model="ship.fuel.external.calculator"
+        report_type="xlsx"
+        name="ship_management.ship_fuel_e_calculator_xlsx"
+        file="ship_management.ship_fuel_e_calculator_xlsx"
+    />
+
+    <report
+        id="ship_e_bunkering_safety_checklist_xlsx_option"
+        string="Export bunkering safety checklist"
+        model="ship.fuel.external.receiving"
+        report_type="qweb-pdf"
+        name="ship_management.ship_e_bunkering_safety_checklist_xlsx"
+        file="ship_management.ship_e_bunkering_safety_checklist_xlsx"
+    />
+
+    <report
+        id="ship_i_bunkering_safety_checklist_xlsx_option"
+        string="Export bunkering safety checklist"
+        model="ship.fuel.internal.receiving"
+        report_type="qweb-pdf"
+        name="ship_management.ship_e_bunkering_safety_checklist_xlsx"
+        file="ship_management.ship_e_bunkering_safety_checklist_xlsx"
+    />
+
+    <report
+        id="ship_medicine_report_option"
+        string="Html Medicine"
+        model="ship.export.report.wiz"
+        report_type="qweb-pdf"
+        name="ship_management.ship_medicine_report"
+        file="ship_management.ship_medicine_report"
+    />
+
+    <report
+        id="ship_ship_inspection_scope_option"
+        string="Export Ship Inspection Scope"
+        model="ship.inspection.plan"
+        report_type="xlsx"
+        name="ship_management.ship_ship_inspection_scope"
+        file="ship_management.ship_ship_inspection_scope"
+    />
+
+    <report
+        id="ship_technical_inspection_scope_option"
+        string="Export Technical Inspection Scope"
+        model="ship.inspection.plan"
+        report_type="xlsx"
+        name="ship_management.ship_technical_inspection_scope"
+        file="ship_management.ship_technical_inspection_scope"
+    />
+
+</odoo>

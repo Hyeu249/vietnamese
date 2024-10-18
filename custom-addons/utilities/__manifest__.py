@@ -1,0 +1,32 @@
+{
+    "name": "Ship common utilities",
+    "author": "Techno THT Gmbh",
+    "website": "www.techno-tht.tech",
+    "summary": "Ship common utilities",
+    "depends": ["mail"],
+    "data": [
+        "security/role.xml",
+        "security/rule.xml",
+        "security/ir.model.access.csv",
+        "data/email_to_remind_the_current_approver.xml",
+        "data/sequence.xml",
+        "views/menu.xml",
+        "views/default_value_for_relation.xml",
+        "views/default_value.xml",
+        "views/approval_level.xml",
+        "views/approval_flow.xml",
+        "views/required_all_approval.xml",
+        "views/required_all_approval_flow.xml",
+        "views/required_all_approval_group.xml",
+        "views/this_all_approval_group.xml",
+        "views/help.xml",
+        "reports/report.xml",
+    ],
+    "application": True,
+    "assets": {
+        "web.assets_backend": [
+            "utilities/static/css/my_css.css",
+            "utilities/static/xml/list_render.xml",
+        ],
+    },
+}

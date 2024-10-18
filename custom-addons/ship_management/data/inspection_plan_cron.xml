@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="ir_cron_prepare_for_inspection_plan" model="ir.cron">
+            <field name="name">Need Prepare For Inspection Plan: Everyday</field>
+            <field name="model_id" ref="model_ship_inspection_plan"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model._prepare_for_inspection_date()</field>
+            <field name="interval_number">24</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+        <record id="ir_cron_need_real_date_for_inspection_plan" model="ir.cron">
+            <field name="name">Need Real Date For Inspection Plan: Everyday</field>
+            <field name="model_id" ref="model_ship_inspection_plan"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model._need_real_date_for_inspection_plan()</field>
+            <field name="interval_number">24</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_refresh_supplier_portal_access_token" model="ir.cron">
+            <field name="name">Refresh Supplier Portal Access Token: Every Week</field>
+            <field name="model_id" ref="model_ship_supplier"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.action_refresh_all_supplier_quote_portal_access_token()</field>
+            <field name="interval_number">1</field> <!-- Repeat every week -->
+            <field name="interval_type">weeks</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

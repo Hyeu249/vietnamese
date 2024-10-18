@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_confirm_inspection_date_notification" model="ir.cron">
+            <field name="name">Docking Confirm inspection date notification: Every 12 hours</field>
+            <field name="model_id" ref="model_docking_inspection_event"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.confirm_inspection_date_notification()</field>
+            <field name="interval_number">12</field>
+            <field name="interval_type">hours</field>
+            <field name="numbercall">-1</field>
+        </record>
+    </data>
+</odoo>

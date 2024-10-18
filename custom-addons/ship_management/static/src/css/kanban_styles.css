@@ -1,0 +1,14 @@
+.color_danger {
+    background-color: red;
+    color: white;
+}
+
+.color_warning {
+    background-color: yellow;
+    color: black;
+}
+
+.color_success {
+    background-color: green;
+    color: white;
+}

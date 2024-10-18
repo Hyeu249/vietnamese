@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+vietnamese.access_vietnamese_editor_for_user,access_vietnamese_editor_for_user,vietnamese.model_vietnamese_editor,base.group_user,1,1,1,1
+vietnamese.access_vietnamese_table_for_user,access_vietnamese_table_for_user,vietnamese.model_vietnamese_table,base.group_user,1,1,1,1
+vietnamese.access_vietnamese_compute_value_for_user,access_vietnamese_compute_value_for_user,vietnamese.model_vietnamese_compute_value,base.group_user,1,1,1,1

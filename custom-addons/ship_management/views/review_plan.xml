@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_review_plan_form" model="ir.ui.view">
+        <field name="name">ship.review.plan.form</field>
+        <field name="model">ship.review.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header> 
+                <header>
+                    <button name="complete_plan"
+                        string="complete_plan"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                </header>  
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="edit_internal_audit_notice" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0702(Thông báo đánh giá)</span>
+                            </div>
+                        </button>
+                        <button name="edit_internal_audit_checklist" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0704(Danh mục kiểm tra đánh giá nội bộ tàu)</span>
+                            </div>
+                        </button>
+                        <button name="edit_internal_mlc_audit_checklist" type="object" class="oe_stat_button" icon="fa-file-pdf-o">
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0706(Danh mục đánh giá nội bộ tàu theo MLC)</span>
+                            </div>
+                        </button>
+                        <button name="edit_internal_ism_audit_report" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [('internal_ism_audit_report_ids', '=', [])]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0703(Báo cáo đánh giá nội bộ)</span>
+                            </div>
+                        </button>
+                        <button name="create_internal_ism_audit_report" type="object"
+                            class="oe_stat_button bg-red-important white-important"
+                            attrs="{'invisible': [('internal_ism_audit_report_ids', '!=', [])]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Tạo 0703(Báo cáo đánh giá nội bộ)</span>
+                            </div>
+                        </button>
+                        <button name="edit_list_of_ism_nonconformities" type="object" icon="fa-file-pdf-o"
+                            class="oe_stat_button"
+                            attrs="{'invisible': [('list_of_ism_nonconformities_ids', '=', [])]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">0707(Danh sách các sự không phù hợp)</span>
+                            </div>
+                        </button>
+                        <button name="create_list_of_ism_nonconformities" type="object"
+                            class="oe_stat_button bg-red-important white-important"
+                            attrs="{'invisible': [('list_of_ism_nonconformities_ids', '!=', [])]}"
+                        >
+                            <div class="o_stat_info">
+                                <span class="o_stat_text">Tạo 0707(Danh sách các sự không phù hợp)</span>
+                            </div>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="expected_review_date"/>
+                        <field name="review_approval_date"/>
+                        <field name="review_date"/>
+                    </group>
+
+                    <group invisible="1">
+                        <field name="internal_ism_audit_report_ids"/>
+                        <field name="list_of_ism_nonconformities_ids"/>
+                        <field name="stop_noti_for_prepare"/>
+                        <field name="stop_noti_for_request_date"/>
+                    </group>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_review_plan_tree" model="ir.ui.view">
+        <field name="name">ship.review.plan.tree</field>
+        <field name="model">ship.review.plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="review_date"
+                    decoration-success="review_date != False"
+                    widget="badge"
+                />
+                <field name="expected_review_date"/>
+                <field name="review_approval_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_review_plan_search" model="ir.ui.view">
+        <field name="name">ship.review.plan.search</field>
+        <field name="model">ship.review.plan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="review_date"/>
+                <field name="expected_review_date"/>
+                <field name="review_approval_date"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_review_plan" model="ir.actions.act_window">
+        <field name="name">Review Plan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.review.plan</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_review_plan"
+            name="Review Plan" 
+            parent="menu_ship_review_plans"
+            action="action_ship_review_plan"
+            sequence="10"/>
+
+</odoo>

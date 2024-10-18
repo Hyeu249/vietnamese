@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ship_inspection_plan_calendar" model="ir.ui.view">
+        <field name="name">ship.inspection.plan.calendar</field>
+        <field name="model">ship.inspection.plan</field>
+        <field name="arch" type="xml">
+            <calendar string="Inspection Plan Calendar" date_start="real_or_expected_date" quick_add="False" color="is_have_real_date" mode="year">
+                <field name="real_date"/>
+                <field name="expected_date"/>
+            </calendar>
+        </field>
+    </record>
+
+    <record id="view_ship_inspection_plan_form" model="ir.ui.view">
+        <field name="name">ship.inspection.plan.form</field>
+        <field name="model">ship.inspection.plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="reset_real_date"
+                        string="Reset real date"
+                        type="object"
+                        class="oe_highlight"
+                    />
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <field name="approval_status" widget="sendTelegramMessage"/>
+                </header>     
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Inspection Plan">
+                        <field name="company_id" readonly="1"/>
+                        <field name="real_date"/>
+                        <field name="expected_date"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Ship Management Inspection Scopes" name="ship_management_inspection_scope_ids">
+                            <header>
+                                <button name="create_default_ship_management_inspection_scopes"
+                                    string="Create ship management inspection scope"
+                                    type="object"
+                                    class="oe_highlight"
+                                    attrs="{'invisible': [('ship_management_inspection_scope_ids', '!=', [])]}"
+
+                                />
+                            </header>
+                            <field name="ship_management_inspection_scope_ids"/>
+                        </page>
+                        <page string="Technical Inspection Scopes" name="technical_inspection_scope_ids">
+                            <header>
+                            <button name="create_default_technical_inspection_scopes"
+                                string="Create technical inspection scope"
+                                type="object"
+                                class="oe_highlight"
+                                attrs="{'invisible': [('technical_inspection_scope_ids', '!=', [])]}"
+                            />
+                            </header>
+                            <field name="technical_inspection_scope_ids"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <group>
+                                    <field name="ship_management_report_date"/>
+                                    <field name="technical_report_date"/>
+                                </group>
+                                <group>
+                                    <field name="general_prenoti_days"/>
+                                    <field name="speciallist_prenoti_days"/>
+                                    <field name="stop_notification_for_prepare"/>
+                                    <field name="real_or_expected_date" invisible="1"/>
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ship_inspection_plan_tree" model="ir.ui.view">
+        <field name="name">ship.inspection.plan.tree</field>
+        <field name="model">ship.inspection.plan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="ref"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="real_date"/>
+                <field name="expected_date"/>
+                <field name="general_prenoti_days"/>
+                <field name="speciallist_prenoti_days"/>
+                <field name="ship_management_report_date"/>
+                <field name="technical_report_date"/>
+                <field name="stop_notification_for_prepare"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ship_inspection_plan_search" model="ir.ui.view">
+        <field name="name">ship.inspection.plan.search</field>
+        <field name="model">ship.inspection.plan</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="approval_status"/>
+                <field name="real_date"/>
+                <field name="expected_date"/>
+                <field name="general_prenoti_days"/>
+                <field name="speciallist_prenoti_days"/>
+                <field name="ship_management_report_date"/>
+                <field name="technical_report_date"/>
+                <field name="stop_notification_for_prepare"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ship_inspection_plan" model="ir.actions.act_window">
+        <field name="name">Inspection Plan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.inspection.plan</field>
+        <field name="view_mode">calendar,tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_inspection_plan"
+            name="Inspection Plan" 
+            parent="menu_ship_inspections"
+            action="action_ship_inspection_plan"
+            sequence="10"/>
+
+</odoo>

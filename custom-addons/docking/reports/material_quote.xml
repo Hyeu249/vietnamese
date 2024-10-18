@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="docking_material_quote_report">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2>Material Quote</h2>
+                        <div style="margin-bottom:10px">
+                            Tên vật tư: <t t-esc="doc.material_survey_data_id.material_survey_metadata_id.name"/>
+                        </div>
+
+                        <div style="margin-bottom:10px">
+                            Số lượng: <t t-esc="doc.quantity"/>
+                        </div>
+
+                        <div style="margin-bottom:10px">
+                            Ghi chú: <t t-esc="doc.note"/>
+                        </div>
+
+                        <div style="margin-bottom:10px">
+                            Ngày giao hàng mong muốn: <t t-esc="doc.expected_delivery_date"/>
+                        </div>
+
+                        <div style="margin-bottom:20px">
+                            Hạn giao hàng: <t t-esc="doc.deadline"/>
+                        </div>
+
+                        <div>
+                            <img t-att-src="'/report/barcode/QR/%s'%(doc.ref)" class="img-thumbnail" style="width: 200px; height: 200px;"/>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>

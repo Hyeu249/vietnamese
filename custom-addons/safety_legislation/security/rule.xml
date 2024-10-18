@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record model="ir.rule" id="legis_technical_incident_multi_company_rule">
+        <field name="name">Legis Technical Incident Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_technical_incident"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_technical_incident_job_multi_company_rule">
+        <field name="name">Legis Technical Incident Job Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_technical_incident_job"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_technical_incident_insurance_multi_company_rule">
+        <field name="name">Legis Technical Incident Insurance Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_technical_incident_insurance"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_ert_role_task_meta_multi_company_rule">
+        <field name="name">Legis Ert Role Task Meta Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_ert_role_task_meta"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_ert_role_meta_multi_company_rule">
+        <field name="name">Legis Ert Role Meta Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_ert_role_meta"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_incidence_type_meta_multi_company_rule">
+        <field name="name">Legis Incidence Type Meta Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_incidence_type_meta"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_serious_accident_report_multi_company_rule">
+        <field name="name">Legis Serious Accident Report Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_serious_accident_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_serious_accident_multi_company_rule">
+        <field name="name">Legis Serious Accident Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_serious_accident"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_serious_accident_team_multi_company_rule">
+        <field name="name">Legis Serious Accident Team Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_serious_accident_team"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_serious_accident_task_multi_company_rule">
+        <field name="name">Legis Serious Accident Task Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_serious_accident_task"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_accident_report_multi_company_rule">
+        <field name="name">Legis Accident Report Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_accident_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_investigative_report_multi_company_rule">
+        <field name="name">Legis Investigative Report Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_investigative_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_sea_protest_multi_company_rule">
+        <field name="name">Legis Sea Protest Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_sea_protest"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+    <record model="ir.rule" id="legis_technical_incident_report_multi_company_rule">
+        <field name="name">Legis Technical Incident Report Multi Company Rule</field>
+        <field name="model_id" ref="model_legis_technical_incident_report"/>
+        <field name="domain_force">['|', ('company_id', '=', False), ('company_id', 'child_of', company_ids)]</field>
+    </record>
+
+</odoo>

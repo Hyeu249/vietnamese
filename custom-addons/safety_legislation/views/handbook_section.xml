@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_legis_handbook_section_form" model="ir.ui.view">
+        <field name="name">legis.handbook.section.form</field>
+        <field name="model">legis.handbook.section</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+
+                    <group string="Handbook Section">
+                        <field name="control_number" attrs="{'invisible': [('safety_management_handbook_id', '=', False)]}"/>
+                        <field name="title"/>
+                        <field name="are_need_metas" invisible="1"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Content" name="content" attrs="{'invisible': [('safety_management_handbook_id', '!=', False)]}">
+                            <header>
+                                <button name="edit_current_section"
+                                    string="Edit current section"
+                                    type="object"
+                                    class="oe_highlight"
+                                    attrs="{'invisible': [('handbook_parent_section_id', '=', False)]}"
+                                />
+                            </header>
+                            <field name="content" widget="html" class="time_new_roman"/>
+                        </page>
+                        <page string="Handbook Child Sections" name="handbook_child_section_ids" 
+                            attrs="{'invisible': [('safety_management_handbook_id', '=', False), ('handbook_parent_section_id', '=', False), ('modified_section_version_id', '=', False)]}">
+                            <field name="handbook_child_section_ids"/>
+                        </page>
+                        <page string="Ert Role Metas" name="ert_role_meta_ids" attrs="{'invisible': [('are_need_metas', '=', False)]}">
+                            <field name="ert_role_meta_ids"/>
+                        </page>
+                        <page string="Incidence Type Metas" name="incidence_type_meta_ids" attrs="{'invisible': [('are_need_metas', '=', False)]}">
+                            <field name="incidence_type_meta_ids"/>
+                        </page>
+                        <page string="Test diff" name="content_old_new_diff" attrs="{'invisible': [('handbook_parent_section_id', '=', False)]}">
+                            <field name="content_old_new_diff" widget="html"/>
+                        </page>
+                        <page string="Meta" name="meta">
+                            <group string="Meta">
+                                <field name="safety_management_handbook_id"/>
+                                <field name="handbook_parent_section_id"/>
+                                <field name="modified_section_version_id"/>
+                            </group>
+                        </page>
+                    </notebook>
+
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_legis_handbook_section_tree" model="ir.ui.view">
+        <field name="name">legis.handbook.section.tree</field>
+        <field name="model">legis.handbook.section</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="control_number"/>
+                <field name="title"/>
+                <field name="content"/>
+                <field name="modified_content"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_legis_handbook_section_search" model="ir.ui.view">
+        <field name="name">legis.handbook.section.search</field>
+        <field name="model">legis.handbook.section</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="control_number"/>
+                <field name="title"/>
+                <field name="handbook_parent_section_id"/>
+                <field name="modified_section_version_id"/>
+                <field name="safety_management_handbook_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_legis_handbook_section" model="ir.actions.act_window">
+        <field name="name">Handbook Section</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">legis.handbook.section</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_legis_handbook_section"
+            name="Handbook Section" 
+            parent="menu_legis_handbook"
+            action="action_legis_handbook_section"
+            sequence="10"/>
+
+</odoo>

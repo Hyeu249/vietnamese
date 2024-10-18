@@ -1,0 +1,56 @@
+<odoo>
+    <template id="portal_breadcrumbs" inherit_id="portal.portal_breadcrumbs">
+        <xpath expr="//ol[hasclass('o_portal_submenu')]" position="inside">
+            <!-- for ship_management -->
+            <li t-if="page_name == 'material_paint_quotes_list_view'" class="breadcrumb-item">
+                <a t-attf-href="/?{{request.httprequest.query_string}}">Home</a> / <span>Material Paint Quotes</span>
+            </li>
+
+            <li t-if="page_name == 'material_paint_quotes_detail_view'" class="breadcrumb-item">
+                <a t-attf-href="/material-paint-quotes?{{request.httprequest.query_string}}">Material Paint Quotes</a> / <span t-out="material_paint_quotes_ref"/>
+            </li>
+
+            <li t-if="page_name == 'material_supplier_quote_form_view'" class="breadcrumb-item">
+                <a t-attf-href="/material-paint-quotes/{{list_ref}}?{{request.httprequest.query_string}}">Material Paint Quotes Request Detail</a> / <span t-out="material_supplier_quote.ref"/>
+            </li>
+
+            <li t-if="page_name == 'paint_supplier_quote_form_view'" class="breadcrumb-item">
+                <a t-attf-href="/material-paint-quotes/{{list_ref}}?{{request.httprequest.query_string}}">Material Paint Quotes Request Detail</a> / <span t-out="paint_supplier_quote.ref"/>
+            </li>
+
+            <li t-if="page_name == 'job_supplier_quote_list_view'" class="breadcrumb-item">
+                <a t-attf-href="/?{{request.httprequest.query_string}}">Home</a> / <span>Job Supplier Quotes</span>
+            </li>
+
+            <li t-if="page_name == 'job_supplier_quote_form_view'" class="breadcrumb-item">
+                <a t-attf-href="/job-supplier-quotes?{{request.httprequest.query_string}}">Job Supplier Quotes</a> / <span t-out="job_supplier_quote.ref"/>
+            </li>
+
+            <!-- for docking -->
+
+            <li t-if="page_name == 'docking_docking_plan_list_view'" class="breadcrumb-item">
+                <a t-attf-href="/docking?{{request.httprequest.query_string}}">Home</a> / <span>Docking Plans</span>
+            </li>
+
+            <li t-if="page_name == 'docking_docking_plan_detail_view'" class="breadcrumb-item">
+                <a t-attf-href="/docking/docking-plans?{{request.httprequest.query_string}}">Docking Plans</a> / <span t-out="docking_plan_ref"/>
+            </li>
+
+            <li t-if="page_name == 'docking_material_supplier_quote_form_view'" class="breadcrumb-item">
+                <a t-attf-href="/docking/docking-plan/{{list_ref}}?{{request.httprequest.query_string}}">Docking Plan Detail</a> / <span t-out="material_supplier_quote.ref"/>
+            </li>
+
+            <li t-if="page_name == 'docking_paint_supplier_quote_form_view'" class="breadcrumb-item">
+                <a t-attf-href="/docking/docking-plan/{{list_ref}}?{{request.httprequest.query_string}}">Docking Plan Detail</a> / <span t-out="material_supplier_quote.ref"/>
+            </li>
+
+            <li t-if="page_name == 'docking_job_supplier_quote_list_view'" class="breadcrumb-item">
+                <a t-attf-href="/docking?{{request.httprequest.query_string}}">Home</a> / <span>Job Supplier Quotes</span>
+            </li>
+
+            <li t-if="page_name == 'docking_job_supplier_quote_form_view'" class="breadcrumb-item">
+                <a t-attf-href="/docking/job-supplier-quotes?{{request.httprequest.query_string}}">Job Supplier Quotes</a> / <span t-out="job_supplier_quote.ref"/>
+            </li>
+        </xpath>
+    </template>
+</odoo>

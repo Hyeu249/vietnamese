@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="ir_cron_notify_for_periodic_handbook_check" model="ir.cron">
+            <field name="name">Safety Legislation Notify for periodic handbook check: Every 6 months</field>
+            <field name="model_id" ref="model_legis_editing_request_for_handbook"/>
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="code">model.notify_for_periodic_handbook_check()</field>
+            <field name="interval_number">6</field>
+            <field name="interval_type">months</field>
+            <field name="numbercall">-1</field>
+        </record>
+
+    </data>
+</odoo>

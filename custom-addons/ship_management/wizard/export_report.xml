@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="view_export_report_wiz_form" model="ir.ui.view">
+        <field name="name">ship.export.report.wiz.form</field>
+        <field name="model">ship.export.report.wiz</field>
+        <field name="arch" type="xml">
+            <form string="Export report">
+                <header>
+                    <button name="generate_xlsx"
+                            string="Generate xlsx"
+                            type="object"
+                            class="oe_highlight"/>  
+                </header>
+                <group>
+                    <field name="company_id" readonly="1"/>
+                    <field name="report_type"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="material_group_id" attrs="{'invisible': ['|', '|', ('report_type', '=', 'PAINT_HISTORY'), ('report_type', '=', 'MATERIAL_HISTORY'), ('report_type', '=', 'ESSENTIAL_MATERIAL')]}"/>
+                </group>
+                
+                <notebook>
+                    <page string="Paint histories" name="paint_history_ids" attrs="{'invisible': [('report_type', '!=', 'PAINT_HISTORY')]}">
+                        <field name="paint_history_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="paint_id" readonly="1"/>
+                                <field name="action" readonly="1"/>
+                                <field name="quantity_liter" readonly="1"/>
+                                <field name="occured_at" readonly="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Essential Materials" name="material_ids" attrs="{'invisible': [('report_type', '!=', 'ESSENTIAL_MATERIAL')]}">
+                        <field name="material_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name" readonly="1"/>
+                                <field name="description" readonly="1"/>
+                                <field name="spare_part_no" readonly="1"/>
+                                <field name="internal_code" readonly="1"/>
+                                <field name="imba_code" readonly="1"/>
+                                <field name="is_essential_material" readonly="1"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Materials" name="material_ids" attrs="{'invisible': [('report_type', '!=', 'MATERIAL_HISTORY')]}">
+                        <field name="material_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name" readonly="1"/>
+                                <field name="description" readonly="1"/>
+                                <field name="spare_part_no" readonly="1"/>
+                                <field name="internal_code" readonly="1"/>
+                                <field name="imba_code" readonly="1"/>
+                                <field name="is_essential_material" readonly="1"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page string="Materials by group" name="material_ids" attrs="{'invisible': [('report_type', '!=', 'LASHING_MATERIAL')]}">
+                        <field name="material_ids" nolabel="1">
+                            <tree editable="bottom">
+                                <field name="name" readonly="1"/>
+                                <field name="description" readonly="1"/>
+                                <field name="spare_part_no" readonly="1"/>
+                                <field name="internal_code" readonly="1"/>
+                                <field name="imba_code" readonly="1"/>
+                                <field name="is_essential_material" readonly="1"/>
+                            </tree>
+                        </field>
+                    </page>
+
+                    <page string="Medicine html" name="rendered_html_medicine" attrs="{'invisible': [('report_type', '!=', 'MEDICINE_REPORT')]}">
+                        <field name="rendered_html_medicine" widget="html" class="time_new_roman"/>
+                    </page>
+                </notebook>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_export_report_wiz" model="ir.actions.act_window">
+        <field name="name">Export report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.export.report.wiz</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_export_report_wiz_form"/>
+        <field name="target">new</field>
+    </record>
+    
+    <menuitem id="menu_ship_export_report_time" name="Export report" parent="menu_ship_reports" action="action_export_report_wiz" sequence="10"/>
+
+</odoo>

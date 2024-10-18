@@ -1,0 +1,26 @@
+land_server:
+  host: xxx.xxx.xxx.xxx
+  port: 53554
+  dbname: ship_management
+  user: postgres
+  password: xxxx
+  vpn_host: 100.64.0.3
+  publication_name: land_publication
+
+ship_servers:
+  - host: xxx.xxx.xxx.xxx
+    port: 53554
+    dbname: ship_management
+    user: postgres
+    password: xxxxx
+    name: ship1
+    vpn_host: 100.64.0.1
+    publication_name: ship1_publication
+  - host: xxx.xxx.xxx.xxx
+    port: 53554
+    dbname: ship_management
+    user: postgres
+    password: xxx
+    name: ship2
+    vpn_host: 100.64.0.2
+    publication_name: ship2_publication

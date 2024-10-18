@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Form View for the Batch -->
+    <record id="view_ship_material_consumption_report_batch_form" model="ir.ui.view">
+        <field name="name">ship.material.consumption.report.batch.form</field>
+        <field name="model">ship.material.consumption.report.batch</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button string="Generate Report" type="object" name="generate_report" class="oe_highlight"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="company_id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                    <notebook>
+                        <page string="Report Lines">
+                            <field name="line_ids" nolabel="1">
+                                <tree editable="bottom">
+                                    <field name="company_id" readonly="1" invisible="1"/>
+                                    <field name="date"/>
+                                    <field name="material_id"/>
+                                    <field name="spare_part_no"/>
+                                    <field name="unit"/>
+                                    <field name="consumption"/>
+                                    <field name="added"/>
+                                    <field name="rob"/>
+                                    <field name="remark"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View for the Batch -->
+    <record id="view_ship_material_consumption_report_batch_tree" model="ir.ui.view">
+        <field name="name">ship.material.consumption.report.batch.tree</field>
+        <field name="model">ship.material.consumption.report.batch</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date_start"/>
+                <field name="date_end"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action for the Batch -->
+    <record id="action_ship_material_consumption_report_batch" model="ir.actions.act_window">
+        <field name="name">Material Consumption Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ship.material.consumption.report.batch</field>
+        <field name="view_mode">tree,form</field>
+        <!-- Optionally you can specify views you want to load, like this:
+        <field name="view_id" ref="your_module.view_ship_material_consumption_report_batch_tree"/>
+        <field name="search_view_id" ref="your_module.some_search_view"/>
+        -->
+    </record>
+
+    <!-- Menu Item for the Batch -->
+    <menuitem id="menu_ship_material_consumption_report_batch" 
+            name="Material Consumption Report" 
+            parent="menu_ship_reports"
+            action="action_ship_material_consumption_report_batch" 
+            sequence="10"/>
+
+</odoo>

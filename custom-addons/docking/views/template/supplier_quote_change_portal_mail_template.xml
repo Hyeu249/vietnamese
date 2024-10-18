@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="material_quote_for_supplier_template" model="mail.template">
+            <field name="name">Thông báo có báo giá mới từ VSICO</field>
+            <field name="model_id" ref="model_docking_supplier"/>
+            <field name="subject">Thông báo có báo giá mới từ VSICO</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi có yêu cầu báo giá mới cần quý công ty báo giá. Quý công ty vui lòng truy cập đường link sau để xem danh sách yêu cầu báo giá của quý công ty.
+                        <br/>
+                        <a t-att-href="ctx.get('portal_access_url')">Báo giá cho chúng tôi</a>
+                        <br/>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+
+        <record id="material_quote_for_supplier_mark_done_template" model="mail.template">
+            <field name="name">Báo giá được chấp nhận</field>
+            <field name="model_id" ref="model_docking_supplier"/>
+            <field name="subject">Báo giá được chấp nhận</field>
+            <field name="body_html" type="html">
+                <div style="margin: 0px; padding: 0px;">
+                    <p style="margin: 0px; padding: 0px; font-size: 13px;">
+                        Kính gửi quý công ty <t t-out="ctx.get('supplier_name') or ''"/>,
+                        <br/>
+                        <br/>
+                        Chúng tôi xin thông báo rằng chúng tôi đã <b>chấp nhận</b> báo giá của quý công ty cho sản phẩm
+                        <strong t-out="ctx.get('prod_name') or ''"/>.
+                        <t t-if="ctx.get('prod_origin')">
+                            <br/>
+                            Xuất xứ: <strong t-out="ctx.get('prod_origin')"/>.
+                        </t>
+                        <t t-if="ctx.get('prod_description')">
+                            <br/>
+                            Mô tả: <strong t-out="ctx.get('prod_description')"/>.
+                        </t>
+                        <t t-if="ctx.get('quote_ref')">
+                            <br/>
+                            Mã báo giá: <strong t-out="ctx.get('quote_ref')"/>.
+                        </t>
+                        <br/>
+                        Số lượng: <strong t-out="ctx.get('quantity')"/> <strong t-out="ctx.get('unit')"/>.
+                        <br/>
+                        Đơn giá: <strong t-out="ctx.get('unit_price')"/> <t t-out="ctx.get('currency') or ''"/>.
+                        <br/>
+                        Tổng giá trị: <strong t-out="ctx.get('total_price')"/> <t t-out="ctx.get('currency') or ''"/>. 
+                        <br/>
+                        Ngày giao hàng dự kiến: <strong t-out="ctx.get('estimated_delivery_date') or ''"/>.
+                        <br/>
+                        Chúng tôi sẽ liên hệ với quý công ty để thực hiện giao dịch.
+                        <br/>
+                        <a t-att-href="ctx.get('portal_access_url')">In mã QR(trong chi tiết sản phẩm)</a>
+                        <br/>
+                        Trân trọng,
+                        <br/>
+                        Công ty VSICO
+                    </p>
+                </div>
+            </field>
+        </record>
+
+    </data>
+</odoo>

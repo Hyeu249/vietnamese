@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_docking_material_quote_form" model="ir.ui.view">
+        <field name="name">docking.material.quote.form</field>
+        <field name="model">docking.material.quote</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_confirm_delivered"
+                        string="Xác nhận đã nhận hàng"
+                        type="object"
+                        class="oe_highlight"
+                        attrs="{'invisible': ['|', ('approval_status', '!=', 'APPROVED'), ('added_to_warehouse', '=', True)]}"
+                    />
+                    <button name="action_unpropose"
+                        string="action_unpropose"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                    />
+                    <button name="action_propose"
+                        string="action_propose"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', False)]}"
+                    />
+                    <button name="action_reject"
+                        string="action_reject"
+                        type="object"
+                        class="oe_highlight btn-danger"
+                        attrs="{'invisible': [('is_in_proposal_process', '=', True)]}"
+                    />
+                    <button name="action_approve"
+                        string="action_approve"
+                        type="object"
+                        class="oe_highlight btn-success"
+                        attrs="{'invisible': ['|', ('is_in_proposal_process', '=', True), ('approval_status', '=', 'APPROVED')]}"
+                    />
+                </header>
+                <header>
+                    <field name="approval_status" widget="statusbar" readonly="1"/>
+                    <field name="is_in_proposal_process" invisible="1"/>
+                    <!-- <field name="approval_status" widget="sendTelegramMessage"/> -->
+                </header>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                        <div style="float:right; position:relative; left:150px;">
+                            <field name="qr_code" widget="image" class="shadown" style='height: 150px; width: 150px; object-fit: contain'/>
+                        </div>
+                    </div>
+
+                    <group string="Material Quote">
+                        <field name="company_id" readonly="1"/>
+                        <field name="material_name"/>
+                        <field name="quantity"/>
+                        <field name="delivered_quantity"/>
+                        <field name="note"/>
+                        <field name="expected_delivery_date"/>
+                        <field name="deadline"/>
+                        <field name="delivered_at"/>
+                        <field name="material_supplier_quote_id"/>
+                        <field name="selected_supplier_name"/>
+                        <field name="unit_price" groups="utilities.group_ship_cost_price_visibility"/>
+                        <field name="total_price" groups="utilities.group_ship_cost_price_visibility"/>
+                        <field name="material_survey_data_id"/>
+                        <field name="is_selected_supplier_informed"/>
+                        <field name="added_to_warehouse"/>
+                        <field name="expected_cost_report_id"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Material Supplier Quotes" name="material_supplier_quote_ids">
+                            <field name="material_supplier_quote_ids"/>
+                        </page>
+                    </notebook>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids"/>
+                        <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                    </div>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_docking_material_quote_tree" model="ir.ui.view">
+        <field name="name">docking.material.quote.tree</field>
+        <field name="model">docking.material.quote</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <button name="open_record" type="object" icon="fa-pencil-square-o"/>
+                <field name="ref" readonly="1"/>
+                <field name="approval_status"
+                    decoration-success="approval_status == 'APPROVED'"
+                    decoration-danger="approval_status == 'REJECTED'"
+                    decoration-warning="approval_status == 'PENDING'"
+                    widget="badge"
+                />
+                <field name="material_name"/>
+                <field name="quantity"/>
+                <field name="delivered_quantity"/>
+                <field name="note"/>
+                <field name="expected_delivery_date"/>
+                <field name="deadline"/>
+                <field name="delivered_at"/>
+                <field name="material_supplier_quote_id"/>
+                <field name="selected_supplier_name"/>
+                <field name="unit_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="total_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="material_survey_data_id"/>
+                <field name="is_selected_supplier_informed"/>
+                <field name="added_to_warehouse"/>
+                <field name="docking_plan_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_docking_material_quote_search" model="ir.ui.view">
+        <field name="name">docking.material.quote.search</field>
+        <field name="model">docking.material.quote</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="approval_status"/>
+                <field name="material_name"/>
+                <field name="quantity"/>
+                <field name="delivered_quantity"/>
+                <field name="note"/>
+                <field name="expected_delivery_date"/>
+                <field name="deadline"/>
+                <field name="delivered_at"/>
+                <field name="material_supplier_quote_id"/>
+                <field name="selected_supplier_name"/>
+                <field name="unit_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="total_price" groups="utilities.group_ship_cost_price_visibility"/>
+                <field name="material_survey_data_id"/>
+                <field name="is_selected_supplier_informed"/>
+                <field name="added_to_warehouse"/>
+                <field name="docking_plan_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_docking_material_quote" model="ir.actions.act_window">
+        <field name="name">Material Quote</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">docking.material.quote</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_docking_material_quote"
+            name="Material Quote" 
+            parent="menu_docking_suppliers_and_quotes"
+            action="action_docking_material_quote"
+            sequence="10"/>
+
+</odoo>

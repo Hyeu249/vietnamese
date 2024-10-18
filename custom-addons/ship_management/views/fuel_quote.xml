@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_fuel_quote_form" model="ir.ui.view">
+        <field name="name">ship.fuel.quote.form</field>
+        <field name="model">ship.fuel.quote</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Quote">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="ref"/>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="quantity"/>
+                        <field name="unit"/>
+                        <field name="quantity_received"/>
+                        <field name="fuel_quote_request_id"/>
+                    </group>
+                    <notebook>
+                            <page string="Fuel Supplier Quotes" name="fuel_supplier_quote_ids">
+                                <field name="fuel_supplier_quote_ids"/>
+                            </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_quote_tree" model="ir.ui.view">
+        <field name="name">ship.fuel.quote.tree</field>
+        <field name="model">ship.fuel.quote</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Quotes">
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="quantity"/>
+                <field name="unit"/>
+                <field name="quantity_received"/>
+                <field name="fuel_quote_request_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define actions and menus to access these views -->
+    <record id="action_fuel_quote" model="ir.actions.act_window">
+        <field name="name">Fuel Quotes</field>
+        <field name="res_model">ship.fuel.quote</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_fuel_quote"
+              name="Fuel Quotes"
+              action="action_fuel_quote"
+              parent="menu_ship_fuel_internal"
+              sequence="30"/>
+
+
+
+    <record id="view_fuel_quote_grease_form" model="ir.ui.view">
+        <field name="name">ship.fuel.quote.grease.form</field>
+        <field name="model">ship.fuel.quote.grease</field>
+        <field name="arch" type="xml">
+            <form string="Fuel Quote Grease">
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="ref" readonly="1"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <field name="ref"/>
+                        <field name="name"/>
+                        <field name="quantity"/>
+                        <field name="unit"/>
+                        <field name="quantity_received"/>
+                        <field name="fuel_quote_request_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Grease Supplier Quotes" name="grease_supplier_quote_ids">
+                            <field name="grease_supplier_quote_ids"/>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_fuel_quote_grease_tree" model="ir.ui.view">
+        <field name="name">ship.fuel.quote.grease.tree</field>
+        <field name="model">ship.fuel.quote.grease</field>
+        <field name="arch" type="xml">
+            <tree string="Fuel Quote Grease">
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="quantity"/>
+                <field name="unit"/>
+                <field name="quantity_received"/>
+                <field name="fuel_quote_request_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Define actions and menus to access these views -->
+    <record id="action_fuel_quote_grease" model="ir.actions.act_window">
+        <field name="name">Fuel Quote Grease</field>
+        <field name="res_model">ship.fuel.quote.grease</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_ship_fuel_quote_grease"
+              name="Fuel Quote Grease"
+              action="action_fuel_quote_grease"
+              parent="menu_ship_fuel_grease_order"
+              sequence="10"/>
+</odoo>

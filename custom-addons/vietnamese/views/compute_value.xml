@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_vietnamese_compute_value_form" model="ir.ui.view">
+        <field name="name">vietnamese.compute.value.form</field>
+        <field name="model">vietnamese.compute.value</field>
+        <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="if_value"/>
+                            <field name="operator"/>
+                            <field name="this_value"/>
+                            <field name="then_render_this"/>
+                            <field name="field_id"/>
+                        </group>
+
+                   </sheet>
+                </form>
+        </field>
+    </record>
+
+    <record id="view_vietnamese_compute_value_tree" model="ir.ui.view">
+        <field name="name">vietnamese.compute.value.tree</field>
+        <field name="model">vietnamese.compute.value</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="if_value"/>
+                <field name="operator"/>
+                <field name="this_value"/>
+                <field name="then_render_this"/>
+                <field name="field_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_vietnamese_compute_value_search" model="ir.ui.view">
+        <field name="name">vietnamese.compute.value.search</field>
+        <field name="model">vietnamese.compute.value</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="if_value"/>
+                <field name="operator"/>
+                <field name="this_value"/>
+                <field name="then_render_this"/>
+                <field name="field_id"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_vietnamese_compute_value" model="ir.actions.act_window">
+        <field name="name">Compute Value</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">vietnamese.compute.value</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_vietnamese_compute_value"
+            name="Compute Value" 
+            parent="menu_vietnamese_operator"
+            action="action_vietnamese_compute_value"
+            sequence="20"/>
+
+</odoo>

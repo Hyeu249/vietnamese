@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="portal_request_access" name="Request Access Vendor RFQs">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <div class="col-6">
+                                    <span t-field="supplier.name"
+                                          class="text-truncate"/> (
+                                            <span t-field="supplier.address"
+                                                class="text-truncate"/>
+                                          )
+                                    <small class="text-muted d-none d-md-inline"/>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"/>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                            crossorigin="anonymous"/>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                            crossorigin="anonymous"/>
+                </t>
+                <t t-set="card_body">
+                    <a type="button"
+                        class="btn btn-primary float-right"
+                        t-attf-href="/vendor_request_access?supplier_ref={{supplier.ref}}&amp;route_request={{route_request}}&amp;module={{module}}">Yêu cầu truy cập
+                    </a>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <template id="portal_request_access_sent" name="Request Access Vendor RFQs Has Been Sent">
+        <t t-call="portal.portal_layout">
+            <t t-call="portal.portal_record_layout">
+                <t t-set="card_header">
+                    <div class="row no-gutters">
+                        <div class="col-12">
+                            <h5 class="d-flex mb-1 mb-md-0 row">
+                                <div class="col-6">
+                                    <span t-field="supplier.name"
+                                          class="text-truncate"/> (
+                                            <span t-field="supplier.address"
+                                                class="text-truncate"/>
+                                          )
+                                    <small class="text-muted d-none d-md-inline"/>
+                                </div>
+                            </h5>
+                        </div>
+                    </div>
+                    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                            crossorigin="anonymous"/>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+                            integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+                            crossorigin="anonymous"/>
+                    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+                            integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+                            crossorigin="anonymous"/>
+                </t>
+                <t t-set="card_body">
+                    <p>Yêu cầu truy cập đã được gửi đến quý công ty. Xin hãy kiểm tra email để truy cập vào danh sách báo giá của quý công ty.</p>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

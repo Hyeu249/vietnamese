@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_ir_model_in_vietnamese_form" model="ir.ui.view">
+        <field name="name">ir.model.in.vietnamese.form</field>
+        <field name="model">ir.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+
+                    <group>
+                        <field name="prefix_name"/>
+                    </group>
+
+                    <notebook>
+                        <page string="Meta" name="Meta">
+                            <group>
+                                <field name="model"/>
+                                <field name="is_vietnamese"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ir_model_in_vietnamese_tree" model="ir.ui.view">
+        <field name="name">ir.model.in.vietnamese.tree</field>
+        <field name="model">ir.model</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="prefix_name"/>
+                <field name="ref"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_ir_model_in_vietnamese_search" model="ir.ui.view">
+        <field name="name">ir.model.in.vietnamese.search</field>
+        <field name="model">ir.model</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="ref"/>
+                <field name="name"/>
+                <field name="prefix_name"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ir_model_in_vietnamese" model="ir.actions.act_window">
+        <field name="name">Table</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">ir.model</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+            (0, 0, {'view_mode': 'tree', 'view_id': ref('vietnamese.view_ir_model_in_vietnamese_tree')}),
+            (0, 0, {'view_mode': 'form', 'view_id': ref('vietnamese.view_ir_model_in_vietnamese_form')})]"/>
+        <field name="context" eval="{
+                'default_vietnamese_custom': True
+            }"/>
+        <field name="domain">[('vietnamese_custom', '=', True)]</field>
+    </record>
+
+    <menuitem id="menu_ir_model_in_vietnamese"
+            name="Table" 
+            parent="menu_vietnamese_operator"
+            action="action_ir_model_in_vietnamese"
+            sequence="10"/>
+
+</odoo>

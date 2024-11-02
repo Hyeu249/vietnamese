@@ -14,6 +14,7 @@
         "views/ir_ui_menu.xml",
         "views/res_groups.xml",
         "views/ir_model_fields.xml",
+        "views/ir_model.xml",
         "views/base_automation.xml",
     ],
     "application": True,

@@ -13,7 +13,7 @@
         <record id="sequence_ir_model" model="ir.sequence">
             <field name="name">ir.model</field>
             <field name="code">ir.model</field>
-            <field name="prefix">V-TABLE</field>
+            <field name="prefix">x_vietnamese_table_</field>
             <field name="padding">0</field>
             <field name="company_id" eval="False"/>
         </record>

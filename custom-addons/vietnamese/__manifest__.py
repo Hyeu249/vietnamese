@@ -10,7 +10,6 @@
         "security/ir.model.access.csv",
         "data/sequence.xml",
         "views/menu.xml",
-        "views/table.xml",
         "views/ir_ui_menu.xml",
         "views/res_groups.xml",
         "views/ir_model_fields.xml",

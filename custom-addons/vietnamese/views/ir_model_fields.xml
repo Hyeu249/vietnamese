@@ -33,7 +33,7 @@
 
                         <group invisible="1">
                             <field name="model_id"/>
-                            <field name="table_id"/>
+                            <field name="vietnamese_model_id"/>
                         </group>
 
                         <notebook>
@@ -50,8 +50,7 @@
                                     <field name="default_html" attrs="{'invisible': [('ttype', '!=', 'html')]}"/>
                                     <field name="default_many2one" attrs="{'invisible': [('ttype', '!=', 'many2one')]}" widget="default_many2one"/>
                                     <field name="default_one2many" attrs="{'invisible': [('ttype', '!=', 'one2many')]}" widget="default_one2many"/>
-                                    <field name="based_on_target" attrs="{'invisible': [('is_based_on_and_of', '=', False)]}" widget="based_on_target"/>
-                                    <field name="is_based_on_and_of"  invisible="1"/>
+                                    <field name="based_on_target" attrs="{'invisible': [('ttype', '!=', 'one2many')]}" widget="based_on_target"/>
                                 </group>
                             </page>
                             <page string="Selection Value" name="selection_ids" attrs="{'invisible': [('ttype', '!=', 'selection')]}">

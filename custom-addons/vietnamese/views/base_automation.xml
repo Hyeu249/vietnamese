@@ -8,12 +8,7 @@
                 <form> 
                     <sheet>
                         <group>
-                            <group>
-                                <field name="auto_action_type"/>
-                            </group>
-                            <group>
-                                <field name="based_on"/>
-                            </group>
+                            <field name="name"/>
                         </group>
 
                         <notebook>
@@ -22,7 +17,6 @@
                                     <group>
                                         <field name="filter_domain" invisible="1"/>
                                         <field name="model_id"/>
-                                        <field name="name"/>
                                         <field name="active"/>
                                     </group>
                                     <group>
